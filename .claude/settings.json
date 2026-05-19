@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 stageB_baseline.py b3 --session \"decouple_data/session_20260518_173029\")",
+      "Bash(ls /dev/cu.* /dev/tty.* 2>/dev/null | grep -v -i bluetooth)",
+      "Read(//dev/**)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(git --version)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'Initial commit: MLX90393 magnetic decoupling experiment \\(Stages A/B/C\\) *)"
+    ]
+  }
+}

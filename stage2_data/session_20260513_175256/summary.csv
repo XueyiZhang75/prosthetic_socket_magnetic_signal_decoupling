@@ -1,0 +1,3 @@
+q_mm,direction,n_samples,mean_Bx_uT,sigma_Bx_uT,mean_By_uT,sigma_By_uT,mean_Bz_uT,sigma_Bz_uT
+15,down,956,2166.3738,2042.6869,499.4868,1273.8704,4980.7581,1564.2929
+10,down,2213,322.4421,310.2071,-861.9917,374.9617,3272.8576,1414.6371

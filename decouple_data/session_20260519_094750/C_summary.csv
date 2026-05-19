@@ -1,0 +1,2 @@
+q_mm,q_target_mm,direction,n_tail,mean_Bx_uT,sigma_Bx_uT,mean_By_uT,sigma_By_uT,mean_Bz_uT,sigma_Bz_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,Bmag_uT
+140.0,140.0,down,150,-45.3419,0.4292,-35.9278,0.4416,-234.9528,0.5928,-326.7769,1132.9362,3231.1772,241.9700

@@ -1,0 +1,4 @@
+channel,quantity,source_device,host_port,banner_or_header,rate_Hz,units,notes
+mag,"Bx,By,Bz",QT Py M0 (MLX90393),/dev/cu.usbmodem*,"MLX90393 ready... / t_ms,Bx_milliuT,By_milliuT,Bz_milliuT",14.6 (low_noise) / 80 (fast),milli-µT 整数,host除以1000
+force,F,Arduino Uno + load cell,/dev/cu.usbmodem*,待确认,待确认,待确认 raw/N,决策点A待确认②③
+disp,d,Mark-10 屏幕,(手动/反推),—,—,mm,plateau手动录入; 连续模式 d=v_set*(t-t_contact)

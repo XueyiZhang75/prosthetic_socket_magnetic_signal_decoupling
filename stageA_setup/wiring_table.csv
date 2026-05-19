@@ -1,0 +1,7 @@
+component,connects_to,interface,detail,notes
+MLX90393 breakout,QT Py M0,I2C,"SCL/SDA/3V3/GND, 400kHz",GAIN_1X RESOLUTION_16
+QT Py M0,host laptop,USB-CDC,115200 baud,"打印横幅 MLX90393 ready..."
+DYLY-103-5KG load cell,放大器(待确认型号),模拟,S型力传感器,决策点A待确认①
+放大器(待确认型号),Arduino Uno,待确认,待确认,决策点A待确认①②
+Arduino Uno,host laptop,USB serial,待确认 baud,决策点A待确认②
+Mark-10 电动测试台,(无数据线),—,位移d仅显示在测试台屏幕,本装置中只作电动台不测力
