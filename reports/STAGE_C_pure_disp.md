@@ -114,7 +114,20 @@
 4. **遗留项**:本轮为远场标定,与压缩实验的小 q 工作区间不重叠;正式轮
    Stage C 须在实际工作 q 范围内采集 g(q) 标定。
 
-## 7. 下一步
+## 7. 补充图（匯报用,生成脚本 `reports/make_stageBC_figs.py`）
+
+- `decouple_data/session_20260519_095753/C_B_vs_q.png` — 原始 B(q) 与 ΔB(q) 三轴。
+- `reports/figs/C_analysis.png` — 位移灵敏度 \|dB/dq\| 与上/下行残差。
+- **`reports/figs/C1_dipole_fit.png`** — log-log 拟合磁体场 `|B_mag| ∝ (q+q₀)^{−n}`,
+  得 **n = 1.98、q₀ = −10 mm**。理想点偶极 n=3、有限线源 n≈2,**实测 n≈2 反映
+  磁性纤维是延展(类线源)磁体而非点偶极**,与样品形态自洽。
+- **`reports/figs/C2_sigma_vs_q.png`** — 41 个 q 点的 σ 全部贴在 B.0 噪声底
+  (0.40 / 0.41 / 0.62 µT)线上,数据质量在远场全程均匀,无远端劣化。
+- **`reports/figs/C3_vector_angle.png`** — 磁体场向量方向角随 q 旋转(方位角 ~6°、
+  极角 ~16°),**三轴方向本身就是位移指纹** —— 直观说明 APMD 为何使用三轴而非
+  单一标量。
+
+## 8. 下一步
 
 Stage D — 接触点与安全范围(确定 F_max、d_max,检查 B 是否饱和)。
 
