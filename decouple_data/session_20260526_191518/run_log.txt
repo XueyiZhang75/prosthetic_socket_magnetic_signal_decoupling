@@ -1,0 +1,73 @@
+# Stage F session 20260526_191518
+# D_MAX_MM=3.5, N_D_POINTS=11, N_TRIALS=3
+# D_DOWN=[0.0, 0.35, 0.7, 1.05, 1.4, 1.75, 2.1, 2.45, 2.8, 3.15, 3.5]
+# D_UP=[3.15, 2.8, 2.45, 2.1, 1.75, 1.4, 1.05, 0.7, 0.35, 0.0]
+# live_tare_N=-4.30410
+# B0=(nan, nan, nan)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-6.0000 F=-0.0327
+[trial 1 loading d=0.000] pos=-6.000 F=-0.0327+-0.0017 Bx=nan By=nan Bz=nan
+[trial 1 loading d=0.350] pos=-6.330 F=-0.0497+-0.0010 Bx=nan By=nan Bz=nan
+[trial 1 loading d=0.700] pos=-6.690 F=-0.0126+-0.0011 Bx=nan By=nan Bz=nan
+[trial 1 loading d=1.050] pos=-7.030 F=0.0574+-0.0018 Bx=nan By=nan Bz=nan
+[trial 1 loading d=1.400] pos=-7.390 F=0.1581+-0.0013 Bx=nan By=nan Bz=nan
+[trial 1 loading d=1.750] pos=-7.730 F=0.2945+-0.0024 Bx=nan By=nan Bz=nan
+[trial 1 loading d=2.100] pos=-8.070 F=0.4641+-0.0020 Bx=nan By=nan Bz=nan
+[trial 1 loading d=2.450] pos=-8.430 F=0.6835+-0.0024 Bx=nan By=nan Bz=nan
+[trial 1 loading d=2.800] pos=-8.800 F=0.9894+-0.0039 Bx=nan By=nan Bz=nan
+[trial 1 loading d=3.150] pos=-9.130 F=1.3975+-0.0056 Bx=nan By=nan Bz=nan
+[trial 1 loading d=3.500] pos=-9.500 F=1.9341+-0.0077 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=3.150] pos=-9.150 F=1.0256+-0.0036 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=2.800] pos=-8.810 F=0.6274+-0.0021 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=2.450] pos=-8.470 F=0.3804+-0.0033 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=2.100] pos=-8.130 F=0.2257+-0.0012 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=1.750] pos=-7.790 F=0.1143+-0.0024 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=1.400] pos=-7.410 F=0.0255+-0.0006 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=1.050] pos=-7.070 F=-0.0247+-0.0015 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=0.700] pos=-6.730 F=-0.0523+-0.0021 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=0.350] pos=-6.390 F=-0.0597+-0.0011 Bx=nan By=nan Bz=nan
+[trial 1 unloading d=0.000] pos=-6.050 F=-0.0423+-0.0015 Bx=nan By=nan Bz=nan
+[trial 2] contact_pos=-5.8100 F=-0.0274
+[trial 2 loading d=0.000] pos=-5.810 F=-0.0275+-0.0004 Bx=nan By=nan Bz=nan
+[trial 2 loading d=0.350] pos=-6.150 F=-0.0398+-0.0013 Bx=nan By=nan Bz=nan
+[trial 2 loading d=0.700] pos=-6.500 F=-0.0437+-0.0013 Bx=nan By=nan Bz=nan
+[trial 2 loading d=1.050] pos=-6.850 F=0.0054+-0.0007 Bx=nan By=nan Bz=nan
+[trial 2 loading d=1.400] pos=-7.190 F=0.0893+-0.0013 Bx=nan By=nan Bz=nan
+[trial 2 loading d=1.750] pos=-7.550 F=0.2094+-0.0019 Bx=nan By=nan Bz=nan
+[trial 2 loading d=2.100] pos=-7.890 F=0.3598+-0.0024 Bx=nan By=nan Bz=nan
+[trial 2 loading d=2.450] pos=-8.260 F=0.5518+-0.0022 Bx=nan By=nan Bz=nan
+[trial 2 loading d=2.800] pos=-8.590 F=0.8108+-0.0018 Bx=nan By=nan Bz=nan
+[trial 2 loading d=3.150] pos=-8.960 F=1.1623+-0.0036 Bx=nan By=nan Bz=nan
+[trial 2 loading d=3.500] pos=-9.300 F=1.6417+-0.0065 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=3.150] pos=-9.010 F=0.9246+-0.0030 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=2.800] pos=-8.610 F=0.5072+-0.0018 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=2.450] pos=-8.270 F=0.3005+-0.0022 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=2.100] pos=-7.940 F=0.1672+-0.0019 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=1.750] pos=-7.550 F=0.0580+-0.0019 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=1.400] pos=-7.210 F=-0.0053+-0.0008 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=1.050] pos=-6.870 F=-0.0431+-0.0012 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=0.700] pos=-6.530 F=-0.0602+-0.0022 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=0.350] pos=-6.150 F=-0.0486+-0.0012 Bx=nan By=nan Bz=nan
+[trial 2 unloading d=0.000] pos=-5.810 F=-0.0333+-0.0012 Bx=nan By=nan Bz=nan
+[trial 3] contact_pos=-5.9800 F=-0.0324
+[trial 3 loading d=0.000] pos=-5.980 F=-0.0322+-0.0011 Bx=nan By=nan Bz=nan
+[trial 3 loading d=0.350] pos=-6.310 F=-0.0482+-0.0010 Bx=nan By=nan Bz=nan
+[trial 3 loading d=0.700] pos=-6.670 F=-0.0238+-0.0007 Bx=nan By=nan Bz=nan
+[trial 3 loading d=1.050] pos=-7.010 F=0.0411+-0.0015 Bx=nan By=nan Bz=nan
+[trial 3 loading d=1.400] pos=-7.370 F=0.1403+-0.0009 Bx=nan By=nan Bz=nan
+[trial 3 loading d=1.750] pos=-7.710 F=0.2759+-0.0016 Bx=nan By=nan Bz=nan
+[trial 3 loading d=2.100] pos=-8.070 F=0.4471+-0.0016 Bx=nan By=nan Bz=nan
+[trial 3 loading d=2.450] pos=-8.420 F=0.6669+-0.0027 Bx=nan By=nan Bz=nan
+[trial 3 loading d=2.800] pos=-8.770 F=0.9724+-0.0036 Bx=nan By=nan Bz=nan
+[trial 3 loading d=3.150] pos=-9.110 F=1.3876+-0.0057 Bx=nan By=nan Bz=nan
+[trial 3 loading d=3.500] pos=-9.470 F=1.9451+-0.0088 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=3.150] pos=-9.130 F=1.0326+-0.0022 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=2.800] pos=-8.800 F=0.6285+-0.0034 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=2.450] pos=-8.460 F=0.3843+-0.0014 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=2.100] pos=-8.110 F=0.2252+-0.0019 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=1.750] pos=-7.730 F=0.0987+-0.0015 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=1.400] pos=-7.390 F=0.0242+-0.0021 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=1.050] pos=-7.050 F=-0.0253+-0.0014 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=0.700] pos=-6.710 F=-0.0530+-0.0023 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=0.350] pos=-6.330 F=-0.0572+-0.0011 Bx=nan By=nan Bz=nan
+[trial 3 unloading d=0.000] pos=-6.000 F=-0.0400+-0.0012 Bx=nan By=nan Bz=nan

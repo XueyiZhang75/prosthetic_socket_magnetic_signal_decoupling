@@ -1,4 +1,3 @@
-import glob
 import sys
 import time
 from collections import deque
@@ -7,15 +6,9 @@ import serial
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
+from mlx_serial import find_mlx_port
 
-def find_port():
-    candidates = sorted(glob.glob("/dev/cu.usbmodem*"))
-    if not candidates:
-        sys.exit("no /dev/cu.usbmodem* device found — is the board plugged in?")
-    return candidates[0]
-
-
-PORT = find_port()
+PORT = find_mlx_port()
 BAUD = 115200
 WINDOW_S = 10.0          # 显示窗口长度 (秒)
 SHOW_MAGNITUDE = False   # True 时额外画 |B|

@@ -19,7 +19,6 @@ Output:
         B_vs_q.png                auto-generated 3-axis B(q) plot
 """
 
-import glob
 import sys
 import time
 from datetime import datetime
@@ -27,6 +26,8 @@ from pathlib import Path
 
 import numpy as np
 import serial
+
+from mlx_serial import find_mlx_port as find_port
 
 BAUD = 115200
 SETTLE_S = 5.0          # silent wait after Enter (drains buffer, lets fixture relax)
@@ -45,13 +46,6 @@ Q_UP = list(reversed(Q_DOWN))
 
 HERE = Path(__file__).parent
 OUTPUT_DIR = HERE / "stage2_data"
-
-
-def find_port():
-    candidates = sorted(glob.glob("/dev/cu.usbmodem*"))
-    if not candidates:
-        sys.exit("no /dev/cu.usbmodem* device found")
-    return candidates[0]
 
 
 def record(ser, settle_s, dur_s):

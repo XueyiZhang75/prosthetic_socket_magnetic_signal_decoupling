@@ -1,0 +1,2 @@
+trial,step,d_target_mm,d_actual_mm,mark10_pos_mm,F_mean_N,F_std_N,F_n_samples,mean_Bx_uT,mean_By_uT,mean_Bz_uT,sigma_Bx_uT,sigma_By_uT,sigma_Bz_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,Bmag_uT
+2,1,0.0000,0.0000,-7.8300,1.27995,0.00267,24,1624.8127,3833.6997,5451.3863,0.4850,0.7308,0.8870,1104.9502,6545.5433,2784.3046,6859.6562

@@ -1,0 +1,16 @@
+Stage D safety-range summary
+session: 20260602_195717
+
+start Mark-10 position  : -0.0000 mm
+contact Mark-10 position: -0.3900 mm
+contact F               : +0.1586 N
+
+F_max observed in probe : +2.3388 N
+d_max observed in probe : +1.7900 mm
+
+abort_reason            : F_target_reached
+verdict                 : OK
+
+RECOMMENDED for later stages (conservative):
+  F_max = 1.871 N    (= 0.8 * observed peak)
+  d_max = 1.611 mm   (= 0.9 * observed peak)

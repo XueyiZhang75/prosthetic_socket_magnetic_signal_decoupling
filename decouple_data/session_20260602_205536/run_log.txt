@@ -1,0 +1,11 @@
+# Stage I+ session 20260602_205536
+# D_TARGETS_MM=[1.6], D_PRELOAD_MM=1.9
+# TARGET_RECORD_S=30.0, PRELOAD_RECORD_S=15.0, N_TRIALS=3
+# live_tare_N=-1.35230
+# B0=(-1108.4155533333333, 9273.82358, 2869.79076)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-0.3900 F=1.1415 baseline=0.5818 dF_base=0.5597 dF_step=0.3024 slope=3.0235
+[trial 1 pair 1 direct_target] start d_target=1.6000 d_actual=1.5800 pos=-1.9700
+
+ERROR: I+ hard force limit exceeded: F=+11.760 N >= 5.000 N

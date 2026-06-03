@@ -1,0 +1,12 @@
+# Stage I session 20260527_142029
+# D_HOLDS=[(30, 1.05), (60, 2.1), (90, 3.15)], HOLD_S=45.0, N_TRIALS=1
+# live_tare_N=-4.31070
+# B0=(15.024, -3467.507565217391, -1561.9311304347827)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-1.7900 F=-0.0350
+[trial 1 hold 30] start d_target=1.0500 d_actual=1.0400 pos=-2.8300
+[trial 1 hold 30] done n=510 d_end=1.0400 d_drift=+0.0000 dF=-0.006000 dB=-1.4598
+[trial 1 hold 60] start d_target=2.1000 d_actual=2.0800 pos=-3.8700
+[trial 1 hold 60] done n=510 d_end=2.0800 d_drift=+0.0000 dF=-0.018100 dB=-6.7049
+[trial 1 hold 90] start d_target=3.1500 d_actual=3.1500 pos=-4.9400
+[trial 1 hold 90] done n=510 d_end=3.1300 d_drift=-0.0200 dF=-0.045700 dB=-14.6474

@@ -1,0 +1,71 @@
+# Stage F session 20260526_203003
+# D_MAX_MM=3.5, N_D_POINTS=11, N_TRIALS=3
+# D_DOWN=[0.0, 0.35, 0.7, 1.05, 1.4, 1.75, 2.1, 2.45, 2.8, 3.15, 3.5]
+# D_UP=[3.15, 2.8, 2.45, 2.1, 1.75, 1.4, 1.05, 0.7, 0.35, 0.0]
+# live_tare_N=-4.30460
+# B0=(-170.5004347826087, -5066.794869565218, 830.9222608695652)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-6.0000 F=-0.0272
+[trial 1 loading d=0.000] pos=-6.000 F=-0.0274+-0.0013 nB=28 Bx=-160.51 By=-4793.23 Bz=463.26
+[trial 1 loading d=0.350] pos=-6.330 F=-0.0403+-0.0010 nB=24 Bx=-138.48 By=-4639.52 Bz=245.47
+[trial 1 loading d=0.700] pos=-6.690 F=-0.0374+-0.0009 nB=23 Bx=-115.99 By=-4580.48 Bz=96.72
+[trial 1 loading d=1.050] pos=-7.030 F=0.0201+-0.0012 nB=24 Bx=-102.19 By=-4679.86 Bz=40.54
+[trial 1 loading d=1.400] pos=-7.390 F=0.1090+-0.0016 nB=23 Bx=-110.24 By=-4959.50 Bz=93.10
+[trial 1 loading d=1.750] pos=-7.730 F=0.2292+-0.0012 nB=23 Bx=-133.21 By=-5363.48 Bz=198.65
+[trial 1 loading d=2.100] pos=-8.070 F=0.3844+-0.0011 nB=24 Bx=-160.07 By=-5828.47 Bz=322.46
+[trial 1 loading d=2.450] pos=-8.430 F=0.5831+-0.0033 nB=23 Bx=-191.98 By=-6344.68 Bz=469.61
+[trial 1 loading d=2.800] pos=-8.770 F=0.8503+-0.0030 nB=23 Bx=-235.20 By=-6890.36 Bz=633.87
+[trial 1 loading d=3.150] pos=-9.130 F=1.2155+-0.0057 nB=24 Bx=-275.91 By=-7470.35 Bz=801.26
+[trial 1 loading d=3.500] pos=-9.500 F=1.7025+-0.0062 nB=23 Bx=-312.99 By=-8086.61 Bz=966.82
+[trial 1 unloading d=3.150] pos=-9.150 F=0.8873+-0.0030 nB=24 Bx=-273.40 By=-7539.44 Bz=796.95
+[trial 1 unloading d=2.800] pos=-8.810 F=0.5309+-0.0027 nB=23 Bx=-231.67 By=-6963.86 Bz=618.93
+[trial 1 unloading d=2.450] pos=-8.470 F=0.3187+-0.0030 nB=23 Bx=-192.29 By=-6410.73 Bz=462.07
+[trial 1 unloading d=2.100] pos=-8.130 F=0.1788+-0.0018 nB=24 Bx=-156.96 By=-5907.40 Bz=320.81
+[trial 1 unloading d=1.750] pos=-7.790 F=0.0782+-0.0010 nB=24 Bx=-129.29 By=-5437.07 Bz=192.31
+[trial 1 unloading d=1.400] pos=-7.410 F=0.0015+-0.0006 nB=24 Bx=-103.37 By=-4982.34 Bz=60.86
+[trial 1 unloading d=1.050] pos=-7.070 F=-0.0383+-0.0018 nB=24 Bx=-88.10 By=-4675.00 Bz=-22.79
+[trial 1 unloading d=0.700] pos=-6.730 F=-0.0580+-0.0015 nB=23 Bx=-94.49 By=-4508.18 Bz=-12.75
+[trial 1 unloading d=0.350] pos=-6.390 F=-0.0534+-0.0010 nB=24 Bx=-116.64 By=-4534.52 Bz=121.04
+[trial 1 unloading d=0.000] pos=-6.050 F=-0.0366+-0.0012 nB=24 Bx=-137.63 By=-4607.36 Bz=264.42
+[trial 2] contact_pos=-6.0000 F=-0.0253
+[trial 2 loading d=0.000] pos=-6.000 F=-0.0260+-0.0012 nB=28 Bx=-158.73 By=-4786.96 Bz=445.00
+[trial 2 loading d=0.350] pos=-6.330 F=-0.0403+-0.0019 nB=24 Bx=-138.13 By=-4642.42 Bz=233.21
+[trial 2 loading d=0.700] pos=-6.690 F=-0.0406+-0.0010 nB=24 Bx=-115.12 By=-4579.29 Bz=80.38
+[trial 2 loading d=1.050] pos=-7.030 F=0.0145+-0.0006 nB=23 Bx=-100.86 By=-4679.51 Bz=23.57
+[trial 2 loading d=1.400] pos=-7.390 F=0.1018+-0.0014 nB=24 Bx=-109.73 By=-4961.38 Bz=77.16
+[trial 2 loading d=1.750] pos=-7.730 F=0.2242+-0.0017 nB=24 Bx=-131.99 By=-5360.99 Bz=182.75
+[trial 2 loading d=2.100] pos=-8.070 F=0.3766+-0.0013 nB=23 Bx=-156.91 By=-5821.31 Bz=303.28
+[trial 2 loading d=2.450] pos=-8.430 F=0.5763+-0.0021 nB=24 Bx=-190.22 By=-6339.87 Bz=450.40
+[trial 2 loading d=2.800] pos=-8.770 F=0.8452+-0.0046 nB=24 Bx=-233.44 By=-6883.70 Bz=615.20
+[trial 2 loading d=3.150] pos=-9.130 F=1.2129+-0.0046 nB=23 Bx=-274.58 By=-7465.65 Bz=783.91
+[trial 2 loading d=3.500] pos=-9.500 F=1.7137+-0.0067 nB=23 Bx=-312.70 By=-8077.20 Bz=950.95
+[trial 2 unloading d=3.150] pos=-9.150 F=0.8910+-0.0039 nB=23 Bx=-272.36 By=-7531.00 Bz=781.55
+[trial 2 unloading d=2.800] pos=-8.810 F=0.5373+-0.0036 nB=24 Bx=-231.06 By=-6960.35 Bz=605.69
+[trial 2 unloading d=2.450] pos=-8.470 F=0.3206+-0.0027 nB=23 Bx=-191.48 By=-6408.83 Bz=449.66
+[trial 2 unloading d=2.100] pos=-8.130 F=0.1809+-0.0016 nB=23 Bx=-155.42 By=-5907.33 Bz=311.02
+[trial 2 unloading d=1.750] pos=-7.790 F=0.0804+-0.0012 nB=24 Bx=-128.71 By=-5442.33 Bz=185.33
+[trial 2 unloading d=1.400] pos=-7.410 F=0.0023+-0.0021 nB=23 Bx=-103.79 By=-4985.43 Bz=54.80
+[trial 2 unloading d=1.050] pos=-7.070 F=-0.0374+-0.0021 nB=24 Bx=-88.42 By=-4674.85 Bz=-29.52
+[trial 2 unloading d=0.700] pos=-6.730 F=-0.0581+-0.0013 nB=23 Bx=-94.17 By=-4503.11 Bz=-20.92
+[trial 2 unloading d=0.350] pos=-6.390 F=-0.0518+-0.0019 nB=24 Bx=-116.64 By=-4531.19 Bz=114.10
+[trial 2 unloading d=0.000] pos=-6.050 F=-0.0369+-0.0008 nB=24 Bx=-137.80 By=-4605.49 Bz=259.34
+[trial 3] contact_pos=-6.0100 F=-0.0274
+[trial 3 loading d=0.000] pos=-6.010 F=-0.0276+-0.0010 nB=28 Bx=-158.17 By=-4783.55 Bz=435.19
+[trial 3 loading d=0.350] pos=-6.350 F=-0.0405+-0.0016 nB=24 Bx=-137.85 By=-4638.92 Bz=223.85
+[trial 3 loading d=0.700] pos=-6.690 F=-0.0409+-0.0012 nB=23 Bx=-114.63 By=-4577.71 Bz=72.22
+[trial 3 loading d=1.050] pos=-7.050 F=0.0154+-0.0007 nB=23 Bx=-100.65 By=-4681.74 Bz=17.51
+[trial 3 loading d=1.400] pos=-7.390 F=0.1039+-0.0020 nB=24 Bx=-109.91 By=-4969.84 Bz=73.81
+[trial 3 loading d=1.750] pos=-7.750 F=0.2266+-0.0026 nB=23 Bx=-132.61 By=-5372.78 Bz=180.13
+[trial 3 loading d=2.100] pos=-8.090 F=0.3808+-0.0022 nB=24 Bx=-157.59 By=-5836.84 Bz=302.58
+[trial 3 loading d=2.450] pos=-8.430 F=0.5828+-0.0026 nB=24 Bx=-190.42 By=-6359.63 Bz=451.21
+[trial 3 loading d=2.800] pos=-8.800 F=0.8515+-0.0019 nB=23 Bx=-235.20 By=-6902.17 Bz=616.53
+[trial 3 loading d=3.150] pos=-9.150 F=1.2229+-0.0044 nB=24 Bx=-276.11 By=-7489.63 Bz=784.52
+[trial 3 loading d=3.500] pos=-9.500 F=1.7361+-0.0069 nB=24 Bx=-313.45 By=-8101.33 Bz=953.00
+[trial 3 unloading d=3.150] pos=-9.150 F=0.9088+-0.0029 nB=24 Bx=-273.95 By=-7555.37 Bz=783.60
+[trial 3 unloading d=2.800] pos=-8.810 F=0.5479+-0.0029 nB=23 Bx=-233.16 By=-6984.48 Bz=607.53
+[trial 3 unloading d=2.450] pos=-8.470 F=0.3319+-0.0034 nB=24 Bx=-192.87 By=-6432.00 Bz=450.60
+[trial 3 unloading d=2.100] pos=-8.150 F=0.1876+-0.0019 nB=24 Bx=-157.21 By=-5930.29 Bz=312.42
+[trial 3 unloading d=1.750] pos=-7.810 F=0.0867+-0.0020 nB=23 Bx=-130.47 By=-5464.03 Bz=186.61
+[trial 3 unloading d=1.400] pos=-7.440 F=0.0059+-0.0010 nB=24 Bx=-104.50 By=-5001.52 Bz=55.58
+[trial 3 unloading d=1.050] pos=-7.090 F=-0.0343+-0.0013 nB=23 Bx=-87.90 By=-4685.68 Bz=-32.24
+[trial 3 unloading d=0.700] pos=0.152 F=-0.0565+-0.0009 nB=24 Bx=-92.78 By=-4504.09 Bz=-30.53

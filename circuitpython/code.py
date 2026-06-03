@@ -3,23 +3,15 @@ import board
 import busio
 import adafruit_mlx90393
 
-# === sampling preset: change this one line to retune rate vs noise ===
-# measured on QT Py M0 + MLX90393 via USB-CDC (Stage 1, 2026-05-12):
-#   "low_noise" : 14.6 Hz, σ=(0.39, 0.42, 0.60) µT for (Bx,By,Bz)   <- static calibration
-#   "balanced"  : 51.8 Hz, σ=(1.12, 1.13, 1.69) µT                  <- general purpose
-#   "fast"      : 80.4 Hz, σ=(2.84, 2.85, 4.20) µT                  <- dynamic experiments
-#   "fastest"   : 81.9 Hz, σ=(5.1,  5.1,  7.5)  µT  ⚠️ DO NOT USE
-#                ↑ FILTER_0 leaves a ~500 µT differential bias in the mean;
-#                  rate is the same as "fast" anyway (USB-CDC bottleneck).
-PRESET = "low_noise"
-
-PRESETS = {
-    "low_noise": (adafruit_mlx90393.OSR_3, adafruit_mlx90393.FILTER_5),
-    "balanced":  (adafruit_mlx90393.OSR_2, adafruit_mlx90393.FILTER_3),
-    "fast":      (adafruit_mlx90393.OSR_1, adafruit_mlx90393.FILTER_1),
-    "fastest":   (adafruit_mlx90393.OSR_0, adafruit_mlx90393.FILTER_0),
-}
-osr, flt = PRESETS[PRESET]
+# Fixed MLX90393 sampling configuration for all experiments.
+#
+# Measured on QT Py M0 + MLX90393 via USB-CDC:
+#   OSR_1 + FILTER_1: about 80-96 Hz
+#   single-sample sigma: about 2.9, 2.9, 4.2 uT for Bx, By, Bz
+#
+# Do not use OSR_0 + FILTER_0: earlier runs showed a large DC bias.
+MLX_OSR = adafruit_mlx90393.OSR_1
+MLX_FILTER = adafruit_mlx90393.FILTER_1
 
 i2c = busio.I2C(board.SCL, board.SDA, frequency=400_000)
 try:
@@ -27,10 +19,17 @@ try:
 except ValueError:
     sensor = adafruit_mlx90393.MLX90393(i2c, gain=adafruit_mlx90393.GAIN_1X, address=0x18)
 
-sensor.oversampling = osr
-sensor.filter = flt
+sensor.oversampling = MLX_OSR
+sensor.filter = MLX_FILTER
+# RESOLUTION_18 gives 4x wider dynamic range than RESOLUTION_16.
+# LSB coarsens from about 0.15 uT to about 0.6 uT. Required because the
+# magnet pushed By past the RESOLUTION_16 wrap during Stage E compression
+# (observed 2026-05-26). Quantization floor is still below signal scale.
+sensor.resolution_x = adafruit_mlx90393.RESOLUTION_18
+sensor.resolution_y = adafruit_mlx90393.RESOLUTION_18
+sensor.resolution_z = adafruit_mlx90393.RESOLUTION_18
 
-print(f"MLX90393 ready, preset={PRESET}, OSR={osr}, FILTER={flt}")
+print(f"MLX90393 ready, fixed=fast, OSR={MLX_OSR}, FILTER={MLX_FILTER}, RES=18")
 print("t_ms,Bx_milliuT,By_milliuT,Bz_milliuT")
 
 t0 = time.monotonic()
@@ -41,5 +40,6 @@ while True:
         print("read_failed")
         continue
     t_ms = int((time.monotonic() - t0) * 1000)
-    # integer-only: float .3f formatting is the dominant cost on SAMD21. host divides by 1000.
+    # Integer-only output: float formatting is costly on SAMD21.
+    # Host scripts divide by 1000 to recover uT.
     print(f"{t_ms},{int(bx*1000)},{int(by*1000)},{int(bz*1000)}")

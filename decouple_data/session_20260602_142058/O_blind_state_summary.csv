@@ -1,0 +1,11 @@
+session_id,trial,state_index,pair_id,state_label,path_mode,target_label,nominal_F_target_N,F_target_N,F_N,F_error_N,d_mm,mark10_pos_mm,Bmag_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,n,acquire_status,preload_status,note
+session_20260602_142058,1,1,1,blind_01_loading,direct_loading,205,2.05000,2.05000,1.929700,-0.120300,4.5600,-8.1500,13032.5539,-1306.8653,6560.4832,652.5741,60,reached,not_started,
+session_20260602_142058,1,2,1,blind_02_unloading,return_unloading,205,2.05000,1.92970,1.898950,-0.030750,4.7100,-8.3000,13188.1217,-1265.0968,6789.4592,427.9971,60,reached,reached,target_F_matched_to_loading_head_summary
+session_20260602_142058,1,3,2,blind_03_loading,direct_loading,175,1.75000,1.75000,1.636750,-0.113250,4.3500,-7.9800,12601.5637,-1300.5563,6090.4982,713.5581,60,reached,not_started,
+session_20260602_142058,1,4,2,blind_04_unloading,return_unloading,175,1.75000,1.63675,1.699400,+0.062650,4.6300,-8.2600,13010.0635,-1234.7453,6632.0032,337.0061,60,reached,reached,target_F_matched_to_loading_head_summary
+session_20260602_142058,1,5,3,blind_05_loading,direct_loading,225,2.25000,2.25000,2.161900,-0.088100,4.9300,-8.3400,13081.9074,-1221.2243,6719.7472,293.4451,60,reached,not_started,
+session_20260602_142058,1,6,3,blind_06_unloading,return_unloading,225,2.25000,2.16190,2.127850,-0.034050,4.9300,-8.3400,13084.0590,-1220.3223,6722.4507,291.5101,60,reached,reached,target_F_matched_to_loading_head_summary
+session_20260602_142058,1,7,4,blind_07_loading,direct_loading,190,1.90000,1.90000,1.799950,-0.100050,4.5000,-8.1100,12768.5419,-1264.1953,6323.9917,527.7021,60,reached,not_started,
+session_20260602_142058,1,8,4,blind_08_unloading,return_unloading,190,1.90000,1.79995,1.735900,-0.064050,4.6600,-8.2700,12958.4773,-1218.5193,6587.8267,308.4501,60,reached,reached,target_F_matched_to_loading_head_summary
+session_20260602_142058,1,9,5,blind_09_loading,direct_loading,215,2.15000,2.15000,2.069250,-0.080750,4.8900,-8.3000,12992.2612,-1215.5143,6619.9817,322.9696,58,reached,not_started,
+session_20260602_142058,1,10,5,blind_10_unloading,return_unloading,215,2.15000,2.06925,2.039600,-0.029650,4.8900,-8.3000,12988.5646,-1215.5143,6616.9782,320.5511,59,reached,reached,target_F_matched_to_loading_head_summary

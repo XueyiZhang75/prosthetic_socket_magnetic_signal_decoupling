@@ -1,0 +1,23 @@
+# Stage J session 20260603_093056
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(180, 1.8)], HOLD_S=120.0, N_TRIALS=1
+# live_tare_N=-2.82840
+# B0=(-779.5229935897436, 5021.916134615385, 3094.608948717949)
+# trial_start_pos=-0.0000
+[trial 1 hold 180] contact_pos=-0.3900 F=0.2378 baseline=0.1254 dF_base=0.1124 dF_step=0.0606 slope=0.6055
+[trial 1 hold 180 acquire] iter=1 targetF=1.8000 F=0.2324 err=1.5676 d=0.0000 pos=-0.3900
+[trial 1 hold 180 acquire] iter=2 targetF=1.8000 F=0.3396 err=1.4604 d=0.1600 pos=-0.5500
+[trial 1 hold 180 acquire] iter=3 targetF=1.8000 F=0.4497 err=1.3503 d=0.3200 pos=-0.7100
+[trial 1 hold 180 acquire] iter=4 targetF=1.8000 F=0.5656 err=1.2344 d=0.4900 pos=-0.8800
+[trial 1 hold 180 acquire] iter=5 targetF=1.8000 F=0.7233 err=1.0767 d=0.6600 pos=-1.0500
+[trial 1 hold 180 acquire] iter=6 targetF=1.8000 F=0.9179 err=0.8821 d=0.8300 pos=-1.2200
+[trial 1 hold 180 acquire] iter=7 targetF=1.8000 F=1.0858 err=0.7142 d=0.9700 pos=-1.3600
+[trial 1 hold 180 acquire] iter=8 targetF=1.8000 F=1.2773 err=0.5227 d=1.1100 pos=-1.5000
+[trial 1 hold 180 acquire] iter=9 targetF=1.8000 F=1.5186 err=0.2814 d=1.2400 pos=-1.6300
+[trial 1 hold 180 acquire] iter=10 targetF=1.8000 F=1.6691 err=0.1309 d=1.3200 pos=-1.7100
+[trial 1 hold 180 acquire] iter=11 targetF=1.8000 F=1.7191 err=0.0809 d=1.3500 pos=-1.7400
+[trial 1 hold 180 acquire] iter=12 targetF=1.8000 F=1.7748 err=0.0252 d=1.3800 pos=-1.7700
+[trial 1 hold 180 acquire] iter=13 targetF=1.8000 F=1.8406 err=-0.0406 d=1.4000 pos=-1.7900
+[trial 1 hold 180 acquire] iter=14 targetF=1.8000 F=1.6364 err=0.1636 d=1.3800 pos=-1.7700
+[trial 1 hold 180 acquire] iter=15 targetF=1.8000 F=1.8158 err=-0.0158 d=1.4000 pos=-1.7900
+[trial 1 hold 180] done n=132 corrections=27 dF=-0.013900 dd=+0.520000 dB=-5.9451

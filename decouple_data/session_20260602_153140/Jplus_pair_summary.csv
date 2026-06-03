@@ -1,0 +1,2 @@
+session_id,trial,pair_id,target_label,F_target_N,F_match_target_N,d_preload_mm,d_preload_extra_mm,F_loading_N,F_unloading_N,delta_F_N,d_loading_mm,d_unloading_mm,delta_d_mm,Bmag_loading_uT,Bmag_unloading_uT,delta_Bmag_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,delta_Bvec_uT,slope_Bmag_uT_per_mm,same_F_ok,disp_split_ok,b_signal_ok,verdict
+session_20260602_153140,1,1,180,1.80000,1.684800,4.7800,0.5000,1.684800,1.682000,-0.002800,4.4700,4.6700,+0.2000,12649.7850,12902.9089,+253.1239,+67.3120,+346.1750,-290.4000,456.8372,1265.6195,1,1,1,strong

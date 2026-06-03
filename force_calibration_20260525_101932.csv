@@ -1,0 +1,9 @@
+# HX711 + DYLY-103 calibration
+# timestamp: 2026-05-25T10:19:32
+# port: COM7
+# TARE_OFFSET = 142209
+# tare_std_counts = 101.93
+# CALIBRATION_FACTOR = 89973.0795
+# R2 = nan
+mass_g,F_N,mean_raw,std_raw,delta_raw
+100.0,0.9807,230442.5,105.9,+88233.5

@@ -1,0 +1,13 @@
+# Stage J session 20260603_102917
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(180, 1.8)], HOLD_S=120.0, N_TRIALS=3
+# live_tare_N=-1.41080
+# B0=(-779.3215806451612, 5531.0941483870965, 3178.0436967741934)
+# trial_start_pos=-0.0000
+[trial 1 hold 180 phase_R] start_retract_skip current=-0.0000 target=-0.0000
+[trial 1 hold 180] contact_pos=-2.2000 F=-1.3370 baseline=-1.4298 dF_base=0.0927 dF_step=0.0453 slope=0.4114
+[trial 1 hold 180 acquire] iter=1 targetF=1.8000 F=-1.3391 err=3.1391 d=0.0000 pos=-2.2000
+[trial 1 hold 180 acquire] iter=2 targetF=1.8000 F=-1.2695 err=3.0695 d=0.1500 pos=-2.3500
+[trial 1 hold 180 acquire] iter=3 targetF=1.8000 F=-1.1901 err=2.9901 d=0.3100 pos=-2.5100
+[trial 1 hold 180 acquire] iter=4 targetF=1.8000 F=-1.0986 err=2.8986 d=0.4700 pos=-2.6700
+[trial 1 hold 180] acquire failed status=mark10_error:stalled at pos=0.197 mm, target=-2.850 mm

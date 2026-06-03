@@ -1,0 +1,1 @@
+session_id,sample_id,magnet_id,head_id,force_calibration_id,displacement_zero_id,trial,pair_id,target_label,d_target_mm,d_preload_mm,d_direct_mm,d_return_mm,d_diff_mm,F_direct_N,F_return_N,delta_F_N,Bmag_direct_uT,Bmag_return_uT,delta_Bmag_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,delta_Bvec_uT,slope_Bmag_uT_per_N,same_d_ok,force_split_ok,b_signal_ok,verdict

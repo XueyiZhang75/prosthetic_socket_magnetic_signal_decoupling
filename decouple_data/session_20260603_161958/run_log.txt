@@ -1,0 +1,15 @@
+# Stage O-mini v2b same-d held-out session 20260603_161958
+# D_TARGETS_MM=[1.5], D_PRELOAD_BY_TARGET_MM={1.5: 1.8}, D_PRELOAD_MM=1.8
+# TARGET_RECORD_S=20.0, PRELOAD_RECORD_S=10.0, N_TRIALS=1
+# live_tare_N=-2.91720
+# B0=(-867.5985933333333, 6324.12494, 3480.43732)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-0.5900 F=0.1042 baseline=0.0175 dF_base=0.0867 dF_step=0.0408 slope=0.4533
+[trial 1 pair 1 direct_target] start d_target=1.5000 d_actual=1.4800 pos=-2.0700
+[trial 1 pair 1 direct_target] summary n=91 d=1.4800 F=1.817200 Bmag=10819.5556
+[trial 1 pair 1 preload_deep] start d_target=1.8000 d_actual=1.7800 pos=-2.3700
+[trial 1 pair 1 preload_deep] summary n=91 d=1.7800 F=2.649300 Bmag=11699.7679
+[trial 1 pair 1 return_target] start d_target=1.5000 d_actual=1.5000 pos=-2.0900
+[trial 1 pair 1 return_target] summary n=91 d=1.5000 F=1.389700 Bmag=10883.6522
+[trial 1 pair 1] diagnostic dd=+0.0200 dF=-0.427500 dBmag=+64.0966 dBvec=74.0221 verdict=strong

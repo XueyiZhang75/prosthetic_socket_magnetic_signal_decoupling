@@ -1,0 +1,50 @@
+# Stage J session 20260527_153304
+# F_HOLDS=[(45, 0.45), (60, 0.6), (75, 0.75)], HOLD_S=45.0, N_TRIALS=1
+# live_tare_N=-4.30150
+# B0=(-71.57082608695653, -3966.023739130435, -1179.7394347826087)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-2.3900 F=-0.0256
+[trial 1 hold 45 acquire] iter=1 targetF=0.4500 F=-0.0250 err=0.4750 d=0.0000 pos=-2.3900
+[trial 1 hold 45 acquire] iter=2 targetF=0.4500 F=-0.0276 err=0.4776 d=0.1100 pos=-2.5000
+[trial 1 hold 45 acquire] iter=3 targetF=0.4500 F=-0.0299 err=0.4799 d=0.2200 pos=-2.6100
+[trial 1 hold 45 acquire] iter=4 targetF=0.4500 F=-0.0299 err=0.4799 d=0.3300 pos=-2.7200
+[trial 1 hold 45 acquire] iter=5 targetF=0.4500 F=-0.0245 err=0.4745 d=0.4400 pos=-2.8300
+[trial 1 hold 45 acquire] iter=6 targetF=0.4500 F=-0.0205 err=0.4705 d=0.5400 pos=-2.9300
+[trial 1 hold 45 acquire] iter=7 targetF=0.4500 F=-0.0165 err=0.4665 d=0.6400 pos=-3.0300
+[trial 1 hold 45 acquire] iter=8 targetF=0.4500 F=-0.0059 err=0.4559 d=0.7400 pos=-3.1300
+[trial 1 hold 45 acquire] iter=9 targetF=0.4500 F=0.0087 err=0.4413 d=0.8500 pos=-3.2400
+[trial 1 hold 45 acquire] iter=10 targetF=0.4500 F=0.0254 err=0.4246 d=0.9600 pos=-3.3500
+[trial 1 hold 45 acquire] iter=11 targetF=0.4500 F=0.0461 err=0.4039 d=1.0700 pos=-3.4600
+[trial 1 hold 45 acquire] iter=12 targetF=0.4500 F=0.0651 err=0.3849 d=1.1800 pos=-3.5700
+[trial 1 hold 45 acquire] iter=13 targetF=0.4500 F=0.0863 err=0.3637 d=1.2800 pos=-3.6700
+[trial 1 hold 45 acquire] iter=14 targetF=0.4500 F=0.1067 err=0.3433 d=1.3800 pos=-3.7700
+[trial 1 hold 45 acquire] iter=15 targetF=0.4500 F=0.1262 err=0.3238 d=1.4800 pos=-3.8700
+[trial 1 hold 45 acquire] iter=16 targetF=0.4500 F=0.1482 err=0.3018 d=1.5900 pos=-3.9800
+[trial 1 hold 45 acquire] iter=17 targetF=0.4500 F=0.1715 err=0.2785 d=1.7000 pos=-4.0900
+[trial 1 hold 45 acquire] iter=18 targetF=0.4500 F=0.1972 err=0.2528 d=1.8000 pos=-4.1900
+[trial 1 hold 45 acquire] iter=19 targetF=0.4500 F=0.2218 err=0.2282 d=1.9000 pos=-4.2900
+[trial 1 hold 45 acquire] iter=20 targetF=0.4500 F=0.2453 err=0.2047 d=2.0100 pos=-4.4000
+[trial 1 hold 45 acquire] iter=21 targetF=0.4500 F=0.2738 err=0.1762 d=2.1200 pos=-4.5100
+[trial 1 hold 45 acquire] iter=22 targetF=0.4500 F=0.2936 err=0.1564 d=2.1800 pos=-4.5700
+[trial 1 hold 45 acquire] iter=23 targetF=0.4500 F=0.3112 err=0.1388 d=2.2400 pos=-4.6300
+[trial 1 hold 45 acquire] iter=24 targetF=0.4500 F=0.3320 err=0.1180 d=2.3000 pos=-4.6900
+[trial 1 hold 45 acquire] iter=25 targetF=0.4500 F=0.3542 err=0.0958 d=2.3600 pos=-4.7500
+[trial 1 hold 45 acquire] iter=26 targetF=0.4500 F=0.3684 err=0.0816 d=2.4000 pos=-4.7900
+[trial 1 hold 45 acquire] iter=27 targetF=0.4500 F=0.3821 err=0.0679 d=2.4400 pos=-4.8300
+[trial 1 hold 45 acquire] iter=28 targetF=0.4500 F=0.3957 err=0.0543 d=2.4900 pos=-4.8800
+[trial 1 hold 45 acquire] iter=29 targetF=0.4500 F=0.4149 err=0.0351 d=2.5300 pos=-4.9200
+[trial 1 hold 45 acquire] iter=30 targetF=0.4500 F=0.4240 err=0.0260 d=2.5500 pos=-4.9400
+[trial 1 hold 45 acquire] iter=31 targetF=0.4500 F=0.4322 err=0.0178 d=2.5700 pos=-4.9600
+[trial 1 hold 45] done n=146 corrections=8 dF=-0.007100 dd=+0.130000 dB=+1770.4647
+[trial 1 hold 60 acquire] iter=1 targetF=0.6000 F=0.4899 err=0.1101 d=2.7200 pos=-5.1100
+[trial 1 hold 60 acquire] iter=2 targetF=0.6000 F=0.5228 err=0.0772 d=2.7800 pos=-5.1700
+[trial 1 hold 60 acquire] iter=3 targetF=0.6000 F=0.5412 err=0.0588 d=2.8200 pos=-5.2100
+[trial 1 hold 60 acquire] iter=4 targetF=0.6000 F=0.5570 err=0.0430 d=2.8600 pos=-5.2500
+[trial 1 hold 60 acquire] iter=5 targetF=0.6000 F=0.5676 err=0.0324 d=2.8800 pos=-5.2700
+[trial 1 hold 60 acquire] iter=6 targetF=0.6000 F=0.5791 err=0.0209 d=2.9000 pos=-5.2900
+[trial 1 hold 60] done n=56 corrections=10 dF=-0.003700 dd=+0.190000 dB=+350.9461
+[trial 1 hold 75 acquire] iter=1 targetF=0.7500 F=0.6840 err=0.0660 d=3.1100 pos=-5.5000
+[trial 1 hold 75 acquire] iter=2 targetF=0.7500 F=0.7137 err=0.0363 d=3.1400 pos=-5.5300
+[trial 1 hold 75 acquire] iter=3 targetF=0.7500 F=0.7170 err=0.0330 d=3.1600 pos=-5.5500
+[trial 1 hold 75 acquire] iter=4 targetF=0.7500 F=0.7307 err=0.0193 d=3.1800 pos=-5.5700
+[trial 1 hold 75] done n=56 corrections=10 dF=-0.004800 dd=+0.180000 dB=+223.8184

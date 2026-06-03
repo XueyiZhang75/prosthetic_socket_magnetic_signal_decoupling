@@ -1,0 +1,63 @@
+# Stage O blind session 20260603_143946
+# BLIND_FORCE_TARGETS=[(180, 1.8), (170, 1.7), (190, 1.9)]
+# D_PRELOAD_EXTRA_MM=0.3, D_PRELOAD_MAX_MM=2.0, D_SOFT_LIMIT_MM=2.2
+# live_tare_N=-2.90930
+# B0=(-866.7962251655629, 6327.29842384106, 3455.38159602649)
+# trial_start_pos=-0.0000
+[trial 1 blind 180] contact_pos=-0.5900 F=0.1118 baseline=0.0206 dF_base=0.0912 dF_step=0.0423 slope=0.4694
+[trial 1 pair 180 blind_01_loading acquire] iter=1 targetF=1.8000 F=0.1115 err=1.6885 d=0.0000 pos=-0.5900
+[trial 1 pair 180 blind_01_loading acquire] iter=2 targetF=1.8000 F=0.1918 err=1.6082 d=0.1500 pos=-0.7400
+[trial 1 pair 180 blind_01_loading acquire] iter=3 targetF=1.8000 F=0.2883 err=1.5117 d=0.3100 pos=-0.9000
+[trial 1 pair 180 blind_01_loading acquire] iter=4 targetF=1.8000 F=0.4084 err=1.3916 d=0.4400 pos=-1.0300
+[trial 1 pair 180 blind_01_loading acquire] iter=5 targetF=1.8000 F=0.5225 err=1.2775 d=0.5800 pos=-1.1700
+[trial 1 pair 180 blind_01_loading acquire] iter=6 targetF=1.8000 F=0.6600 err=1.1400 d=0.7200 pos=-1.3100
+[trial 1 pair 180 blind_01_loading acquire] iter=7 targetF=1.8000 F=0.8199 err=0.9801 d=0.8600 pos=-1.4500
+[trial 1 pair 180 blind_01_loading acquire] iter=8 targetF=1.8000 F=1.0128 err=0.7872 d=1.0000 pos=-1.5900
+[trial 1 pair 180 blind_01_loading acquire] iter=9 targetF=1.8000 F=1.1751 err=0.6249 d=1.1000 pos=-1.6900
+[trial 1 pair 180 blind_01_loading acquire] iter=10 targetF=1.8000 F=1.3458 err=0.4542 d=1.2000 pos=-1.7900
+[trial 1 pair 180 blind_01_loading acquire] iter=11 targetF=1.8000 F=1.5353 err=0.2647 d=1.3100 pos=-1.9000
+[trial 1 pair 180 blind_01_loading acquire] iter=12 targetF=1.8000 F=1.6863 err=0.1137 d=1.3800 pos=-1.9700
+[trial 1 pair 180 blind_01_loading acquire] iter=13 targetF=1.8000 F=1.7641 err=0.0359 d=1.4100 pos=-2.0000
+[trial 1 state 1] start targetF=1.8000 d_actual=1.4100 pos=-2.0000
+[trial 1 state 1] summary F=1.740450 d=1.4100 Bmag=10599.8478 n=60
+[trial 1 pair 180 blind_02_unloading acquire] iter=1 targetF=1.7405 F=2.4847 err=-0.7443 d=1.7000 pos=-2.2900
+[trial 1 pair 180 blind_02_unloading acquire] iter=2 targetF=1.7405 F=1.6804 err=0.0601 d=1.5600 pos=-2.1500
+[trial 1 state 2] start targetF=1.7405 d_actual=1.5600 pos=-2.1500
+[trial 1 state 2] summary F=1.700500 d=1.5600 Bmag=11067.6041 n=60
+[trial 1 blind 170] contact_pos=-0.7000 F=0.1510 baseline=0.0319 dF_base=0.1191 dF_step=0.0518 slope=0.4705
+[trial 1 pair 170 blind_03_loading acquire] iter=1 targetF=1.7000 F=0.1497 err=1.5503 d=0.0000 pos=-0.7000
+[trial 1 pair 170 blind_03_loading acquire] iter=2 targetF=1.7000 F=0.2431 err=1.4569 d=0.1300 pos=-0.8300
+[trial 1 pair 170 blind_03_loading acquire] iter=3 targetF=1.7000 F=0.3402 err=1.3598 d=0.2700 pos=-0.9700
+[trial 1 pair 170 blind_03_loading acquire] iter=4 targetF=1.7000 F=0.4539 err=1.2461 d=0.4200 pos=-1.1200
+[trial 1 pair 170 blind_03_loading acquire] iter=5 targetF=1.7000 F=0.6014 err=1.0986 d=0.5700 pos=-1.2700
+[trial 1 pair 170 blind_03_loading acquire] iter=6 targetF=1.7000 F=0.7687 err=0.9313 d=0.7100 pos=-1.4100
+[trial 1 pair 170 blind_03_loading acquire] iter=7 targetF=1.7000 F=0.9604 err=0.7396 d=0.8500 pos=-1.5500
+[trial 1 pair 170 blind_03_loading acquire] iter=8 targetF=1.7000 F=1.1177 err=0.5823 d=0.9500 pos=-1.6500
+[trial 1 pair 170 blind_03_loading acquire] iter=9 targetF=1.7000 F=1.2882 err=0.4118 d=1.0500 pos=-1.7500
+[trial 1 pair 170 blind_03_loading acquire] iter=10 targetF=1.7000 F=1.4789 err=0.2211 d=1.1600 pos=-1.8600
+[trial 1 pair 170 blind_03_loading acquire] iter=11 targetF=1.7000 F=1.6243 err=0.0757 d=1.2300 pos=-1.9300
+[trial 1 state 3] start targetF=1.7000 d_actual=1.2300 pos=-1.9300
+[trial 1 state 3] summary F=1.599950 d=1.2300 Bmag=10402.4409 n=60
+[trial 1 pair 170 blind_04_unloading acquire] iter=1 targetF=1.6000 F=2.3248 err=-0.7248 d=1.5200 pos=-2.2200
+[trial 1 pair 170 blind_04_unloading acquire] iter=2 targetF=1.6000 F=1.5714 err=0.0286 d=1.3900 pos=-2.0900
+[trial 1 state 4] start targetF=1.6000 d_actual=1.3900 pos=-2.0900
+[trial 1 state 4] summary F=1.590000 d=1.3900 Bmag=10856.0031 n=60
+[trial 1 blind 190] contact_pos=-0.6300 F=0.1092 baseline=0.0137 dF_base=0.0955 dF_step=0.0423 slope=0.4230
+[trial 1 pair 190 blind_05_loading acquire] iter=1 targetF=1.9000 F=0.1094 err=1.7906 d=0.0000 pos=-0.6300
+[trial 1 pair 190 blind_05_loading acquire] iter=2 targetF=1.9000 F=0.1897 err=1.7103 d=0.1400 pos=-0.7700
+[trial 1 pair 190 blind_05_loading acquire] iter=3 targetF=1.9000 F=0.2866 err=1.6134 d=0.2800 pos=-0.9100
+[trial 1 pair 190 blind_05_loading acquire] iter=4 targetF=1.9000 F=0.3966 err=1.5034 d=0.4200 pos=-1.0500
+[trial 1 pair 190 blind_05_loading acquire] iter=5 targetF=1.9000 F=0.5260 err=1.3740 d=0.5600 pos=-1.1900
+[trial 1 pair 190 blind_05_loading acquire] iter=6 targetF=1.9000 F=0.6702 err=1.2298 d=0.7000 pos=-1.3300
+[trial 1 pair 190 blind_05_loading acquire] iter=7 targetF=1.9000 F=0.8447 err=1.0553 d=0.8500 pos=-1.4800
+[trial 1 pair 190 blind_05_loading acquire] iter=8 targetF=1.9000 F=1.0671 err=0.8329 d=1.0000 pos=-1.6300
+[trial 1 pair 190 blind_05_loading acquire] iter=9 targetF=1.9000 F=1.3283 err=0.5717 d=1.1400 pos=-1.7700
+[trial 1 pair 190 blind_05_loading acquire] iter=10 targetF=1.9000 F=1.5242 err=0.3758 d=1.2500 pos=-1.8800
+[trial 1 pair 190 blind_05_loading acquire] iter=11 targetF=1.9000 F=1.6776 err=0.2224 d=1.3200 pos=-1.9500
+[trial 1 pair 190 blind_05_loading acquire] iter=12 targetF=1.9000 F=1.8356 err=0.0644 d=1.3800 pos=-2.0100
+[trial 1 state 5] start targetF=1.9000 d_actual=1.3800 pos=-2.0100
+[trial 1 state 5] summary F=1.811650 d=1.3800 Bmag=10651.9641 n=60
+[trial 1 pair 190 blind_06_unloading acquire] iter=1 targetF=1.8117 F=2.6038 err=-0.7921 d=1.6600 pos=-2.2900
+[trial 1 pair 190 blind_06_unloading acquire] iter=2 targetF=1.8117 F=1.7667 err=0.0450 d=1.5500 pos=-2.1800
+[trial 1 state 6] start targetF=1.8117 d_actual=1.5500 pos=-2.1800
+[trial 1 state 6] summary F=1.787650 d=1.5500 Bmag=11088.9724 n=60

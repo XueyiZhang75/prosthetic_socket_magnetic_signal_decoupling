@@ -1,0 +1,1 @@
+time_s,session_id,trial,repeat_id,pair_id,stage,state_label,phase,control_mode,path_mode,target_label,target,actual,F_target_N,F_N,F_error_N,d_preload_mm,d_actual_mm,d_mm,q_mm,mark10_pos_mm,t_rel_s,Bx_uT,By_uT,Bz_uT,mean_Bx_uT,mean_By_uT,mean_Bz_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,Bmag_uT,sample_id,magnet_id,note

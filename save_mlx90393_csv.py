@@ -1,19 +1,11 @@
 import serial
 import csv
-import glob
-import sys
 import time
 from datetime import datetime
 
+from mlx_serial import find_mlx_port
 
-def find_port():
-    candidates = sorted(glob.glob("/dev/cu.usbmodem*"))
-    if not candidates:
-        sys.exit("no /dev/cu.usbmodem* device found — is the board plugged in?")
-    return candidates[0]
-
-
-PORT = find_port()
+PORT = find_mlx_port()
 BAUD = 115200
 
 filename = "mlx90393_" + datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"

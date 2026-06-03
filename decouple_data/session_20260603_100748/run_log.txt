@@ -1,0 +1,8 @@
+# Stage J session 20260603_100748
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(180, 1.8)], HOLD_S=120.0, N_TRIALS=3
+# live_tare_N=-2.79560
+# B0=(-835.6255290322581, 5277.011174193549, 3266.1566580645163)
+# trial_start_pos=-0.0000
+[trial 1 hold 180 phase_R] start_retract_skip current=-0.0000 target=-0.0000
+[trial 1 hold 180] precontact_abort pos=-0.1900 F=1.5568

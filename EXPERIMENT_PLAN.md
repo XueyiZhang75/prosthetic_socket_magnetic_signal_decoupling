@@ -1,373 +1,676 @@
-# 磁解耦实验计划（统一版 v1）
+# 磁解耦实验计划 v2：可辨识性驱动的 APMD
 
-> 整合对象:① ChatGPT 生成的《SOCKET 实验流程设计指导》PDF;② 本项目已完成的
-> Stage 1 噪声标定 / Stage 2 纯位移标定;③ 项目核心目标 APMD 解耦模型。
-> 日期:2026-05-18  作者上下文:UVA AIME 磁解耦项目。
-
----
-
-## 0. 定位:这份计划和 PDF 的关系
-
-PDF 的执行纪律(统一数据格式、接触点定义、基线扣除、保持实验、盲测、模型阶梯、
-文件命名)**全部采纳**。但 PDF 把"B–F 曲线"当成项目主线,这一点**需要修正**:
-
-- 本项目导师明确要求,贡献是**力–位移解耦模型 APMD**,不是"一条传感器标定曲线"。
-- 一条 B–F 曲线无法证明解耦 —— PDF 自己也指出这是"假象"(压得深→力大→B 大)。
-- APMD 的数学核心是局部线性化 `ΔB = j_F·ΔF + j_q·Δq`,需要在 **(F, q) 二维网格**
-  上估计雅可比两列 `j_F = ∂B/∂F|_q`、`j_q = ∂B/∂q|_F`,并算可辨识度
-  `κ = |j_Fᵀj_q| / (‖j_F‖·‖j_q‖)`。
-- **因此:真正的主实验是 (F, q) 二维网格。B–F、F–d、B–d 都只是网格的切片/投影。**
-
-PDF 里的"固定位移保持""固定力保持"两个实验恰好对应雅可比两列(见 Stage I/J),
-说明 PDF 的步骤可以直接复用,只是**目标重新定位到雅可比和 κ**。
-
-### 已完成、不重做的部分
-
-| 已完成 | 状态 | 在本计划中的处理 |
-|---|---|---|
-| Stage 1 噪声标定 | ✅ 已做一轮(`stage1_data/REPORT.md`),**用户决定重做** | 用最终夹具/最终位置重跑 `stage1_noise.py`,确认芯片噪声未变并捕获新环境噪声。已并入 Stage B 执行。 |
-| Stage 2 纯位移 B(q) | ⚠️ 多次会话,夹具非最终版 | 在 Stage C **用最终夹具重做一次**,作为 F≈0 基准。 |
-
-**沿用的 Stage 1 结论:**
-- 静态(plateau)采集用 `low_noise`(OSR_3+FILTER_5,14.6 Hz,σ≈0.39/0.42/0.60 µT)。
-- 动态(连续加载/卸载/变速)用 `fast`(OSR_1+FILTER_1,80 Hz,σ≈2.84/2.85/4.20 µT)。
-- **禁用 `fastest`**(FILTER_0 有 ~500 µT 直流偏置 bug)。
-- 判定"真实信号变化"的下限:静态 `ΔB > 1.8 µT`、动态 `ΔB > 12.6 µT`(3σ,Bz 轴)。
+> 项目定位：Identifiability-guided magnetic decoupling of normal force and displacement in soft interfaces
+> 更新日期：2026-06-02
+> 本版整合：已完成的 A-P pilot 实验、Stage I+/J+ 惊喜发现、Stage O 盲测失败反思、SOCKET 聊天记录中的可行性分析，以及后续印章式 3D 打印压头的重做计划。
 
 ---
 
-## 1. 决策点(开工前必须确认)
+## 0. v2 主线
 
-这两项会影响采集软件结构,计划已给推荐默认值,确认后即可执行。
+本项目不再被表述为一条 `B-F` 标定曲线，也不只是一个黑箱 `B -> [F, d]` 回归模型。v2 的核心贡献是一个实验框架：
 
-**决策点 A — 同步方式 ✅ 已确认**
-
-装置链路:
+```text
+几何控制
+  -> 路径激励
+  -> same-d/different-F 与 same-F/different-d 状态对
+  -> 局部 J=[j_F, j_d]
+  -> κ / condition-number 可辨识图
+  -> 解耦工作区
+  -> 盲测反演
 ```
-磁信号  MLX90393 → QT Py M0              → 电脑 USB 串口①
-力      DYLY-103-5KG S型力传感器 → [放大器] → Arduino Uno → 电脑 USB 串口②
-位移    Mark-10 电动测试台压下,d 仅显示在测试台屏幕上
-```
-- Mark-10 在本装置中**只是电动测试台**(提供压缩运动 + 屏幕显示位移),不测力。
-- B 与 F:电脑上是**两个独立 USB 串口**。`continuous_collect.py` 写成**一个程序
-  同时打开两个串口**,读到的每条 B、每条 F 都用电脑时钟打戳 → **自动同步,
-  无需同步脉冲**。两串口靠各自开机横幅自动识别(QT Py 打 `MLX90393 ready…`,
-  Uno 打自己的表头),不写死设备名。
-- 位移 d 的获取:
-  - **plateau(逐点停留)模式**:停下时一切静止,屏幕读 d、手动录入。
-    Stage C/E/H 及所有网格点用此,本来就要停 3 s,不费事。
-  - **连续模式**:测试台速度可设。设恒定速度 `v_set`,则
-    `d(t) = v_set × (t − t_contact)`;`t_contact`(d=0 时刻)由 F 信号从 0 抬升
-    **自动检测** → d 由时间反推,无需连续读屏。Stage F/G/I/J/K 用此。
-  - 力控段 / 蠕变段 d 非线性变化:在几个时间点读屏 d 作锚点,或由刚度曲线换算。
-- **写脚本前待确认**:① 力传感器与 Uno 间放大器型号(多半是 HX711);
-  ② Uno 是否已有读力程序、串口输出格式与速率;③ F 是否已用砝码标定成牛顿。
-  若 F 仍是原始读数 → 见 Stage D 前置的**力标定步骤**。
 
-**决策点 B — 磁源与样品配置 ✅ 已确认**
-- 已确认:有可压缩的磁化软体样品(磁化体嵌入软体内),Mark-10 压头压缩它 ——
-  既产生力 F、又改变 B,可做 B–F–d 耦合实验。
-- 记录日志中固定 `magnet_id`(磁源编号/磁化方向)和 `sample_id`(样品编号)。
+其中
+
+```text
+ΔB = j_F · ΔF + j_d · Δd
+j_F = ∂B/∂F | d
+j_d = ∂B/∂d | F
+κ = |j_F^T j_d| / (||j_F|| ||j_d||)
+```
+
+我们要回答的问题不是“磁信号是否随压力变化”，而是：
+
+> 在哪些几何、材料状态、路径激励和工作区内，三轴磁信号对 `F` 和 `d` 是局部可辨识的？
 
 ---
 
-## 2. 坐标系与符号约定（写进实验记录第一页）
+## 1. 当前数据如何处理
 
-- `z`:垂直压缩方向;`x`:线性导轨横向;`y`:垂直于 x,z。
-- `F`(N):接触法向力,`F>0` 为压缩。
-- `q`(mm):磁化体底面到传感器顶面的**间隙**(纯位移阶段用)。
-- `d`(mm):从接触点起算的**压缩位移**,`d>0` 为压入;接触点 `d=0`。
-  对 liner 而言压缩 d 等价于 q 减小,二者沿同一轴,记录两者。
-- `B = (Bx,By,Bz)`(µT),`|B| = √(Bx²+By²+Bz²)`。
-- 基线:`B0` = 装好磁体、未接触时的 B;`ΔB = B − B0`。
+目前所有夹子式压头实验全部保留，但在 v2 中定位为 **pilot discovery**，不是最终 confirmatory 证据。
+
+已知结论：
+
+- Stage E/F/H 给出了基础 `F-d-B` 耦合曲线和探索性 Jacobian。
+- 被动 Stage I/J 固定保持没有提供可靠 Jacobian 列；这不是失败，而是说明被动松弛/蠕变激励太弱。
+- Stage I+ 已经证明 same-`d` / different-`F` 路径对可以产生可测 `ΔB`。
+- Stage J+ 已经出现 usable/strong pair，证明 same-`F` / different-`d` 路径对有潜力。
+- Stage O pilot blind test 当前 `NOT PASS`，说明现有夹子式压头、训练覆盖、几何重复性和局部模型还不足以支撑最终盲测。
+
+后续换成印章式 3D 打印压头后，需要从 Stage A 到 Stage O 重新跑一遍 confirmatory 流程。旧数据用于设计实验、解释反思和展示发现过程；最终可辨识图和盲测性能以新压头数据为准。
 
 ---
 
-## 3. 统一数据格式（从第一个正式实验起强制）
+## 2. 必须区分的三类信号来源
 
-每条连续记录 / 每个 plateau 点都写成同一张主表:
+来自 PDF/聊天记录中的一个重要提醒：不能把柔性材料的坏特性直接美化成亮点。v2 实验必须区分三类来源。
 
+### 2.1 电子/环境漂移
+
+包括 MLX90393 零点漂移、温度、电源、环境磁场、线缆移动、电机扰动。它们通常与 loading/unloading 分支没有严格绑定。处理方式：每次正式实验前后做 no-contact B0，Stage B 记录环境和运动基线。
+
+### 2.2 几何伪差
+
+包括压头 lateral slip、tilt、contact drift、夹具松动、磁体姿态变化。磁场对几何极敏感，因此同一 `F` 或同一 `d` 下的 `ΔB` 可能只是几何变了。处理方式：印章式压头、同轴定位、重复接触几何检查、照片记录。
+
+### 2.3 可控路径依赖
+
+包括加载/卸载、预加载、松弛、蠕变带来的可重复材料状态差。只有这类信号可以作为系统辨识中的激励源。v2 的重点是把这类路径依赖变成可控、可重复、可量化的 same-`d`/different-`F` 和 same-`F`/different-`d` 状态对。
+
+---
+
+## 3. 硬件路线
+
+### 3.1 Pilot：夹子式压头
+
+当前夹子式压头数据保留为发现阶段。它已经帮助我们发现 I+/J+ 路径激励的价值，也暴露了几何重复性和盲测外推问题。
+
+### 3.2 Confirmatory：印章式 3D 打印压头
+
+新压头是 v2 的关键硬件升级，不是普通替换件。目标：
+
+- 法向接触面积和接触中心固定。
+- 压头、样品、磁体和 MLX90393 尽量同轴。
+- 减少夹子式压头造成的横向滑移、倾斜和接触点漂移。
+- 使 same-`d` 和 same-`F` 配对实验的几何条件更可重复。
+
+换压头后必须重新执行 Stage A/B/C/D/E/F/G/I+/J+/N/O/P。旧 `F_max`、`d_max`、`B0`、Stage C 曲线、I+/J+ gate 不可直接沿用。
+
+---
+
+## 4. Pre-flight — 实验前准备与传感器标定
+
+Pre-flight 是每一轮正式实验前的硬 gate。换压头、重新接线、更换放大器/Arduino 程序、移动力传感器、重新安装样品、或开始 stamp-head confirmatory run 时，都必须重新执行。
+
+### 4.1 力传感器重新标定
+
+**目的**：确保 `F_N` 标签可信。若力标签错了，I+/J+/O 的可辨识性结论都会失去意义。
+
+**步骤**：
+
+1. 力传感器、放大器、Arduino、串口程序和安装姿态全部固定后，预热 10-15 min。
+2. 无载状态 tare，记录 tare raw 和环境条件。
+3. 用砝码或标准载荷覆盖预计工作区，例如 `0, 25%, 50%, 75%, 100% F_max_expected`，上行/下行各 3 次。
+4. 拟合 raw-to-N 转换，保存 slope/intercept、残差、R²、最大绝对误差和加载/卸载差异。
+5. 标定系数在 Stage D 之前冻结；不能在看到 I+/J+/O 或 blind 误差后重新调标定。
+
+**建议合格标准**：
+
+- 线性拟合 R² 接近 1。
+- 最大残差小于 `max(0.03 N, 2% working F range)`。
+- 上行/下行 hysteresis 小于 `0.05 N` 或显著小于 I+/J+ 的目标 `ΔF`。
+- 零点 5 min 漂移小于 `0.02-0.03 N`。
+
+**输出**：
+
+```text
+force_calibration_<date>.csv
+force_calibration_<date>.png
+force_calibration_id
+tare_raw
+raw_to_N_coefficients
 ```
-time_s, session_id, trial_id, stage, phase, control_mode,
+
+### 4.2 位移与接触零点检查
+
+- 确认 Mark-10 位移方向：压下时 `d>0`。
+- 做 1 mm 或 0.5 mm 小步移动检查，确认脚本记录的 `d_actual_mm` 与测试台显示一致。
+- 在正式 Stage D 前，重复 3-5 次轻触，确认接触点 `d=0` 的漂移。
+- 保存 `displacement_zero_id` 或当天接触点定义记录。
+
+### 4.3 磁传感器与串口检查
+
+- 确认 MLX90393 preset：静态用 `low_noise`，动态用 `fast`，禁用 `fastest`。
+- 记录 MLX、force Arduino、Mark-10 串口号和开机 banner。
+- 做 30-60 s no-contact B0 quick check。
+- 轻微改变磁体距离，确认三轴 B 有合理响应。
+
+### 4.4 元数据与干跑
+
+正式实验前必须记录：
+
+```text
+head_id, sample_id, magnet_id, force_calibration_id,
+displacement_zero_id, operator, date, room condition,
+F_max_expected, d_max_expected, preload plan, rest-time plan
+```
+
+建议先做一次不保存为正式数据的 dry run，确认限位、急停、文件命名、数据列和脚本输出正常。
+
+---
+
+## 5. 统一坐标与数据约定
+
+- `F`：法向压缩力，单位 N，`F>0` 表示压缩。
+- `d`：从接触点开始的压缩位移，单位 mm，`d>0` 表示压入。
+- `q`：磁体与传感器之间的轴向间隙；在压缩实验中通常与 `d` 反向变化。
+- `B=(Bx, By, Bz)`，单位 µT。
+- `B0`：同一装置、同一 session 中 no-contact 基线。
+- `ΔB=B-B0`。
+
+所有正式数据至少保留：
+
+```text
+time_s, session_id, stage, phase, path_mode, control_mode,
 F_N, d_mm, q_mm,
-Bx_raw, By_raw, Bz_raw, Bx_delta, By_delta, Bz_delta, Bmag,
-speed_mm_s, position_x_mm,
-sample_id, magnet_id, repeat_id, preset, note
+Bx_uT, By_uT, Bz_uT,
+delta_Bx_uT, delta_By_uT, delta_Bz_uT, Bmag_uT,
+sample_id, magnet_id, head_id, force_calibration_id,
+displacement_zero_id, repeat_id, note
 ```
 
-- `phase` ∈ {baseline, loading, holding, unloading}
-- `control_mode` ∈ {disp_ctrl, force_ctrl, disp_hold, force_hold, pure_disp}
-- plateau 表额外存每点 `Bx_std/By_std/Bz_std`(取停留窗口末 2 s 统计)。
-- 文件命名规则见各 Stage;所有文件进 `decouple_data/<session_ts>/`。
+新增 `head_id` 用于区分夹子式压头和印章式压头。
 
 ---
 
-## 4. 采集软件(在现有代码基础上扩展)
+## 6. 阶段总览
 
-| 脚本 | 用途 | 现状 |
-|---|---|---|
-| `circuitpython/code.py` | 板载读数,整数 CSV | ✅ 已有,沿用 |
-| `plateau_collect.py` | 逐点停留采集(Stage C/E/H 及网格点) | 由 `stage2_displacement.py` 改造:增加手动录入 F、d,输出统一格式 |
-| `continuous_collect.py` | 连续时间序列采集(Stage F/G/I/J/K) | 新建:**同时打开两个串口**(QT Py 读 B、Uno 读 F),用电脑时钟统一打戳;d 由 `v_set×(t−t_contact)` 反推 |
-| `uno_force/` Arduino 程序 | Uno 上读力传感器、串口输出 F | 视决策点 A 待确认项:复用现有或新写;输出带表头的 CSV |
-| `force_calibration.py` | 砝码标定:raw → 牛顿 | 新建(若 F 未标定),Stage D 前置 |
-| `merge_dataset.py` | 合并所有 session → 主表,算 ΔB、Bmag | 新建 |
-| `analyze_jacobian.py` | 从 (F,q) 网格估计 j_F、j_q、κ | 新建,Stage N 用 |
-
----
-
-## 5. 实验阶段总览
-
-```
-A 装置  → B 信号健康/基线  → C 纯位移 B(q)  → D 接触点&安全范围
-  → E 基础压缩曲线  → F 加载-卸载滞后  → G 重复性
-  → H 力控 B–F  → I 固定位移保持(→j_F)  → J 固定力保持(→j_q)
-  → K 变速  → L 多压缩深度/多样本(填二维网格)  → M 偏载(选做)
-  → N 合并+算雅可比&κ  → O 盲测  → P 建模
+```text
+Pre-flight 力/位移/磁信号标定
+  -> A 几何装置与压头控制
+  -> B 噪声/B0/漂移/运动基线
+  -> C 工作区内纯位移 B(q)
+  -> D 接触点、安全范围、预循环
+  -> E 单调 loading baseline
+  -> F loading/unloading 路径分离
+  -> G 重复性与路径稳定性
+  -> X1 几何伪差检查
+  -> X2 路径恢复/记忆清除
+  -> X3 预加载强度扫描
+  -> I/J 被动保持诊断
+  -> I+ same-d/different-F 主实验
+  -> J+ same-F/different-d 主实验
+  -> L 路径激励矩阵
+  -> N 可辨识图与工作区判定
+  -> O1/O2 盲测
+  -> P APMD 建模与对照
 ```
 
-主实验 = E/F/G/H/I/J/L(它们共同构成 (F,q) 网格);C/D = 准备;K/M = 扩展;
-N/O/P = 分析与验证。
+Stage H/K/M 不删除，但在 v2 中后移或降级：
+
+- Stage H 力控 B-F：可选辅助，不阻塞主线。
+- Stage K 速度影响：I+/J+/O2 跑通后再做。
+- Stage M 偏载/横向位置：作为 future extension，第一版 confirmatory 不引入。
 
 ---
 
-## Stage A — 装置搭建与坐标固定
+## Stage A — 几何装置与压头控制
 
-**目的**:把最终磁力传感结构一次装好,中途不拆。
-**装配链**:Mark-10 压头/力传感器 → 磁化软体样品 → MLX90393 → 固定底板/导轨。
-**步骤**:固定工作台 → 装力传感器(手拧紧) → 固定样品 → 固定传感器 →
-确认磁体与传感器大致同轴 → 设上下限位开关 → 拍带标注的装置照片。
-**产出**:`setup_photo.jpg`、`coordinate_definition.txt`、`wiring_table.csv`、
-`channel_table.csv`。
+**目的**：建立可重复的法向接触几何。
 
----
+**必须记录**：
 
-## Stage B — Stage 1 噪声重测 + 信号健康检查 + 基线
+- `head_id`：clip_head 或 stamp_head_v1。
+- `force_calibration_id` 与 `displacement_zero_id`。
+- 压头接触面尺寸、材料、3D 打印方向。
+- 样品、磁体、MLX90393 的相对位置。
+- 接触点定义方式。
+- 正视/侧视照片。
 
-> **B.0(Stage 1 重做)**:在最终夹具/最终位置重跑 `stage1_noise.py`,四个 preset
-> 各测 60 s 静态噪声,与旧 `stage1_data/REPORT.md` 对比 —— 确认芯片噪声未变化,
-> 并记录最终装置的环境噪声。若 `low_noise` σ 明显大于旧值,排查附近金属/电机/接地。
+**新增合格标准**：
 
-**preset**:`low_noise`。
-- B.1 检查三路信号:不加载记录 30–60 s,确认 B 有数值;手动改变磁体距离 B 应变化;
-  力传感器轻压有响应、松开回 0;Mark-10 上下移动 distance 变化、方向为正。
-- B.2 无磁体背景噪声 60 s → `baseline_no_magnet.csv`。
-- B.3 有磁体不接触 60 s → `baseline_magnet_no_contact.csv`(给出 `B0`)。
-- B.4 工作台运动不接触 60 s → `baseline_stage_motion.csv`(查电机/线缆扰动)。
-
-**合格判据**:B.3、B.4 的波动明显小于后续正式加载时的 ΔB;无持续漂移。
-**产出**:基线表 + `B0`(后续所有数据用 `ΔB = B − B0`)。
+- 连续 5 次轻触接触点，`d=0` 的位置漂移小于 0.03-0.05 mm。
+- 无明显侧向滑移、压头旋转、夹具松动。
 
 ---
 
-## Stage C — 纯位移标定 B(q),F≈0(用最终夹具重做)
+## Stage B — 噪声、B0、漂移与运动基线
 
-**目的**:得到 `B = g(q)`,即不产生力时磁信号随间隙的变化 —— 这是雅可比 `j_q`
-方向的物理基础,也是 APMD 解耦的几何先验。
-**preset**:`low_noise`。
-**方式**:复用 `stage2_displacement.py` 范式(逐点停留 5 s settle + 20 s record,
-取末 50% 统计)。磁体相对传感器移动但**不压缩样品**(空气间隙)。
-**步骤**:同轴 → 设 q 序列(近端密、远端疏,如 0.5,0.7,1,1.5,2,3,4,6,8,10,
-13,17,22,30,40 mm)→ 每点停 3 s 取均值/标准差 → 上行+下行各一遍 → 重复 3 次。
-**文件名**:`C_pure_disp_<dir>_rep<n>.csv`。
-**合格判据**:至少一个轴随 q 单调;上/下行差异小;同点 3 次 σ < 总变化 5–10%。
+**保留并强化。**
 
----
+每次正式 session 前后都记录：
 
-## Stage D — 接触点与安全范围
+- no magnet baseline。
+- magnet no-contact B0。
+- Mark-10/stage motion no-contact baseline。
+- 实验结束后的 no-contact B0 复测。
 
-**目的**:确定 `F_max`、`d_max`(最大安全力/位移)。
-**步骤**:压头缓慢下降 → 力刚出现微小读数(如 0.02–0.05 N)即定义为接触点
-`d=0`,Force 清零 → 继续缓慢压缩,观察:力是否暴涨 / B 是否饱和 / 磁体是否将撞
-传感器 / 样品是否不可逆变形 / 夹具是否松动,任一出现立即停 → 取保守安全范围。
-**产出**:`safety_range.csv`(接触力阈值、`F_max`、`d_max`、是否饱和、是否损伤)。
-**预循环**:若样品是新软体,先空走 10–20 次压缩-卸载循环再正式采集(避免预训练漂移)。
+**用途**：
+
+- 判断电子/环境漂移。
+- 判断电机或线缆运动是否引入磁扰动。
+- 避免把 B0 drift 当成路径依赖信号。
 
 ---
 
-## Stage E — 基础压缩曲线(loading),plateau 模式
+## Stage C — 工作区内纯位移 B(q)
 
-**目的**:第一条 `B(d)`、`F(d)`、`B(F)`,确认 B 与 F/d 确有关系。
-**preset**:`low_noise`。**控制方式**:位移控制(新手更稳)。
-**步骤**:d 取 11 点 `d = 0,0.1·d_max,…,1.0·d_max` → 每点停 3 s,记 B、F、d,
-取末 2 s 均值 → 存一行。
-**文件名**:`E_basic_loading_rep1..3.csv`(重复 3 次)。
-**产出**:从同一批数据画 B–F(主图)、F–d(机械检查)、B–d(磁机制),三图同源。
-**合格**:F–d 平滑可重复;无突然暴涨;同 d 重复力接近。
+**修改重点**：旧远场 Stage C 只能作为流程证据。新压头下必须重做工作区内纯位移。
 
----
+**目的**：
 
-## Stage F — 加载-卸载滞后
+- 得到 `F≈0` 或低耦合条件下的 `B(q)`。
+- 给 `j_d` 提供几何先验。
+- 作为 J+/APMD 的对照，而不是最终解耦证据。
 
-**目的**:同一 d 下加载/卸载的 F、B 是否不同(滞后);**这也给二维网格贡献"同 q
-不同 F"的点**。
-**preset**:`fast`(连续采集)。**模式**:`continuous_collect.py`。
-**步骤**:0→d_max 分步加载,再按相同点卸载回 0,每点停 3 s,全程连续记录,数据
-打 `phase=loading/unloading` 标签。重复 3 次。
-**文件名**:`F_load_unload_rep1..3.csv`。
-**合格/解读**:两条 B–F 重合→重复性好;不重合→有滞后,模型需引入加载方向特征。
+**建议设计**：
 
----
+- 在预计压缩工作区附近加密采样，例如覆盖对应 `d≈3.5-5.0 mm` 的 q 范围。
+- 小步长 0.05-0.10 mm，至少 3 次重复。
+- 记录上行/下行，判断纯几何位移是否有明显迟滞。
 
-## Stage G — 重复性(5 循环)
+**合格标准**：
 
-**目的**:同一加载-卸载流程重复 5 次,B–F 是否稳定。
-**步骤**:按 Stage F 流程连续做 5 次,每次独立文件,每次前记 5–10 s 基线。
-**文件名**:`G_repeat_cycle1..5.csv`。
-**判据**:5 次曲线接近→系统稳定;第 1 次与第 5 次差异大→样品疲劳/磁体或传感器
-位移/夹具松动/基线漂移 → 排查后增加预循环次数。
+- 至少一轴或 `|B|` 对 q 有稳定响应。
+- 重复误差显著小于后续 I+/J+ 的 `ΔB`。
 
 ---
 
-## Stage H — 力控 B–F
+## Stage D — 接触点、安全范围与预循环
 
-**目的**:用**力控制**复现 B–F,证明 B–F 不是"只控位移"造成的假象。
-**preset**:`low_noise`(plateau)。
-**步骤**:F 取 11 点 `F = 0,0.1·F_max,…,1.0·F_max`(EasyMESUR 有 Load Target/
-Load Hold 则用自动力目标,否则手动逼近并保持 3 s)→ 每点记 B、F、d。重复 3 次。
-**文件名**:`H_force_control_rep1..3.csv`。
-**对比**:与 Stage E 的位移控 B–F 比较 —— 接近说明标定可靠;差异大说明受位移/路径/
-滞后影响,这正是要做解耦的理由。
+**保留并严格化。**
 
----
+**目的**：
 
-## Stage I — 固定位移保持 → 雅可比列 j_F
+- 定义 `d=0`。
+- 得到 conservative `F_max` 和 `d_max`。
+- 决定预循环次数。
 
-**目的**:制造 **d 不变、F 因黏弹性松弛而变** 的情形 → 在近似固定 q 下扫出一段 F,
-直接估计 `j_F = ∂B/∂F|_q`。
-**preset**:`fast`(连续)。
-**步骤**:压到 `d = 0.3/0.6/0.9·d_max` 三个位置,每个保持 30–60 s,全程记 B,F,d,t。
-**文件名**:`I_hold_disp_30/60/90.csv`。
-**解读**:固定 d 下 F 随时间下降,若 B 也随之变化 → B 含力相关信息,该变化量/ΔF
-即 `j_F` 的估计;若 F 变而 B 几乎不动 → B 主要是位移传感。
+**v2 要求**：
+
+- Pre-flight 力传感器标定必须已经通过，`force_calibration_id` 写入 session log。
+- Stage D/E/F/I+/J+/O 必须在同一套装置、同一压头、同一接触定义下执行。
+- 所有后续加载不得超过 D 给出的 conservative limit。
+- 新样品或新压头先做 10-20 次预循环，直到 `F-d` 回线基本稳定。
 
 ---
 
-## Stage J — 固定力保持 → 雅可比列 j_q
+## Stage E — 单调 loading baseline
 
-**目的**:制造 **F 不变、d 因蠕变而变** 的情形 → 在近似固定 F 下扫出一段 q,直接
-估计 `j_q = ∂B/∂q|_F`。
-**preset**:`fast`(连续)。
-**步骤**:加载到 `F = 0.3/0.6/0.9·F_max`,每个保持 30–60 s,全程记 B,F,d,t
-(无自动力保持则手动维持并记实际力)。
-**文件名**:`J_hold_force_30/60/90.csv`。
-**解读**:ΔB/Δd 即 `j_q` 的估计。结合 Stage I 的 `j_F`,即可在每个工作点算
-`κ = |j_Fᵀj_q|/(‖j_F‖‖j_q‖)`。
+**保留，但降级为 baseline。**
 
----
+Stage E 不用于证明解耦。它用于回答：
 
-## Stage K — 不同加载速度
+- 单一路径下 `F` 与 `d` 是否高度相关？
+- `B-F` 是否只是 `d` 增大导致的投影？
+- 后续 APMD 是否真的优于 `F=h(d)` 和 `d=g(|B|)`？
 
-**目的**:检查速度是否影响 B–F(磁弹/磁感类传感器文献中确有速度相关性)。
-**preset**:`fast`。
-**步骤**:同一加载范围做低速(准静态)与中速各 ≥3 次。
-**文件名**:`K_speed_low/mid_rep1..3.csv`。
-**解读**:差异小→速度可忽略;差异大→模型需加入 `Ḃ, ḋ, Ḟ` 或严格固定速度。
+**建议设计**：
+
+- 在安全范围内取 8-12 个 `d` plateau。
+- 重复 3-5 次。
+- 每次前后记录 B0。
 
 ---
 
-## Stage L — 多压缩深度 / 多样品(填满二维网格)
+## Stage F — loading/unloading 路径分离
 
-**目的**:打破 F 与 q 的天然相关,真正铺出 **(F, q) 二维网格**。
-**手段**(任选并尽量多用):
-1. 不同最大压缩深度 `d_max` 多组加载-卸载;
-2. 加载曲线 + 卸载曲线 + Stage I/J 的保持段,合起来覆盖二维平面;
-3. 若有多个不同刚度的样品,各做一遍(同 F 对应不同 q)。
-**文件名**:`L_grid_dmax<xx>_rep<n>.csv` 等。
-**产出**:覆盖较均匀的 (F,q) 散点,供 Stage N 估雅可比。
+**保留并升级为第一类路径证据。**
 
----
+**目的**：
 
-## Stage M — 偏载/横向位置(选做,几何耦合)
+- 从自然迟滞中寻找 same-`d` / different-`F` 点。
+- 初步筛选哪些 `d` 区域路径分离最大。
 
-**目的**:验证模型对接触位置变化是否仍能解耦(EGML 的 G 类耦合)。
-**步骤**:线性导轨方便时,设 `x = 0, +x0, −x0`,每位置做完整加载-卸载,小偏移、
-不超夹具安全范围,每位置 3 次。
-**文件名**:`M_offset_center/xplus/xminus_rep<n>.csv`。
+**输出**：
+
+- loading/unloading `F-d` 回线。
+- loading/unloading `B-d` 和 `B-F` 回线。
+- matched same-`d` pairs：`ΔF(d)`、`ΔB(d)`、方向一致性。
+
+这些结果进入 Stage N 的 preliminary map。
 
 ---
 
-## Stage N — 合并数据集 + 估计雅可比 J 与 κ
+## Stage G — 重复性与路径稳定性
 
-1. `merge_dataset.py`:合并所有 session,扣基线得 ΔB,算 Bmag,提取 plateau 段
-   (停留末 2 s 均值),输出 `dataset_plateau.csv` 与 `dataset_timeseries.csv`。
-2. `analyze_jacobian.py`:在 (F,q) 网格上做局部线性拟合,得每个工作点的
-   `j_F`、`j_q`、`κ`,画 κ 热力图 → 标出**可辨识区**(κ 小)与**病态区**(κ→1)。
-3. 报告:`rank([j_F j_q])=2` 是否在工作范围内成立。
+**保留，但目标改为路径依赖是否可重复。**
 
----
+**目的**：
 
-## Stage O — 盲测(绝不参与训练/调参/归一化)
+- 判断材料是否已被预处理到稳定状态。
+- 判断 loading/unloading 路径差异是否可重复。
 
-**规则**:换一天、换随机加载顺序重新采集;不参与训练、调参、归一化参数计算。
-**建议序列**:随机位移点 ~20、随机力点 ~20、加载/卸载混合、中心+一个偏移位置,
-每点停 3 s。
-**文件名**:`O_blind_test_final.csv`。
+**合格标准**：
+
+- 连续 5 个循环中回线形状不持续漂移。
+- I+/J+ 目标工作区附近的 `F-d-B` 关系稳定。
+- 若第 1 次和第 5 次差异大，则增加预循环或延长恢复时间。
 
 ---
 
-## Stage P — 建模(从简单到复杂)
+## Stage X1 — 几何伪差检查（新增）
 
-1. **机械基线** `F̂ = h(d)`:只用位移预测力。后续模型须明显优于它,否则未真正用到 B。
-2. **磁位移基线** `q̂ = g(ΔB)`:用 Stage C 数据,二/三阶多项式回归。
-3. **多输出基线** `[F̂,q̂] = f(ΔB)`:先 Polynomial Ridge(可解释、稳),再随机森林/SVR/小 MLP。
-4. **APMD 主模型(物理引导两阶段)**:
-   - 用 Stage C 标定 `q̂₀ = g(ΔB)`;
-   - 残差 `r_B = ΔB − B_rigid(q̂₀)`;
-   - `F̂ = q_F(ΔB, q̂₀, r_B, 加载方向, Ḃ)`,`q̂ = q̂₀ + q_d(r_B)`;
-   - 用 Stage N 的 J、κ 做局部线性反演:`[ΔF;Δq] = (JᵀWJ+λI)⁻¹ JᵀW ΔB`。
-5. **动态/滞后补偿**(Stage 8):若 F/G/K 显示明显滞后/速度效应,加历史特征或轻量残差网络。
+**目的**：判断同一法向目标下 B 的变化是否来自几何伪差。
 
-**第一版成功判据**:盲测 `NRMSE_F < 10%` 且 `NRMSE_q < 10%`;APMD 优于机械基线;
-偏载/变速下误差不崩溃。
+**设计**：
 
----
+- 选择 1-2 个低风险 `d` target。
+- 每个 target 重复接触/卸载/再接触 5 次。
+- 尽量保持同一 `d` 和同一路径，不引入预加载。
 
-## 6. 实验记录纪律(每次必记)
+**判定**：
 
-日期、`session_id`、`sample_id`、`magnet_id`/磁化方向、传感器朝向、初始间隙、
-接触点定义方法、加载速度、`F_max`、`d_max`、是否预循环、`preset`、环境异常、文件名。
+- 若 `F` 和 `d` 接近但 `B` 大幅跳变，说明压头/样品/磁体几何重复性不足。
+- 若印章式压头显著降低该误差，说明硬件升级有效。
 
 ---
 
-## 7. 时间线建议
+## Stage X2 — 路径恢复与记忆清除（新增）
 
-| 阶段 | 内容 |
-|---|---|
-| 第 1 天 | Stage A 装置 + Stage B 信号健康/基线 |
-| 第 2 天 | Stage C 纯位移 B(q) |
-| 第 3 天 | Stage D 接触点&安全范围 + Stage E 基础曲线 |
-| 第 4 天 | Stage F 滞后 + Stage G 重复性 |
-| 第 5 天 | Stage H 力控 B–F |
-| 第 6 天 | Stage I 固定位移保持 + Stage J 固定力保持 |
-| 第 7 天 | Stage K 变速 + Stage L 多深度网格 |
-| 第 8 天 | Stage M 偏载(选做) + Stage N 合并/算雅可比 |
-| 第 9 天 | Stage O 盲测 |
-| 第 10 天+ | Stage P 建模 |
+**目的**：定义 trial 之间需要休息多久，避免前一轮预加载污染后一轮。
 
-**最简可执行版**(时间紧):A → B → C → D → E → F → G → I → J → O。
-这十步即可拿到 (F,q) 网格核心数据 + 雅可比两列 + 盲测。
+**设计**：
+
+- 预加载到固定深度。
+- 释放后等待 10 s、30 s、60 s、120 s。
+- 回到同一目标 `d` 或 `F`，记录 `F,d,B` 是否恢复。
+
+**输出**：
+
+- recovery time constant。
+- 后续 I+/J+/O 的最短 `INTER_TARGET_REST_S`。
 
 ---
 
-## 8. 最终图表清单
+## Stage X3 — 预加载强度扫描（新增）
 
-1. 实验装置图(标 Mark-10/力传感器/磁体/传感器/位移方向)
-2. 基线噪声图
-3. B(q) 纯位移曲线(Stage C)
-4. F–d 加载/卸载曲线
-5. B–F 主图(位移控 vs 力控)
-6. 原始 B–F–d 三维关系图
-7. **κ 热力图(可辨识区)** ← APMD 的关键图
-8. 模型预测力 vs 真实力 / 预测位移 vs 真实位移
-9. 力误差随位移变化、位移误差随力变化
-10. 加载 vs 卸载、中心 vs 偏载误差对比
-11. APMD 解耦模型流程图
+**目的**：找到既能制造足够路径差异、又不破坏几何稳定性的 preload。
+
+**设计**：
+
+在同一目标点附近扫描 preload：
+
+```text
+preload depth = target d + 0.2, +0.4, +0.6 mm
+```
+
+或用安全范围的比例表示：
+
+```text
+preload = 70%, 85%, 95% of d_max
+```
+
+**输出**：
+
+- `ΔF` 是否随 preload 增加。
+- `Δd` 是否随 preload 增加。
+- `ΔB` 是否稳定增加。
+- 是否出现 slip、force cap 或不可逆漂移。
+
+X3 的结果决定 I+/J+/O 的 preload 设置。
 
 ---
 
-## 9. 一句话总结
+## Stage H — 力控 B-F（可选辅助）
 
-> 主实验不是"一条 B–F 曲线",而是 **(F, q) 二维网格**;B–F、F–d、B–d 是网格切片。
-> 固定位移保持给雅可比列 `j_F`,固定力保持给 `j_q`,二者算可辨识度 `κ`。
-> 最终交付物是 **APMD 解耦模型**及其在盲测上的精度,不是传感器标定曲线本身。
+Stage H 不再作为核心 gate。若力控稳定，它可以补充 same-`F` 状态；若力控不稳定，不阻塞主线。
+
+保留用途：
+
+- 对照 displacement-control 与 force-control 的差异。
+- 检查 `B-F` 是否受路径和 `d` 强烈影响。
+
+---
+
+## Stage I — 被动固定位移保持（诊断）
+
+**保留为负结果和诊断。**
+
+旧实验显示：固定 `d` 等待力松弛时，`F` 的变化不足以产生稳定、线性的 `B-F` 关系。
+
+v2 解释：
+
+- 被动松弛激励太弱。
+- 单纯等待不能可靠估计 `j_F`。
+- 因此需要 Stage I+ 主动路径激励。
+
+后续可少量重复，但不作为主要验收门槛。
+
+---
+
+## Stage I+ — same-d / different-F 主实验
+
+**升为核心实验。**
+
+**目的**：估计 `j_F = ∂B/∂F | d`。
+
+**路径**：
+
+```text
+direct loading 到目标 d
+  -> 记录状态 A
+preload 到更深 d
+  -> unloading 回到同一目标 d
+  -> 记录状态 B
+比较 A/B：same d, different F, different B
+```
+
+**建议设计**：
+
+- 目标 `d` 不只 4.30 mm，应覆盖 3-4 个工作点，例如按新安全范围选 `40%, 55%, 70%, 85% d_max`。
+- 每个 `d` 至少 5 个 usable pair。
+- preload 深度由 X3 决定。
+
+**合格标准**：
+
+- `|Δd| <= 0.03-0.05 mm`。
+- `|ΔF| >= 0.2 N` 或大于该工作区力噪声的 5 倍。
+- `|ΔB3| >= max(3σ_dynamic, 30 µT)`。
+- `ΔB/ΔF` 方向在重复间基本一致。
+
+---
+
+## Stage J — 被动固定力保持（诊断）
+
+**保留为负结果和诊断。**
+
+旧实验显示：固定力保持/蠕变控制在软样品上不稳定，难以直接估计 `j_d`。
+
+v2 解释：
+
+- 被动 force-hold 不可靠。
+- 直接等待 creep 不足以构成主证据。
+- 因此需要 Stage J+ 路径配对和插值匹配。
+
+---
+
+## Stage J+ — same-F / different-d 主实验
+
+**升为核心实验。**
+
+**目的**：估计 `j_d = ∂B/∂d | F`。
+
+**路径**：
+
+```text
+loading 路径经过目标 F
+  -> 记录/插值得到状态 A
+preload 到更深状态
+  -> unloading 路径回到同一目标 F
+  -> 记录/插值得到状态 B
+比较 A/B：same F, different d, different B
+```
+
+**关键修改**：
+
+不要依赖测试台刚好停在同一个 `F`。应尽量记录 loading/unloading 附近的连续数据，并在分析中插值到同一 `F_match`。
+
+**合格标准**：
+
+- 优先 `|ΔF| <= 0.05 N`，可接受上限 `<=0.08 N`。
+- `|Δd| >= 0.15-0.20 mm`。
+- `|ΔB3| >= max(3σ_dynamic, 30 µT)`。
+- 若仍有残余 `ΔF`，用 I+ 的 `j_F` 修正：
+
+```text
+ΔB_corr = ΔB_Jplus - j_F · ΔF
+j_d = ΔB_corr / Δd
+```
+
+---
+
+## Stage K — 加载速度影响（后移）
+
+Stage K 不作为第一轮 confirmatory 必做项。等 I+/J+/O2 跑通后，再检查不同速度是否改变路径依赖。
+
+若速度影响显著：
+
+- 后续实验固定速度。
+- 或把 loading rate / path age 加入模型输入。
+
+---
+
+## Stage L — 路径激励矩阵
+
+**重写。**
+
+旧 L 是“多深度/多样本填二维网格”。v2 改为系统化路径激励矩阵：
+
+```text
+d target × preload depth × path mode × repeat
+```
+
+推荐最小矩阵：
+
+- 3-4 个 `d target`。
+- 2 个 preload depth。
+- loading 与 unloading 两条路径。
+- 每格 5 次重复。
+
+**目的**：
+
+- 扩大 same-`d` / same-`F` 可配对区域。
+- 找出 `j_F` 和 `j_d` 方向分离最大的 green zone。
+- 不是盲目铺满整个 `(F,d)` 平面，而是围绕可辨识性优化采样。
+
+---
+
+## Stage M — 偏载/横向位置（future extension）
+
+Stage M 暂时从第一版 confirmatory 主线中移出。偏载会引入横向位移和姿态伪差，容易掩盖法向力-位移解耦主问题。
+
+只有当中心法向 green zone 和 O2 盲测通过后，再考虑：
+
+- socket 曲面。
+- 偏载。
+- 剪切/横向力。
+- 多 taxel 阵列。
+
+---
+
+## Stage N — 可辨识图与工作区判定
+
+**Stage N 是 v2 的核心分析。**
+
+输出不只是一个 readiness verdict，而是：
+
+- `j_F(d,F)` map。
+- `j_d(d,F)` map。
+- `angle(j_F, j_d)` map。
+- condition-number map。
+- `κ` heatmap。
+- green/yellow/red work-zone map。
+
+**建议判定**：
+
+- Green：两列信号都高于噪声，夹角足够大，condition number 可接受，重复性稳定。
+- Yellow：有部分可辨识证据，但 pair 数不足、夹角偏小或重复性一般。
+- Red：两列近共线、信号弱、几何伪差大或模型外推。
+
+只有 green zone 允许进入 O2 confirmatory blind test。
+
+---
+
+## Stage O — O1/O2 盲测
+
+### O1：Pilot blind test
+
+当前夹子式压头下的盲测属于 O1。它允许失败，作用是暴露问题。
+
+当前结论：
+
+- `Bxyz -> [F,d]` 未能 beat 单变量 baseline。
+- 说明当前几何、训练覆盖和局部模型不足。
+- 这个结果保留在 `reports/BLIND_TEST_ANALYSIS.md`，不手动覆盖。
+
+### O2：Confirmatory blind test
+
+印章式压头和 Stage N green zone 确定后再做。
+
+规则：
+
+- 盲测点必须提前在 green zone 内随机或半随机选定。
+- 盲测 session 不参与归一化、模型选择、调参或工作区选择。
+- loading/unloading 状态都要覆盖。
+- 至少 10-20 个 blind state points。
+- 结果必须同时对比 `F=h(d)`、`d=g(|B|)`、mean baseline 和 APMD。
+
+---
+
+## Stage P — APMD 建模
+
+模型阶梯保留，但 v2 要防止过早黑箱化。
+
+### Baselines
+
+1. `F_hat = h(d)`：机械位移基线。
+2. `d_hat = g(|B|)`：磁幅值位移基线。
+3. `[F_hat, d_hat] = f(Bx,By,Bz)`：普通多输出线性/岭回归。
+
+### APMD 主模型
+
+1. 用 Stage C 给出几何位移先验。
+2. 用 I+/J+ 或 L 的局部状态对估计 `J=[j_F, j_d]`。
+3. 在 green zone 内做局部反演：
+
+```text
+[ΔF, Δd]^T = (J^T W J + λI)^-1 J^T W ΔB
+```
+
+4. 用 O2 盲测验证是否同时优于单变量 baselines。
+
+**成功标准**：
+
+- O2 中 `F` MAE 优于 `F=h(d)`。
+- O2 中 `d` MAE 优于 `d=g(|B|)`。
+- 误差只在预定义 green zone 内报告，不外推到未验证区域。
+
+---
+
+## 6. 最小可执行 confirmatory 流程
+
+换印章式压头后，如果时间紧，最小流程是：
+
+```text
+Pre-flight -> A -> B -> C -> D -> E -> F -> G -> X1 -> X2/X3 -> I+ -> J+ -> N -> O2 -> P
+```
+
+可暂缓：
+
+```text
+H, K, M, 多样本扩展
+```
+
+---
+
+## 7. 最终图表清单
+
+1. 装置和印章式压头图。
+2. B0/no-contact/stage-motion baseline。
+3. 工作区内纯位移 `B(q)`。
+4. `F-d` loading/unloading 回线。
+5. Stage F matched same-`d` / different-`F` 图。
+6. Stage I+ same-`d` / different-`F` pair 图。
+7. Stage J+ same-`F` / different-`d` pair 图。
+8. `j_F` 与 `j_d` 三维向量夹角图。
+9. `κ` / condition-number heatmap。
+10. Green/yellow/red decoupling work-zone map。
+11. O2 blind predicted-vs-true `F` 和 `d`。
+12. Baseline vs APMD 误差对比。
+
+---
+
+## 8. 一句话总结
+
+v2 的实验目标是：在严格控制几何伪差和环境漂移的前提下，主动利用柔性材料的可重复路径依赖制造可辨识激励，找到磁信号能够同时解耦法向力 `F` 和相对位移 `d` 的工作区。

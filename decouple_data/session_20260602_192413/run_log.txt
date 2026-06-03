@@ -1,0 +1,7 @@
+# Stage D session 20260602_192413
+# live_tare_N = -2.92520
+# APPROACH_STEP_MM=0.2, F_CONTACT_N=0.025, F_HARD_LIMIT_N=3.0
+# PROBE_STEP_MM=0.1, PROBE_TARGET_F_N=2.2, PROBE_MAX_DEPTH_MM=3.0
+CONTACT step=6 pos=-1.1900 F=0.0258
+
+final: contact=-1.19 F_at_contact=0.025799999999999823 F_max_obs=nan d_max_obs=0.0 abort_reason=user_abort_before_probe

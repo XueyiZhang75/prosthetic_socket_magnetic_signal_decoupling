@@ -28,6 +28,8 @@ from pathlib import Path
 import numpy as np
 import serial
 
+from mlx_serial import find_mlx_port as find_port
+
 BAUD = 115200
 SETTLE_S = 5.0          # silent settle after Enter
 RECORD_S = 20.0         # raw recording window
@@ -46,17 +48,6 @@ Q_UP = list(reversed(Q_DOWN))                      # 60, 62, …, 140
 
 HERE = Path(__file__).parent
 OUTPUT_ROOT = HERE / "decouple_data"
-PORT_GLOB = "/dev/cu.usbmodem*"
-
-
-def find_port():
-    import glob
-    cands = sorted(glob.glob(PORT_GLOB))
-    if not cands:
-        sys.exit("no /dev/cu.usbmodem* device found — is the QT Py plugged in?")
-    return cands[0]
-
-
 def record(ser, settle_s, dur_s):
     """Drain ser for settle_s, then capture dur_s of mag samples (Bx,By,Bz)."""
     print(f"   settling {settle_s:.0f}s …", end="", flush=True)

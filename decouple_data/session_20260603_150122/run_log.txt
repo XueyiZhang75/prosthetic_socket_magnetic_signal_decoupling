@@ -1,0 +1,31 @@
+# Stage I+ session 20260603_150122
+# D_TARGETS_MM=[1.4], D_PRELOAD_BY_TARGET_MM={1.4: 1.7}, D_PRELOAD_MM=1.7
+# TARGET_RECORD_S=30.0, PRELOAD_RECORD_S=15.0, N_TRIALS=3
+# live_tare_N=-2.91550
+# B0=(-864.754417218543, 6317.467291390729, 3459.958821192053)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-0.5900 F=0.1087 baseline=0.0178 dF_base=0.0909 dF_step=0.0353 slope=0.3922
+[trial 1 pair 1 direct_target] start d_target=1.4000 d_actual=1.3800 pos=-1.9700
+[trial 1 pair 1 direct_target] summary n=91 d=1.3800 F=1.605800 Bmag=10537.4693
+[trial 1 pair 1 preload_deep] start d_target=1.7000 d_actual=1.6800 pos=-2.2700
+[trial 1 pair 1 preload_deep] summary n=91 d=1.6800 F=2.354800 Bmag=11386.2242
+[trial 1 pair 1 return_target] start d_target=1.4000 d_actual=1.4100 pos=-2.0000
+[trial 1 pair 1 return_target] summary n=91 d=1.4100 F=1.220200 Bmag=10585.5102
+[trial 1 pair 1] diagnostic dd=+0.0300 dF=-0.385600 dBmag=+48.0410 dBvec=52.6397 verdict=strong
+[trial 2] contact_pos=-0.5900 F=0.0950 baseline=0.0120 dF_base=0.0830 dF_step=0.0386 slope=0.4289
+[trial 2 pair 1 direct_target] start d_target=1.4000 d_actual=1.3800 pos=-1.9700
+[trial 2 pair 1 direct_target] summary n=91 d=1.3800 F=1.631400 Bmag=10539.6709
+[trial 2 pair 1 preload_deep] start d_target=1.7000 d_actual=1.6800 pos=-2.2700
+[trial 2 pair 1 preload_deep] summary n=91 d=1.6800 F=2.414300 Bmag=11385.6164
+[trial 2 pair 1 return_target] start d_target=1.4000 d_actual=1.4100 pos=-2.0000
+[trial 2 pair 1 return_target] summary n=91 d=1.4100 F=1.246900 Bmag=10586.6477
+[trial 2 pair 1] diagnostic dd=+0.0300 dF=-0.384500 dBmag=+46.9767 dBvec=56.5331 verdict=strong
+[trial 3] contact_pos=-0.5900 F=0.0955 baseline=0.0151 dF_base=0.0805 dF_step=0.0405 slope=0.4500
+[trial 3 pair 1 direct_target] start d_target=1.4000 d_actual=1.3800 pos=-1.9700
+[trial 3 pair 1 direct_target] summary n=91 d=1.3800 F=1.644500 Bmag=10545.5160
+[trial 3 pair 1 preload_deep] start d_target=1.7000 d_actual=1.6800 pos=-2.2700
+[trial 3 pair 1 preload_deep] summary n=91 d=1.6800 F=2.441100 Bmag=11386.7745
+[trial 3 pair 1 return_target] start d_target=1.4000 d_actual=1.4100 pos=-2.0000
+[trial 3 pair 1 return_target] summary n=91 d=1.4100 F=1.263700 Bmag=10591.3408
+[trial 3 pair 1] diagnostic dd=+0.0300 dF=-0.380800 dBmag=+45.8248 dBvec=56.2140 verdict=strong

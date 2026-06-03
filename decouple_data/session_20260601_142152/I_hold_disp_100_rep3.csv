@@ -1,0 +1,2 @@
+trial,hold_label,phase,control_mode,d_target_mm,d_actual_mm,mark10_pos_mm,t_rel_s,F_N,mean_Bx_uT,mean_By_uT,mean_Bz_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,Bmag_uT
+3,100,holding,disp_hold,4.8000,4.7900,-8.3800,0.0000,3.007800,1218.2260,-6244.3860,11082.6340,458.8950,-7309.1713,6459.3069,12778.9361

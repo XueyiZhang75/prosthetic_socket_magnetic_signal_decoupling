@@ -1,0 +1,4 @@
+session_id,trial,pair_id,target_label,d_target_mm,d_preload_mm,d_direct_mm,d_return_mm,d_diff_mm,F_direct_N,F_return_N,delta_F_N,Bmag_direct_uT,Bmag_return_uT,delta_Bmag_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,delta_Bvec_uT,slope_Bmag_uT_per_N,same_d_ok,force_split_ok,b_signal_ok,verdict
+session_20260601_160931,1,1,430,4.3000,4.8000,4.2800,4.2800,+0.0000,1.771600,1.289000,-0.482600,10263.7877,10125.2395,-138.5483,-19.2320,+42.6690,-132.6130,140.6297,287.0871,1,1,1,strong
+session_20260601_160931,2,1,430,4.3000,4.8000,4.2900,4.2900,+0.0000,1.882000,1.374800,-0.507200,10476.1763,10332.7075,-143.4688,-15.6260,+50.4830,-135.5190,145.4583,282.8644,1,1,1,strong
+session_20260601_160931,3,1,430,4.3000,4.8000,4.2900,4.3300,+0.0400,2.003400,1.565100,-0.438300,10703.7730,10751.9997,+48.2267,-8.4140,-134.6240,-22.2610,136.7113,-110.0313,1,1,1,strong

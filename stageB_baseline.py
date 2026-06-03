@@ -22,7 +22,6 @@ Steps:
 """
 
 import argparse
-import glob
 import sys
 import time
 from datetime import datetime
@@ -30,6 +29,8 @@ from pathlib import Path
 
 import numpy as np
 import serial
+
+from mlx_serial import find_mlx_port as find_port
 
 BAUD = 115200
 SETTLE_S = 3.0
@@ -47,13 +48,6 @@ STEPS = {
     "b4": dict(dur=60.0, fname="baseline_stage_motion.csv",
                label="Mark-10 moving up/down, NO contact"),
 }
-
-
-def find_port():
-    cands = sorted(glob.glob("/dev/cu.usbmodem*"))
-    if not cands:
-        sys.exit("no /dev/cu.usbmodem* device found — is the QT Py plugged in?")
-    return cands[0]
 
 
 def record(ser, settle_s, dur_s, live=False):

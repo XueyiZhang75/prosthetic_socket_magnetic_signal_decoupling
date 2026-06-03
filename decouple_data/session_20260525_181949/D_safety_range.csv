@@ -1,0 +1,2 @@
+phase,step,mark10_pos_mm,d_compression_mm,F_mean_N,F_std_N,F_n_samples,mean_Bx_uT,mean_By_uT,mean_Bz_uT,Bmag_uT,note
+approach,1,-0.1900,nan,-0.37134,0.00094,7,145.3000,-2655.9998,268.7813,2673.5165,

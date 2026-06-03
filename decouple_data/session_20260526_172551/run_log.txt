@@ -1,0 +1,18 @@
+# Stage E session 20260526_172551
+# D_MAX_MM=4.48, N_D_POINTS=11, N_TRIALS=3
+# D_SEQUENCE=[0.0, 0.448, 0.896, 1.344, 1.792, 2.24, 2.688, 3.136, 3.584, 4.032, 4.48]
+# live_tare_N=-4.30630
+# B0=(nan, nan, nan)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-5.4000 F=-0.0261
+[trial 1 d=0.000] pos=-5.400 F=-0.0268+-0.0007 Bx=nan By=nan Bz=nan
+[trial 1 d=0.448] pos=-5.830 F=-0.0424+-0.0012 Bx=nan By=nan Bz=nan
+[trial 1 d=0.896] pos=-6.290 F=-0.0047+-0.0013 Bx=nan By=nan Bz=nan
+[trial 1 d=1.344] pos=-6.730 F=0.0781+-0.0013 Bx=nan By=nan Bz=nan
+[trial 1 d=1.792] pos=-7.170 F=0.2228+-0.0027 Bx=nan By=nan Bz=nan
+[trial 1 d=2.240] pos=-7.630 F=0.4143+-0.0014 Bx=nan By=nan Bz=nan
+[trial 1 d=2.688] pos=-8.070 F=0.6782+-0.0029 Bx=nan By=nan Bz=nan
+[trial 1 d=3.136] pos=-8.530 F=1.0585+-0.0049 Bx=nan By=nan Bz=nan
+[trial 1 d=3.584] pos=-8.970 F=1.6045+-0.0083 Bx=nan By=nan Bz=nan
+[trial 1 d=4.032] pos=-9.420 F=2.3906+-0.0122 Bx=nan By=nan Bz=nan
+[trial 1 d=4.480] pos=-9.710 F=3.1008+-0.0136 Bx=nan By=nan Bz=nan

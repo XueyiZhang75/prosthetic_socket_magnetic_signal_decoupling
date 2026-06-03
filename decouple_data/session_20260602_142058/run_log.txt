@@ -1,0 +1,219 @@
+# Stage O blind session 20260602_142058
+# BLIND_FORCE_TARGETS=[(205, 2.05), (175, 1.75), (225, 2.25), (190, 1.9), (215, 2.15)]
+# D_PRELOAD_EXTRA_MM=0.5, D_PRELOAD_MAX_MM=4.8, D_SOFT_LIMIT_MM=5.2
+# live_tare_N=-4.30330
+# B0=(-1212.5246733333333, 5793.068766666666, 2645.40194)
+# trial_start_pos=-0.0000
+[trial 1 blind 205] contact_pos=-3.5900 F=-0.0286
+[trial 1 pair 205 blind_01_loading acquire] iter=1 targetF=2.0500 F=-0.0285 err=2.0785 d=0.0000 pos=-3.5900
+[trial 1 pair 205 blind_01_loading acquire] iter=2 targetF=2.0500 F=-0.0338 err=2.0838 d=0.1500 pos=-3.7400
+[trial 1 pair 205 blind_01_loading acquire] iter=3 targetF=2.0500 F=-0.0358 err=2.0858 d=0.3000 pos=-3.8900
+[trial 1 pair 205 blind_01_loading acquire] iter=4 targetF=2.0500 F=-0.0428 err=2.0928 d=0.4400 pos=-4.0300
+[trial 1 pair 205 blind_01_loading acquire] iter=5 targetF=2.0500 F=-0.0575 err=2.1075 d=0.5800 pos=-4.1700
+[trial 1 pair 205 blind_01_loading acquire] iter=6 targetF=2.0500 F=-0.0604 err=2.1104 d=0.7200 pos=-4.3100
+[trial 1 pair 205 blind_01_loading acquire] iter=7 targetF=2.0500 F=-0.0464 err=2.0964 d=0.8700 pos=-4.4600
+[trial 1 pair 205 blind_01_loading acquire] iter=8 targetF=2.0500 F=-0.0237 err=2.0737 d=1.0200 pos=-4.6100
+[trial 1 pair 205 blind_01_loading acquire] iter=9 targetF=2.0500 F=0.0184 err=2.0316 d=1.1600 pos=-4.7500
+[trial 1 pair 205 blind_01_loading acquire] iter=10 targetF=2.0500 F=0.0444 err=2.0056 d=1.3100 pos=-4.9000
+[trial 1 pair 205 blind_01_loading acquire] iter=11 targetF=2.0500 F=0.0852 err=1.9648 d=1.4600 pos=-5.0500
+[trial 1 pair 205 blind_01_loading acquire] iter=12 targetF=2.0500 F=0.1095 err=1.9405 d=1.6000 pos=-5.1900
+[trial 1 pair 205 blind_01_loading acquire] iter=13 targetF=2.0500 F=0.1450 err=1.9050 d=1.7400 pos=-5.3300
+[trial 1 pair 205 blind_01_loading acquire] iter=14 targetF=2.0500 F=0.1781 err=1.8719 d=1.8900 pos=-5.4800
+[trial 1 pair 205 blind_01_loading acquire] iter=15 targetF=2.0500 F=0.2153 err=1.8347 d=2.0400 pos=-5.6300
+[trial 1 pair 205 blind_01_loading acquire] iter=16 targetF=2.0500 F=0.2552 err=1.7948 d=2.1800 pos=-5.7700
+[trial 1 pair 205 blind_01_loading acquire] iter=17 targetF=2.0500 F=0.3035 err=1.7465 d=2.3300 pos=-5.9200
+[trial 1 pair 205 blind_01_loading acquire] iter=18 targetF=2.0500 F=0.3510 err=1.6990 d=2.4800 pos=-6.0700
+[trial 1 pair 205 blind_01_loading acquire] iter=19 targetF=2.0500 F=0.4084 err=1.6416 d=2.6200 pos=-6.2100
+[trial 1 pair 205 blind_01_loading acquire] iter=20 targetF=2.0500 F=0.4635 err=1.5865 d=2.7600 pos=-6.3500
+[trial 1 pair 205 blind_01_loading acquire] iter=21 targetF=2.0500 F=0.5309 err=1.5191 d=2.9100 pos=-6.5000
+[trial 1 pair 205 blind_01_loading acquire] iter=22 targetF=2.0500 F=0.6070 err=1.4430 d=3.0600 pos=-6.6500
+[trial 1 pair 205 blind_01_loading acquire] iter=23 targetF=2.0500 F=0.6875 err=1.3625 d=3.2000 pos=-6.7900
+[trial 1 pair 205 blind_01_loading acquire] iter=24 targetF=2.0500 F=0.7643 err=1.2857 d=3.3500 pos=-6.9400
+[trial 1 pair 205 blind_01_loading acquire] iter=25 targetF=2.0500 F=0.8655 err=1.1845 d=3.5000 pos=-7.0900
+[trial 1 pair 205 blind_01_loading acquire] iter=26 targetF=2.0500 F=0.9759 err=1.0741 d=3.6400 pos=-7.2300
+[trial 1 pair 205 blind_01_loading acquire] iter=27 targetF=2.0500 F=1.0821 err=0.9679 d=3.7800 pos=-7.3700
+[trial 1 pair 205 blind_01_loading acquire] iter=28 targetF=2.0500 F=1.2024 err=0.8476 d=3.9200 pos=-7.5100
+[trial 1 pair 205 blind_01_loading acquire] iter=29 targetF=2.0500 F=1.3491 err=0.7009 d=4.0600 pos=-7.6500
+[trial 1 pair 205 blind_01_loading acquire] iter=30 targetF=2.0500 F=1.4574 err=0.5926 d=4.1600 pos=-7.7500
+[trial 1 pair 205 blind_01_loading acquire] iter=31 targetF=2.0500 F=1.5631 err=0.4869 d=4.2600 pos=-7.8500
+[trial 1 pair 205 blind_01_loading acquire] iter=32 targetF=2.0500 F=1.6841 err=0.3659 d=4.3700 pos=-7.9600
+[trial 1 pair 205 blind_01_loading acquire] iter=33 targetF=2.0500 F=1.7680 err=0.2820 d=4.4400 pos=-8.0300
+[trial 1 pair 205 blind_01_loading acquire] iter=34 targetF=2.0500 F=1.8677 err=0.1823 d=4.5000 pos=-8.0900
+[trial 1 pair 205 blind_01_loading acquire] iter=35 targetF=2.0500 F=1.9580 err=0.0920 d=4.5600 pos=-8.1500
+[trial 1 state 1] start targetF=2.0500 d_actual=4.5600 pos=-8.1500
+[trial 1 state 1] summary F=1.929700 d=4.5600 Bmag=13032.5539 n=60
+[trial 1 pair 205 blind_02_unloading acquire] iter=1 targetF=1.9297 F=2.2966 err=-0.3669 d=4.7900 pos=-8.3800
+[trial 1 pair 205 blind_02_unloading acquire] iter=2 targetF=1.9297 F=1.8879 err=0.0418 d=4.7100 pos=-8.3000
+[trial 1 state 2] start targetF=1.9297 d_actual=4.7100 pos=-8.3000
+[trial 1 state 2] summary F=1.898950 d=4.7100 Bmag=13188.1217 n=60
+[trial 1 blind 175] contact_pos=-3.6300 F=-0.0318
+[trial 1 pair 175 blind_03_loading acquire] iter=1 targetF=1.7500 F=-0.0266 err=1.7766 d=0.0000 pos=-3.6300
+[trial 1 pair 175 blind_03_loading acquire] iter=2 targetF=1.7500 F=-0.0391 err=1.7891 d=0.1400 pos=-3.7700
+[trial 1 pair 175 blind_03_loading acquire] iter=3 targetF=1.7500 F=-0.0469 err=1.7969 d=0.2800 pos=-3.9100
+[trial 1 pair 175 blind_03_loading acquire] iter=4 targetF=1.7500 F=-0.0547 err=1.8047 d=0.4200 pos=-4.0500
+[trial 1 pair 175 blind_03_loading acquire] iter=5 targetF=1.7500 F=-0.0660 err=1.8160 d=0.5600 pos=-4.1900
+[trial 1 pair 175 blind_03_loading acquire] iter=6 targetF=1.7500 F=-0.0811 err=1.8311 d=0.7000 pos=-4.3300
+[trial 1 pair 175 blind_03_loading acquire] iter=7 targetF=1.7500 F=-0.0785 err=1.8285 d=0.8500 pos=-4.4800
+[trial 1 pair 175 blind_03_loading acquire] iter=8 targetF=1.7500 F=-0.0572 err=1.8072 d=1.0000 pos=-4.6300
+[trial 1 pair 175 blind_03_loading acquire] iter=9 targetF=1.7500 F=-0.0238 err=1.7738 d=1.1400 pos=-4.7700
+[trial 1 pair 175 blind_03_loading acquire] iter=10 targetF=1.7500 F=0.0037 err=1.7463 d=1.2900 pos=-4.9200
+[trial 1 pair 175 blind_03_loading acquire] iter=11 targetF=1.7500 F=0.0313 err=1.7187 d=1.4400 pos=-5.0700
+[trial 1 pair 175 blind_03_loading acquire] iter=12 targetF=1.7500 F=0.0576 err=1.6924 d=1.5800 pos=-5.2100
+[trial 1 pair 175 blind_03_loading acquire] iter=13 targetF=1.7500 F=0.0911 err=1.6589 d=1.7200 pos=-5.3500
+[trial 1 pair 175 blind_03_loading acquire] iter=14 targetF=1.7500 F=0.1192 err=1.6308 d=1.8700 pos=-5.5000
+[trial 1 pair 175 blind_03_loading acquire] iter=15 targetF=1.7500 F=0.1571 err=1.5929 d=2.0200 pos=-5.6500
+[trial 1 pair 175 blind_03_loading acquire] iter=16 targetF=1.7500 F=0.1977 err=1.5523 d=2.1600 pos=-5.7900
+[trial 1 pair 175 blind_03_loading acquire] iter=17 targetF=1.7500 F=0.2395 err=1.5105 d=2.3100 pos=-5.9400
+[trial 1 pair 175 blind_03_loading acquire] iter=18 targetF=1.7500 F=0.2882 err=1.4618 d=2.4600 pos=-6.0900
+[trial 1 pair 175 blind_03_loading acquire] iter=19 targetF=1.7500 F=0.3359 err=1.4141 d=2.6000 pos=-6.2300
+[trial 1 pair 175 blind_03_loading acquire] iter=20 targetF=1.7500 F=0.3968 err=1.3532 d=2.7400 pos=-6.3700
+[trial 1 pair 175 blind_03_loading acquire] iter=21 targetF=1.7500 F=0.4592 err=1.2908 d=2.8800 pos=-6.5100
+[trial 1 pair 175 blind_03_loading acquire] iter=22 targetF=1.7500 F=0.5236 err=1.2264 d=3.0200 pos=-6.6500
+[trial 1 pair 175 blind_03_loading acquire] iter=23 targetF=1.7500 F=0.6095 err=1.1405 d=3.1600 pos=-6.7900
+[trial 1 pair 175 blind_03_loading acquire] iter=24 targetF=1.7500 F=0.6884 err=1.0616 d=3.3100 pos=-6.9400
+[trial 1 pair 175 blind_03_loading acquire] iter=25 targetF=1.7500 F=0.7878 err=0.9622 d=3.4600 pos=-7.0900
+[trial 1 pair 175 blind_03_loading acquire] iter=26 targetF=1.7500 F=0.8954 err=0.8546 d=3.6000 pos=-7.2300
+[trial 1 pair 175 blind_03_loading acquire] iter=27 targetF=1.7500 F=1.0025 err=0.7475 d=3.7400 pos=-7.3700
+[trial 1 pair 175 blind_03_loading acquire] iter=28 targetF=1.7500 F=1.0984 err=0.6516 d=3.8500 pos=-7.4800
+[trial 1 pair 175 blind_03_loading acquire] iter=29 targetF=1.7500 F=1.2020 err=0.5480 d=3.9600 pos=-7.5900
+[trial 1 pair 175 blind_03_loading acquire] iter=30 targetF=1.7500 F=1.3183 err=0.4317 d=4.0600 pos=-7.6900
+[trial 1 pair 175 blind_03_loading acquire] iter=31 targetF=1.7500 F=1.4325 err=0.3175 d=4.1600 pos=-7.7900
+[trial 1 pair 175 blind_03_loading acquire] iter=32 targetF=1.7500 F=1.5017 err=0.2483 d=4.2200 pos=-7.8500
+[trial 1 pair 175 blind_03_loading acquire] iter=33 targetF=1.7500 F=1.5752 err=0.1748 d=4.2800 pos=-7.9100
+[trial 1 pair 175 blind_03_loading acquire] iter=34 targetF=1.7500 F=1.6581 err=0.0919 d=4.3500 pos=-7.9800
+[trial 1 state 3] start targetF=1.7500 d_actual=4.3500 pos=-7.9800
+[trial 1 state 3] summary F=1.636750 d=4.3500 Bmag=12601.5637 n=60
+[trial 1 pair 175 blind_04_unloading acquire] iter=1 targetF=1.6368 F=2.3581 err=-0.7214 d=4.7900 pos=-8.4200
+[trial 1 pair 175 blind_04_unloading acquire] iter=2 targetF=1.6368 F=1.7626 err=-0.1258 d=4.6700 pos=-8.3000
+[trial 1 pair 175 blind_04_unloading acquire] iter=3 targetF=1.6368 F=1.6871 err=-0.0503 d=4.6300 pos=-8.2600
+[trial 1 state 4] start targetF=1.6368 d_actual=4.6300 pos=-8.2600
+[trial 1 state 4] summary F=1.699400 d=4.6300 Bmag=13010.0635 n=60
+[trial 1 blind 225] contact_pos=-3.4100 F=-0.0285
+[trial 1 pair 225 blind_05_loading acquire] iter=1 targetF=2.2500 F=-0.0146 err=2.2646 d=0.0000 pos=-3.4100
+[trial 1 pair 225 blind_05_loading acquire] iter=2 targetF=2.2500 F=-0.0344 err=2.2844 d=0.1400 pos=-3.5500
+[trial 1 pair 225 blind_05_loading acquire] iter=3 targetF=2.2500 F=-0.0320 err=2.2820 d=0.2800 pos=-3.6900
+[trial 1 pair 225 blind_05_loading acquire] iter=4 targetF=2.2500 F=-0.0452 err=2.2952 d=0.4200 pos=-3.8300
+[trial 1 pair 225 blind_05_loading acquire] iter=5 targetF=2.2500 F=-0.0530 err=2.3030 d=0.5700 pos=-3.9800
+[trial 1 pair 225 blind_05_loading acquire] iter=6 targetF=2.2500 F=-0.0582 err=2.3082 d=0.7200 pos=-4.1300
+[trial 1 pair 225 blind_05_loading acquire] iter=7 targetF=2.2500 F=-0.0848 err=2.3348 d=0.8600 pos=-4.2700
+[trial 1 pair 225 blind_05_loading acquire] iter=8 targetF=2.2500 F=-0.0890 err=2.3390 d=1.0100 pos=-4.4200
+[trial 1 pair 225 blind_05_loading acquire] iter=9 targetF=2.2500 F=-0.0665 err=2.3165 d=1.1600 pos=-4.5700
+[trial 1 pair 225 blind_05_loading acquire] iter=10 targetF=2.2500 F=-0.0360 err=2.2860 d=1.3000 pos=-4.7100
+[trial 1 pair 225 blind_05_loading acquire] iter=11 targetF=2.2500 F=-0.0165 err=2.2665 d=1.4400 pos=-4.8500
+[trial 1 pair 225 blind_05_loading acquire] iter=12 targetF=2.2500 F=0.0157 err=2.2343 d=1.5900 pos=-5.0000
+[trial 1 pair 225 blind_05_loading acquire] iter=13 targetF=2.2500 F=0.0341 err=2.2159 d=1.7400 pos=-5.1500
+[trial 1 pair 225 blind_05_loading acquire] iter=14 targetF=2.2500 F=0.0558 err=2.1942 d=1.8800 pos=-5.2900
+[trial 1 pair 225 blind_05_loading acquire] iter=15 targetF=2.2500 F=0.0874 err=2.1626 d=2.0300 pos=-5.4400
+[trial 1 pair 225 blind_05_loading acquire] iter=16 targetF=2.2500 F=0.1251 err=2.1249 d=2.1800 pos=-5.5900
+[trial 1 pair 225 blind_05_loading acquire] iter=17 targetF=2.2500 F=0.1640 err=2.0860 d=2.3200 pos=-5.7300
+[trial 1 pair 225 blind_05_loading acquire] iter=18 targetF=2.2500 F=0.2017 err=2.0483 d=2.4600 pos=-5.8700
+[trial 1 pair 225 blind_05_loading acquire] iter=19 targetF=2.2500 F=0.2480 err=2.0020 d=2.6000 pos=-6.0100
+[trial 1 pair 225 blind_05_loading acquire] iter=20 targetF=2.2500 F=0.2881 err=1.9619 d=2.7400 pos=-6.1500
+[trial 1 pair 225 blind_05_loading acquire] iter=21 targetF=2.2500 F=0.3440 err=1.9060 d=2.8800 pos=-6.2900
+[trial 1 pair 225 blind_05_loading acquire] iter=22 targetF=2.2500 F=0.3981 err=1.8519 d=3.0300 pos=-6.4400
+[trial 1 pair 225 blind_05_loading acquire] iter=23 targetF=2.2500 F=0.4720 err=1.7780 d=3.1800 pos=-6.5900
+[trial 1 pair 225 blind_05_loading acquire] iter=24 targetF=2.2500 F=0.5412 err=1.7088 d=3.3200 pos=-6.7300
+[trial 1 pair 225 blind_05_loading acquire] iter=25 targetF=2.2500 F=0.6247 err=1.6253 d=3.4600 pos=-6.8700
+[trial 1 pair 225 blind_05_loading acquire] iter=26 targetF=2.2500 F=0.7085 err=1.5415 d=3.6000 pos=-7.0100
+[trial 1 pair 225 blind_05_loading acquire] iter=27 targetF=2.2500 F=0.8114 err=1.4386 d=3.7400 pos=-7.1500
+[trial 1 pair 225 blind_05_loading acquire] iter=28 targetF=2.2500 F=0.9102 err=1.3398 d=3.8800 pos=-7.2900
+[trial 1 pair 225 blind_05_loading acquire] iter=29 targetF=2.2500 F=1.0267 err=1.2233 d=4.0300 pos=-7.4400
+[trial 1 pair 225 blind_05_loading acquire] iter=30 targetF=2.2500 F=1.1775 err=1.0725 d=4.1800 pos=-7.5900
+[trial 1 pair 225 blind_05_loading acquire] iter=31 targetF=2.2500 F=1.3293 err=0.9207 d=4.3200 pos=-7.7300
+[trial 1 pair 225 blind_05_loading acquire] iter=32 targetF=2.2500 F=1.5020 err=0.7480 d=4.4600 pos=-7.8700
+[trial 1 pair 225 blind_05_loading acquire] iter=33 targetF=2.2500 F=1.6291 err=0.6209 d=4.5700 pos=-7.9800
+[trial 1 pair 225 blind_05_loading acquire] iter=34 targetF=2.2500 F=1.7842 err=0.4658 d=4.6600 pos=-8.0700
+[trial 1 pair 225 blind_05_loading acquire] iter=35 targetF=2.2500 F=1.9171 err=0.3329 d=4.7600 pos=-8.1700
+[trial 1 pair 225 blind_05_loading acquire] iter=36 targetF=2.2500 F=2.0201 err=0.2299 d=4.8200 pos=-8.2300
+[trial 1 pair 225 blind_05_loading acquire] iter=37 targetF=2.2500 F=2.1325 err=0.1175 d=4.8900 pos=-8.3000
+[trial 1 pair 225 blind_05_loading acquire] iter=38 targetF=2.2500 F=2.1858 err=0.0642 d=4.9300 pos=-8.3400
+[trial 1 state 5] start targetF=2.2500 d_actual=4.9300 pos=-8.3400
+[trial 1 state 5] summary F=2.161900 d=4.9300 Bmag=13081.9074 n=60
+[trial 1 pair 225 blind_06_unloading acquire] iter=1 targetF=2.1619 F=2.1382 err=0.0237 d=4.9300 pos=-8.3400
+[trial 1 state 6] start targetF=2.1619 d_actual=4.9300 pos=-8.3400
+[trial 1 state 6] summary F=2.127850 d=4.9300 Bmag=13084.0590 n=60
+[trial 1 blind 190] contact_pos=-3.6100 F=-0.0277
+[trial 1 pair 190 blind_07_loading acquire] iter=1 targetF=1.9000 F=-0.0326 err=1.9326 d=0.0000 pos=-3.6100
+[trial 1 pair 190 blind_07_loading acquire] iter=2 targetF=1.9000 F=-0.0431 err=1.9431 d=0.1400 pos=-3.7500
+[trial 1 pair 190 blind_07_loading acquire] iter=3 targetF=1.9000 F=-0.0407 err=1.9407 d=0.2800 pos=-3.8900
+[trial 1 pair 190 blind_07_loading acquire] iter=4 targetF=1.9000 F=-0.0546 err=1.9546 d=0.4200 pos=-4.0300
+[trial 1 pair 190 blind_07_loading acquire] iter=5 targetF=1.9000 F=-0.0679 err=1.9679 d=0.5600 pos=-4.1700
+[trial 1 pair 190 blind_07_loading acquire] iter=6 targetF=1.9000 F=-0.0896 err=1.9896 d=0.7000 pos=-4.3100
+[trial 1 pair 190 blind_07_loading acquire] iter=7 targetF=1.9000 F=-0.0805 err=1.9805 d=0.8500 pos=-4.4600
+[trial 1 pair 190 blind_07_loading acquire] iter=8 targetF=1.9000 F=-0.0621 err=1.9621 d=1.0000 pos=-4.6100
+[trial 1 pair 190 blind_07_loading acquire] iter=9 targetF=1.9000 F=-0.0297 err=1.9297 d=1.1400 pos=-4.7500
+[trial 1 pair 190 blind_07_loading acquire] iter=10 targetF=1.9000 F=-0.0098 err=1.9098 d=1.2900 pos=-4.9000
+[trial 1 pair 190 blind_07_loading acquire] iter=11 targetF=1.9000 F=0.0181 err=1.8819 d=1.4400 pos=-5.0500
+[trial 1 pair 190 blind_07_loading acquire] iter=12 targetF=1.9000 F=0.0425 err=1.8575 d=1.5800 pos=-5.1900
+[trial 1 pair 190 blind_07_loading acquire] iter=13 targetF=1.9000 F=0.0709 err=1.8291 d=1.7200 pos=-5.3300
+[trial 1 pair 190 blind_07_loading acquire] iter=14 targetF=1.9000 F=0.0956 err=1.8044 d=1.8700 pos=-5.4800
+[trial 1 pair 190 blind_07_loading acquire] iter=15 targetF=1.9000 F=0.1294 err=1.7706 d=2.0200 pos=-5.6300
+[trial 1 pair 190 blind_07_loading acquire] iter=16 targetF=1.9000 F=0.1748 err=1.7252 d=2.1600 pos=-5.7700
+[trial 1 pair 190 blind_07_loading acquire] iter=17 targetF=1.9000 F=0.2171 err=1.6829 d=2.3100 pos=-5.9200
+[trial 1 pair 190 blind_07_loading acquire] iter=18 targetF=1.9000 F=0.2574 err=1.6426 d=2.4600 pos=-6.0700
+[trial 1 pair 190 blind_07_loading acquire] iter=19 targetF=1.9000 F=0.3107 err=1.5893 d=2.6000 pos=-6.2100
+[trial 1 pair 190 blind_07_loading acquire] iter=20 targetF=1.9000 F=0.3571 err=1.5429 d=2.7400 pos=-6.3500
+[trial 1 pair 190 blind_07_loading acquire] iter=21 targetF=1.9000 F=0.4111 err=1.4889 d=2.8900 pos=-6.5000
+[trial 1 pair 190 blind_07_loading acquire] iter=22 targetF=1.9000 F=0.4936 err=1.4064 d=3.0400 pos=-6.6500
+[trial 1 pair 190 blind_07_loading acquire] iter=23 targetF=1.9000 F=0.5617 err=1.3383 d=3.1800 pos=-6.7900
+[trial 1 pair 190 blind_07_loading acquire] iter=24 targetF=1.9000 F=0.6519 err=1.2481 d=3.3300 pos=-6.9400
+[trial 1 pair 190 blind_07_loading acquire] iter=25 targetF=1.9000 F=0.7531 err=1.1469 d=3.4800 pos=-7.0900
+[trial 1 pair 190 blind_07_loading acquire] iter=26 targetF=1.9000 F=0.8514 err=1.0486 d=3.6200 pos=-7.2300
+[trial 1 pair 190 blind_07_loading acquire] iter=27 targetF=1.9000 F=0.9651 err=0.9349 d=3.7600 pos=-7.3700
+[trial 1 pair 190 blind_07_loading acquire] iter=28 targetF=1.9000 F=1.0864 err=0.8136 d=3.9000 pos=-7.5100
+[trial 1 pair 190 blind_07_loading acquire] iter=29 targetF=1.9000 F=1.2342 err=0.6658 d=4.0400 pos=-7.6500
+[trial 1 pair 190 blind_07_loading acquire] iter=30 targetF=1.9000 F=1.3421 err=0.5579 d=4.1400 pos=-7.7500
+[trial 1 pair 190 blind_07_loading acquire] iter=31 targetF=1.9000 F=1.4626 err=0.4374 d=4.2400 pos=-7.8500
+[trial 1 pair 190 blind_07_loading acquire] iter=32 targetF=1.9000 F=1.5861 err=0.3139 d=4.3500 pos=-7.9600
+[trial 1 pair 190 blind_07_loading acquire] iter=33 targetF=1.9000 F=1.6942 err=0.2058 d=4.4200 pos=-8.0300
+[trial 1 pair 190 blind_07_loading acquire] iter=34 targetF=1.9000 F=1.7953 err=0.1047 d=4.4800 pos=-8.0900
+[trial 1 pair 190 blind_07_loading acquire] iter=35 targetF=1.9000 F=1.8251 err=0.0749 d=4.5000 pos=-8.1100
+[trial 1 state 7] start targetF=1.9000 d_actual=4.5000 pos=-8.1100
+[trial 1 state 7] summary F=1.799950 d=4.5000 Bmag=12768.5419 n=60
+[trial 1 pair 190 blind_08_unloading acquire] iter=1 targetF=1.8000 F=2.3042 err=-0.5042 d=4.7800 pos=-8.3900
+[trial 1 pair 190 blind_08_unloading acquire] iter=2 targetF=1.8000 F=1.7204 err=0.0796 d=4.6600 pos=-8.2700
+[trial 1 state 8] start targetF=1.8000 d_actual=4.6600 pos=-8.2700
+[trial 1 state 8] summary F=1.735900 d=4.6600 Bmag=12958.4773 n=60
+[trial 1 blind 215] contact_pos=-3.4100 F=-0.0299
+[trial 1 pair 215 blind_09_loading acquire] iter=1 targetF=2.1500 F=-0.0216 err=2.1716 d=0.0000 pos=-3.4100
+[trial 1 pair 215 blind_09_loading acquire] iter=2 targetF=2.1500 F=-0.0259 err=2.1759 d=0.1400 pos=-3.5500
+[trial 1 pair 215 blind_09_loading acquire] iter=3 targetF=2.1500 F=-0.0398 err=2.1898 d=0.2800 pos=-3.6900
+[trial 1 pair 215 blind_09_loading acquire] iter=4 targetF=2.1500 F=-0.0403 err=2.1903 d=0.4200 pos=-3.8300
+[trial 1 pair 215 blind_09_loading acquire] iter=5 targetF=2.1500 F=-0.0514 err=2.2014 d=0.5700 pos=-3.9800
+[trial 1 pair 215 blind_09_loading acquire] iter=6 targetF=2.1500 F=-0.0695 err=2.2195 d=0.7200 pos=-4.1300
+[trial 1 pair 215 blind_09_loading acquire] iter=7 targetF=2.1500 F=-0.0898 err=2.2398 d=0.8600 pos=-4.2700
+[trial 1 pair 215 blind_09_loading acquire] iter=8 targetF=2.1500 F=-0.0849 err=2.2349 d=1.0100 pos=-4.4200
+[trial 1 pair 215 blind_09_loading acquire] iter=9 targetF=2.1500 F=-0.0601 err=2.2101 d=1.1600 pos=-4.5700
+[trial 1 pair 215 blind_09_loading acquire] iter=10 targetF=2.1500 F=-0.0376 err=2.1876 d=1.3000 pos=-4.7100
+[trial 1 pair 215 blind_09_loading acquire] iter=11 targetF=2.1500 F=-0.0182 err=2.1682 d=1.4400 pos=-4.8500
+[trial 1 pair 215 blind_09_loading acquire] iter=12 targetF=2.1500 F=0.0055 err=2.1445 d=1.5900 pos=-5.0000
+[trial 1 pair 215 blind_09_loading acquire] iter=13 targetF=2.1500 F=0.0361 err=2.1139 d=1.7400 pos=-5.1500
+[trial 1 pair 215 blind_09_loading acquire] iter=14 targetF=2.1500 F=0.0576 err=2.0924 d=1.8800 pos=-5.2900
+[trial 1 pair 215 blind_09_loading acquire] iter=15 targetF=2.1500 F=0.0925 err=2.0575 d=2.0300 pos=-5.4400
+[trial 1 pair 215 blind_09_loading acquire] iter=16 targetF=2.1500 F=0.1203 err=2.0297 d=2.1800 pos=-5.5900
+[trial 1 pair 215 blind_09_loading acquire] iter=17 targetF=2.1500 F=0.1593 err=1.9907 d=2.3200 pos=-5.7300
+[trial 1 pair 215 blind_09_loading acquire] iter=18 targetF=2.1500 F=0.1965 err=1.9535 d=2.4600 pos=-5.8700
+[trial 1 pair 215 blind_09_loading acquire] iter=19 targetF=2.1500 F=0.2374 err=1.9126 d=2.6000 pos=-6.0100
+[trial 1 pair 215 blind_09_loading acquire] iter=20 targetF=2.1500 F=0.2820 err=1.8680 d=2.7400 pos=-6.1500
+[trial 1 pair 215 blind_09_loading acquire] iter=21 targetF=2.1500 F=0.3290 err=1.8210 d=2.8800 pos=-6.2900
+[trial 1 pair 215 blind_09_loading acquire] iter=22 targetF=2.1500 F=0.3870 err=1.7630 d=3.0300 pos=-6.4400
+[trial 1 pair 215 blind_09_loading acquire] iter=23 targetF=2.1500 F=0.4496 err=1.7004 d=3.1800 pos=-6.5900
+[trial 1 pair 215 blind_09_loading acquire] iter=24 targetF=2.1500 F=0.5361 err=1.6139 d=3.3200 pos=-6.7300
+[trial 1 pair 215 blind_09_loading acquire] iter=25 targetF=2.1500 F=0.6110 err=1.5390 d=3.4600 pos=-6.8700
+[trial 1 pair 215 blind_09_loading acquire] iter=26 targetF=2.1500 F=0.6945 err=1.4555 d=3.6000 pos=-7.0100
+[trial 1 pair 215 blind_09_loading acquire] iter=27 targetF=2.1500 F=0.7830 err=1.3670 d=3.7400 pos=-7.1500
+[trial 1 pair 215 blind_09_loading acquire] iter=28 targetF=2.1500 F=0.8977 err=1.2523 d=3.8800 pos=-7.2900
+[trial 1 pair 215 blind_09_loading acquire] iter=29 targetF=2.1500 F=1.0023 err=1.1477 d=4.0300 pos=-7.4400
+[trial 1 pair 215 blind_09_loading acquire] iter=30 targetF=2.1500 F=1.1408 err=1.0092 d=4.1800 pos=-7.5900
+[trial 1 pair 215 blind_09_loading acquire] iter=31 targetF=2.1500 F=1.3032 err=0.8468 d=4.3200 pos=-7.7300
+[trial 1 pair 215 blind_09_loading acquire] iter=32 targetF=2.1500 F=1.4689 err=0.6811 d=4.4600 pos=-7.8700
+[trial 1 pair 215 blind_09_loading acquire] iter=33 targetF=2.1500 F=1.6060 err=0.5440 d=4.5700 pos=-7.9800
+[trial 1 pair 215 blind_09_loading acquire] iter=34 targetF=2.1500 F=1.7590 err=0.3910 d=4.6800 pos=-8.0900
+[trial 1 pair 215 blind_09_loading acquire] iter=35 targetF=2.1500 F=1.8707 err=0.2793 d=4.7400 pos=-8.1500
+[trial 1 pair 215 blind_09_loading acquire] iter=36 targetF=2.1500 F=1.9701 err=0.1799 d=4.8100 pos=-8.2200
+[trial 1 pair 215 blind_09_loading acquire] iter=37 targetF=2.1500 F=2.0998 err=0.0502 d=4.8900 pos=-8.3000
+[trial 1 state 9] start targetF=2.1500 d_actual=4.8900 pos=-8.3000
+[trial 1 state 9] summary F=2.069250 d=4.8900 Bmag=12992.2612 n=58
+[trial 1 pair 215 blind_10_unloading acquire] iter=1 targetF=2.0693 F=2.0439 err=0.0254 d=4.8900 pos=-8.3000
+[trial 1 state 10] start targetF=2.0693 d_actual=4.8900 pos=-8.3000
+[trial 1 state 10] summary F=2.039600 d=4.8900 Bmag=12988.5646 n=59

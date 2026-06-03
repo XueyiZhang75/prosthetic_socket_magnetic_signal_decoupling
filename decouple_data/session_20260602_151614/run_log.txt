@@ -1,0 +1,30 @@
+# Stage I+ session 20260602_151614
+# D_TARGETS_MM=[4.3], D_PRELOAD_MM=4.8
+# TARGET_RECORD_S=30.0, PRELOAD_RECORD_S=15.0, N_TRIALS=3
+# live_tare_N=-4.30410
+# B0=(-1004.3973642384105, 5719.989940397351, 2093.8735033112584)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-3.7900 F=-0.0277
+[trial 1 pair 1 direct_target] start d_target=4.3000 d_actual=4.2800 pos=-8.0700
+[trial 1 pair 1 direct_target] summary n=91 d=4.2800 F=1.307800 Bmag=12107.3048
+[trial 1 pair 1 preload_deep] start d_target=4.8000 d_actual=4.7800 pos=-8.5700
+[trial 1 pair 1 preload_deep] summary n=91 d=4.7800 F=2.025500 Bmag=13037.1403
+[trial 1 pair 1 return_target] start d_target=4.3000 d_actual=4.3400 pos=-8.1300
+[trial 1 pair 1 return_target] summary n=91 d=4.3400 F=0.990700 Bmag=12090.9050
+[trial 1 pair 1] diagnostic dd=+0.0600 dF=-0.317100 dBmag=-16.3998 dBvec=197.6348 verdict=bad_d_match
+[trial 2] contact_pos=-3.8100 F=-0.0300
+[trial 2 pair 1 direct_target] start d_target=4.3000 d_actual=4.2800 pos=-8.0900
+[trial 2 pair 1 direct_target] summary n=91 d=4.2800 F=1.337400 Bmag=12165.6573
+[trial 2 pair 1 preload_deep] start d_target=4.8000 d_actual=4.7800 pos=-8.5900
+[trial 2 pair 1 preload_deep] summary n=91 d=4.7800 F=2.099300 Bmag=13051.2923
+[trial 2 pair 1 return_target] start d_target=4.3000 d_actual=4.3400 pos=-8.1500
+[trial 2 pair 1 return_target] summary n=91 d=4.3400 F=1.020900 Bmag=12151.4093
+[trial 2 pair 1] diagnostic dd=+0.0600 dF=-0.316500 dBmag=-14.2480 dBvec=218.7841 verdict=bad_d_match
+[trial 3] contact_pos=-3.8300 F=-0.0307
+[trial 3 pair 1 direct_target] start d_target=4.3000 d_actual=4.2800 pos=-8.1100
+[trial 3 pair 1 direct_target] summary n=91 d=4.2800 F=1.356600 Bmag=12204.6397
+[trial 3 pair 1 preload_deep] start d_target=4.8000 d_actual=4.7800 pos=-8.6100
+[trial 3 pair 1 preload_deep] summary n=91 d=4.7800 F=2.148100 Bmag=13078.7864
+[trial 3 pair 1 return_target] start d_target=4.3000 d_actual=4.3400 pos=-8.1700
+[trial 3 pair 1 return_target] summary n=88 d=4.3400 F=1.045000 Bmag=12202.7431
+[trial 3 pair 1] diagnostic dd=+0.0600 dF=-0.311600 dBmag=-1.8966 dBvec=216.7360 verdict=bad_d_match

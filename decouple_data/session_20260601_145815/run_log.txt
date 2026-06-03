@@ -1,0 +1,26 @@
+# Stage I session 20260601_145815
+# D_HOLDS=[(75, 3.6), (90, 4.32), (100, 4.8)], HOLD_S=120.0, N_TRIALS=3
+# live_tare_N=-4.28920
+# B0=(721.5825592105263, 784.2209736842105, 4533.226460526315)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-3.5900 F=-0.0266
+[trial 1 hold 75] start d_target=3.6000 d_actual=3.5800 pos=-7.1700
+[trial 1 hold 75] done n=1365 d_end=3.5800 d_drift=+0.0000 dF=-0.051400 dB=-7.0066
+[trial 1 hold 90] start d_target=4.3200 d_actual=4.3000 pos=-7.8900
+[trial 1 hold 90] done n=1365 d_end=4.3000 d_drift=+0.0000 dF=-0.091600 dB=-14.7521
+[trial 1 hold 100] start d_target=4.8000 d_actual=4.7900 pos=-8.3800
+[trial 1 hold 100] done n=1364 d_end=4.7900 d_drift=+0.0000 dF=-0.130900 dB=-10.1365
+[trial 2] contact_pos=-3.6300 F=-0.0288
+[trial 2 hold 75] start d_target=3.6000 d_actual=3.5800 pos=-7.2100
+[trial 2 hold 75] done n=1365 d_end=3.5800 d_drift=+0.0000 dF=-0.044400 dB=-14.9726
+[trial 2 hold 90] start d_target=4.3200 d_actual=4.3100 pos=-7.9400
+[trial 2 hold 90] done n=1365 d_end=4.3100 d_drift=+0.0000 dF=-0.090400 dB=-9.1786
+[trial 2 hold 100] start d_target=4.8000 d_actual=4.7900 pos=-8.4200
+[trial 2 hold 100] done n=1366 d_end=4.7900 d_drift=+0.0000 dF=-0.133200 dB=-14.9668
+[trial 3] contact_pos=-3.5900 F=-0.0294
+[trial 3 hold 75] start d_target=3.6000 d_actual=3.5800 pos=-7.1700
+[trial 3 hold 75] done n=1365 d_end=3.5800 d_drift=+0.0000 dF=-0.035600 dB=-18.2651
+[trial 3 hold 90] start d_target=4.3200 d_actual=4.3000 pos=-7.8900
+[trial 3 hold 90] done n=1365 d_end=4.3000 d_drift=+0.0000 dF=-0.076200 dB=-8.5109
+[trial 3 hold 100] start d_target=4.8000 d_actual=4.7900 pos=-8.3800
+[trial 3 hold 100] done n=1365 d_end=4.7900 d_drift=+0.0000 dF=-0.124300 dB=-3.9946
