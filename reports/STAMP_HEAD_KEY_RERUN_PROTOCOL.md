@@ -162,7 +162,7 @@ python .\stageI_hold_disp.py
 Use:
 
 ```powershell
-python .\stageI_plus_same_d_diff_f.py
+python .\apmd_same_d_different_f_path_pair.py
 ```
 
 Current stamp-head config:

@@ -14,6 +14,7 @@ from typing import Sequence
 
 from identifiability_analysis import (
     PairColumnEstimate,
+    SAME_D_DIFF_F_SUMMARY_NAMES,
     jacobian_metrics,
     estimate_pair_column,
     pair_column_angle_check,
@@ -42,6 +43,15 @@ def _session_path(data_root: Path, session_name: str) -> Path:
     return path
 
 
+def _first_existing(path: Path, names: Sequence[str], label: str) -> Path:
+    for name in names:
+        candidate = path / name
+        if candidate.exists():
+            return candidate
+    joined = " or ".join(names)
+    raise FileNotFoundError(f"{label} pair summary not found: {path} ({joined})")
+
+
 def analyze_pair_sessions(
     data_root: Path,
     iplus_session: str,
@@ -51,16 +61,19 @@ def analyze_pair_sessions(
     min_jplus_pairs: int = 3,
     min_angle_deg: float = 30.0,
 ) -> KeyRerunResult:
-    i_path = _session_path(data_root, iplus_session) / "Iplus_pair_summary.csv"
+    i_session_path = _session_path(data_root, iplus_session)
+    i_path = _first_existing(
+        i_session_path,
+        SAME_D_DIFF_F_SUMMARY_NAMES,
+        "same-d/different-F",
+    )
     j_path = _session_path(data_root, jplus_session) / "Jplus_pair_summary.csv"
-    if not i_path.exists():
-        raise FileNotFoundError(f"I+ pair summary not found: {i_path}")
     if not j_path.exists():
         raise FileNotFoundError(f"J+ pair summary not found: {j_path}")
 
     force = estimate_pair_column(
         read_csv(i_path),
-        stage_name=f"I+ ({iplus_session})",
+        stage_name=f"same-d/different-F ({iplus_session})",
         denominator_col="delta_F_N",
         required_flags=("same_d_ok", "force_split_ok", "b_signal_ok"),
         output_unit="uT/N",

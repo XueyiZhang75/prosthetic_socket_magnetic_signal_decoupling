@@ -1,0 +1,9 @@
+# APMD same-F path-dose 3.4A session 20260613_183901
+# TARGET_F_N=3.75, PRELOAD_EXTRA_MM=[0.3], TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, TRIALS_PER_EXTRA=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.88670
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[extra 0.30 trial 1] B0=(-485.1691854304636, 3346.9834966887415, 2435.0838874172186) n=151
+[extra 0.30 trial 2] B0=(-486.4189470198676, 3340.2252450331125, 2426.1860397350993) n=151
+[extra 0.30 trial 3] B0=(-485.9134701986755, 3340.2093642384107, 2426.121834437086) n=151

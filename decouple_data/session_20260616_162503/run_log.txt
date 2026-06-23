@@ -1,0 +1,4 @@
+# APMD repeated-loading branch control session 20260616_162503
+# session_id=session_20260616_162503
+# status=error
+ERROR: MLX90393 required for APMD repeated-loading control 7.2. MLX warmup before opening motion hardware: 0 valid MLX90393 CSV

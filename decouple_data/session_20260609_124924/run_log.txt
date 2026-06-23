@@ -1,0 +1,18 @@
+# APMD fixed-force passive creep session 20260609_124924
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(450, 4.5)], HOLD_S=180.0, N_TRIALS=3
+# live_tare_N=-2.95440
+# B0=(-459.5092715231788, 2853.9370397350995, 3279.1543774834436)
+# trial_start_pos=-0.0000
+[trial 1 hold 450] contact_pos=-1.5900 F=0.1819 baseline=0.1014 dF_base=0.0805 dF_step=0.0367 slope=0.4072
+[trial 1 hold 450 acquire] iter=1 targetF=4.5000 F=0.1765 err=4.3235 d=0.0000 pos=-1.5900
+[trial 1 hold 450 acquire] iter=2 targetF=4.5000 F=0.3041 err=4.1959 d=0.2900 pos=-1.8800
+[trial 1 hold 450 acquire] iter=3 targetF=4.5000 F=0.4721 err=4.0279 d=0.5900 pos=-2.1800
+[trial 1 hold 450 acquire] iter=4 targetF=4.5000 F=0.7223 err=3.7777 d=0.8900 pos=-2.4800
+[trial 1 hold 450 acquire] iter=5 targetF=4.5000 F=1.0398 err=3.4602 d=1.1800 pos=-2.7700
+[trial 1 hold 450 acquire] iter=6 targetF=4.5000 F=1.4433 err=3.0567 d=1.4600 pos=-3.0500
+[trial 1 hold 450 acquire] iter=7 targetF=4.5000 F=1.9721 err=2.5279 d=1.7400 pos=-3.3300
+[trial 1 hold 450 acquire] iter=8 targetF=4.5000 F=2.6035 err=1.8965 d=2.0200 pos=-3.6100
+[trial 1 hold 450 acquire] iter=9 targetF=4.5000 F=3.4516 err=1.0484 d=2.3000 pos=-3.8900
+[trial 1 hold 450 acquire] iter=10 targetF=4.5000 F=4.5416 err=-0.0416 d=2.5800 pos=-4.1700
+[trial 1 hold 450] correction error: stalled at pos=0.097 mm, target=-4.190 mm

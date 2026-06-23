@@ -1,0 +1,45 @@
+# APMD same-F path-dose 3.4A session 20260613_140430
+# TARGET_F_N=3.75, PRELOAD_EXTRA_MM=[0.2], TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, TRIALS_PER_EXTRA=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.86780
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[extra 0.20 trial 1] B0=(-466.14149044585986, 3244.8819363057323, 2214.6667006369426) n=157
+[trial 1 extra 020] contact_pos=-1.5700 F=0.1693 baseline=0.0784 dF_base=0.0908 dF_step=0.0339 slope=0.4843
+[trial 1 pair 375 loading_target acquire] iter=1 targetF=3.7500 F=0.1687 err=3.5813 d=0.0000 pos=-1.5700
+[trial 1 pair 375 loading_target acquire] iter=2 targetF=3.7500 F=0.2218 err=3.5282 d=0.1400 pos=-1.7100
+[trial 1 pair 375 loading_target acquire] iter=3 targetF=3.7500 F=0.2824 err=3.4676 d=0.2900 pos=-1.8600
+[trial 1 pair 375 loading_target acquire] iter=4 targetF=3.7500 F=0.3495 err=3.4005 d=0.4400 pos=-2.0100
+[trial 1 pair 375 loading_target acquire] iter=5 targetF=3.7500 F=0.4200 err=3.3300 d=0.5800 pos=-2.1500
+[trial 1 pair 375 loading_target acquire] iter=6 targetF=3.7500 F=0.4954 err=3.2546 d=0.7200 pos=-2.2900
+[trial 1 pair 375 loading_target acquire] iter=7 targetF=3.7500 F=0.5848 err=3.1652 d=0.8700 pos=-2.4400
+[trial 1 pair 375 loading_target acquire] iter=8 targetF=3.7500 F=0.7006 err=3.0494 d=1.0200 pos=-2.5900
+[trial 1 pair 375 loading_target acquire] iter=9 targetF=3.7500 F=0.8347 err=2.9153 d=1.1700 pos=-2.7400
+[trial 1 pair 375 loading_target acquire] iter=10 targetF=3.7500 F=0.9887 err=2.7613 d=1.3200 pos=-2.8900
+[trial 1 pair 375 loading_target acquire] iter=11 targetF=3.7500 F=1.1666 err=2.5834 d=1.4600 pos=-3.0300
+[trial 1 pair 375 loading_target acquire] iter=12 targetF=3.7500 F=1.3519 err=2.3981 d=1.6000 pos=-3.1700
+[trial 1 pair 375 loading_target acquire] iter=13 targetF=3.7500 F=1.5675 err=2.1825 d=1.7400 pos=-3.3100
+[trial 1 pair 375 loading_target acquire] iter=14 targetF=3.7500 F=1.8000 err=1.9500 d=1.8900 pos=-3.4600
+[trial 1 pair 375 loading_target acquire] iter=15 targetF=3.7500 F=2.0916 err=1.6584 d=2.0400 pos=-3.6100
+[trial 1 pair 375 loading_target acquire] iter=16 targetF=3.7500 F=2.4477 err=1.3023 d=2.1800 pos=-3.7500
+[trial 1 pair 375 loading_target acquire] iter=17 targetF=3.7500 F=2.7921 err=0.9579 d=2.3200 pos=-3.8900
+[trial 1 pair 375 loading_target acquire] iter=18 targetF=3.7500 F=3.2066 err=0.5434 d=2.4600 pos=-4.0300
+[trial 1 pair 375 loading_target acquire] iter=19 targetF=3.7500 F=3.5495 err=0.2005 d=2.5600 pos=-4.1300
+[trial 1 pair 375 loading_target acquire] iter=20 targetF=3.7500 F=3.7786 err=-0.0286 d=2.6200 pos=-4.1900
+[trial 1 pair 1 loading_target] start targetF=3.7500 d_actual=2.6200 pos=-4.1900
+[trial 1 pair 1 loading_target] summary n=113 F=3.644500 d=2.6200 Bmag=8589.4190
+[trial 1 pair 1 preload_deep] start targetF=3.7500 d_actual=2.8100 pos=-4.3800
+[trial 1 pair 1 preload_deep] summary n=113 F=4.429600 d=2.8100 Bmag=9035.5028
+[trial 1 pair 375 unloading_target acquire] iter=1 targetF=3.6445 F=4.4182 err=-0.7737 d=2.8100 pos=-4.3800
+[trial 1 pair 375 unloading_target acquire] iter=2 targetF=3.6445 F=3.2091 err=0.4354 d=2.6600 pos=-4.2300
+[trial 1 pair 375 unloading_target acquire] wide_bracket best_err=0.4354 tol=0.0500 mid_pos=-4.3050
+[trial 1 pair 375 unloading_target acquire] iter=3 targetF=3.6445 F=3.7468 err=-0.1023 d=2.7200 pos=-4.2900
+[trial 1 pair 375 unloading_target acquire] iter=4 targetF=3.6445 F=3.3621 err=0.2824 d=2.6800 pos=-4.2500
+[trial 1 pair 375 unloading_target acquire] wide_bracket best_err=-0.1023 tol=0.0500 mid_pos=-4.2700
+[trial 1 pair 375 unloading_target acquire] iter=5 targetF=3.6445 F=3.3675 err=0.2770 d=2.6800 pos=-4.2500
+[trial 1 pair 375 unloading_target acquire] iter=6 targetF=3.6445 F=4.0225 err=-0.3780 d=2.7400 pos=-4.3100
+[trial 1 pair 375 unloading_target acquire] wide_bracket best_err=0.2770 tol=0.0500 mid_pos=-4.2800
+[trial 1 pair 375 unloading_target acquire] iter=7 targetF=3.6445 F=3.6228 err=0.0217 d=2.7200 pos=-4.2900
+[trial 1 pair 1 unloading_target] start targetF=3.6445 d_actual=2.7200 pos=-4.2900
+[trial 1 pair 1 unloading_target] summary n=113 F=3.618800 d=2.7200 Bmag=8862.9331
+[extra 0.20 trial 1] diagnostic dF=-0.025700 dd=+0.1000 dBmag=+273.5142 dBvec=277.0661 verdict=weak_disp_split

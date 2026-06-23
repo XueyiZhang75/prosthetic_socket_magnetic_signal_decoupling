@@ -58,7 +58,7 @@ MLX_RETRY_WAIT_S = 0.5
 
 # --- Stage I hold settings ---
 N_TRIALS = 3
-D_HOLDS = [(160, 1.60)]
+D_HOLDS = [(280, 2.80)]
 HOLD_S = 120.0
 HOLD_PRE_SETTLE_S = 5.0
 HOLD_STREAM_DISCARD_S = 1.0
@@ -77,7 +77,7 @@ CONTACT_SLOPE_N_PER_MM = 0.12
 PRECONTACT_FORCE_ABORT_N = 0.30
 
 # --- Safety ---
-F_HARD_LIMIT_N = 5.0
+F_HARD_LIMIT_N = None
 
 # --- No-contact sanity ---
 EXPECTED_NO_CONTACT_LIVE_TARE_N = -2.90
@@ -492,7 +492,8 @@ def main():
     print()
     print("Pre-flight:")
     print("  [ ] Sample (bag + magnet) on MLX, same setup as Stage H")
-    print("  [ ] Mark-10 at start position (3-5 mm air gap above bag)")
+    print("  [ ] Mark-10 at start position about 6 mm above lower limit")
+    print("  [ ] Clear visible gap above the sample at the start position")
     print("  [ ] EasyMESUR Home -> PC Control ACTIVE")
     print("  [ ] Arduino IDE Serial Monitor on UNO CLOSED")
     print("  [ ] QT Py / MLX running circuitpython/code.py")

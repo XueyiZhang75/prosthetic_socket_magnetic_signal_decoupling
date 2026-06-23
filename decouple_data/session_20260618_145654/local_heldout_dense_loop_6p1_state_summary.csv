@@ -1,0 +1,1 @@
+session_id,sample_id,magnet_id,head_id,force_calibration_id,displacement_zero_id,cycle,state_index,branch,state_label,path_mode,phase,d_target_mm,d_preload_mm,record_s,summary_window_s,n,d_median_mm,F_median_N,Bmag_median_uT,Bx_median_uT,By_median_uT,Bz_median_uT,delta_Bx_median_uT,delta_By_median_uT,delta_Bz_median_uT

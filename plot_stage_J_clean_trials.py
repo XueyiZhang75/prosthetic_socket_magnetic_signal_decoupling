@@ -36,21 +36,21 @@ TRIALS = [
         "rep": 3,
         "label": "trial 1",
         "note": "clean",
-        "color": "#2f6f8f",
+        "color": "#d62728",
     },
     {
         "session": "session_20260603_124327",
         "rep": 1,
         "label": "trial 2",
         "note": "clean",
-        "color": "#6b8e23",
+        "color": "#000000",
     },
     {
         "session": "session_20260603_124327",
         "rep": 2,
         "label": "trial 3",
         "note": "clean",
-        "color": "#9a6b3f",
+        "color": "#1f77b4",
     },
 ]
 

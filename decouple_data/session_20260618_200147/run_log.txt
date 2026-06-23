@@ -1,0 +1,15 @@
+# APMD high-force same-F local sensitivity session 20260618_200147
+# F_TARGETS=[(1000, 10.0)], D_PRELOAD_EXTRA_MM=0.0, D_PRELOAD_FIXED_MM=3.8, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.88990
+# B0=(-414.54581456953645, 1910.780986754967, 3287.276430463576)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 1000] contact_pos=-2.0000 F=0.1440 baseline=0.0605 dF_base=0.0835 dF_step=0.0329 slope=0.3290
+[trial 1 pair 1000 loading_target acquire] iter=1 targetF=10.0000 F=0.1431 err=9.8569 d=0.0000 pos=-2.0000
+[trial 1 pair 1000 loading_target acquire] iter=2 targetF=10.0000 F=0.2134 err=9.7866 d=0.1500 pos=-2.1500
+[trial 1 pair 1000 loading_target acquire] iter=3 targetF=10.0000 F=0.2916 err=9.7084 d=0.2900 pos=-2.2900
+[trial 1 pair 1000 loading_target acquire] iter=4 targetF=10.0000 F=0.3831 err=9.6169 d=0.4400 pos=-2.4400
+[trial 1 pair 1000 loading_target acquire] iter=5 targetF=10.0000 F=0.4935 err=9.5065 d=0.5900 pos=-2.5900
+[trial 1 pair 1000] incomplete status=loading_mark10_error:stalled at pos=0.153 mm, target=-2.750 mm
+# formal registry skipped: not registered: 0/3 usable strong pairs, 0/3 total pairs

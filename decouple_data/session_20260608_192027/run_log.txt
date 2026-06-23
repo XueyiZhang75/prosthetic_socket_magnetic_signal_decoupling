@@ -1,0 +1,15 @@
+# Stage I session 20260608_192027
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# D_HOLDS=[(280, 2.8)], HOLD_S=120.0, N_TRIALS=3
+# live_tare_N=-2.95310
+# B0=(-442.5578874172185, 2826.7762913907286, 3140.6020397350994)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-1.5900 F=0.2202 baseline=0.1294 dF_base=0.0908 dF_step=0.0383 slope=0.4256
+[trial 1 hold 280] start d_target=2.8000 d_actual=2.7900 pos=-4.3800
+[trial 1 hold 280] done n=1355 d_end=2.7900 d_drift=+0.0000 dF=-0.298100 dB=+9.5428
+[trial 2] contact_pos=-1.6100 F=0.2298 baseline=0.1310 dF_base=0.0988 dF_step=0.0460 slope=0.4600
+[trial 2 hold 280] start d_target=2.8000 d_actual=2.7900 pos=-4.4000
+[trial 2 hold 280] done n=1364 d_end=2.7900 d_drift=+0.0000 dF=-0.300100 dB=-6.6642
+[trial 3] contact_pos=-1.6300 F=0.2337 baseline=0.1365 dF_base=0.0972 dF_step=0.0321 slope=0.3215
+[trial 3 hold 280] start d_target=2.8000 d_actual=2.7900 pos=-4.4200
+[trial 3 hold 280] done n=1364 d_end=2.7900 d_drift=+0.0000 dF=-0.309100 dB=+2.9132

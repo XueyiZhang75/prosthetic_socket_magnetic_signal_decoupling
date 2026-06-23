@@ -1,6 +1,6 @@
 """Stage O-mini v2b -- same-d / different-F held-out blind acquisition.
 
-This script reuses the validated Stage I+ path protocol:
+This script reuses the validated APMD same-d / different-F path protocol:
 
     direct loading to target d
     preload deeper
@@ -13,7 +13,7 @@ accidentally used as calibration.
 
 from __future__ import annotations
 
-import stageI_plus_same_d_diff_f as iplus
+import apmd_same_d_different_f_path_pair as same_d_path
 
 
 HELDOUT_D_TARGETS_MM = [1.50]
@@ -23,33 +23,33 @@ HELDOUT_D_PRELOAD_BY_TARGET_MM = {
 
 
 def configure_protocol() -> None:
-    iplus.PROTOCOL_TITLE = (
+    same_d_path.PROTOCOL_TITLE = (
         "Stage O-mini v2b -- same-d / different-F held-out blind probe"
     )
-    iplus.PROTOCOL_SHORT_NAME = "Stage O-mini v2b"
-    iplus.STAGE_LABEL = "O_blind"
-    iplus.LOG_HEADER = "Stage O-mini v2b same-d held-out session"
-    iplus.SUMMARY_FILENAME = "O_blind_same_d_pair_summary.csv"
-    iplus.STATE_FILE_PREFIX = "O_blind_same_d"
-    iplus.CSV_PRINT_GLOB = "O_blind*.csv"
-    iplus.PREFLIGHT_FIRST_LINE = (
+    same_d_path.PROTOCOL_SHORT_NAME = "Stage O-mini v2b"
+    same_d_path.STAGE_LABEL = "O_blind"
+    same_d_path.LOG_HEADER = "Stage O-mini v2b same-d held-out session"
+    same_d_path.SUMMARY_FILENAME = "O_blind_same_d_pair_summary.csv"
+    same_d_path.STATE_FILE_PREFIX = "O_blind_same_d"
+    same_d_path.CSV_PRINT_GLOB = "O_blind*.csv"
+    same_d_path.PREFLIGHT_FIRST_LINE = (
         "This is a NEW same-d held-out O-mini blind pilot, not calibration"
     )
-    iplus.NEXT_MESSAGE = ""
+    same_d_path.NEXT_MESSAGE = ""
 
-    iplus.N_TRIALS = 1
-    iplus.D_TARGETS_MM = list(HELDOUT_D_TARGETS_MM)
-    iplus.D_PRELOAD_BY_TARGET_MM = dict(HELDOUT_D_PRELOAD_BY_TARGET_MM)
-    iplus.D_PRELOAD_MM = 1.80
+    same_d_path.N_TRIALS = 1
+    same_d_path.D_TARGETS_MM = list(HELDOUT_D_TARGETS_MM)
+    same_d_path.D_PRELOAD_BY_TARGET_MM = dict(HELDOUT_D_PRELOAD_BY_TARGET_MM)
+    same_d_path.D_PRELOAD_MM = 1.80
 
-    iplus.TARGET_RECORD_S = 20.0
-    iplus.PRELOAD_RECORD_S = 10.0
-    iplus.SUMMARY_WINDOW_S = 5.0
+    same_d_path.TARGET_RECORD_S = 20.0
+    same_d_path.PRELOAD_RECORD_S = 10.0
+    same_d_path.SUMMARY_WINDOW_S = 5.0
 
 
 def main() -> None:
     configure_protocol()
-    iplus.main()
+    same_d_path.main()
 
 
 if __name__ == "__main__":

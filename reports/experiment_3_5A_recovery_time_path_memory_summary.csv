@@ -1,0 +1,4 @@
+recovery_s,n,strong_count,same_d_count,force_split_count,b_signal_count,median_abs_d_diff_mm,median_F_direct_N,median_F_return_N,median_delta_F_N,median_abs_delta_F_N,median_abs_delta_F_mN,std_abs_delta_F_mN,median_delta_Bmag_uT,median_delta_Bx_uT,median_delta_By_uT,median_delta_Bz_uT,median_delta_Bvec_uT,std_delta_Bvec_uT,median_Bvec_per_absF_uT_per_N
+30.0,3,3,3,3,3,0.02,10.7091,8.5845,-2.1246,2.1246,2124.6,32.4609851291602,234.665,-12.02,224.171,116.16,253.4339,3.5955970939778887,119.28546549938811
+120.0,3,3,3,3,3,0.0,10.4702,8.3928,-2.0774,2.0774,2077.4,13.382596492792004,221.1065,-13.823,216.361,104.549,240.6919,1.9215643840949497,115.86208722441513
+300.0,3,3,3,3,3,0.0,10.2122,8.1922,-2.0672,2.0672,2067.2000000000003,34.95892828258143,215.723,-13.823,201.935,100.677,230.5345,7.9127667990125685,111.52017221362229

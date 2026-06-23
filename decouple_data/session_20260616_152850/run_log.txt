@@ -1,0 +1,29 @@
+# APMD no-contact motion artifact control 20260616_152850
+# target_d=3.4000, preload_d=3.8000, replay_contact_depth=1.6200
+# replay_relative_positions=[-5.02, -5.42, -5.02]
+# live_tare_N=-2.84970
+# B0_start=(-449.19641666666666, 2605.260544871795, 2585.174064102564)
+# trial_start_pos=-0.0000
+[trial 1 direct_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 1 direct_target] summary n=113 F=0.045900 Bmag=3701.6324
+[trial 1 preload_deep] start nominal_d=3.8000 pos=-5.4200 motion_depth=5.4200
+[trial 1 preload_deep] summary n=113 F=0.059600 Bmag=3705.3347
+[trial 1 return_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 1 return_target] summary n=113 F=0.035100 Bmag=3702.6519
+[trial 1] no-contact diagnostic dBvec=1.6568 verdict=low_motion_artifact
+[trial 2 direct_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 2 direct_target] summary n=113 F=0.043300 Bmag=3700.4737
+[trial 2 preload_deep] start nominal_d=3.8000 pos=-5.4200 motion_depth=5.4200
+[trial 2 preload_deep] summary n=113 F=0.057400 Bmag=3705.3220
+[trial 2 return_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 2 return_target] summary n=113 F=0.034000 Bmag=3700.2514
+[trial 2] no-contact diagnostic dBvec=1.2887 verdict=low_motion_artifact
+[trial 3 direct_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 3 direct_target] summary n=113 F=0.042600 Bmag=3699.1156
+[trial 3 preload_deep] start nominal_d=3.8000 pos=-5.4200 motion_depth=5.4200
+[trial 3 preload_deep] summary n=113 F=0.057300 Bmag=3704.1257
+[trial 3 return_target] start nominal_d=3.4000 pos=-5.0100 motion_depth=5.0100
+[trial 3 return_target] summary n=113 F=0.033500 Bmag=3699.6749
+[trial 3] no-contact diagnostic dBvec=2.0281 verdict=low_motion_artifact
+# B0_end=(-449.3697820512821, 2608.465923076923, 2584.156391025641)
+# B0_drift_dBvec=3.3675 drift_ok=True

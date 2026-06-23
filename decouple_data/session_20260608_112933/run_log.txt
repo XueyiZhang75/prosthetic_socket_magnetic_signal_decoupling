@@ -1,0 +1,32 @@
+# APMD same-d/different-F active path-pair session 20260608_112933
+# D_TARGETS_MM=[1.6], D_PRELOAD_BY_TARGET_MM={1.6: 1.9}, D_PRELOAD_MM=1.9
+# TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, N_TRIALS=3
+# live_tare_N=-2.89430
+# B0=(-836.4914840764332, 6508.449337579617, 3098.543121019108)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-1.5000 F=0.1730 baseline=0.0758 dF_base=0.0972 dF_step=0.0478 slope=0.4341
+[trial 1 pair 1 direct_target] start d_target=1.6000 d_actual=1.5900 pos=-3.0900
+[trial 1 pair 1 direct_target] summary n=114 d=1.5900 F=2.053100 Bmag=10999.2140
+[trial 1 pair 1 preload_deep] start d_target=1.9000 d_actual=1.8900 pos=-3.3900
+[trial 1 pair 1 preload_deep] summary n=114 d=1.8900 F=2.897300 Bmag=11863.1804
+[trial 1 pair 1 return_target] start d_target=1.6000 d_actual=1.5900 pos=-3.0900
+[trial 1 pair 1 return_target] summary n=114 d=1.5900 F=1.573300 Bmag=11018.0102
+[trial 1 pair 1] diagnostic dd=+0.0000 dF=-0.479800 dBmag=+18.7962 dBvec=22.0908 verdict=force_split_only
+[trial 2] contact_pos=-1.5900 F=0.1825 baseline=0.0711 dF_base=0.1114 dF_step=0.0487 slope=0.5417
+[trial 2 pair 1 direct_target] start d_target=1.6000 d_actual=1.5800 pos=-3.1700
+[trial 2 pair 1 direct_target] summary n=114 d=1.5800 F=2.280350 Bmag=11238.4234
+[trial 2 pair 1 preload_deep] start d_target=1.9000 d_actual=1.8900 pos=-3.4800
+[trial 2 pair 1 preload_deep] summary n=114 d=1.8900 F=3.216100 Bmag=12094.7212
+[trial 2 pair 1 return_target] start d_target=1.6000 d_actual=1.6000 pos=-3.1900
+[trial 2 pair 1 return_target] summary n=114 d=1.6000 F=1.760100 Bmag=11249.5334
+[trial 2 pair 1] diagnostic dd=+0.0200 dF=-0.520250 dBmag=+11.1101 dBvec=18.3400 verdict=bad_d_match
+[trial 3] contact_pos=-1.5300 F=0.1595 baseline=0.0707 dF_base=0.0888 dF_step=0.0427 slope=0.4270
+[trial 3 pair 1 direct_target] start d_target=1.6000 d_actual=1.5800 pos=-3.1100
+[trial 3 pair 1 direct_target] summary n=114 d=1.5800 F=2.145600 Bmag=11064.7208
+[trial 3 pair 1 preload_deep] start d_target=1.9000 d_actual=1.8800 pos=-3.4100
+[trial 3 pair 1 preload_deep] summary n=114 d=1.8800 F=3.049650 Bmag=11911.8061
+[trial 3 pair 1 return_target] start d_target=1.6000 d_actual=1.6000 pos=-3.1300
+[trial 3 pair 1 return_target] summary n=114 d=1.6000 F=1.653300 Bmag=11068.6257
+[trial 3 pair 1] diagnostic dd=+0.0200 dF=-0.492300 dBmag=+3.9049 dBvec=11.4822 verdict=bad_d_match
+# formal registry skipped: not registered: 0/3 usable strong pairs, 3/3 total pairs

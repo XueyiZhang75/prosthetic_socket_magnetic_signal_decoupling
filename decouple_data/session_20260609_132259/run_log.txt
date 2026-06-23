@@ -1,0 +1,35 @@
+# APMD fixed-force passive creep session 20260609_132259
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(450, 4.5)], HOLD_S=180.0, N_TRIALS=3
+# live_tare_N=-2.94320
+# B0=(-466.57934, 2871.1842733333333, 3318.5942999999997)
+# trial_start_pos=-0.0000
+[trial 1 hold 450] contact_pos=-1.6900 F=0.2032 baseline=0.1116 dF_base=0.0916 dF_step=0.0394 slope=0.3940
+[trial 1 hold 450 acquire] iter=1 targetF=4.5000 F=0.1987 err=4.3013 d=0.0000 pos=-1.6900
+[trial 1 hold 450 acquire_move] iter=1 step=0.3000 before_pos=-1.6900 after_pos=-1.9700 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=2 targetF=4.5000 F=0.3367 err=4.1633 d=0.2800 pos=-1.9700
+[trial 1 hold 450 acquire_move] iter=2 step=0.3000 before_pos=-1.9700 after_pos=-2.2500 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=3 targetF=4.5000 F=0.5096 err=3.9904 d=0.5600 pos=-2.2500
+[trial 1 hold 450 acquire_move] iter=3 step=0.3000 before_pos=-2.2500 after_pos=-2.5300 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=4 targetF=4.5000 F=0.7561 err=3.7439 d=0.8400 pos=-2.5300
+[trial 1 hold 450 acquire_move] iter=4 step=0.3000 before_pos=-2.5300 after_pos=-2.8100 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=5 targetF=4.5000 F=1.0603 err=3.4397 d=1.1200 pos=-2.8100
+[trial 1 hold 450 acquire_move] iter=5 step=0.3000 before_pos=-2.8100 after_pos=-3.0900 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=6 targetF=4.5000 F=1.4749 err=3.0251 d=1.4000 pos=-3.0900
+[trial 1 hold 450 acquire_move] iter=6 step=0.3000 before_pos=-3.0900 after_pos=-3.3700 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=7 targetF=4.5000 F=1.9966 err=2.5034 d=1.6800 pos=-3.3700
+[trial 1 hold 450 acquire_move] iter=7 step=0.3000 before_pos=-3.3700 after_pos=-3.6500 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=8 targetF=4.5000 F=2.6681 err=1.8319 d=1.9600 pos=-3.6500
+[trial 1 hold 450 acquire_move] iter=8 step=0.3000 before_pos=-3.6500 after_pos=-3.9300 moved=-0.2800 no_motion=0
+[trial 1 hold 450 acquire] iter=9 targetF=4.5000 F=3.5254 err=0.9746 d=2.2400 pos=-3.9300
+[trial 1 hold 450 acquire_move] iter=9 step=0.2200 before_pos=-3.9300 after_pos=-4.1300 moved=-0.2000 no_motion=0
+[trial 1 hold 450 acquire] iter=10 targetF=4.5000 F=4.2959 err=0.2041 d=2.4400 pos=-4.1300
+[trial 1 hold 450 acquire_move] iter=10 step=0.0200 before_pos=-4.1300 after_pos=-4.1300 moved=+0.0000 no_motion=1
+[trial 1 hold 450 acquire] iter=11 targetF=4.5000 F=4.2282 err=0.2718 d=2.4400 pos=-4.1300
+[trial 1 hold 450 acquire_move] iter=11 step=0.1400 before_pos=-4.1300 after_pos=-4.2500 moved=-0.1200 no_motion=0
+[trial 1 hold 450 acquire] iter=12 targetF=4.5000 F=4.8366 err=-0.3366 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire_move] iter=12 step=0.0200 before_pos=-4.2500 after_pos=-4.2300 moved=+0.0200 no_motion=0
+[trial 1 hold 450 acquire] iter=13 targetF=4.5000 F=4.4354 err=0.0646 d=2.5400 pos=-4.2300
+[trial 1 hold 450 acquire_move] iter=13 step=0.0200 before_pos=-4.2300 after_pos=-4.2300 moved=+0.0000 no_motion=1
+[trial 1 hold 450 acquire] iter=14 targetF=4.5000 F=4.4741 err=0.0259 d=2.5400 pos=-4.2300
+[trial 1 hold 450] correction error: stalled at pos=0.095 mm, target=-4.250 mm

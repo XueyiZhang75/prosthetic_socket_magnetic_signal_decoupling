@@ -1,0 +1,4 @@
+d_target_mm,d_preload_mm,preload_extra_mm,n,same_d_pass,strong_pass,mean_abs_delta_F_N,sem_abs_delta_F_N,mean_delta_Bvec_uT,sem_delta_Bvec_uT,mean_delta_Bmag_uT,median_delta_Bx_uT,median_delta_By_uT,median_delta_Bz_uT,mean_Bvec_per_absF_uT_per_N
+3.4000,3.6000,0.2000,3,3,3,1.003667,0.022521,166.280000,9.481520,160.359967,-0.601000,137.025000,90.025000,165.672534
+3.4000,3.7000,0.3000,3,3,3,1.283667,0.010882,205.848867,1.575367,187.712267,-4.207000,187.514000,81.312000,160.360062
+3.4000,3.8000,0.4000,3,3,3,1.518800,0.002858,242.562267,1.483701,208.507400,-7.212000,230.786000,73.568000,159.706523

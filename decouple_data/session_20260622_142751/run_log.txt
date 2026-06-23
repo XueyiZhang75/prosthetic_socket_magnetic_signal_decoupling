@@ -1,0 +1,12 @@
+# APMD local minor-loop 5.1B L session 20260622_142751
+# D_GRID_MM=[2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0], PRELOAD_D_MM=3.2
+# STATE_RECORD_S=15.0, PRELOAD_RECORD_S=30.0, N_CYCLES=5
+# live_tare_N=-2.90530
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[cycle 1] B0=(-423.3059867549669, 1918.2636357615895, 3225.747761589404) n=151
+[cycle 2] B0=(-426.3733766233766, 1916.1665194805196, 3220.347318181818) n=154
+[cycle 3] B0=(-426.5816357615894, 1915.0158476821193, 3217.881821192053) n=151
+[cycle 4] B0=(-426.7846225165563, 1914.9442052980132, 3217.2663841059602) n=151
+[cycle 5] B0=(-426.5537748344371, 1914.6019139072848, 3216.7727947019866) n=151
+# formal registry skipped: not registered: 0/75 planned dense-loop states completed

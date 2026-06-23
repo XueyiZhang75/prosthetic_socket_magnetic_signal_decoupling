@@ -24,6 +24,7 @@ import numpy as np
 
 B_COLS = ("delta_Bx_uT", "delta_By_uT", "delta_Bz_uT")
 STATE_FILE_PATTERNS = (
+    "same_d_different_f_*_rep*.csv",
     "Iplus_same_d_*_rep*.csv",
     "Jplus_same_F_*_rep*.csv",
     "Blind_*_rep*.csv",

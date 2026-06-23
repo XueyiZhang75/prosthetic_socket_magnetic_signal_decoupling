@@ -1,0 +1,13 @@
+# APMD fixed-force passive creep session 20260609_125614
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(450, 4.5)], HOLD_S=180.0, N_TRIALS=3
+# live_tare_N=-2.95360
+# B0=(-463.8834370860927, 2872.695337748344, 3323.624761589404)
+# trial_start_pos=-0.0000
+[trial 1 hold 450] contact_pos=-1.6900 F=0.2109 baseline=0.1164 dF_base=0.0945 dF_step=0.0350 slope=0.3505
+[trial 1 hold 450 acquire] iter=1 targetF=4.5000 F=0.2070 err=4.2930 d=0.0000 pos=-1.6900
+[trial 1 hold 450 acquire] iter=2 targetF=4.5000 F=0.3437 err=4.1563 d=0.2800 pos=-1.9700
+[trial 1 hold 450 acquire] iter=3 targetF=4.5000 F=0.5087 err=3.9913 d=0.5600 pos=-2.2500
+[trial 1 hold 450 acquire] iter=4 targetF=4.5000 F=0.7623 err=3.7377 d=0.8400 pos=-2.5300
+[trial 1 hold 450 acquire] iter=5 targetF=4.5000 F=1.0691 err=3.4309 d=1.1200 pos=-2.8100
+[trial 1 hold 450] acquire failed status=mark10_error:stalled at pos=0.138 mm, target=-3.110 mm

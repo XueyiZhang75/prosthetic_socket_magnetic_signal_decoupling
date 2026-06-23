@@ -1,0 +1,34 @@
+# APMD same-F/different-d single force point 2.00 N session 20260610_163438
+# F_TARGETS=[(200, 2.0)], D_PRELOAD_EXTRA_MM=0.3, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.88100
+# B0=(-434.12000662251654, 3552.6169933774836, 1720.5011523178807)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 200] contact_pos=-1.5000 F=0.1171 baseline=0.0323 dF_base=0.0848 dF_step=0.0350 slope=0.3182
+[trial 1 pair 200 loading_target acquire] iter=1 targetF=2.0000 F=0.1163 err=1.8837 d=0.0000 pos=-1.5000
+[trial 1 pair 200 loading_target acquire] iter=2 targetF=2.0000 F=0.1897 err=1.8103 d=0.1500 pos=-1.6500
+[trial 1 pair 200 loading_target acquire] iter=3 targetF=2.0000 F=0.2592 err=1.7408 d=0.2900 pos=-1.7900
+[trial 1 pair 200 loading_target acquire] iter=4 targetF=2.0000 F=0.3322 err=1.6678 d=0.4300 pos=-1.9300
+[trial 1 pair 200 loading_target acquire] iter=5 targetF=2.0000 F=0.4088 err=1.5912 d=0.5700 pos=-2.0700
+[trial 1 pair 200 loading_target acquire] iter=6 targetF=2.0000 F=0.4930 err=1.5070 d=0.7200 pos=-2.2200
+[trial 1 pair 200 loading_target acquire] iter=7 targetF=2.0000 F=0.5968 err=1.4032 d=0.8500 pos=-2.3500
+[trial 1 pair 200 loading_target acquire] iter=8 targetF=2.0000 F=0.7007 err=1.2993 d=1.0000 pos=-2.5000
+[trial 1 pair 200 loading_target acquire] iter=9 targetF=2.0000 F=0.8335 err=1.1665 d=1.1500 pos=-2.6500
+[trial 1 pair 200 loading_target acquire] iter=10 targetF=2.0000 F=0.9942 err=1.0058 d=1.2900 pos=-2.7900
+[trial 1 pair 200 loading_target acquire] iter=11 targetF=2.0000 F=1.1704 err=0.8296 d=1.4300 pos=-2.9300
+[trial 1 pair 200 loading_target acquire] iter=12 targetF=2.0000 F=1.3673 err=0.6327 d=1.5700 pos=-3.0700
+[trial 1 pair 200 loading_target acquire] iter=13 targetF=2.0000 F=1.5248 err=0.4752 d=1.6700 pos=-3.1700
+[trial 1 pair 200 loading_target acquire] iter=14 targetF=2.0000 F=1.6958 err=0.3042 d=1.7700 pos=-3.2700
+[trial 1 pair 200 loading_target acquire] iter=15 targetF=2.0000 F=1.8139 err=0.1861 d=1.8300 pos=-3.3300
+[trial 1 pair 200 loading_target acquire] iter=16 targetF=2.0000 F=1.9282 err=0.0718 d=1.8900 pos=-3.3900
+[trial 1 pair 200 loading_target acquire] iter=17 targetF=2.0000 F=1.9873 err=0.0127 d=1.9100 pos=-3.4100
+[trial 1 pair 1 loading_target] start targetF=2.0000 d_actual=1.9100 pos=-3.4100
+[trial 1 pair 1 loading_target] summary n=114 F=1.915500 d=1.9100 Bmag=6979.4096
+[trial 1 pair 1 preload_deep] start targetF=2.0000 d_actual=2.1900 pos=-3.6900
+[trial 1 pair 1 preload_deep] summary n=114 F=2.569750 d=2.1900 Bmag=7598.3787
+[trial 1 pair 200 unloading_target acquire] iter=1 targetF=1.9155 F=2.5660 err=-0.6505 d=2.1900 pos=-3.6900
+[trial 1 pair 200 unloading_target acquire] iter=2 targetF=1.9155 F=1.8221 err=0.0934 d=2.0700 pos=-3.5700
+[trial 1 pair 200 unloading_target acquire] iter=3 targetF=1.9155 F=1.8475 err=0.0680 d=2.0700 pos=-3.5700
+[trial 1 pair 200 unloading_target acquire] iter=4 targetF=1.9155 F=2.0185 err=-0.1030 d=2.0900 pos=-3.5900
+[trial 1 pair 200] incomplete status=unloading_bracketed_outside_tolerance

@@ -1,0 +1,114 @@
+# APMD same-d/different-F scan 3.1B session 20260610_104017
+# D_TARGETS_MM=[3.0, 3.2, 3.4, 3.6], D_PRELOAD_BY_TARGET_MM={3.0: 3.3, 3.2: 3.5, 3.4: 3.7, 3.6: 3.9}
+# TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, N_TRIALS=3
+# live_tare_N=-2.86840
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[target 3.00 trial 1] B0=(-433.64422368421054, 3389.2155986842104, 1372.8466710526316) n=152
+[trial 1] contact_pos=-1.2900 F=0.1393 baseline=0.0470 dF_base=0.0923 dF_step=0.0356 slope=0.3560
+[trial 1 pair 1 direct_target] start d_target=3.0000 d_actual=2.9800 pos=-4.2700
+[trial 1 pair 1 direct_target] summary n=114 d=2.9800 F=4.559300 Bmag=8926.9583
+[trial 1 pair 1 preload_deep] start d_target=3.3000 d_actual=3.2800 pos=-4.5700
+[trial 1 pair 1 preload_deep] summary n=114 d=3.2800 F=6.150550 Bmag=9740.0929
+[trial 1 pair 1 return_target] start d_target=3.0000 d_actual=3.0000 pos=-4.2900
+[trial 1 pair 1 return_target] summary n=114 d=3.0000 F=3.745150 Bmag=9097.2896
+[target 3.00 trial 1] diagnostic dd=+0.0200 dF=-0.814150 dBmag=+170.3313 dBvec=173.4518 verdict=strong
+[target 3.00 trial 2] B0=(-431.6005827814569, 3412.5242980132452, 1416.5490927152318) n=151
+[trial 2] contact_pos=-1.2400 F=0.1095 baseline=0.0282 dF_base=0.0813 dF_step=0.0344 slope=0.3132
+[trial 2 pair 1 direct_target] start d_target=3.0000 d_actual=2.9900 pos=-4.2300
+[trial 2 pair 1 direct_target] summary n=114 d=2.9900 F=4.419100 Bmag=8806.1959
+[trial 2 pair 1 preload_deep] start d_target=3.3000 d_actual=3.2900 pos=-4.5300
+[trial 2 pair 1 preload_deep] summary n=113 d=3.2900 F=5.993500 Bmag=9596.5525
+[trial 2 pair 1 return_target] start d_target=3.0000 d_actual=2.9900 pos=-4.2300
+[trial 2 pair 1 return_target] summary n=114 d=2.9900 F=3.625200 Bmag=8954.0666
+[target 3.00 trial 2] diagnostic dd=+0.0000 dF=-0.793900 dBmag=+147.8708 dBvec=149.6353 verdict=strong
+[target 3.00 trial 3] B0=(-430.6771920529801, 3415.421854304636, 1438.2554370860928) n=151
+[trial 3] contact_pos=-1.3100 F=0.1314 baseline=0.0377 dF_base=0.0937 dF_step=0.0367 slope=0.4078
+[trial 3 pair 1 direct_target] start d_target=3.0000 d_actual=2.9800 pos=-4.2900
+[trial 3 pair 1 direct_target] summary n=114 d=2.9800 F=4.746000 Bmag=9002.9104
+[trial 3 pair 1 preload_deep] start d_target=3.3000 d_actual=3.2800 pos=-4.5900
+[trial 3 pair 1 preload_deep] summary n=114 d=3.2800 F=6.428000 Bmag=9782.0697
+[trial 3 pair 1 return_target] start d_target=3.0000 d_actual=3.0000 pos=-4.3100
+[trial 3 pair 1 return_target] summary n=113 d=3.0000 F=3.928900 Bmag=9154.8791
+[target 3.00 trial 3] diagnostic dd=+0.0200 dF=-0.817100 dBmag=+151.9687 dBvec=155.3619 verdict=strong
+[target 3.20 trial 1] B0=(-430.8962302631579, 3419.9574934210527, 1453.5409407894738) n=152
+[trial 1] contact_pos=-1.2700 F=0.1140 baseline=0.0285 dF_base=0.0855 dF_step=0.0373 slope=0.3725
+[trial 1 pair 2 direct_target] start d_target=3.2000 d_actual=3.1900 pos=-4.4600
+[trial 1 pair 2 direct_target] summary n=114 d=3.1900 F=5.517600 Bmag=9416.6014
+[trial 1 pair 2 preload_deep] start d_target=3.5000 d_actual=3.4800 pos=-4.7500
+[trial 1 pair 2 preload_deep] summary n=114 d=3.4800 F=7.466750 Bmag=10242.3239
+[trial 1 pair 2 return_target] start d_target=3.2000 d_actual=3.2100 pos=-4.4800
+[trial 1 pair 2 return_target] summary n=114 d=3.2100 F=4.544600 Bmag=9590.6538
+[target 3.20 trial 1] diagnostic dd=+0.0200 dF=-0.973000 dBmag=+174.0524 dBvec=188.3838 verdict=strong
+[target 3.20 trial 2] B0=(-433.6600394736842, 3458.544144736842, 1488.4527039473685) n=152
+[trial 2] contact_pos=-1.3100 F=0.1198 baseline=0.0305 dF_base=0.0893 dF_step=0.0361 slope=0.4011
+[trial 2 pair 2 direct_target] start d_target=3.2000 d_actual=3.1900 pos=-4.5000
+[trial 2 pair 2 direct_target] summary n=114 d=3.1900 F=5.675350 Bmag=9535.6032
+[trial 2 pair 2 preload_deep] start d_target=3.5000 d_actual=3.4800 pos=-4.7900
+[trial 2 pair 2 preload_deep] summary n=114 d=3.4800 F=7.722200 Bmag=10370.8584
+[trial 2 pair 2 return_target] start d_target=3.2000 d_actual=3.2000 pos=-4.5100
+[trial 2 pair 2 return_target] summary n=114 d=3.2000 F=4.702700 Bmag=9722.4564
+[target 3.20 trial 2] diagnostic dd=+0.0100 dF=-0.972650 dBmag=+186.8532 dBvec=200.5794 verdict=strong
+[target 3.20 trial 3] B0=(-434.6010789473684, 3467.329894736842, 1497.4576315789473) n=152
+[trial 3] contact_pos=-1.3600 F=0.1310 baseline=0.0370 dF_base=0.0940 dF_step=0.0375 slope=0.3414
+[trial 3 pair 2 direct_target] start d_target=3.2000 d_actual=3.1900 pos=-4.5500
+[trial 3 pair 2 direct_target] summary n=114 d=3.1900 F=5.914900 Bmag=9672.2535
+[trial 3 pair 2 preload_deep] start d_target=3.5000 d_actual=3.4900 pos=-4.8500
+[trial 3 pair 2 preload_deep] summary n=114 d=3.4900 F=8.081350 Bmag=10510.6212
+[trial 3 pair 2 return_target] start d_target=3.2000 d_actual=3.1900 pos=-4.5500
+[trial 3 pair 2 return_target] summary n=114 d=3.1900 F=4.907000 Bmag=9856.4405
+[target 3.20 trial 3] diagnostic dd=+0.0000 dF=-1.007900 dBmag=+184.1870 dBvec=205.1682 verdict=strong
+[target 3.40 trial 1] B0=(-433.9012302631579, 3469.888072368421, 1501.826375) n=152
+[trial 1] contact_pos=-1.3900 F=0.1417 baseline=0.0432 dF_base=0.0984 dF_step=0.0383 slope=0.3830
+[trial 1 pair 3 direct_target] start d_target=3.4000 d_actual=3.3800 pos=-4.7700
+[trial 1 pair 3 direct_target] summary n=114 d=3.3800 F=7.342250 Bmag=10317.2714
+[trial 1 pair 3 preload_deep] start d_target=3.7000 d_actual=3.6800 pos=-5.0700
+[trial 1 pair 3 preload_deep] summary n=114 d=3.6800 F=9.981250 Bmag=11164.4467
+[trial 1 pair 3 return_target] start d_target=3.4000 d_actual=3.4000 pos=-4.7900
+[trial 1 pair 3 return_target] summary n=114 d=3.4000 F=6.032500 Bmag=10505.0947
+[target 3.40 trial 1] diagnostic dd=+0.0200 dF=-1.309750 dBmag=+187.8233 dBvec=220.1022 verdict=strong
+[target 3.40 trial 2] B0=(-435.6291052631579, 3478.2663223684212, 1507.2330986842105) n=152
+[trial 2] contact_pos=-1.3100 F=0.1061 baseline=0.0241 dF_base=0.0820 dF_step=0.0333 slope=0.3700
+[trial 2 pair 3 direct_target] start d_target=3.4000 d_actual=3.3800 pos=-4.6900
+[trial 2 pair 3 direct_target] summary n=114 d=3.3800 F=6.678600 Bmag=10087.1477
+[trial 2 pair 3 preload_deep] start d_target=3.7000 d_actual=3.6900 pos=-5.0000
+[trial 2 pair 3 preload_deep] summary n=114 d=3.6900 F=9.178350 Bmag=10942.1645
+[trial 2 pair 3 return_target] start d_target=3.4000 d_actual=3.4000 pos=-4.7100
+[trial 2 pair 3 return_target] summary n=114 d=3.4000 F=5.556800 Bmag=10286.6376
+[target 3.40 trial 2] diagnostic dd=+0.0200 dF=-1.121800 dBmag=+199.4899 dBvec=231.6714 verdict=strong
+[target 3.40 trial 3] B0=(-434.7011059602649, 3478.8970397350995, 1514.1376688741723) n=151
+[trial 3] contact_pos=-1.3700 F=0.1263 baseline=0.0330 dF_base=0.0934 dF_step=0.0372 slope=0.3720
+[trial 3 pair 3 direct_target] start d_target=3.4000 d_actual=3.3800 pos=-4.7500
+[trial 3 pair 3 direct_target] summary n=114 d=3.3800 F=7.055450 Bmag=10252.9261
+[trial 3 pair 3 preload_deep] start d_target=3.7000 d_actual=3.6800 pos=-5.0500
+[trial 3 pair 3 preload_deep] summary n=114 d=3.6800 F=9.723850 Bmag=11107.1817
+[trial 3 pair 3 return_target] start d_target=3.4000 d_actual=3.4000 pos=-4.7700
+[trial 3 pair 3 return_target] summary n=114 d=3.4000 F=5.872100 Bmag=10451.1369
+[target 3.40 trial 3] diagnostic dd=+0.0200 dF=-1.183350 dBmag=+198.2108 dBvec=227.7521 verdict=strong
+[target 3.60 trial 1] B0=(-435.8274834437086, 3486.312, 1519.93280794702) n=151
+[trial 1] contact_pos=-1.4100 F=0.1369 baseline=0.0384 dF_base=0.0985 dF_step=0.0384 slope=0.3845
+[trial 1 pair 4 direct_target] start d_target=3.6000 d_actual=3.5900 pos=-5.0000
+[trial 1 pair 4 direct_target] summary n=114 d=3.5900 F=8.933750 Bmag=10951.0732
+[trial 1 pair 4 preload_deep] start d_target=3.9000 d_actual=3.8800 pos=-5.2900
+[trial 1 pair 4 preload_deep] summary n=114 d=3.8800 F=12.089200 Bmag=11787.2802
+[trial 1 pair 4 return_target] start d_target=3.6000 d_actual=3.6000 pos=-5.0100
+[trial 1 pair 4 return_target] summary n=114 d=3.6000 F=7.327950 Bmag=11145.9815
+[target 3.60 trial 1] diagnostic dd=+0.0100 dF=-1.605800 dBmag=+194.9083 dBvec=212.9418 verdict=strong
+[target 3.60 trial 2] B0=(-434.87390131578945, 3494.576355263158, 1527.8093355263159) n=152
+[trial 2] contact_pos=-1.4300 F=0.1397 baseline=0.0394 dF_base=0.1004 dF_step=0.0389 slope=0.3895
+[trial 2 pair 4 direct_target] start d_target=3.6000 d_actual=3.5800 pos=-5.0100
+[trial 2 pair 4 direct_target] summary n=114 d=3.5800 F=8.966800 Bmag=11029.0912
+[trial 2 pair 4 preload_deep] start d_target=3.9000 d_actual=3.8800 pos=-5.3100
+[trial 2 pair 4 preload_deep] summary n=114 d=3.8800 F=12.225700 Bmag=11860.5761
+[trial 2 pair 4 return_target] start d_target=3.6000 d_actual=3.6000 pos=-5.0300
+[trial 2 pair 4 return_target] summary n=114 d=3.6000 F=7.379700 Bmag=11214.5139
+[target 3.60 trial 2] diagnostic dd=+0.0200 dF=-1.587100 dBmag=+185.4227 dBvec=207.3496 verdict=strong
+[target 3.60 trial 3] B0=(-436.2617368421053, 3502.385585526316, 1537.476625) n=152
+[trial 3] contact_pos=-1.4300 F=0.1359 baseline=0.0364 dF_base=0.0995 dF_step=0.0383 slope=0.3830
+[trial 3 pair 4 direct_target] start d_target=3.6000 d_actual=3.5800 pos=-5.0100
+[trial 3 pair 4 direct_target] summary n=114 d=3.5800 F=8.889700 Bmag=11045.3729
+[trial 3 pair 4 preload_deep] start d_target=3.9000 d_actual=3.8800 pos=-5.3100
+[trial 3 pair 4 preload_deep] summary n=114 d=3.8800 F=12.166900 Bmag=11878.9320
+[trial 3 pair 4 return_target] start d_target=3.6000 d_actual=3.6000 pos=-5.0300
+[trial 3 pair 4 return_target] summary n=113 d=3.6000 F=7.315500 Bmag=11226.5088
+[target 3.60 trial 3] diagnostic dd=+0.0200 dF=-1.574200 dBmag=+181.1359 dBvec=201.8583 verdict=strong

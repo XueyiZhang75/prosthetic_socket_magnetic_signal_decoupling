@@ -1,0 +1,25 @@
+# APMD fixed-force passive creep session 20260609_145306
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(430, 4.3)], HOLD_S=180.0, N_TRIALS=1
+# live_tare_N=-2.94960
+# B0=(-466.54614569536426, 2878.068483443709, 3323.5863046357617)
+# trial_start_pos=-0.0000
+[trial 1 hold 430] contact_pos=-1.6900 F=0.2020 baseline=0.1134 dF_base=0.0887 dF_step=0.0372 slope=0.3720
+[trial 1 hold 430 acquire] iter=1 targetF=4.3000 F=0.2015 err=4.0985 d=0.0000 pos=-1.6900
+[trial 1 hold 430 acquire] iter=2 targetF=4.3000 F=0.2776 err=4.0224 d=0.1700 pos=-1.8600
+[trial 1 hold 430 acquire] iter=3 targetF=4.3000 F=0.3570 err=3.9430 d=0.3400 pos=-2.0300
+[trial 1 hold 430 acquire] iter=4 targetF=4.3000 F=0.4632 err=3.8368 d=0.5100 pos=-2.2000
+[trial 1 hold 430 acquire] iter=5 targetF=4.3000 F=0.5891 err=3.7109 d=0.6600 pos=-2.3500
+[trial 1 hold 430 acquire] iter=6 targetF=4.3000 F=0.7089 err=3.5911 d=0.8200 pos=-2.5100
+[trial 1 hold 430 acquire] iter=7 targetF=4.3000 F=0.8781 err=3.4219 d=0.9800 pos=-2.6700
+[trial 1 hold 430 acquire] iter=8 targetF=4.3000 F=1.0693 err=3.2307 d=1.1400 pos=-2.8300
+[trial 1 hold 430 acquire] iter=9 targetF=4.3000 F=1.2928 err=3.0072 d=1.3100 pos=-3.0000
+[trial 1 hold 430 acquire] iter=10 targetF=4.3000 F=1.5557 err=2.7443 d=1.4800 pos=-3.1700
+[trial 1 hold 430 acquire] iter=11 targetF=4.3000 F=1.8816 err=2.4184 d=1.6400 pos=-3.3300
+[trial 1 hold 430 acquire] iter=12 targetF=4.3000 F=2.2173 err=2.0827 d=1.8100 pos=-3.5000
+[trial 1 hold 430 acquire] iter=13 targetF=4.3000 F=2.6396 err=1.6604 d=1.9800 pos=-3.6700
+[trial 1 hold 430 acquire] iter=14 targetF=4.3000 F=3.1216 err=1.1784 d=2.1400 pos=-3.8300
+[trial 1 hold 430 acquire] iter=15 targetF=4.3000 F=3.6600 err=0.6400 d=2.3100 pos=-4.0000
+[trial 1 hold 430 acquire] iter=16 targetF=4.3000 F=4.1508 err=0.1492 d=2.4400 pos=-4.1300
+[trial 1 hold 430 acquire] iter=17 targetF=4.3000 F=4.3177 err=-0.0177 d=2.4600 pos=-4.1500
+[trial 1 hold 430] correction error: implausible position jump: last=-5.170 mm, read=0.057/0.057/0.057 mm, target=-5.220 mm

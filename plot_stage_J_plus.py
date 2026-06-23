@@ -55,12 +55,12 @@ PALETTE = {
 }
 
 AXIS_COLORS = {
-    "Bx": PALETTE["red"],
-    "By": PALETTE["green"],
+    "Bx": PALETTE["black"],
+    "By": PALETTE["red"],
     "Bz": PALETTE["blue"],
 }
 
-TRIAL_COLORS = ["#2F6F8F", "#6B8E23", "#9A6B3F"]
+TRIAL_COLORS = [PALETTE["black"], PALETTE["red"], PALETTE["blue"]]
 
 
 def apply_style():
@@ -237,13 +237,34 @@ def plot_displacement_split(ax, rows, labels, x):
     unloading_d = np.array([r["d_unloading_mm"] for r in rows], dtype=float)
     delta_d = unloading_d - loading_d
 
-    for xi, dl, du, dd in zip(x, loading_d, unloading_d, delta_d):
+    for i, (xi, dl, du, dd) in enumerate(zip(x, loading_d, unloading_d, delta_d)):
+        color = TRIAL_COLORS[i % len(TRIAL_COLORS)]
         ax.plot(
             [xi - offset, xi + offset],
             [dl, du],
-            color=PALETTE["gray"],
+            color=color,
             lw=1.0,
             zorder=1,
+        )
+        ax.scatter(
+            xi - offset,
+            dl,
+            s=34,
+            color=color,
+            edgecolor="white",
+            linewidth=0.45,
+            zorder=3,
+            label="loading" if i == 0 else None,
+        )
+        ax.scatter(
+            xi + offset,
+            du,
+            s=34,
+            facecolor="white",
+            edgecolor=color,
+            linewidth=1.0,
+            zorder=3,
+            label="unloading" if i == 0 else None,
         )
         ax.text(
             xi + 0.03,
@@ -252,29 +273,8 @@ def plot_displacement_split(ax, rows, labels, x):
             ha="center",
             va="bottom",
             fontsize=6,
-            color=PALETTE["gray_dark"],
+            color=color,
         )
-
-    ax.scatter(
-        x - offset,
-        loading_d,
-        s=34,
-        color=PALETTE["blue"],
-        edgecolor="white",
-        linewidth=0.45,
-        zorder=3,
-        label="loading",
-    )
-    ax.scatter(
-        x + offset,
-        unloading_d,
-        s=34,
-        color=PALETTE["teal"],
-        edgecolor="white",
-        linewidth=0.45,
-        zorder=3,
-        label="unloading",
-    )
 
     finite = np.r_[loading_d[np.isfinite(loading_d)], unloading_d[np.isfinite(unloading_d)]]
     ymin = float(np.min(finite)) - 0.045

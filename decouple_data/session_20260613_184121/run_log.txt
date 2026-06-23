@@ -1,0 +1,112 @@
+# APMD same-F path-dose 3.4A session 20260613_184121
+# TARGET_F_N=3.75, PRELOAD_EXTRA_MM=[0.3], TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, TRIALS_PER_EXTRA=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.88710
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[extra 0.30 trial 1] B0=(-486.97616556291393, 3346.6651125827816, 2422.2369735099337) n=151
+[trial 1 extra 030] contact_pos=-1.6900 F=0.1299 baseline=0.0423 dF_base=0.0876 dF_step=0.0340 slope=0.2833
+[trial 1 pair 375 loading_target acquire] iter=1 targetF=3.7500 F=0.1312 err=3.6188 d=0.0000 pos=-1.6900
+[trial 1 pair 375 loading_target acquire] iter=2 targetF=3.7500 F=0.1898 err=3.5602 d=0.1400 pos=-1.8300
+[trial 1 pair 375 loading_target acquire] iter=3 targetF=3.7500 F=0.2512 err=3.4988 d=0.2800 pos=-1.9700
+[trial 1 pair 375 loading_target acquire] iter=4 targetF=3.7500 F=0.3181 err=3.4319 d=0.4200 pos=-2.1100
+[trial 1 pair 375 loading_target acquire] iter=5 targetF=3.7500 F=0.3880 err=3.3620 d=0.5600 pos=-2.2500
+[trial 1 pair 375 loading_target acquire] iter=6 targetF=3.7500 F=0.4683 err=3.2817 d=0.7000 pos=-2.3900
+[trial 1 pair 375 loading_target acquire] iter=7 targetF=3.7500 F=0.5623 err=3.1877 d=0.8400 pos=-2.5300
+[trial 1 pair 375 loading_target acquire] iter=8 targetF=3.7500 F=0.6711 err=3.0789 d=0.9800 pos=-2.6700
+[trial 1 pair 375 loading_target acquire] iter=9 targetF=3.7500 F=0.7991 err=2.9509 d=1.1200 pos=-2.8100
+[trial 1 pair 375 loading_target acquire] iter=10 targetF=3.7500 F=0.9484 err=2.8016 d=1.2700 pos=-2.9600
+[trial 1 pair 375 loading_target acquire] iter=11 targetF=3.7500 F=1.1319 err=2.6181 d=1.4200 pos=-3.1100
+[trial 1 pair 375 loading_target acquire] iter=12 targetF=3.7500 F=1.3410 err=2.4090 d=1.5600 pos=-3.2500
+[trial 1 pair 375 loading_target acquire] iter=13 targetF=3.7500 F=1.5682 err=2.1818 d=1.7000 pos=-3.3900
+[trial 1 pair 375 loading_target acquire] iter=14 targetF=3.7500 F=1.8203 err=1.9297 d=1.8400 pos=-3.5300
+[trial 1 pair 375 loading_target acquire] iter=15 targetF=3.7500 F=2.1179 err=1.6321 d=1.9800 pos=-3.6700
+[trial 1 pair 375 loading_target acquire] iter=16 targetF=3.7500 F=2.4514 err=1.2986 d=2.1200 pos=-3.8100
+[trial 1 pair 375 loading_target acquire] iter=17 targetF=3.7500 F=2.8198 err=0.9302 d=2.2600 pos=-3.9500
+[trial 1 pair 375 loading_target acquire] iter=18 targetF=3.7500 F=3.2612 err=0.4888 d=2.4000 pos=-4.0900
+[trial 1 pair 375 loading_target acquire] iter=19 targetF=3.7500 F=3.6266 err=0.1234 d=2.5000 pos=-4.1900
+[trial 1 pair 375 loading_target acquire] iter=20 targetF=3.7500 F=3.7452 err=0.0048 d=2.5200 pos=-4.2100
+[trial 1 pair 1 loading_target] start targetF=3.7500 d_actual=2.5200 pos=-4.2100
+[trial 1 pair 1 loading_target] summary n=114 F=3.629350 d=2.5200 Bmag=8669.6261
+[trial 1 pair 1 preload_deep] start targetF=3.7500 d_actual=2.8100 pos=-4.5000
+[trial 1 pair 1 preload_deep] summary n=114 F=4.876450 d=2.8100 Bmag=9380.1545
+[trial 1 pair 375 unloading_target acquire] iter=1 targetF=3.6294 F=4.8674 err=-1.2380 d=2.8100 pos=-4.5000
+[trial 1 pair 375 unloading_target acquire] iter=2 targetF=3.6294 F=3.2049 err=0.4245 d=2.6200 pos=-4.3100
+[trial 1 pair 375 unloading_target acquire] wide_bracket best_err=0.4245 tol=0.0500 mid_pos=-4.4050
+[trial 1 pair 375 unloading_target acquire] iter=3 targetF=3.6294 F=4.0658 err=-0.4364 d=2.7100 pos=-4.4000
+[trial 1 pair 375 unloading_target acquire] iter=4 targetF=3.6294 F=2.9007 err=0.7287 d=2.5600 pos=-4.2500
+[trial 1 pair 375 unloading_target acquire] wide_bracket best_err=-0.4364 tol=0.0500 mid_pos=-4.3250
+[trial 1 pair 375 unloading_target acquire] iter=5 targetF=3.6294 F=3.5955 err=0.0339 d=2.6200 pos=-4.3100
+[trial 1 pair 1 unloading_target] start targetF=3.6294 d_actual=2.6200 pos=-4.3100
+[trial 1 pair 1 unloading_target] summary n=114 F=3.579200 d=2.6200 Bmag=8973.8282
+[extra 0.30 trial 1] diagnostic dF=-0.050150 dd=+0.1000 dBmag=+304.2020 dBvec=305.3832 verdict=bad_F_match
+[extra 0.30 trial 2] B0=(-483.8119602649007, 3372.444569536424, 2486.4519602649007) n=151
+[trial 2 extra 030] contact_pos=-1.7500 F=0.1368 baseline=0.0446 dF_base=0.0922 dF_step=0.0350 slope=0.3500
+[trial 2 pair 375 loading_target acquire] iter=1 targetF=3.7500 F=0.1370 err=3.6130 d=0.0000 pos=-1.7500
+[trial 2 pair 375 loading_target acquire] iter=2 targetF=3.7500 F=0.1998 err=3.5502 d=0.1500 pos=-1.9000
+[trial 2 pair 375 loading_target acquire] iter=3 targetF=3.7500 F=0.2691 err=3.4809 d=0.3000 pos=-2.0500
+[trial 2 pair 375 loading_target acquire] iter=4 targetF=3.7500 F=0.3445 err=3.4055 d=0.4500 pos=-2.2000
+[trial 2 pair 375 loading_target acquire] iter=5 targetF=3.7500 F=0.4256 err=3.3244 d=0.5800 pos=-2.3300
+[trial 2 pair 375 loading_target acquire] iter=6 targetF=3.7500 F=0.5088 err=3.2412 d=0.7300 pos=-2.4800
+[trial 2 pair 375 loading_target acquire] iter=7 targetF=3.7500 F=0.6200 err=3.1300 d=0.8800 pos=-2.6300
+[trial 2 pair 375 loading_target acquire] iter=8 targetF=3.7500 F=0.7517 err=2.9983 d=1.0200 pos=-2.7700
+[trial 2 pair 375 loading_target acquire] iter=9 targetF=3.7500 F=0.8977 err=2.8523 d=1.1600 pos=-2.9100
+[trial 2 pair 375 loading_target acquire] iter=10 targetF=3.7500 F=1.0591 err=2.6909 d=1.3000 pos=-3.0500
+[trial 2 pair 375 loading_target acquire] iter=11 targetF=3.7500 F=1.2504 err=2.4996 d=1.4400 pos=-3.1900
+[trial 2 pair 375 loading_target acquire] iter=12 targetF=3.7500 F=1.4664 err=2.2836 d=1.5800 pos=-3.3300
+[trial 2 pair 375 loading_target acquire] iter=13 targetF=3.7500 F=1.7070 err=2.0430 d=1.7300 pos=-3.4800
+[trial 2 pair 375 loading_target acquire] iter=14 targetF=3.7500 F=1.9947 err=1.7553 d=1.8800 pos=-3.6300
+[trial 2 pair 375 loading_target acquire] iter=15 targetF=3.7500 F=2.3593 err=1.3907 d=2.0200 pos=-3.7700
+[trial 2 pair 375 loading_target acquire] iter=16 targetF=3.7500 F=2.7220 err=1.0280 d=2.1600 pos=-3.9100
+[trial 2 pair 375 loading_target acquire] iter=17 targetF=3.7500 F=3.1473 err=0.6027 d=2.3000 pos=-4.0500
+[trial 2 pair 375 loading_target acquire] iter=18 targetF=3.7500 F=3.5056 err=0.2444 d=2.4000 pos=-4.1500
+[trial 2 pair 375 loading_target acquire] iter=19 targetF=3.7500 F=3.7490 err=0.0010 d=2.4600 pos=-4.2100
+[trial 2 pair 1 loading_target] start targetF=3.7500 d_actual=2.4600 pos=-4.2100
+[trial 2 pair 1 loading_target] summary n=114 F=3.632500 d=2.4600 Bmag=8672.8501
+[trial 2 pair 1 preload_deep] start targetF=3.7500 d_actual=2.7500 pos=-4.5000
+[trial 2 pair 1 preload_deep] summary n=112 F=4.939750 d=2.7500 Bmag=9372.0005
+[trial 2 pair 375 unloading_target acquire] iter=1 targetF=3.6325 F=4.9310 err=-1.2985 d=2.7500 pos=-4.5000
+[trial 2 pair 375 unloading_target acquire] iter=2 targetF=3.6325 F=3.2549 err=0.3776 d=2.5600 pos=-4.3100
+[trial 2 pair 375 unloading_target acquire] wide_bracket best_err=0.3776 tol=0.0500 mid_pos=-4.4050
+[trial 2 pair 375 unloading_target acquire] iter=3 targetF=3.6325 F=4.1209 err=-0.4884 d=2.6500 pos=-4.4000
+[trial 2 pair 375 unloading_target acquire] iter=4 targetF=3.6325 F=2.9390 err=0.6935 d=2.5000 pos=-4.2500
+[trial 2 pair 375 unloading_target acquire] wide_bracket best_err=-0.4884 tol=0.0500 mid_pos=-4.3250
+[trial 2 pair 375 unloading_target acquire] iter=5 targetF=3.6325 F=3.6439 err=-0.0114 d=2.5600 pos=-4.3100
+[trial 2 pair 1 unloading_target] start targetF=3.6325 d_actual=2.5600 pos=-4.3100
+[trial 2 pair 1 unloading_target] summary n=113 F=3.626500 d=2.5600 Bmag=8969.8589
+[extra 0.30 trial 2] diagnostic dF=-0.006000 dd=+0.1000 dBmag=+297.0088 dBvec=297.5140 verdict=weak_disp_split
+[extra 0.30 trial 3] B0=(-482.17214569536424, 3371.1828145695363, 2494.8242185430463) n=151
+[trial 3 extra 030] contact_pos=-1.7500 F=0.1373 baseline=0.0444 dF_base=0.0929 dF_step=0.0346 slope=0.3460
+[trial 3 pair 375 loading_target acquire] iter=1 targetF=3.7500 F=0.1358 err=3.6142 d=0.0000 pos=-1.7500
+[trial 3 pair 375 loading_target acquire] iter=2 targetF=3.7500 F=0.2006 err=3.5494 d=0.1500 pos=-1.9000
+[trial 3 pair 375 loading_target acquire] iter=3 targetF=3.7500 F=0.2693 err=3.4807 d=0.3000 pos=-2.0500
+[trial 3 pair 375 loading_target acquire] iter=4 targetF=3.7500 F=0.3427 err=3.4073 d=0.4500 pos=-2.2000
+[trial 3 pair 375 loading_target acquire] iter=5 targetF=3.7500 F=0.4251 err=3.3249 d=0.5800 pos=-2.3300
+[trial 3 pair 375 loading_target acquire] iter=6 targetF=3.7500 F=0.5072 err=3.2428 d=0.7300 pos=-2.4800
+[trial 3 pair 375 loading_target acquire] iter=7 targetF=3.7500 F=0.6203 err=3.1297 d=0.8800 pos=-2.6300
+[trial 3 pair 375 loading_target acquire] iter=8 targetF=3.7500 F=0.7515 err=2.9985 d=1.0200 pos=-2.7700
+[trial 3 pair 375 loading_target acquire] iter=9 targetF=3.7500 F=0.8955 err=2.8545 d=1.1600 pos=-2.9100
+[trial 3 pair 375 loading_target acquire] iter=10 targetF=3.7500 F=1.0607 err=2.6893 d=1.3000 pos=-3.0500
+[trial 3 pair 375 loading_target acquire] iter=11 targetF=3.7500 F=1.2497 err=2.5003 d=1.4400 pos=-3.1900
+[trial 3 pair 375 loading_target acquire] iter=12 targetF=3.7500 F=1.4664 err=2.2836 d=1.5800 pos=-3.3300
+[trial 3 pair 375 loading_target acquire] iter=13 targetF=3.7500 F=1.7032 err=2.0468 d=1.7300 pos=-3.4800
+[trial 3 pair 375 loading_target acquire] iter=14 targetF=3.7500 F=1.9986 err=1.7514 d=1.8800 pos=-3.6300
+[trial 3 pair 375 loading_target acquire] iter=15 targetF=3.7500 F=2.3633 err=1.3867 d=2.0200 pos=-3.7700
+[trial 3 pair 375 loading_target acquire] iter=16 targetF=3.7500 F=2.7255 err=1.0245 d=2.1600 pos=-3.9100
+[trial 3 pair 375 loading_target acquire] iter=17 targetF=3.7500 F=3.1523 err=0.5977 d=2.3000 pos=-4.0500
+[trial 3 pair 375 loading_target acquire] iter=18 targetF=3.7500 F=3.5156 err=0.2344 d=2.4000 pos=-4.1500
+[trial 3 pair 375 loading_target acquire] iter=19 targetF=3.7500 F=3.7608 err=-0.0108 d=2.4600 pos=-4.2100
+[trial 3 pair 1 loading_target] start targetF=3.7500 d_actual=2.4600 pos=-4.2100
+[trial 3 pair 1 loading_target] summary n=114 F=3.643600 d=2.4600 Bmag=8669.7907
+[trial 3 pair 1 preload_deep] start targetF=3.7500 d_actual=2.7500 pos=-4.5000
+[trial 3 pair 1 preload_deep] summary n=114 F=4.976550 d=2.7500 Bmag=9370.6351
+[trial 3 pair 375 unloading_target acquire] iter=1 targetF=3.6436 F=4.9685 err=-1.3249 d=2.7500 pos=-4.5000
+[trial 3 pair 375 unloading_target acquire] iter=2 targetF=3.6436 F=3.2745 err=0.3691 d=2.5600 pos=-4.3100
+[trial 3 pair 375 unloading_target acquire] wide_bracket best_err=0.3691 tol=0.0500 mid_pos=-4.4050
+[trial 3 pair 375 unloading_target acquire] iter=3 targetF=3.6436 F=4.1441 err=-0.5005 d=2.6500 pos=-4.4000
+[trial 3 pair 375 unloading_target acquire] iter=4 targetF=3.6436 F=2.9437 err=0.6999 d=2.5000 pos=-4.2500
+[trial 3 pair 375 unloading_target acquire] wide_bracket best_err=-0.5005 tol=0.0500 mid_pos=-4.3250
+[trial 3 pair 375 unloading_target acquire] iter=5 targetF=3.6436 F=3.6710 err=-0.0274 d=2.5600 pos=-4.3100
+[trial 3 pair 1 unloading_target] start targetF=3.6436 d_actual=2.5600 pos=-4.3100
+[trial 3 pair 1 unloading_target] summary n=114 F=3.651800 d=2.5600 Bmag=8965.3763
+[extra 0.30 trial 3] diagnostic dF=+0.008200 dd=+0.1000 dBmag=+295.5856 dBvec=295.8079 verdict=weak_disp_split

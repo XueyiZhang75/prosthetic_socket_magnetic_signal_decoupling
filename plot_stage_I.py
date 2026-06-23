@@ -44,6 +44,16 @@ HOLD_COLORS = {
     90: "#2ca02c",
 }
 
+REP_COLORS = {
+    1: "#000000",
+    2: "#d62728",
+    3: "#1f77b4",
+}
+
+
+def series_color(hold, rep):
+    return REP_COLORS.get(rep, HOLD_COLORS.get(hold, None))
+
 
 def _safe_float(x, default=float("nan")):
     try:
@@ -123,7 +133,7 @@ def plot_main(data, session_dir):
     for key in sorted(data):
         hold, rep = key
         d = data[key]
-        color = HOLD_COLORS.get(hold, None)
+        color = series_color(hold, rep)
         label = f"{hold}%  d={np.nanmedian(d['d']):.2f} mm"
         t = d["t"]
         t = t - np.nanmin(t)
@@ -167,7 +177,7 @@ def plot_3axis(data, session_dir):
         for key in sorted(data):
             hold, rep = key
             d = data[key]
-            color = HOLD_COLORS.get(hold, None)
+            color = series_color(hold, rep)
             t = d["t"] - np.nanmin(d["t"])
             y = d[axis_key] - d[axis_key][0]
             label = f"{hold}%  d={np.nanmedian(d['d']):.2f} mm"
@@ -211,7 +221,7 @@ def plot_jf(data, session_dir):
     fig, axes = plt.subplots(1, 3, figsize=(16, 5.4))
 
     axes[0].bar(x, slopes["Bmag"], color=[
-        HOLD_COLORS.get(k[0], "#777777") for k in sorted(data)
+        series_color(k[0], k[1]) for k in sorted(data)
     ])
     axes[0].set_xticks(x, holds)
     _setup(axes[0], "I5: j_F estimate from |B|",

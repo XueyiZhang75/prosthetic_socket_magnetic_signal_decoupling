@@ -1,0 +1,108 @@
+# APMD fixed-force passive creep session 20260609_110002
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(450, 4.5)], HOLD_S=180.0, N_TRIALS=3
+# live_tare_N=-2.94150
+# B0=(-462.3973289473684, 2875.8668815789474, 3299.1793881578947)
+# trial_start_pos=-0.0000
+[trial 1 hold 450] contact_pos=-1.6900 F=0.2011 baseline=0.1127 dF_base=0.0885 dF_step=0.0471 slope=0.4705
+[trial 1 hold 450 acquire] iter=1 targetF=4.5000 F=0.2012 err=4.2988 d=0.0000 pos=-1.6900
+[trial 1 hold 450 acquire] iter=2 targetF=4.5000 F=0.3330 err=4.1670 d=0.2800 pos=-1.9700
+[trial 1 hold 450 acquire] iter=3 targetF=4.5000 F=0.5099 err=3.9901 d=0.5600 pos=-2.2500
+[trial 1 hold 450 acquire] iter=4 targetF=4.5000 F=0.7561 err=3.7439 d=0.8400 pos=-2.5300
+[trial 1 hold 450 acquire] iter=5 targetF=4.5000 F=1.0630 err=3.4370 d=1.1200 pos=-2.8100
+[trial 1 hold 450 acquire] iter=6 targetF=4.5000 F=1.4711 err=3.0289 d=1.4000 pos=-3.0900
+[trial 1 hold 450 acquire] iter=7 targetF=4.5000 F=1.9933 err=2.5067 d=1.6800 pos=-3.3700
+[trial 1 hold 450 acquire] iter=8 targetF=4.5000 F=2.6394 err=1.8606 d=1.9600 pos=-3.6500
+[trial 1 hold 450 acquire] iter=9 targetF=4.5000 F=3.5095 err=0.9905 d=2.2400 pos=-3.9300
+[trial 1 hold 450 acquire] iter=10 targetF=4.5000 F=4.2681 err=0.2319 d=2.4400 pos=-4.1300
+[trial 1 hold 450 acquire] iter=11 targetF=4.5000 F=4.2387 err=0.2613 d=2.4400 pos=-4.1300
+[trial 1 hold 450 acquire] iter=12 targetF=4.5000 F=4.7922 err=-0.2922 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=13 targetF=4.5000 F=4.7684 err=-0.2684 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=14 targetF=4.5000 F=4.7520 err=-0.2520 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=15 targetF=4.5000 F=4.7356 err=-0.2356 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=16 targetF=4.5000 F=4.7258 err=-0.2258 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=17 targetF=4.5000 F=4.7171 err=-0.2171 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=18 targetF=4.5000 F=4.7088 err=-0.2088 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=19 targetF=4.5000 F=4.7010 err=-0.2010 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=20 targetF=4.5000 F=4.6915 err=-0.1915 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=21 targetF=4.5000 F=4.6886 err=-0.1886 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=22 targetF=4.5000 F=4.6807 err=-0.1807 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=23 targetF=4.5000 F=4.6772 err=-0.1772 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=24 targetF=4.5000 F=4.6721 err=-0.1721 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=25 targetF=4.5000 F=4.6645 err=-0.1645 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=26 targetF=4.5000 F=4.6610 err=-0.1610 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=27 targetF=4.5000 F=4.6556 err=-0.1556 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=28 targetF=4.5000 F=4.6518 err=-0.1518 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=29 targetF=4.5000 F=4.6475 err=-0.1475 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=30 targetF=4.5000 F=4.6445 err=-0.1445 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=31 targetF=4.5000 F=4.6411 err=-0.1411 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=32 targetF=4.5000 F=4.6361 err=-0.1361 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=33 targetF=4.5000 F=4.6332 err=-0.1332 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=34 targetF=4.5000 F=4.6324 err=-0.1324 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=35 targetF=4.5000 F=4.6272 err=-0.1272 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=36 targetF=4.5000 F=4.6238 err=-0.1238 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=37 targetF=4.5000 F=4.6233 err=-0.1233 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=38 targetF=4.5000 F=4.6195 err=-0.1195 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=39 targetF=4.5000 F=4.6174 err=-0.1174 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=40 targetF=4.5000 F=4.6136 err=-0.1136 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=41 targetF=4.5000 F=4.6105 err=-0.1105 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=42 targetF=4.5000 F=4.6063 err=-0.1063 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=43 targetF=4.5000 F=4.6038 err=-0.1038 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=44 targetF=4.5000 F=4.6013 err=-0.1013 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=45 targetF=4.5000 F=4.5987 err=-0.0987 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=46 targetF=4.5000 F=4.5986 err=-0.0986 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=47 targetF=4.5000 F=4.5957 err=-0.0957 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=48 targetF=4.5000 F=4.5918 err=-0.0918 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=49 targetF=4.5000 F=4.5910 err=-0.0910 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=50 targetF=4.5000 F=4.5895 err=-0.0895 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=51 targetF=4.5000 F=4.5858 err=-0.0858 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=52 targetF=4.5000 F=4.5836 err=-0.0836 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=53 targetF=4.5000 F=4.5804 err=-0.0804 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=54 targetF=4.5000 F=4.5776 err=-0.0776 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=55 targetF=4.5000 F=4.5773 err=-0.0773 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=56 targetF=4.5000 F=4.5748 err=-0.0748 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=57 targetF=4.5000 F=4.5742 err=-0.0742 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=58 targetF=4.5000 F=4.5710 err=-0.0710 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=59 targetF=4.5000 F=4.5691 err=-0.0691 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=60 targetF=4.5000 F=4.5692 err=-0.0692 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=61 targetF=4.5000 F=4.5671 err=-0.0671 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=62 targetF=4.5000 F=4.5654 err=-0.0654 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=63 targetF=4.5000 F=4.5645 err=-0.0645 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=64 targetF=4.5000 F=4.5627 err=-0.0627 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=65 targetF=4.5000 F=4.5624 err=-0.0624 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=66 targetF=4.5000 F=4.5585 err=-0.0585 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=67 targetF=4.5000 F=4.5591 err=-0.0591 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=68 targetF=4.5000 F=4.5569 err=-0.0569 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=69 targetF=4.5000 F=4.5554 err=-0.0554 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=70 targetF=4.5000 F=4.5558 err=-0.0558 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=71 targetF=4.5000 F=4.5542 err=-0.0542 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=72 targetF=4.5000 F=4.5528 err=-0.0528 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=73 targetF=4.5000 F=4.5511 err=-0.0511 d=2.5600 pos=-4.2500
+[trial 1 hold 450 acquire] iter=74 targetF=4.5000 F=4.5498 err=-0.0498 d=2.5600 pos=-4.2500
+[trial 1 hold 450] done n=2043 corrections=0 dF=-0.086700 dd=+0.000000 dB=-2.8541
+[trial 2 hold 450] contact_pos=-1.7100 F=0.2000 baseline=0.1141 dF_base=0.0859 dF_step=0.0391 slope=0.3910
+[trial 2 hold 450 acquire] iter=1 targetF=4.5000 F=0.1979 err=4.3021 d=0.0000 pos=-1.7100
+[trial 2 hold 450 acquire] iter=2 targetF=4.5000 F=0.3280 err=4.1720 d=0.2900 pos=-2.0000
+[trial 2 hold 450 acquire] iter=3 targetF=4.5000 F=0.5191 err=3.9809 d=0.5800 pos=-2.2900
+[trial 2 hold 450 acquire] iter=4 targetF=4.5000 F=0.7779 err=3.7221 d=0.8600 pos=-2.5700
+[trial 2 hold 450 acquire] iter=5 targetF=4.5000 F=1.0923 err=3.4077 d=1.1400 pos=-2.8500
+[trial 2 hold 450 acquire] iter=6 targetF=4.5000 F=1.5371 err=2.9629 d=1.4200 pos=-3.1300
+[trial 2 hold 450 acquire] iter=7 targetF=4.5000 F=2.0753 err=2.4247 d=1.7000 pos=-3.4100
+[trial 2 hold 450 acquire] iter=8 targetF=4.5000 F=2.7827 err=1.7173 d=1.9800 pos=-3.6900
+[trial 2 hold 450 acquire] iter=9 targetF=4.5000 F=3.6806 err=0.8194 d=2.2700 pos=-3.9800
+[trial 2 hold 450 acquire] iter=10 targetF=4.5000 F=4.5466 err=-0.0466 d=2.4800 pos=-4.1900
+[trial 2 hold 450] force_jump_abort t=139.6227 F_prev=4.834500 F=4.967600 d_prev=3.7500 d=3.7500
+[trial 3 hold 450] contact_pos=-1.7400 F=0.2175 baseline=0.1319 dF_base=0.0856 dF_step=0.0344 slope=0.3123
+[trial 3 hold 450 acquire] iter=1 targetF=4.5000 F=0.2183 err=4.2817 d=0.0000 pos=-1.7400
+[trial 3 hold 450 acquire] iter=2 targetF=4.5000 F=0.3575 err=4.1425 d=0.2900 pos=-2.0300
+[trial 3 hold 450 acquire] iter=3 targetF=4.5000 F=0.5547 err=3.9453 d=0.5700 pos=-2.3100
+[trial 3 hold 450 acquire] iter=4 targetF=4.5000 F=0.8046 err=3.6954 d=0.8500 pos=-2.5900
+[trial 3 hold 450 acquire] iter=5 targetF=4.5000 F=1.1343 err=3.3657 d=1.1300 pos=-2.8700
+[trial 3 hold 450 acquire] iter=6 targetF=4.5000 F=1.5711 err=2.9289 d=1.4100 pos=-3.1500
+[trial 3 hold 450 acquire] iter=7 targetF=4.5000 F=2.1065 err=2.3935 d=1.6900 pos=-3.4300
+[trial 3 hold 450 acquire] iter=8 targetF=4.5000 F=2.8032 err=1.6968 d=1.9800 pos=-3.7200
+[trial 3 hold 450 acquire] iter=9 targetF=4.5000 F=3.7436 err=0.7564 d=2.2700 pos=-4.0100
+[trial 3 hold 450 acquire] iter=10 targetF=4.5000 F=4.5958 err=-0.0958 d=2.4700 pos=-4.2100
+[trial 3 hold 450 acquire] iter=11 targetF=4.5000 F=4.5687 err=-0.0687 d=2.4700 pos=-4.2100
+[trial 3 hold 450 acquire] iter=12 targetF=4.5000 F=4.5469 err=-0.0469 d=2.4700 pos=-4.2100
+[trial 3 hold 450] force_jump_abort t=148.8192 F_prev=4.744900 F=4.854600 d_prev=3.7000 d=3.7000

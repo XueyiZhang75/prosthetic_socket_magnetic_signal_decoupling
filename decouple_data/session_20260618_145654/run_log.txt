@@ -1,0 +1,10 @@
+# APMD Stage 6.1 local held-out dense-loop session 20260618_145654
+# D_GRID_MM=[3.05, 3.15, 3.25, 3.35, 3.45, 3.55], PRELOAD_D_MM=3.8
+# STATE_RECORD_S=15.0, PRELOAD_RECORD_S=30.0, N_CYCLES=3
+# live_tare_N=-2.88690
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[cycle 1] B0=(-408.2212847682119, 1894.8604569536424, 3171.0844105960264) n=151
+[cycle 2] B0=(-407.9506357615894, 1894.2514966887418, 3162.6417218543047) n=151
+[cycle 3] B0=(-408.4746666666667, 1893.9383133333333, 3162.37186) n=150
+# formal registry skipped: not registered: 0/39 planned dense-loop states completed

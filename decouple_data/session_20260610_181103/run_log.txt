@@ -1,0 +1,24 @@
+# APMD same-F/different-d single force point 1.80 N session 20260610_181103
+# F_TARGETS=[(180, 1.8)], D_PRELOAD_EXTRA_MM=0.3, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.87580
+# B0=(-415.1388543046358, 3537.3054834437085, 1887.420178807947)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 180] contact_pos=-1.5700 F=0.1142 baseline=0.0315 dF_base=0.0826 dF_step=0.0326 slope=0.4664
+[trial 1 pair 180 loading_target acquire] iter=1 targetF=1.8000 F=0.1140 err=1.6860 d=0.0000 pos=-1.5700
+[trial 1 pair 180 loading_target acquire] iter=2 targetF=1.8000 F=0.1741 err=1.6259 d=0.1400 pos=-1.7100
+[trial 1 pair 180 loading_target acquire] iter=3 targetF=1.8000 F=0.2416 err=1.5584 d=0.2900 pos=-1.8600
+[trial 1 pair 180 loading_target acquire] iter=4 targetF=1.8000 F=0.3223 err=1.4777 d=0.4400 pos=-2.0100
+[trial 1 pair 180 loading_target acquire] iter=5 targetF=1.8000 F=0.4069 err=1.3931 d=0.5800 pos=-2.1500
+[trial 1 pair 180 loading_target acquire] iter=6 targetF=1.8000 F=0.4967 err=1.3033 d=0.7200 pos=-2.2900
+[trial 1 pair 180 loading_target acquire] iter=7 targetF=1.8000 F=0.6014 err=1.1986 d=0.8700 pos=-2.4400
+[trial 1 pair 180 loading_target acquire] iter=8 targetF=1.8000 F=0.7246 err=1.0754 d=1.0200 pos=-2.5900
+[trial 1 pair 180 loading_target acquire] iter=9 targetF=1.8000 F=0.8774 err=0.9226 d=1.1700 pos=-2.7400
+[trial 1 pair 180 loading_target acquire] iter=10 targetF=1.8000 F=1.0550 err=0.7450 d=1.3200 pos=-2.8900
+[trial 1 pair 180 loading_target acquire] iter=11 targetF=1.8000 F=1.2065 err=0.5935 d=1.4300 pos=-3.0000
+[trial 1 pair 180 loading_target acquire] iter=12 targetF=1.8000 F=1.3676 err=0.4324 d=1.5400 pos=-3.1100
+[trial 1 pair 180 loading_target acquire] iter=13 targetF=1.8000 F=1.5458 err=0.2542 d=1.6500 pos=-3.2200
+[trial 1 pair 180 loading_target acquire] iter=14 targetF=1.8000 F=1.6758 err=0.1242 d=1.7200 pos=-3.2900
+[trial 1 pair 180 loading_target acquire] iter=15 targetF=1.8000 F=1.7468 err=0.0532 d=1.7400 pos=-3.3100
+[trial 1 pair 180] incomplete status=loading_mark10_error:stalled at pos=0.132 mm, target=-3.330 mm

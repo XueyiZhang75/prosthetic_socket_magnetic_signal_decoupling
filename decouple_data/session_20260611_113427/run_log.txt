@@ -1,0 +1,184 @@
+# APMD same-F/different-d single force point 3.00 N session 20260611_113427
+# F_TARGETS=[(300, 3.0)], D_PRELOAD_EXTRA_MM=0.3, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.86980
+# B0=(-427.7488881578947, 3559.322217105263, 1953.7104078947368)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 300] contact_pos=-1.5700 F=0.1158 baseline=0.0325 dF_base=0.0834 dF_step=0.0351 slope=0.5007
+[trial 1 pair 300 loading_target acquire] iter=1 targetF=3.0000 F=0.1146 err=2.8854 d=0.0000 pos=-1.5700
+[trial 1 pair 300 loading_target acquire] iter=2 targetF=3.0000 F=0.1699 err=2.8301 d=0.1400 pos=-1.7100
+[trial 1 pair 300 loading_target acquire] iter=3 targetF=3.0000 F=0.2393 err=2.7607 d=0.2900 pos=-1.8600
+[trial 1 pair 300 loading_target acquire] iter=4 targetF=3.0000 F=0.3200 err=2.6800 d=0.4400 pos=-2.0100
+[trial 1 pair 300 loading_target acquire] iter=5 targetF=3.0000 F=0.4042 err=2.5958 d=0.5800 pos=-2.1500
+[trial 1 pair 300 loading_target acquire] iter=6 targetF=3.0000 F=0.4922 err=2.5078 d=0.7200 pos=-2.2900
+[trial 1 pair 300 loading_target acquire] iter=7 targetF=3.0000 F=0.5946 err=2.4054 d=0.8700 pos=-2.4400
+[trial 1 pair 300 loading_target acquire] iter=8 targetF=3.0000 F=0.7204 err=2.2796 d=1.0200 pos=-2.5900
+[trial 1 pair 300 loading_target acquire] iter=9 targetF=3.0000 F=0.8694 err=2.1306 d=1.1700 pos=-2.7400
+[trial 1 pair 300 loading_target acquire] iter=10 targetF=3.0000 F=1.0422 err=1.9578 d=1.3200 pos=-2.8900
+[trial 1 pair 300 loading_target acquire] iter=11 targetF=3.0000 F=1.2417 err=1.7583 d=1.4600 pos=-3.0300
+[trial 1 pair 300 loading_target acquire] iter=12 targetF=3.0000 F=1.4570 err=1.5430 d=1.6000 pos=-3.1700
+[trial 1 pair 300 loading_target acquire] iter=13 targetF=3.0000 F=1.6958 err=1.3042 d=1.7400 pos=-3.3100
+[trial 1 pair 300 loading_target acquire] iter=14 targetF=3.0000 F=1.9689 err=1.0311 d=1.8900 pos=-3.4600
+[trial 1 pair 300 loading_target acquire] iter=15 targetF=3.0000 F=2.2986 err=0.7014 d=2.0400 pos=-3.6100
+[trial 1 pair 300 loading_target acquire] iter=16 targetF=3.0000 F=2.5937 err=0.4063 d=2.1500 pos=-3.7200
+[trial 1 pair 300 loading_target acquire] iter=17 targetF=3.0000 F=2.8944 err=0.1056 d=2.2600 pos=-3.8300
+[trial 1 pair 300 loading_target acquire] iter=18 targetF=3.0000 F=3.0163 err=-0.0163 d=2.2800 pos=-3.8500
+[trial 1 pair 1 loading_target] start targetF=3.0000 d_actual=2.2800 pos=-3.8500
+[trial 1 pair 1 loading_target] summary n=114 F=2.910200 d=2.2800 Bmag=7961.4828
+[trial 1 pair 1 preload_deep] start targetF=3.0000 d_actual=2.5600 pos=-4.1300
+[trial 1 pair 1 preload_deep] summary n=114 F=3.909800 d=2.5600 Bmag=8639.9828
+[trial 1 pair 300 unloading_target acquire] iter=1 targetF=2.9102 F=3.9011 err=-0.9909 d=2.5600 pos=-4.1300
+[trial 1 pair 300 unloading_target acquire] iter=2 targetF=2.9102 F=2.5397 err=0.3705 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=3 targetF=2.9102 F=2.6180 err=0.2922 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=4 targetF=2.9102 F=2.7595 err=0.1507 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=5 targetF=2.9102 F=2.7565 err=0.1537 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=6 targetF=2.9102 F=2.7570 err=0.1532 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=7 targetF=2.9102 F=2.7585 err=0.1517 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=8 targetF=2.9102 F=2.7568 err=0.1534 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=9 targetF=2.9102 F=2.7571 err=0.1531 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=10 targetF=2.9102 F=2.7580 err=0.1522 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=11 targetF=2.9102 F=2.7562 err=0.1540 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=12 targetF=2.9102 F=2.7566 err=0.1536 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=13 targetF=2.9102 F=2.7555 err=0.1547 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=14 targetF=2.9102 F=2.7535 err=0.1567 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=15 targetF=2.9102 F=2.7529 err=0.1573 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=16 targetF=2.9102 F=2.7526 err=0.1576 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=17 targetF=2.9102 F=2.7509 err=0.1593 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=18 targetF=2.9102 F=2.7514 err=0.1588 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=19 targetF=2.9102 F=2.7503 err=0.1599 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=20 targetF=2.9102 F=2.7494 err=0.1608 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=21 targetF=2.9102 F=2.7482 err=0.1620 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=22 targetF=2.9102 F=2.7483 err=0.1619 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=23 targetF=2.9102 F=2.7464 err=0.1638 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=24 targetF=2.9102 F=2.7464 err=0.1638 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=25 targetF=2.9102 F=2.7452 err=0.1650 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=26 targetF=2.9102 F=2.7442 err=0.1660 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=27 targetF=2.9102 F=2.7422 err=0.1680 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=28 targetF=2.9102 F=2.7423 err=0.1679 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=29 targetF=2.9102 F=2.7411 err=0.1691 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=30 targetF=2.9102 F=2.7407 err=0.1695 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=31 targetF=2.9102 F=2.7411 err=0.1691 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=32 targetF=2.9102 F=2.7397 err=0.1705 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=33 targetF=2.9102 F=2.7383 err=0.1719 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=34 targetF=2.9102 F=2.7375 err=0.1727 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=35 targetF=2.9102 F=2.7371 err=0.1731 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=36 targetF=2.9102 F=2.7374 err=0.1728 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=37 targetF=2.9102 F=2.7357 err=0.1745 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=38 targetF=2.9102 F=2.7342 err=0.1760 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=39 targetF=2.9102 F=2.7338 err=0.1764 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=40 targetF=2.9102 F=2.7338 err=0.1764 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=41 targetF=2.9102 F=2.7329 err=0.1773 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=42 targetF=2.9102 F=2.7322 err=0.1780 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=43 targetF=2.9102 F=2.7319 err=0.1783 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=44 targetF=2.9102 F=2.7316 err=0.1786 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=45 targetF=2.9102 F=2.7303 err=0.1799 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=46 targetF=2.9102 F=2.7300 err=0.1802 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=47 targetF=2.9102 F=2.7285 err=0.1817 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=48 targetF=2.9102 F=2.7277 err=0.1825 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=49 targetF=2.9102 F=2.7281 err=0.1821 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=50 targetF=2.9102 F=2.7268 err=0.1834 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=51 targetF=2.9102 F=2.7260 err=0.1842 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=52 targetF=2.9102 F=2.7259 err=0.1843 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=53 targetF=2.9102 F=2.7244 err=0.1858 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=54 targetF=2.9102 F=2.7241 err=0.1861 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=55 targetF=2.9102 F=2.7232 err=0.1870 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=56 targetF=2.9102 F=2.7230 err=0.1872 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=57 targetF=2.9102 F=2.7228 err=0.1874 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=58 targetF=2.9102 F=2.7208 err=0.1894 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=59 targetF=2.9102 F=2.7211 err=0.1891 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=60 targetF=2.9102 F=2.7214 err=0.1888 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=61 targetF=2.9102 F=2.7198 err=0.1904 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=62 targetF=2.9102 F=2.7189 err=0.1913 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=63 targetF=2.9102 F=2.7198 err=0.1904 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=64 targetF=2.9102 F=2.7201 err=0.1901 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=65 targetF=2.9102 F=2.7180 err=0.1922 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=66 targetF=2.9102 F=2.7170 err=0.1932 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=67 targetF=2.9102 F=2.7160 err=0.1942 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=68 targetF=2.9102 F=2.7147 err=0.1955 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=69 targetF=2.9102 F=2.7162 err=0.1940 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=70 targetF=2.9102 F=2.7157 err=0.1945 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=71 targetF=2.9102 F=2.7146 err=0.1956 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=72 targetF=2.9102 F=2.7125 err=0.1977 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=73 targetF=2.9102 F=2.7140 err=0.1962 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=74 targetF=2.9102 F=2.7135 err=0.1967 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=75 targetF=2.9102 F=2.7126 err=0.1976 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=76 targetF=2.9102 F=2.7119 err=0.1983 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=77 targetF=2.9102 F=2.7120 err=0.1982 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=78 targetF=2.9102 F=2.7105 err=0.1997 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=79 targetF=2.9102 F=2.7101 err=0.2001 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=80 targetF=2.9102 F=2.7091 err=0.2011 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=81 targetF=2.9102 F=2.7095 err=0.2007 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=82 targetF=2.9102 F=2.7084 err=0.2018 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=83 targetF=2.9102 F=2.7082 err=0.2020 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=84 targetF=2.9102 F=2.7090 err=0.2012 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=85 targetF=2.9102 F=2.7074 err=0.2028 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=86 targetF=2.9102 F=2.7083 err=0.2019 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=87 targetF=2.9102 F=2.7063 err=0.2039 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=88 targetF=2.9102 F=2.7068 err=0.2034 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=89 targetF=2.9102 F=2.7056 err=0.2046 d=2.3800 pos=-3.9500
+[trial 1 pair 300 unloading_target acquire] iter=90 targetF=2.9102 F=2.7046 err=0.2056 d=2.3800 pos=-3.9500
+[trial 1 pair 300] incomplete status=unloading_max_iters
+[trial 2 pair 300] contact_pos=-1.6900 F=0.1285 baseline=0.0345 dF_base=0.0940 dF_step=0.0400 slope=0.3995
+[trial 2 pair 300 loading_target acquire] iter=1 targetF=3.0000 F=0.1264 err=2.8736 d=0.0000 pos=-1.6900
+[trial 2 pair 300 loading_target acquire] iter=2 targetF=3.0000 F=0.1933 err=2.8067 d=0.1400 pos=-1.8300
+[trial 2 pair 300 loading_target acquire] iter=3 targetF=3.0000 F=0.2709 err=2.7291 d=0.2800 pos=-1.9700
+[trial 2 pair 300 loading_target acquire] iter=4 targetF=3.0000 F=0.3484 err=2.6516 d=0.4200 pos=-2.1100
+[trial 2 pair 300 loading_target acquire] iter=5 targetF=3.0000 F=0.4332 err=2.5668 d=0.5600 pos=-2.2500
+[trial 2 pair 300 loading_target acquire] iter=6 targetF=3.0000 F=0.5299 err=2.4701 d=0.7000 pos=-2.3900
+[trial 2 pair 300 loading_target acquire] iter=7 targetF=3.0000 F=0.6453 err=2.3547 d=0.8400 pos=-2.5300
+[trial 2 pair 300 loading_target acquire] iter=8 targetF=3.0000 F=0.7756 err=2.2244 d=0.9800 pos=-2.6700
+[trial 2 pair 300 loading_target acquire] iter=9 targetF=3.0000 F=0.9273 err=2.0727 d=1.1200 pos=-2.8100
+[trial 2 pair 300 loading_target acquire] iter=10 targetF=3.0000 F=1.1012 err=1.8988 d=1.2700 pos=-2.9600
+[trial 2 pair 300 loading_target acquire] iter=11 targetF=3.0000 F=1.3163 err=1.6837 d=1.4200 pos=-3.1100
+[trial 2 pair 300 loading_target acquire] iter=12 targetF=3.0000 F=1.5605 err=1.4395 d=1.5600 pos=-3.2500
+[trial 2 pair 300 loading_target acquire] iter=13 targetF=3.0000 F=1.8243 err=1.1757 d=1.7000 pos=-3.3900
+[trial 2 pair 300 loading_target acquire] iter=14 targetF=3.0000 F=2.1205 err=0.8795 d=1.8400 pos=-3.5300
+[trial 2 pair 300 loading_target acquire] iter=15 targetF=3.0000 F=2.4760 err=0.5240 d=1.9800 pos=-3.6700
+[trial 2 pair 300 loading_target acquire] iter=16 targetF=3.0000 F=2.7484 err=0.2516 d=2.0800 pos=-3.7700
+[trial 2 pair 300 loading_target acquire] iter=17 targetF=3.0000 F=2.9348 err=0.0652 d=2.1400 pos=-3.8300
+[trial 2 pair 300 loading_target acquire] iter=18 targetF=3.0000 F=3.0265 err=-0.0265 d=2.1600 pos=-3.8500
+[trial 2 pair 1 loading_target] start targetF=3.0000 d_actual=2.1600 pos=-3.8500
+[trial 2 pair 1 loading_target] summary n=114 F=2.929850 d=2.1600 Bmag=7956.0458
+[trial 2 pair 1 preload_deep] start targetF=3.0000 d_actual=2.4400 pos=-4.1300
+[trial 2 pair 1 preload_deep] summary n=114 F=3.952450 d=2.4400 Bmag=8630.4051
+[trial 2 pair 300 unloading_target acquire] iter=1 targetF=2.9299 F=3.9460 err=-1.0162 d=2.4400 pos=-4.1300
+[trial 2 pair 300 unloading_target acquire] iter=2 targetF=2.9299 F=2.5614 err=0.3685 d=2.2600 pos=-3.9500
+[trial 2 pair 300 unloading_target acquire] iter=3 targetF=2.9299 F=2.6403 err=0.2895 d=2.2600 pos=-3.9500
+[trial 2 pair 300 unloading_target acquire] iter=4 targetF=2.9299 F=2.7818 err=0.1481 d=2.2600 pos=-3.9500
+[trial 2 pair 300 unloading_target acquire] iter=5 targetF=2.9299 F=2.7846 err=0.1452 d=2.2900 pos=-3.9800
+[trial 2 pair 300 unloading_target acquire] iter=6 targetF=2.9299 F=3.0812 err=-0.1513 d=2.3100 pos=-4.0000
+[trial 2 pair 1 unloading_target] start targetF=2.9299 d_actual=2.2900 pos=-3.9800
+[trial 2 pair 1 unloading_target] summary n=114 F=2.759250 d=2.2900 Bmag=8285.3072
+[trial 2 pair 300] diagnostic dF=-0.170600 dd=+0.1300 dBmag=+329.2614 dBvec=330.4489 verdict=bad_F_match
+[trial 3 pair 300] contact_pos=-1.7100 F=0.1356 baseline=0.0380 dF_base=0.0976 dF_step=0.0416 slope=0.4160
+[trial 3 pair 300 loading_target acquire] iter=1 targetF=3.0000 F=0.1342 err=2.8658 d=0.0000 pos=-1.7100
+[trial 3 pair 300 loading_target acquire] iter=2 targetF=3.0000 F=0.2043 err=2.7957 d=0.1500 pos=-1.8600
+[trial 3 pair 300 loading_target acquire] iter=3 targetF=3.0000 F=0.2860 err=2.7140 d=0.3000 pos=-2.0100
+[trial 3 pair 300 loading_target acquire] iter=4 targetF=3.0000 F=0.3753 err=2.6247 d=0.4400 pos=-2.1500
+[trial 3 pair 300 loading_target acquire] iter=5 targetF=3.0000 F=0.4610 err=2.5390 d=0.5800 pos=-2.2900
+[trial 3 pair 300 loading_target acquire] iter=6 targetF=3.0000 F=0.5618 err=2.4382 d=0.7300 pos=-2.4400
+[trial 3 pair 300 loading_target acquire] iter=7 targetF=3.0000 F=0.6906 err=2.3094 d=0.8800 pos=-2.5900
+[trial 3 pair 300 loading_target acquire] iter=8 targetF=3.0000 F=0.8370 err=2.1630 d=1.0300 pos=-2.7400
+[trial 3 pair 300 loading_target acquire] iter=9 targetF=3.0000 F=1.0119 err=1.9881 d=1.1800 pos=-2.8900
+[trial 3 pair 300 loading_target acquire] iter=10 targetF=3.0000 F=1.2148 err=1.7852 d=1.3200 pos=-3.0300
+[trial 3 pair 300 loading_target acquire] iter=11 targetF=3.0000 F=1.4315 err=1.5685 d=1.4600 pos=-3.1700
+[trial 3 pair 300 loading_target acquire] iter=12 targetF=3.0000 F=1.6716 err=1.3284 d=1.6000 pos=-3.3100
+[trial 3 pair 300 loading_target acquire] iter=13 targetF=3.0000 F=1.9531 err=1.0469 d=1.7500 pos=-3.4600
+[trial 3 pair 300 loading_target acquire] iter=14 targetF=3.0000 F=2.2900 err=0.7100 d=1.9000 pos=-3.6100
+[trial 3 pair 300 loading_target acquire] iter=15 targetF=3.0000 F=2.5916 err=0.4084 d=2.0100 pos=-3.7200
+[trial 3 pair 300 loading_target acquire] iter=16 targetF=3.0000 F=2.8976 err=0.1024 d=2.1200 pos=-3.8300
+[trial 3 pair 300 loading_target acquire] iter=17 targetF=3.0000 F=3.0224 err=-0.0224 d=2.1400 pos=-3.8500
+[trial 3 pair 1 loading_target] start targetF=3.0000 d_actual=2.1400 pos=-3.8500
+[trial 3 pair 1 loading_target] summary n=114 F=2.922200 d=2.1400 Bmag=7947.7297
+[trial 3 pair 1 preload_deep] start targetF=3.0000 d_actual=2.4200 pos=-4.1300
+[trial 3 pair 1 preload_deep] summary n=114 F=3.972000 d=2.4200 Bmag=8623.5655
+[trial 3 pair 300 unloading_target acquire] iter=1 targetF=2.9222 F=3.9640 err=-1.0418 d=2.4200 pos=-4.1300
+[trial 3 pair 300 unloading_target acquire] iter=2 targetF=2.9222 F=2.5791 err=0.3431 d=2.2400 pos=-3.9500
+[trial 3 pair 300 unloading_target acquire] iter=3 targetF=2.9222 F=2.6516 err=0.2706 d=2.2400 pos=-3.9500
+[trial 3 pair 300 unloading_target acquire] iter=4 targetF=2.9222 F=2.7878 err=0.1344 d=2.2700 pos=-3.9800
+[trial 3 pair 300 unloading_target acquire] iter=5 targetF=2.9222 F=3.0911 err=-0.1689 d=2.2900 pos=-4.0000
+[trial 3 pair 1 unloading_target] start targetF=2.9222 d_actual=2.2700 pos=-3.9800
+[trial 3 pair 1 unloading_target] summary n=113 F=2.769300 d=2.2700 Bmag=8283.3763
+[trial 3 pair 300] diagnostic dF=-0.152900 dd=+0.1300 dBmag=+335.6466 dBvec=336.7885 verdict=bad_F_match
+# formal registry skipped: not registered: 0/3 usable strong pairs, 2/3 total pairs

@@ -1,0 +1,4 @@
+preload_extra_mm,n,median_abs_delta_F_mN,median_d_loading_mm,median_d_unloading_mm,median_delta_d_mm,mean_delta_d_mm,std_delta_d_mm,median_delta_Bvec_uT,mean_delta_Bvec_uT,std_delta_Bvec_uT,median_delta_Bmag_uT,median_delta_Bx_uT,median_delta_By_uT,median_delta_Bz_uT,median_Bvec_per_abs_delta_d_uT_per_mm,strict_strong_count,boundary_accepted_count
+0.2,3,24.299999999999997,2.56,2.66,0.1,0.10666666666666667,0.00942809041582063,287.6495,296.72636666666665,26.202790566061644,283.9498,-0.602,168.278,233.288,2876.495,2,1
+0.3,3,19.7,2.54,2.64,0.1,0.11333333333333334,0.01885618083164127,308.7527,337.2136,46.509969138024594,307.5975,-3.607,194.125,240.064,3087.527,1,2
+0.4,3,31.65,2.54,2.73,0.13,0.15,0.04320493798938573,350.8342,421.4058,116.13016391836648,349.9581,-7.5125,244.307,251.679,2698.7246153846154,3,0

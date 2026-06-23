@@ -1,0 +1,4 @@
+# APMD same-d path-dose 3.3A session 20260612_155303
+# session_id=session_20260612_155303
+# status=error
+ERROR: MLX90393 required for APMD same-d path-dose 3.3A. MLX warmup before opening motion hardware: 0 valid MLX90393 CSV sample

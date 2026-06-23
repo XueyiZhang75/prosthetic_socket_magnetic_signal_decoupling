@@ -1,0 +1,4 @@
+# APMD same-d/different-F active path-pair session 20260608_112043
+# session_id=session_20260608_112043
+# status=error
+ERROR: MLX warmup failed: COM6 produced no raw serial lines

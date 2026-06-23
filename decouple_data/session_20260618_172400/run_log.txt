@@ -1,0 +1,7 @@
+# APMD high-force same-F local sensitivity session 20260618_172400
+# F_TARGETS=[(800, 8.0)], D_PRELOAD_EXTRA_MM=0.0, D_PRELOAD_FIXED_MM=3.8, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.88640
+# B0=(-405.78218, 1893.149, 3152.37572)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000

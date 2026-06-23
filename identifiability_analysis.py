@@ -26,6 +26,10 @@ import numpy as np
 
 B_COLS = ("delta_Bx_uT", "delta_By_uT", "delta_Bz_uT")
 AXIS_COLS = ("mean_Bx_uT", "mean_By_uT", "mean_Bz_uT")
+SAME_D_DIFF_F_SUMMARY_NAMES = (
+    "same_d_different_f_pair_summary.csv",
+    "Iplus_pair_summary.csv",
+)
 
 STATIC_B_NOISE_3SIGMA_UT = 3.4
 DYNAMIC_B_NOISE_3SIGMA_UT = 12.5
@@ -124,6 +128,14 @@ def latest_session_with(data_root: Path, pattern: str) -> Path | None:
         if list(session.glob(pattern)):
             return session
     return None
+
+
+def latest_session_with_any(data_root: Path, patterns: Sequence[str]) -> tuple[Path, str] | tuple[None, None]:
+    for session in sorted(data_root.glob("session_*"), reverse=True):
+        for pattern in patterns:
+            if list(session.glob(pattern)):
+                return session, pattern
+    return None, None
 
 
 def norm3(vec: Sequence[float]) -> float:
@@ -589,15 +601,17 @@ def estimate_pair_column(
 
 
 def latest_pair_column_estimates(data_root: Path) -> tuple[PairColumnEstimate | None, PairColumnEstimate | None]:
-    iplus_session = latest_session_with(data_root, "Iplus_pair_summary.csv")
+    iplus_session, iplus_summary_name = latest_session_with_any(
+        data_root, SAME_D_DIFF_F_SUMMARY_NAMES
+    )
     jplus_session = latest_session_with(data_root, "Jplus_pair_summary.csv")
 
     force_estimate = None
     displacement_estimate = None
-    if iplus_session is not None:
+    if iplus_session is not None and iplus_summary_name is not None:
         force_estimate = estimate_pair_column(
-            read_csv(iplus_session / "Iplus_pair_summary.csv"),
-            stage_name=f"I+ ({iplus_session.name})",
+            read_csv(iplus_session / iplus_summary_name),
+            stage_name=f"same-d/different-F ({iplus_session.name})",
             denominator_col="delta_F_N",
             required_flags=("same_d_ok", "force_split_ok", "b_signal_ok"),
             output_unit="uT/N",

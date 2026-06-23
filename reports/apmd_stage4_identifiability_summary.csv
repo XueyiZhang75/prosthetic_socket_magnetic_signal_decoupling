@@ -1,0 +1,2 @@
+primary_same_d_target_d_mm,primary_same_F_target_F_N,angle_deg,condition_scaled,condition_raw,min_noise_ratio,locality_distance,identifiability_score,verdict,best_score_same_d_target_d_mm,best_score_same_F_target_F_N,best_score_angle_deg,best_score_value,strict_candidate_count
+3.4,4.9,48.527316497168066,2.218505296978027,20.649984197481334,22.77521,1.845775656761643,0.22352037114234213,candidate,3.2,4.9,41.901974406133995,0.6599974802403711,1

@@ -1,0 +1,2 @@
+session_id,B0_start_Bx_uT,B0_start_By_uT,B0_start_Bz_uT,B0_end_Bx_uT,B0_end_By_uT,B0_end_Bz_uT,n_b0_start,n_b0_end,delta_Bx_uT,delta_By_uT,delta_Bz_uT,delta_Bvec_uT,drift_gate_uT,drift_ok
+session_20260616_152850,-449.1964,2605.2605,2585.1741,-449.3698,2608.4659,2584.1564,156,156,-0.1734,+3.2054,-1.0177,3.3675,10.0,1

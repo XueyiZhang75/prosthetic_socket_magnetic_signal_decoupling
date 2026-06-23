@@ -1,0 +1,10 @@
+dose_label,preload_extra_mm,formal_rep,source_session,source_trial,accepted_basis,original_verdict,effective_verdict,F_loading_N,F_unloading_N,delta_F_N,abs_delta_F_mN,d_loading_mm,d_unloading_mm,delta_d_mm,abs_delta_d_mm,delta_Bmag_uT,delta_Bx_uT,delta_By_uT,delta_Bz_uT,delta_Bvec_uT,same_F_ok_effective,disp_split_ok_effective,b_signal_ok_effective
++0.20,0.2,1,session_20260612_203004,1,strict strong,strong,formal_strong,3.6218,3.6461,0.0243,24.299999999999997,2.54,2.64,0.1,0.1,267.3662,4.808,161.067,216.831,270.1507,1,1,1
++0.20,0.2,2,session_20260613_141828,1,strict strong,strong,formal_strong,3.6419,3.6438,0.0019,1.9,2.6,2.72,0.12,0.12,329.9611,-0.602,197.73,267.167,332.3789,1,1,1
++0.20,0.2,3,session_20260613_162917,3,boundary accepted,weak_disp_split,formal_strong,3.70465,3.67875,-0.0259,25.9,2.56,2.66,0.1,0.1,283.9498,-1.202,168.278,233.288,287.6495,1,1,1
++0.30,0.3,1,session_20260613_174105,1,boundary accepted,weak_disp_split,formal_strong,3.64435,3.6017,-0.04265,42.65,2.52,2.62,0.1,0.1,307.5975,-3.607,194.125,240.064,308.7527,1,1,1
++0.30,0.3,2,session_20260613_174105,2,strict strong,strong,formal_strong,3.60615,3.62065,0.0145,14.5,2.54,2.68,0.14,0.14,399.5372,-3.305,242.801,321.377,402.7982,1,1,1
++0.30,0.3,3,session_20260613_174105,3,boundary accepted,weak_disp_split,formal_strong,3.6908,3.6711,-0.0197,19.7,2.54,2.64,0.1,0.1,300.3582,-4.206,187.511,234.256,300.0899,1,1,1
++0.40,0.4,1,session_20260613_192031,1,strict strong,strong,formal_strong,3.6258,3.66675,0.04095,40.95,2.52,2.73,0.21,0.21,582.3053,-8.414,363.001,458.831,585.1208,1,1,1
++0.40,0.4,2,session_20260613_192031,2,strict strong,strong,formal_strong,3.6956,3.72725,0.03165,31.65,2.54,2.67,0.13,0.13,349.9581,-7.5125,244.307,251.679,350.8342,1,1,1
++0.40,0.4,3,session_20260613_194759,1,strict strong,strong,formal_strong,3.75155,3.76735,0.0158,15.8,2.62,2.73,0.11,0.11,327.9031,-6.611,234.693,229.416,328.2624,1,1,1

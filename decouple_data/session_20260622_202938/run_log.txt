@@ -1,0 +1,4 @@
+# APMD Block L same-d local sensitivity session 20260622_202938
+# session_id=session_20260622_202938
+# status=error
+ERROR: MLX90393 required for APMD Block L same-d local sensitivity. MLX warmup before opening motion hardware: 0 valid MLX90393

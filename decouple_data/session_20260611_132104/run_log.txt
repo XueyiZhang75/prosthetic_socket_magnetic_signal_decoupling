@@ -1,0 +1,216 @@
+# APMD same-F/different-d single force point 2.65 N session 20260611_132104
+# F_TARGETS=[(265, 2.65)], D_PRELOAD_EXTRA_MM=0.3, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.89230
+# B0=(-433.3480466666667, 3612.9101666666666, 2012.6589066666666)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 265] contact_pos=-1.6900 F=0.1253 baseline=0.0379 dF_base=0.0873 dF_step=0.0340 slope=0.3405
+[trial 1 pair 265 loading_target acquire] iter=1 targetF=2.6500 F=0.1265 err=2.5235 d=0.0000 pos=-1.6900
+[trial 1 pair 265 loading_target acquire] iter=2 targetF=2.6500 F=0.1929 err=2.4571 d=0.1400 pos=-1.8300
+[trial 1 pair 265 loading_target acquire] iter=3 targetF=2.6500 F=0.2690 err=2.3810 d=0.2800 pos=-1.9700
+[trial 1 pair 265 loading_target acquire] iter=4 targetF=2.6500 F=0.3448 err=2.3052 d=0.4200 pos=-2.1100
+[trial 1 pair 265 loading_target acquire] iter=5 targetF=2.6500 F=0.4296 err=2.2204 d=0.5600 pos=-2.2500
+[trial 1 pair 265 loading_target acquire] iter=6 targetF=2.6500 F=0.5259 err=2.1241 d=0.7000 pos=-2.3900
+[trial 1 pair 265 loading_target acquire] iter=7 targetF=2.6500 F=0.6355 err=2.0145 d=0.8400 pos=-2.5300
+[trial 1 pair 265 loading_target acquire] iter=8 targetF=2.6500 F=0.7666 err=1.8834 d=0.9800 pos=-2.6700
+[trial 1 pair 265 loading_target acquire] iter=9 targetF=2.6500 F=0.9205 err=1.7295 d=1.1200 pos=-2.8100
+[trial 1 pair 265 loading_target acquire] iter=10 targetF=2.6500 F=1.0925 err=1.5575 d=1.2700 pos=-2.9600
+[trial 1 pair 265 loading_target acquire] iter=11 targetF=2.6500 F=1.3026 err=1.3474 d=1.4200 pos=-3.1100
+[trial 1 pair 265 loading_target acquire] iter=12 targetF=2.6500 F=1.5464 err=1.1036 d=1.5600 pos=-3.2500
+[trial 1 pair 265 loading_target acquire] iter=13 targetF=2.6500 F=1.8013 err=0.8487 d=1.7000 pos=-3.3900
+[trial 1 pair 265 loading_target acquire] iter=14 targetF=2.6500 F=2.0927 err=0.5573 d=1.8400 pos=-3.5300
+[trial 1 pair 265 loading_target acquire] iter=15 targetF=2.6500 F=2.3261 err=0.3239 d=1.9400 pos=-3.6300
+[trial 1 pair 265 loading_target acquire] iter=16 targetF=2.6500 F=2.5051 err=0.1449 d=2.0000 pos=-3.6900
+[trial 1 pair 265 loading_target acquire] iter=17 targetF=2.6500 F=2.5861 err=0.0639 d=2.0300 pos=-3.7200
+[trial 1 pair 265 loading_target acquire] iter=18 targetF=2.6500 F=2.6640 err=-0.0140 d=2.0600 pos=-3.7500
+[trial 1 pair 1 loading_target] start targetF=2.6500 d_actual=2.0600 pos=-3.7500
+[trial 1 pair 1 loading_target] summary n=114 F=2.582650 d=2.0600 Bmag=7743.4011
+[trial 1 pair 1 preload_deep] start targetF=2.6500 d_actual=2.3400 pos=-4.0300
+[trial 1 pair 1 preload_deep] summary n=114 F=3.492550 d=2.3400 Bmag=8426.5566
+[trial 1 pair 265 unloading_target acquire] iter=1 targetF=2.5827 F=3.4850 err=-0.9024 d=2.3400 pos=-4.0300
+[trial 1 pair 265 unloading_target acquire] iter=2 targetF=2.5827 F=2.2517 err=0.3310 d=2.1600 pos=-3.8500
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8500 target=-3.8700 actual=-3.8500
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8500 target=-3.8800 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.8700 target=-3.8700 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=3 targetF=2.5827 F=2.4363 err=0.1463 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=4 targetF=2.5827 F=2.4810 err=0.1017 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=5 targetF=2.5827 F=2.4692 err=0.1134 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=6 targetF=2.5827 F=2.4686 err=0.1141 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=7 targetF=2.5827 F=2.4707 err=0.1120 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=8 targetF=2.5827 F=2.4556 err=0.1271 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=9 targetF=2.5827 F=2.4524 err=0.1303 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=10 targetF=2.5827 F=2.4524 err=0.1303 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=11 targetF=2.5827 F=2.4479 err=0.1347 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=12 targetF=2.5827 F=2.4548 err=0.1279 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=13 targetF=2.5827 F=2.4654 err=0.1172 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=14 targetF=2.5827 F=2.4557 err=0.1269 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=15 targetF=2.5827 F=2.4634 err=0.1193 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=16 targetF=2.5827 F=2.4518 err=0.1309 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=17 targetF=2.5827 F=2.4487 err=0.1340 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=18 targetF=2.5827 F=2.4587 err=0.1239 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=19 targetF=2.5827 F=2.4490 err=0.1337 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=20 targetF=2.5827 F=2.4421 err=0.1406 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=21 targetF=2.5827 F=2.4529 err=0.1298 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=22 targetF=2.5827 F=2.4526 err=0.1300 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=23 targetF=2.5827 F=2.4355 err=0.1471 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=24 targetF=2.5827 F=2.4386 err=0.1441 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=25 targetF=2.5827 F=2.4440 err=0.1387 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=26 targetF=2.5827 F=2.4485 err=0.1341 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=27 targetF=2.5827 F=2.4378 err=0.1448 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=28 targetF=2.5827 F=2.4441 err=0.1385 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=29 targetF=2.5827 F=2.4363 err=0.1463 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=30 targetF=2.5827 F=2.4436 err=0.1391 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=31 targetF=2.5827 F=2.4437 err=0.1389 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=32 targetF=2.5827 F=2.4457 err=0.1370 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=33 targetF=2.5827 F=2.4358 err=0.1469 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=34 targetF=2.5827 F=2.4315 err=0.1511 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=35 targetF=2.5827 F=2.4342 err=0.1484 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=36 targetF=2.5827 F=2.4337 err=0.1490 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=37 targetF=2.5827 F=2.4340 err=0.1486 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=38 targetF=2.5827 F=2.4290 err=0.1536 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=39 targetF=2.5827 F=2.4267 err=0.1559 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=40 targetF=2.5827 F=2.4338 err=0.1488 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=41 targetF=2.5827 F=2.4283 err=0.1543 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=42 targetF=2.5827 F=2.4244 err=0.1582 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=43 targetF=2.5827 F=2.4296 err=0.1530 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=44 targetF=2.5827 F=2.4279 err=0.1547 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=45 targetF=2.5827 F=2.4310 err=0.1517 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=46 targetF=2.5827 F=2.4245 err=0.1582 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=47 targetF=2.5827 F=2.4328 err=0.1498 d=2.1800 pos=-3.8700
+[trial 1 pair 265 unloading_target acquire] fine_move reason=fine_bracket from=-3.8700 target=-3.9000 actual=-3.8900
+[trial 1 pair 265 unloading_target acquire] stagnation_offset reason=fine_bracket from=-3.8900 target=-3.9200 actual=-3.9100
+[trial 1 pair 265 unloading_target acquire] stagnation_return reason=fine_bracket from=-3.9100 target=-3.9000 actual=-3.8700
+[trial 1 pair 265 unloading_target acquire] iter=48 targetF=2.5827 F=2.4325 err=0.1502 d=2.1800 pos=-3.8700

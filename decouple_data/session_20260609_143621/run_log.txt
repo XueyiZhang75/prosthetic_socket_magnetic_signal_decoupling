@@ -1,0 +1,24 @@
+# APMD fixed-force passive creep session 20260609_143621
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# F_HOLDS=[(440, 4.4)], HOLD_S=180.0, N_TRIALS=1
+# live_tare_N=-2.94790
+# B0=(-466.51032450331127, 2880.134092715232, 3331.0673509933777)
+# trial_start_pos=-0.0000
+[trial 1 hold 440] contact_pos=-1.7900 F=0.2298 baseline=0.1299 dF_base=0.0999 dF_step=0.0425 slope=0.4250
+[trial 1 hold 440 acquire] iter=1 targetF=4.4000 F=0.2282 err=4.1718 d=0.0000 pos=-1.7900
+[trial 1 hold 440 acquire] iter=2 targetF=4.4000 F=0.3098 err=4.0902 d=0.1600 pos=-1.9500
+[trial 1 hold 440 acquire] iter=3 targetF=4.4000 F=0.3932 err=4.0068 d=0.3200 pos=-2.1100
+[trial 1 hold 440 acquire] iter=4 targetF=4.4000 F=0.4917 err=3.9083 d=0.4800 pos=-2.2700
+[trial 1 hold 440 acquire] iter=5 targetF=4.4000 F=0.6237 err=3.7763 d=0.6500 pos=-2.4400
+[trial 1 hold 440 acquire] iter=6 targetF=4.4000 F=0.7803 err=3.6197 d=0.8200 pos=-2.6100
+[trial 1 hold 440 acquire] iter=7 targetF=4.4000 F=0.9468 err=3.4532 d=0.9800 pos=-2.7700
+[trial 1 hold 440 acquire] iter=8 targetF=4.4000 F=1.1667 err=3.2333 d=1.1400 pos=-2.9300
+[trial 1 hold 440 acquire] iter=9 targetF=4.4000 F=1.4105 err=2.9895 d=1.3000 pos=-3.0900
+[trial 1 hold 440 acquire] iter=10 targetF=4.4000 F=1.6859 err=2.7141 d=1.4600 pos=-3.2500
+[trial 1 hold 440 acquire] iter=11 targetF=4.4000 F=2.0006 err=2.3994 d=1.6200 pos=-3.4100
+[trial 1 hold 440 acquire] iter=12 targetF=4.4000 F=2.3454 err=2.0546 d=1.7800 pos=-3.5700
+[trial 1 hold 440 acquire] iter=13 targetF=4.4000 F=2.7737 err=1.6263 d=1.9500 pos=-3.7400
+[trial 1 hold 440 acquire] iter=14 targetF=4.4000 F=3.2825 err=1.1175 d=2.1200 pos=-3.9100
+[trial 1 hold 440 acquire] iter=15 targetF=4.4000 F=3.8808 err=0.5192 d=2.2800 pos=-4.0700
+[trial 1 hold 440 acquire] iter=16 targetF=4.4000 F=4.3671 err=0.0329 d=2.4000 pos=-4.1900
+[trial 1 hold 440] force_jump_abort t=115.9234 F_prev=4.385300 F=4.599900 d_prev=4.1900 d=4.1900

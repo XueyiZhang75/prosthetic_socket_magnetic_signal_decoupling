@@ -1,0 +1,9 @@
+# Stage I session 20260608_191305
+# metadata={'sample_id': '', 'magnet_id': '', 'head_id': 'stamp_head_v1', 'force_calibration_id': 'force_calibration_20260602_190856', 'displacement_zero_id': 'stageD_session_20260602_201421'}
+# D_HOLDS=[(280, 2.8)], HOLD_S=120.0, N_TRIALS=3
+# live_tare_N=-2.93200
+# B0=(-438.3190463576159, 2808.057894039735, 3095.6509801324505)
+# trial_start_pos=-0.0000
+[trial 1] contact_pos=-1.5000 F=0.1809 baseline=0.0997 dF_base=0.0813 dF_step=0.0388 slope=0.3523
+[trial 1 hold 280] start d_target=2.8000 d_actual=2.7900 pos=-4.2900
+[trial 1 hold 280] done n=1363 d_end=2.7900 d_drift=+0.0000 dF=-0.313800 dB=-11.4928

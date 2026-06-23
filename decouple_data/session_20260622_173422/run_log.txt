@@ -1,0 +1,4 @@
+# APMD Stage 6.1 L local held-out dense-loop session 20260622_173422
+# session_id=session_20260622_173422
+# status=error
+ERROR: MLX90393 required for APMD local held-out dense-loop 6.1 L. MLX warmup before opening motion hardware: 0 valid MLX90393 

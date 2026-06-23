@@ -1,0 +1,26 @@
+# APMD same-d path-dose 3.3A session 20260612_153805
+# TARGET_D_MM=3.4, PRELOAD_D_MM=[3.6, 3.7, 3.8]
+# TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, TRIALS_PER_PRELOAD=3
+# live_tare_N=-2.88410
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[preload 3.60 trial 1] B0=(-404.4797051282051, 3282.075153846154, 2291.907423076923) n=156
+[trial 1] contact_pos=-1.5900 F=0.1508 baseline=0.0582 dF_base=0.0926 dF_step=0.0339 slope=0.3767
+[trial 1 pair 1 direct_target] start d_target=3.4000 d_actual=3.3900 pos=-4.9800
+[trial 1 pair 1 direct_target] summary n=113 d=3.3900 F=7.813000 Bmag=10697.7845
+[trial 1 pair 1 preload_deep] start d_target=3.6000 d_actual=3.5800 pos=-5.1700
+[trial 1 pair 1 preload_deep] summary n=113 d=3.5800 F=9.746000 Bmag=11239.7022
+[trial 1 pair 1 return_target] start d_target=3.4000 d_actual=3.4100 pos=-5.0000
+[trial 1 pair 1 return_target] summary n=113 d=3.4100 F=6.796300 Bmag=10859.7063
+[preload 3.60 trial 1] diagnostic dd=+0.0200 dF=-1.016700 dBmag=+161.9218 dBvec=167.6039 verdict=strong
+[preload 3.60 trial 2] B0=(-400.13016025641025, 3399.9250128205126, 2479.3580128205126) n=156
+[trial 2] contact_pos=-1.5900 F=0.1373 baseline=0.0470 dF_base=0.0903 dF_step=0.0349 slope=0.3878
+[trial 2 pair 1 direct_target] start d_target=3.4000 d_actual=3.3900 pos=-4.9800
+[trial 2 pair 1 direct_target] summary n=113 d=3.3900 F=7.798000 Bmag=10694.0978
+[trial 2 pair 1 preload_deep] start d_target=3.6000 d_actual=3.5800 pos=-5.1700
+[trial 2 pair 1 preload_deep] summary n=113 d=3.5800 F=9.770800 Bmag=11233.7943
+[trial 2 pair 1 return_target] start d_target=3.4000 d_actual=3.4100 pos=-5.0000
+[trial 2 pair 1 return_target] summary n=113 d=3.4100 F=6.806900 Bmag=10852.7075
+[preload 3.60 trial 2] diagnostic dd=+0.0200 dF=-0.991100 dBmag=+158.6097 dBvec=165.4467 verdict=strong
+[preload 3.60 trial 3] B0=(-400.0013419354839, 3415.8850193548387, 2501.5053548387095) n=155
+[preload 3.70 trial 1] B0=(-400.04753289473683, 3311.876447368421, 2351.991375) n=152
