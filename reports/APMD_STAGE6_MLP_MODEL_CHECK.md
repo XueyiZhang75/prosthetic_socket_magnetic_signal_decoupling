@@ -10,16 +10,16 @@ This is a supplementary neural-network capacity check. It uses the same Stage 6.
 
 | model                          | model_family                  |   train_n_states |   heldout_n_states |   F_MAE_N |   F_R2 |   d_MAE_mm |   d_R2 |   F_MAE_vs_plain_mlp_pct |   F_MAE_vs_lim_style_mlp_pct | passes_current_F_goal   | passes_d_goal   |
 |:-------------------------------|:------------------------------|-----------------:|-------------------:|----------:|-------:|-----------:|-------:|-------------------------:|-----------------------------:|:------------------------|:----------------|
-| apmd_local_identifiability_mlp | APMD local identifiability    |              561 |                 78 |    0.1215 | 0.9972 |     0.0355 | 0.9560 |                  91.4000 |                      85.1287 | True                    | True            |
-| lim_style_branch_mlp           | Lim-style branch compensation |              561 |                 78 |    0.8167 | 0.7462 |     0.0556 | 0.8891 |                  42.1703 |                       0.0000 | False                   | False           |
-| apmd_path_memory_mlp           | APMD path memory              |              561 |                 78 |    1.0726 | 0.8217 |     0.0616 | 0.8369 |                  24.0478 |                     -31.3377 | False                   | False           |
-| plain_magnetic_mlp             | plain magnetic                |              561 |                 78 |    1.4122 | 0.6701 |     0.1408 | 0.1338 |                   0.0000 |                     -72.9215 | False                   | False           |
+| apmd_local_identifiability_mlp | APMD local identifiability    |             1461 |                312 |    0.1195 | 0.9991 |     0.0516 | 0.9882 |                  90.2877 |                      69.5476 | True                    | False           |
+| lim_style_branch_mlp           | Lim-style branch compensation |             1461 |                312 |    0.3923 | 0.9838 |     0.0765 | 0.9592 |                  68.1066 |                       0.0000 | True                    | False           |
+| apmd_path_memory_mlp           | APMD path memory              |             1461 |                312 |    0.5991 | 0.9738 |     0.1116 | 0.9609 |                  51.2903 |                     -52.7264 | True                    | False           |
+| plain_magnetic_mlp             | plain magnetic                |             1461 |                312 |    1.2300 | 0.6946 |     0.0915 | 0.9336 |                   0.0000 |                    -213.5440 | False                   | False           |
 
 ## Main Result
 
-- Best MLP force model: `apmd_local_identifiability_mlp` with F MAE `0.121 N`.
-- Best MLP displacement model: `apmd_local_identifiability_mlp` with d MAE `0.035 mm`.
-- Compared with local-ID ridge (`F MAE 0.054 N`, `d MAE 0.056 mm`), local-ID MLP has higher force error (`0.121 N`) but lower displacement error (`0.035 mm`).
+- Best MLP force model: `apmd_local_identifiability_mlp` with F MAE `0.119 N`.
+- Best MLP displacement model: `apmd_local_identifiability_mlp` with d MAE `0.052 mm`.
+- Compared with local-ID ridge (`F MAE 0.082 N`, `d MAE 0.047 mm`), local-ID MLP has higher force error (`0.119 N`) and higher displacement error (`0.052 mm`).
 - Read this as a capacity check, not as a replacement for the ridge-only physics/feature ablation.
 
 ## Outputs

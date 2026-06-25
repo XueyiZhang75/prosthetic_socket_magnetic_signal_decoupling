@@ -306,6 +306,8 @@ def write_report(metrics: pd.DataFrame) -> None:
     ridge_metrics = pd.read_csv(stage6.OUT_METRICS).set_index("model")
     local_ridge = ridge_metrics.loc["apmd_local_identifiability_ridge"]
     local_mlp = metrics.set_index("model").loc["apmd_local_identifiability_mlp"]
+    force_direction = "lower" if local_mlp["F_MAE_N"] < local_ridge["F_MAE_N"] else "higher"
+    disp_direction = "lower" if local_mlp["d_MAE_mm"] < local_ridge["d_MAE_mm"] else "higher"
     lines = [
         "# APMD Stage 6.3 MLP Model Check",
         "",
@@ -338,7 +340,7 @@ def write_report(metrics: pd.DataFrame) -> None:
         "",
         f"- Best MLP force model: `{best_f['model']}` with F MAE `{best_f['F_MAE_N']:.3f} N`.",
         f"- Best MLP displacement model: `{best_d['model']}` with d MAE `{best_d['d_MAE_mm']:.3f} mm`.",
-        f"- Compared with local-ID ridge (`F MAE {local_ridge['F_MAE_N']:.3f} N`, `d MAE {local_ridge['d_MAE_mm']:.3f} mm`), local-ID MLP has higher force error (`{local_mlp['F_MAE_N']:.3f} N`) but lower displacement error (`{local_mlp['d_MAE_mm']:.3f} mm`).",
+        f"- Compared with local-ID ridge (`F MAE {local_ridge['F_MAE_N']:.3f} N`, `d MAE {local_ridge['d_MAE_mm']:.3f} mm`), local-ID MLP has {force_direction} force error (`{local_mlp['F_MAE_N']:.3f} N`) and {disp_direction} displacement error (`{local_mlp['d_MAE_mm']:.3f} mm`).",
         "- Read this as a capacity check, not as a replacement for the ridge-only physics/feature ablation.",
         "",
         "## Outputs",

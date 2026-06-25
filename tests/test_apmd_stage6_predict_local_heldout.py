@@ -16,6 +16,11 @@ class Stage6PredictLocalHeldoutTests(unittest.TestCase):
         expected_sessions = {
             "session_20260615_160438",
             "session_20260618_161152",
+            "session_20260622_173504",
+            "session_20260622_180702",
+            "session_20260622_185538",
+            "session_20260623_201622",
+            "session_20260623_204724",
         }
 
         configured_sessions = {path.parent.name for path in stage6.HELDOUT_SUMMARIES}
@@ -145,6 +150,101 @@ class Stage6PredictLocalHeldoutTests(unittest.TestCase):
         self.assertEqual(len(train), 1)
         self.assertEqual(train.iloc[0]["session_id"], "session_train")
         self.assertNotIn("session_20260615_160438", set(train["session_id"]))
+
+    def test_prepare_heldout_states_filters_to_primary_cycles_when_requested(self):
+        import apmd_stage6_predict_local_heldout as stage6
+
+        raw = pd.DataFrame(
+            [
+                {
+                    "session_id": "session_block_l_heldout",
+                    "cycle": 1,
+                    "state_index": 1,
+                    "branch": "loading",
+                    "state_label": "loading_d_245",
+                    "path_mode": "loading_branch",
+                    "phase": "loading_dense",
+                    "d_target_mm": 2.45,
+                    "d_preload_mm": 3.20,
+                    "record_s": 15.0,
+                    "summary_window_s": 5.0,
+                    "n": 113,
+                    "d_median_mm": 2.44,
+                    "F_median_N": 4.3,
+                    "Bmag_median_uT": 8000.0,
+                    "Bx_median_uT": -1.0,
+                    "By_median_uT": 2.0,
+                    "Bz_median_uT": 3.0,
+                },
+                {
+                    "session_id": "session_block_l_heldout",
+                    "cycle": 2,
+                    "state_index": 1,
+                    "branch": "loading",
+                    "state_label": "loading_d_245",
+                    "path_mode": "loading_branch",
+                    "phase": "loading_dense",
+                    "d_target_mm": 2.45,
+                    "d_preload_mm": 3.20,
+                    "record_s": 15.0,
+                    "summary_window_s": 5.0,
+                    "n": 113,
+                    "d_median_mm": 2.44,
+                    "F_median_N": 4.3,
+                    "Bmag_median_uT": 8000.0,
+                    "Bx_median_uT": -1.0,
+                    "By_median_uT": 2.0,
+                    "Bz_median_uT": 3.0,
+                },
+            ]
+        )
+
+        states = stage6.prepare_heldout_states(
+            raw,
+            summary_path=ROOT / "decouple_data" / "session_block_l_heldout" / "local_heldout_dense_loop_6p1_L_state_summary.csv",
+            accepted_cycles={1},
+        )
+
+        self.assertEqual(len(states), 1)
+        self.assertEqual(states.iloc[0]["cycle_index"], 1)
+        self.assertEqual(states.iloc[0]["experiment"], "6.1-L Block L local held-out dense-loop validation")
+
+    def test_prepare_heldout_states_maps_upper_work_zone(self):
+        import apmd_stage6_predict_local_heldout as stage6
+
+        raw = pd.DataFrame(
+            [
+                {
+                    "session_id": "session_upper_heldout",
+                    "cycle": 1,
+                    "state_index": 1,
+                    "branch": "loading",
+                    "state_label": "loading_d_395",
+                    "path_mode": "loading_branch",
+                    "phase": "loading_dense",
+                    "d_target_mm": 3.95,
+                    "d_preload_mm": 4.20,
+                    "record_s": 15.0,
+                    "summary_window_s": 5.0,
+                    "n": 113,
+                    "d_median_mm": 3.89,
+                    "F_median_N": 17.5,
+                    "Bmag_median_uT": 9000.0,
+                    "Bx_median_uT": -1.0,
+                    "By_median_uT": 2.0,
+                    "Bz_median_uT": 3.0,
+                }
+            ]
+        )
+
+        states = stage6.prepare_heldout_states(
+            raw,
+            summary_path=ROOT / "decouple_data" / "session_upper_heldout" / "local_heldout_dense_loop_6p1_H_state_summary.csv",
+            accepted_cycles={1},
+        )
+
+        self.assertEqual(len(states), 1)
+        self.assertEqual(states.iloc[0]["experiment"], "6.1-H upper work-zone local held-out dense-loop validation")
 
 
 if __name__ == "__main__":

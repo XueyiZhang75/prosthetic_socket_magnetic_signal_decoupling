@@ -4,8 +4,8 @@ This script reuses the stable Stage 5.1B displacement-control dense-loop
 implementation, but shifts the target-displacement grid to interleaved
 held-out points:
 
-    training grid: 3.00, 3.10, 3.20, 3.30, 3.40, 3.50, 3.60 mm
-    held-out grid: 3.05, 3.15, 3.25, 3.35, 3.45, 3.55 mm
+    training grid: block-specific 0.1 mm grid
+    held-out grid: block-specific interleaved midpoint grid
 
 The resulting session should be evaluated as held-out validation data and not
 added to the Stage 5 training dataset before model testing.
@@ -58,6 +58,26 @@ WORK_ZONE_CONFIGS = {
         "formal_experiment_key": "\u9a8c\u8bc1 6.1-L",
         "protocol_suffix": "Block L",
     },
+    "S": {
+        "d_grid_mm": [1.85, 1.95, 2.05, 2.15, 2.25, 2.35],
+        "preload_d_mm": 2.60,
+        "summary_filename": "local_heldout_dense_loop_6p1_S_state_summary.csv",
+        "state_file_prefix": "local_heldout_dense_loop_6p1_S",
+        "figure_filename": "local_heldout_dense_loop_6p1_S.png",
+        "stage_label": "local_heldout_dense_loop_6p1_S",
+        "formal_experiment_key": "\u9a8c\u8bc1 6.1-S",
+        "protocol_suffix": "Shallow work zone",
+    },
+    "H": {
+        "d_grid_mm": [3.45, 3.55, 3.65, 3.75, 3.85, 3.95],
+        "preload_d_mm": 4.20,
+        "summary_filename": "local_heldout_dense_loop_6p1_H_state_summary.csv",
+        "state_file_prefix": "local_heldout_dense_loop_6p1_H",
+        "figure_filename": "local_heldout_dense_loop_6p1_H.png",
+        "stage_label": "local_heldout_dense_loop_6p1_H",
+        "formal_experiment_key": "\u9a8c\u8bc1 6.1-H",
+        "protocol_suffix": "Upper work zone",
+    },
 }
 
 
@@ -66,10 +86,10 @@ def parse_work_zone_arg(argv=None) -> str:
     if not args:
         return "M"
     if len(args) != 1:
-        raise SystemExit("Usage: python .\\apmd_stage6_local_heldout_dense_loop.py [M|L]")
+        raise SystemExit("Usage: python .\\apmd_stage6_local_heldout_dense_loop.py [M|L|S|H]")
     block = args[0].upper()
     if block not in WORK_ZONE_CONFIGS:
-        raise SystemExit("Unknown work-zone block. Use M or L.")
+        raise SystemExit("Unknown work-zone block. Use M, L, S, or H.")
     return block
 
 

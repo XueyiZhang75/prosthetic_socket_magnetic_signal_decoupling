@@ -1,0 +1,51 @@
+# APMD shallow work-zone same-d local sensitivity session 20260624_173531
+# D_TARGETS_MM=[1.8, 2.0, 2.2, 2.4], D_PRELOAD_BY_TARGET_MM={1.8: 2.6, 2.0: 2.6, 2.2: 2.6, 2.4: 2.6}
+# TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, N_TRIALS=3
+# live_tare_N=-2.90410
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[target 1.80 trial 1] B0=(-441.48900636942676, 1958.1373885350317, 3393.814006369427) n=157
+[trial 1] contact_pos=-2.0900 F=0.1389 baseline=0.0484 dF_base=0.0905 dF_step=0.0399 slope=0.4433
+[trial 1 pair 1 direct_target] start d_target=1.8000 d_actual=1.7800 pos=-3.8700
+[trial 1 pair 1 direct_target] summary n=114 d=1.7800 F=2.335300 Bmag=6777.0537
+[trial 1 pair 1 preload_deep] start d_target=2.6000 d_actual=2.5800 pos=-4.6700
+[trial 1 pair 1 preload_deep] summary n=114 d=2.5800 F=5.663000 Bmag=8456.5023
+[trial 1 pair 1 return_target] start d_target=1.8000 d_actual=1.7800 pos=-3.8700
+[trial 1 pair 1 return_target] summary n=114 d=1.7800 F=1.645700 Bmag=6847.7512
+[target 1.80 trial 1] diagnostic dd=+0.0000 dF=-0.689600 dBmag=+70.6975 dBvec=75.2411 verdict=strong
+[target 1.80 trial 2] B0=(-444.63498076923076, 1948.7415, 3546.0011025641024) n=156
+[trial 2] contact_pos=-2.1300 F=0.1471 baseline=0.0496 dF_base=0.0975 dF_step=0.0460 slope=0.4600
+[trial 2 pair 1 direct_target] start d_target=1.8000 d_actual=1.7800 pos=-3.9100
+[trial 2 pair 1 direct_target] summary n=114 d=1.7800 F=2.441400 Bmag=6851.4476
+[trial 2 pair 1 preload_deep] start d_target=2.6000 d_actual=2.5800 pos=-4.7100
+[trial 2 pair 1 preload_deep] summary n=114 d=2.5800 F=5.986150 Bmag=8544.9707
+[trial 2 pair 1 return_target] start d_target=1.8000 d_actual=1.7800 pos=-3.9100
+[trial 2 pair 1 return_target] summary n=114 d=1.7800 F=1.736850 Bmag=6919.1248
+[target 1.80 trial 2] diagnostic dd=+0.0000 dF=-0.704550 dBmag=+67.6772 dBvec=74.6588 verdict=strong
+[target 1.80 trial 3] B0=(-444.18423076923074, 1949.4734871794872, 3559.4661410256413) n=156
+[trial 3] contact_pos=-2.1100 F=0.1345 baseline=0.0438 dF_base=0.0907 dF_step=0.0384 slope=0.3840
+[trial 3 pair 1 direct_target] start d_target=1.8000 d_actual=1.7800 pos=-3.8900
+[trial 3 pair 1 direct_target] summary n=114 d=1.7800 F=2.387650 Bmag=6813.6101
+[trial 3 pair 1 preload_deep] start d_target=2.6000 d_actual=2.5800 pos=-4.6900
+[trial 3 pair 1 preload_deep] summary n=114 d=2.5800 F=5.876000 Bmag=8496.7491
+[trial 3 pair 1 return_target] start d_target=1.8000 d_actual=1.7800 pos=-3.8900
+[trial 3 pair 1 return_target] summary n=114 d=1.7800 F=1.701650 Bmag=6880.9585
+[target 1.80 trial 3] diagnostic dd=+0.0000 dF=-0.686000 dBmag=+67.3484 dBvec=73.1404 verdict=strong
+[target 2.00 trial 1] B0=(-441.9046064516129, 1949.6585096774193, 3541.349793548387) n=155
+[trial 1] contact_pos=-2.0900 F=0.1254 baseline=0.0415 dF_base=0.0839 dF_step=0.0362 slope=0.4022
+[trial 1 pair 2 direct_target] start d_target=2.0000 d_actual=1.9800 pos=-4.0700
+[trial 1 pair 2 direct_target] summary n=114 d=1.9800 F=2.936200 Bmag=7172.6875
+[trial 1 pair 2 preload_deep] start d_target=2.6000 d_actual=2.5800 pos=-4.6700
+[trial 1 pair 2 preload_deep] summary n=114 d=2.5800 F=5.781950 Bmag=8448.0866
+[trial 1 pair 2 return_target] start d_target=2.0000 d_actual=2.0000 pos=-4.0900
+[trial 1 pair 2 return_target] summary n=114 d=2.0000 F=2.204100 Bmag=7275.5842
+[target 2.00 trial 1] diagnostic dd=+0.0200 dF=-0.732100 dBmag=+102.8967 dBvec=104.6597 verdict=strong
+[target 2.00 trial 2] B0=(-441.9046064516129, 1949.4142322580644, 3555.2078322580646) n=155
+[target 2.00 trial 3] B0=(-441.3346258064516, 1949.4646387096775, 3458.9511612903225) n=155
+[target 2.20 trial 1] B0=(-441.3797682119205, 1947.7166158940397, 3456.766311258278) n=151
+[target 2.20 trial 2] B0=(-441.5310132450331, 1947.35840397351, 3456.4200662251656) n=151
+[target 2.20 trial 3] B0=(-441.63119736842106, 1946.8119736842104, 3454.9765) n=152
+[target 2.40 trial 1] B0=(-441.30414569536424, 1947.2310397350993, 3456.1252450331126) n=151
+[target 2.40 trial 2] B0=(-441.47131125827815, 1947.0758145695363, 3455.8752450331126) n=151
+[target 2.40 trial 3] B0=(-441.30414569536424, 1946.9166092715232, 3455.702139072848) n=151
+# formal registry skipped: not registered: 4/12 planned scan pairs completed

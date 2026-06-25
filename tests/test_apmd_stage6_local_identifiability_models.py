@@ -121,6 +121,108 @@ class Stage6LocalIdentifiabilityModelTests(unittest.TestCase):
         self.assertAlmostEqual(enriched.iloc[0]["local_residual_uT"], 0.0)
         self.assertAlmostEqual(enriched.iloc[0]["local_angle_deg"], 90.0)
 
+    def test_add_local_identifiability_features_prefers_block_l_jf_for_block_l_states(self):
+        import apmd_stage6_compare_local_identifiability_models as stage6
+
+        states = pd.DataFrame(
+            [
+                {
+                    "F_N": 4.0,
+                    "d_mm": 2.8,
+                    "source_state_csv": "decouple_data/session_x/local_minor_loop_dense_5p1B_L_state_summary.csv",
+                    "experiment": "5.1B-L Block L local minor-loop dense sampling",
+                    "delta_Bx_from_B0_uT": 0.0,
+                    "delta_By_from_B0_uT": 12.0,
+                    "delta_Bz_from_B0_uT": 0.0,
+                }
+            ]
+        )
+        jf = pd.DataFrame(
+            [
+                {
+                    "target_d_mm": 2.8,
+                    "work_zone_id": "Stage3_BlockM",
+                    "jF_x_uT_per_N": 1.0,
+                    "jF_y_uT_per_N": 0.0,
+                    "jF_z_uT_per_N": 0.0,
+                },
+                {
+                    "target_d_mm": 2.8,
+                    "work_zone_id": "Block_L",
+                    "jF_x_uT_per_N": 0.0,
+                    "jF_y_uT_per_N": 2.0,
+                    "jF_z_uT_per_N": 0.0,
+                },
+            ]
+        )
+        jd = pd.DataFrame(
+            [
+                {
+                    "target_F_N": 4.3,
+                    "jd_x_uT_per_mm": 1.0,
+                    "jd_y_uT_per_mm": 0.0,
+                    "jd_z_uT_per_mm": 0.0,
+                }
+            ]
+        )
+
+        enriched = stage6.add_local_identifiability_features(states, jf, jd)
+
+        self.assertEqual(enriched.iloc[0]["local_jF_source_zone"], "Block_L")
+        self.assertEqual(enriched.iloc[0]["local_zone_id"], "Block_L_d280_F430")
+        self.assertAlmostEqual(enriched.iloc[0]["local_p_F_uT"], 12.0)
+
+    def test_add_local_identifiability_features_prefers_upper_jf_for_upper_states(self):
+        import apmd_stage6_compare_local_identifiability_models as stage6
+
+        states = pd.DataFrame(
+            [
+                {
+                    "F_N": 17.0,
+                    "d_mm": 3.89,
+                    "source_state_csv": "decouple_data/session_x/local_minor_loop_dense_5p1B_H_state_summary.csv",
+                    "experiment": "5.1B-H upper work-zone local minor-loop dense sampling",
+                    "delta_Bx_from_B0_uT": 0.0,
+                    "delta_By_from_B0_uT": 0.0,
+                    "delta_Bz_from_B0_uT": 15.0,
+                }
+            ]
+        )
+        jf = pd.DataFrame(
+            [
+                {
+                    "target_d_mm": 3.8,
+                    "work_zone_id": "Stage3_BlockM",
+                    "jF_x_uT_per_N": 1.0,
+                    "jF_y_uT_per_N": 0.0,
+                    "jF_z_uT_per_N": 0.0,
+                },
+                {
+                    "target_d_mm": 3.8,
+                    "work_zone_id": "Block_H",
+                    "jF_x_uT_per_N": 0.0,
+                    "jF_y_uT_per_N": 0.0,
+                    "jF_z_uT_per_N": 3.0,
+                },
+            ]
+        )
+        jd = pd.DataFrame(
+            [
+                {
+                    "target_F_N": 4.9,
+                    "jd_x_uT_per_mm": 1.0,
+                    "jd_y_uT_per_mm": 0.0,
+                    "jd_z_uT_per_mm": 0.0,
+                }
+            ]
+        )
+
+        enriched = stage6.add_local_identifiability_features(states, jf, jd)
+
+        self.assertEqual(enriched.iloc[0]["local_jF_source_zone"], "Block_H")
+        self.assertEqual(enriched.iloc[0]["local_zone_id"], "Block_H_d380_F490")
+        self.assertAlmostEqual(enriched.iloc[0]["local_p_F_uT"], 15.0)
+
 
 if __name__ == "__main__":
     unittest.main()

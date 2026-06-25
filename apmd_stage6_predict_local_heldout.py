@@ -30,11 +30,39 @@ TRAIN_STATE_DATA = REPORTS_DIR / "apmd_stage5_model_dataset_states.csv"
 HELDOUT_SESSION_IDS = [
     "session_20260615_160438",
     "session_20260618_161152",
+    "session_20260624_155402",
+    "session_20260624_164026",
+    "session_20260622_173504",
+    "session_20260622_180702",
+    "session_20260622_185538",
+    "session_20260623_201622",
+    "session_20260623_204724",
 ]
 HELDOUT_SUMMARIES = [
     DATA_DIR / session_id / "local_heldout_dense_loop_6p1_state_summary.csv"
     for session_id in HELDOUT_SESSION_IDS
+    if session_id in {"session_20260615_160438", "session_20260618_161152"}
 ]
+HELDOUT_SUMMARIES.extend(
+    [
+        DATA_DIR / "session_20260624_155402" / "local_heldout_dense_loop_6p1_S_state_summary.csv",
+        DATA_DIR / "session_20260624_164026" / "local_heldout_dense_loop_6p1_S_state_summary.csv",
+        DATA_DIR / "session_20260622_173504" / "local_heldout_dense_loop_6p1_L_state_summary.csv",
+        DATA_DIR / "session_20260622_180702" / "local_heldout_dense_loop_6p1_L_state_summary.csv",
+        DATA_DIR / "session_20260622_185538" / "local_heldout_dense_loop_6p1_L_state_summary.csv",
+        DATA_DIR / "session_20260623_201622" / "local_heldout_dense_loop_6p1_H_state_summary.csv",
+        DATA_DIR / "session_20260623_204724" / "local_heldout_dense_loop_6p1_H_state_summary.csv",
+    ]
+)
+HELDOUT_ACCEPTED_CYCLES = {
+    DATA_DIR / "session_20260624_155402" / "local_heldout_dense_loop_6p1_S_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260624_164026" / "local_heldout_dense_loop_6p1_S_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260622_173504" / "local_heldout_dense_loop_6p1_L_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260622_180702" / "local_heldout_dense_loop_6p1_L_state_summary.csv": {1},
+    DATA_DIR / "session_20260622_185538" / "local_heldout_dense_loop_6p1_L_state_summary.csv": {1, 2},
+    DATA_DIR / "session_20260623_201622" / "local_heldout_dense_loop_6p1_H_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260623_204724" / "local_heldout_dense_loop_6p1_H_state_summary.csv": {1, 2, 3},
+}
 
 # Backward-compatible default for tests and one-off debugging.
 HELDOUT_SESSION_ID = HELDOUT_SESSION_IDS[0]
@@ -119,13 +147,30 @@ def select_training_states(states: pd.DataFrame, heldout_session_id: object = No
     return states[~states["session_id"].astype(str).isin(heldout_ids)].copy()
 
 
-def prepare_heldout_states(summary: pd.DataFrame, summary_path: Path = HELDOUT_SUMMARY) -> pd.DataFrame:
+def _heldout_experiment(summary_path: Path) -> str:
+    if "_S_" in summary_path.name:
+        return "6.1-S shallow work-zone local held-out dense-loop validation"
+    if "_L_" in summary_path.name:
+        return "6.1-L Block L local held-out dense-loop validation"
+    if "_H_" in summary_path.name:
+        return "6.1-H upper work-zone local held-out dense-loop validation"
+    return "6.1 local held-out dense-loop validation"
+
+
+def prepare_heldout_states(
+    summary: pd.DataFrame,
+    summary_path: Path = HELDOUT_SUMMARY,
+    accepted_cycles: set[int] | None = None,
+) -> pd.DataFrame:
     """Convert the Stage 6.1 state-summary CSV to the Stage 5 state schema."""
     rows: list[dict] = []
     session_id_default = summary_path.parent.name
     source_csv = str(summary_path.relative_to(ROOT))
+    experiment = _heldout_experiment(summary_path)
     for _, row in summary.iterrows():
         cycle = _int(row.get("cycle"))
+        if accepted_cycles is not None and cycle not in accepted_cycles:
+            continue
         state_index = _int(row.get("state_index"))
         branch = str(row.get("branch", ""))
         state_label = str(row.get("state_label", ""))
@@ -142,7 +187,7 @@ def prepare_heldout_states(summary: pd.DataFrame, summary_path: Path = HELDOUT_S
 
         rows.append(
             {
-                "experiment": "6.1 local held-out dense-loop validation",
+                "experiment": experiment,
                 # Same protocol family as Stage 5.1B; held-out status is carried by session_id/experiment.
                 "path_family": "local_minor_loop_dense",
                 "source_kind": "heldout_state_summary",
@@ -189,7 +234,10 @@ def prepare_heldout_states(summary: pd.DataFrame, summary_path: Path = HELDOUT_S
 def load_heldout_states(summary_paths: list[Path] | None = None) -> pd.DataFrame:
     """Load all accepted held-out dense-loop state summaries."""
     paths = HELDOUT_SUMMARIES if summary_paths is None else summary_paths
-    frames = [prepare_heldout_states(pd.read_csv(path), summary_path=path) for path in paths]
+    frames = [
+        prepare_heldout_states(pd.read_csv(path), summary_path=path, accepted_cycles=HELDOUT_ACCEPTED_CYCLES.get(path))
+        for path in paths
+    ]
     return pd.concat(frames, ignore_index=True)
 
 
@@ -483,7 +531,7 @@ def plot_results(metrics: pd.DataFrame, predictions: pd.DataFrame) -> None:
     fig.text(
         0.06,
         0.94,
-        "Train on Stage 5 model dataset; test only on session_20260615_160438 interleaved held-out d grid",
+        "Train on Stage 5 model dataset; test only on accepted shallow, lower, mid, and upper work-zone held-out dense-loop sessions",
         fontsize=10,
         color="#555555",
     )

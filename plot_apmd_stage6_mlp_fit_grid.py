@@ -15,6 +15,7 @@ import sys
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.ticker import MultipleLocator
 import numpy as np
 import pandas as pd
 
@@ -95,12 +96,44 @@ def _set_figure_style() -> None:
     )
 
 
-def _axis_limits(values: pd.Series, predictions: pd.Series, pad_frac: float = 0.06) -> tuple[float, float]:
+def _major_step(span: float, axis_kind: str) -> float:
+    if axis_kind == "force":
+        if span <= 8:
+            return 1.0
+        if span <= 16:
+            return 2.0
+        return 5.0
+    if span <= 0.8:
+        return 0.1
+    if span <= 1.5:
+        return 0.25
+    return 0.5
+
+
+def _axis_limits(
+    values: pd.Series,
+    predictions: pd.Series,
+    axis_kind: str,
+    pad_frac: float = 0.035,
+) -> tuple[float, float]:
     low = float(min(values.min(), predictions.min()))
     high = float(max(values.max(), predictions.max()))
     span = high - low
-    pad = span * pad_frac if span > 0 else 1.0
-    return low - pad, high + pad
+    pad = span * pad_frac if span > 0 else (1.0 if axis_kind == "force" else 0.1)
+    raw_lims = (low - pad, high + pad)
+    step = _major_step(raw_lims[1] - raw_lims[0], axis_kind)
+    return (
+        float(np.floor(raw_lims[0] / step) * step),
+        float(np.ceil(raw_lims[1] / step) * step),
+    )
+
+
+def _apply_dense_ticks(ax: plt.Axes, lims: tuple[float, float], axis_kind: str) -> None:
+    step = _major_step(lims[1] - lims[0], axis_kind)
+    ax.xaxis.set_major_locator(MultipleLocator(step))
+    ax.yaxis.set_major_locator(MultipleLocator(step))
+    ax.xaxis.set_minor_locator(MultipleLocator(step / 2))
+    ax.yaxis.set_minor_locator(MultipleLocator(step / 2))
 
 
 def _scatter_panel(
@@ -113,6 +146,7 @@ def _scatter_panel(
     ylabel: str,
     title: str,
     mae_text: str,
+    axis_kind: str,
 ) -> None:
     colors = data["path_label"].map(PATH_COLORS).fillna(RED)
     ax.scatter(
@@ -129,6 +163,7 @@ def _scatter_panel(
     ax.set_xlim(*lims)
     ax.set_ylim(*lims)
     ax.set_aspect("equal", adjustable="box")
+    _apply_dense_ticks(ax, lims, axis_kind)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_title(title, loc="left", fontweight="bold", pad=7)
@@ -143,7 +178,8 @@ def _scatter_panel(
         color=TEXT_GRAY,
         bbox={"boxstyle": "round,pad=0.22", "facecolor": "white", "edgecolor": LIGHT_GRAY, "linewidth": 0.5, "alpha": 0.92},
     )
-    ax.grid(color=LIGHT_GRAY, linewidth=0.65)
+    ax.grid(which="major", color=LIGHT_GRAY, linewidth=0.65)
+    ax.grid(which="minor", color="#f1f1f1", linewidth=0.4)
     ax.set_axisbelow(True)
     ax.tick_params(length=3, width=0.8)
     for spine in ["top", "right"]:
@@ -167,9 +203,6 @@ def main() -> None:
     if selected_predictions.empty:
         raise RuntimeError("No selected MLP model predictions found.")
 
-    f_lims = _axis_limits(selected_predictions["F_N"], selected_predictions["F_pred_N"])
-    d_lims = _axis_limits(selected_predictions["d_mm"], selected_predictions["d_pred_mm"], pad_frac=0.08)
-
     n_cols = len(MODELS)
     fig, axes = plt.subplots(2, n_cols, figsize=(15.4, 7.4), dpi=300)
 
@@ -181,6 +214,8 @@ def main() -> None:
             raise RuntimeError(f"Missing predictions for {model_name}")
 
         m = metrics.loc[model_name]
+        f_lims = _axis_limits(data["F_N"], data["F_pred_N"], axis_kind="force")
+        d_lims = _axis_limits(data["d_mm"], data["d_pred_mm"], axis_kind="disp", pad_frac=0.055)
         _scatter_panel(
             axes[0, col],
             data,
@@ -191,6 +226,7 @@ def main() -> None:
             "predicted F (N)",
             f"{chr(ord('a') + col)}  {model_title}\n{model_subtitle}",
             f"F MAE = {float(m['F_MAE_N']):.3f} N",
+            "force",
         )
         _scatter_panel(
             axes[1, col],
@@ -202,6 +238,7 @@ def main() -> None:
             "predicted d (mm)",
             f"{chr(ord('a') + n_cols + col)}  {model_title}\n{model_subtitle}",
             f"d MAE = {float(m['d_MAE_mm']):.3f} mm",
+            "disp",
         )
 
     legend_handles = [

@@ -4,9 +4,9 @@ This acquisition is for model training, not another path-pair gate test.  It
 uses stable displacement-control logic from the same-d/different-F scripts and
 records a dense local hysteresis loop:
 
-    loading:   3.0 -> 3.1 -> 3.2 -> 3.3 -> 3.4 -> 3.5 -> 3.6 mm
-    preload:   3.8 mm
-    unloading: 3.6 -> 3.5 -> 3.4 -> 3.3 -> 3.2 -> 3.1 -> 3.0 mm
+    loading:   selected block d grid, shallow/lower/mid/upper
+    preload:   fixed common preload for that block
+    unloading: reverse of the loading d grid
 
 Each cycle creates one raw state CSV plus a session-level state summary table.
 The intermediate 3.1/3.3/3.5 mm points are included to make the local model
@@ -63,6 +63,26 @@ WORK_ZONE_CONFIGS = {
         "formal_experiment_key": "\u5b9e\u9a8c 5.1B-L",
         "protocol_suffix": "Block L",
     },
+    "S": {
+        "d_grid_mm": [1.80, 1.90, 2.00, 2.10, 2.20, 2.30, 2.40],
+        "preload_d_mm": 2.60,
+        "summary_filename": "local_minor_loop_dense_5p1B_S_state_summary.csv",
+        "state_file_prefix": "local_minor_loop_dense_5p1B_S",
+        "figure_filename": "local_minor_loop_dense_5p1B_S.png",
+        "stage_label": "local_minor_loop_5p1B_S",
+        "formal_experiment_key": "\u5b9e\u9a8c 5.1B-S",
+        "protocol_suffix": "Shallow work zone",
+    },
+    "H": {
+        "d_grid_mm": [3.40, 3.50, 3.60, 3.70, 3.80, 3.90, 4.00],
+        "preload_d_mm": 4.20,
+        "summary_filename": "local_minor_loop_dense_5p1B_H_state_summary.csv",
+        "state_file_prefix": "local_minor_loop_dense_5p1B_H",
+        "figure_filename": "local_minor_loop_dense_5p1B_H.png",
+        "stage_label": "local_minor_loop_5p1B_H",
+        "formal_experiment_key": "\u5b9e\u9a8c 5.1B-H",
+        "protocol_suffix": "Upper work zone",
+    },
 }
 
 
@@ -71,10 +91,10 @@ def parse_work_zone_arg(argv=None) -> str:
     if not args:
         return "M"
     if len(args) != 1:
-        raise SystemExit("Usage: python .\\apmd_local_minor_loop_dense_sampling.py [M|L]")
+        raise SystemExit("Usage: python .\\apmd_local_minor_loop_dense_sampling.py [M|L|S|H]")
     block = args[0].upper()
     if block not in WORK_ZONE_CONFIGS:
-        raise SystemExit("Unknown work-zone block. Use M or L.")
+        raise SystemExit("Unknown work-zone block. Use M, L, S, or H.")
     return block
 
 

@@ -34,7 +34,38 @@ DENSE_LOOP_SUMMARIES = [
     DATA_DIR / "session_20260615_143640" / "local_minor_loop_dense_5p1B_state_summary.csv",
     DATA_DIR / "session_20260618_092135" / "local_minor_loop_dense_5p1B_state_summary.csv",
     DATA_DIR / "session_20260618_135532" / "local_minor_loop_dense_5p1B_state_summary.csv",
+    DATA_DIR / "session_20260624_113311" / "local_minor_loop_dense_5p1B_S_state_summary.csv",
+    DATA_DIR / "session_20260624_122802" / "local_minor_loop_dense_5p1B_S_state_summary.csv",
+    DATA_DIR / "session_20260624_135659" / "local_minor_loop_dense_5p1B_S_state_summary.csv",
+    DATA_DIR / "session_20260624_145548" / "local_minor_loop_dense_5p1B_S_state_summary.csv",
+    DATA_DIR / "session_20260622_112307" / "local_minor_loop_dense_5p1B_L_state_summary.csv",
+    DATA_DIR / "session_20260622_132503" / "local_minor_loop_dense_5p1B_L_state_summary.csv",
+    DATA_DIR / "session_20260622_143801" / "local_minor_loop_dense_5p1B_L_state_summary.csv",
+    DATA_DIR / "session_20260622_151834" / "local_minor_loop_dense_5p1B_L_state_summary.csv",
+    DATA_DIR / "session_20260622_162129" / "local_minor_loop_dense_5p1B_L_state_summary.csv",
+    DATA_DIR / "session_20260623_152502" / "local_minor_loop_dense_5p1B_H_state_summary.csv",
+    DATA_DIR / "session_20260623_162301" / "local_minor_loop_dense_5p1B_H_state_summary.csv",
+    DATA_DIR / "session_20260623_172014" / "local_minor_loop_dense_5p1B_H_state_summary.csv",
+    DATA_DIR / "session_20260623_182650" / "local_minor_loop_dense_5p1B_H_state_summary.csv",
+    DATA_DIR / "session_20260623_200232" / "local_minor_loop_dense_5p1B_H_state_summary.csv",
 ]
+
+DENSE_LOOP_ACCEPTED_CYCLES = {
+    DATA_DIR / "session_20260624_113311" / "local_minor_loop_dense_5p1B_S_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260624_122802" / "local_minor_loop_dense_5p1B_S_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260624_135659" / "local_minor_loop_dense_5p1B_S_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260624_145548" / "local_minor_loop_dense_5p1B_S_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260622_112307" / "local_minor_loop_dense_5p1B_L_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260622_132503" / "local_minor_loop_dense_5p1B_L_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260622_143801" / "local_minor_loop_dense_5p1B_L_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260622_151834" / "local_minor_loop_dense_5p1B_L_state_summary.csv": {1, 2, 3},
+    DATA_DIR / "session_20260622_162129" / "local_minor_loop_dense_5p1B_L_state_summary.csv": {1, 2, 3, 4},
+    DATA_DIR / "session_20260623_152502" / "local_minor_loop_dense_5p1B_H_state_summary.csv": {1, 2, 3, 4},
+    DATA_DIR / "session_20260623_162301" / "local_minor_loop_dense_5p1B_H_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260623_172014" / "local_minor_loop_dense_5p1B_H_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260623_182650" / "local_minor_loop_dense_5p1B_H_state_summary.csv": {1, 2, 3, 4, 5},
+    DATA_DIR / "session_20260623_200232" / "local_minor_loop_dense_5p1B_H_state_summary.csv": {1},
+}
 
 
 def _float(value, default=math.nan) -> float:
@@ -404,15 +435,28 @@ def _dense_loop_preload_hold_s(row: pd.Series) -> float:
     return 0.0
 
 
-def _dense_loop_state_rows(summary_csv: Path) -> list[dict]:
+def _dense_loop_experiment(summary_csv: Path) -> str:
+    if "_S_" in summary_csv.name:
+        return "5.1B-S shallow work-zone local minor-loop dense sampling"
+    if "_L_" in summary_csv.name:
+        return "5.1B-L Block L local minor-loop dense sampling"
+    if "_H_" in summary_csv.name:
+        return "5.1B-H upper work-zone local minor-loop dense sampling"
+    return "5.1B local minor-loop dense sampling"
+
+
+def _dense_loop_state_rows(summary_csv: Path, accepted_cycles: set[int] | None = None) -> list[dict]:
     df = _read_csv(summary_csv)
     if df.empty:
         return []
 
     rows: list[dict] = []
     source_csv = _safe_relative(summary_csv)
+    experiment = _dense_loop_experiment(summary_csv)
     for _, row in df.iterrows():
         cycle = _int(row.get("cycle"))
+        if accepted_cycles is not None and cycle not in accepted_cycles:
+            continue
         state_index = _int(row.get("state_index"))
         branch = str(row.get("branch", ""))
         state_label = str(row.get("state_label", ""))
@@ -429,7 +473,7 @@ def _dense_loop_state_rows(summary_csv: Path) -> list[dict]:
 
         rows.append(
             {
-                "experiment": "5.1B local minor-loop dense sampling",
+                "experiment": experiment,
                 "path_family": "local_minor_loop_dense",
                 "source_kind": "session_state_summary",
                 "source_state_csv": source_csv,
@@ -507,7 +551,7 @@ def build_datasets() -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
                     state_rows.append(state)
 
     for summary_csv in DENSE_LOOP_SUMMARIES:
-        dense_rows = _dense_loop_state_rows(summary_csv)
+        dense_rows = _dense_loop_state_rows(summary_csv, DENSE_LOOP_ACCEPTED_CYCLES.get(summary_csv))
         if not dense_rows:
             warnings.append(f"missing or empty dense-loop summary: {summary_csv}")
             continue
@@ -575,6 +619,28 @@ def write_summary(states: pd.DataFrame, pairs: pd.DataFrame, warnings: list[str]
             dense_d = sorted(pd.to_numeric(dense["d_target_mm"], errors="coerce").dropna().round(2).unique().tolist())
             lines.append(f"- Dense local minor-loop dataset: {len(dense)} state rows across {dense_sessions} sessions and {dense_cycles} session-cycles")
             lines.append(f"- Dense local d grid: {dense_d}")
+        block_s = states[states["experiment"] == "5.1B-S shallow work-zone local minor-loop dense sampling"]
+        if not block_s.empty:
+            block_s_sessions = block_s["session_id"].nunique()
+            block_s_cycles = block_s[["session_id", "cycle_index"]].drop_duplicates().shape[0]
+            block_s_d = sorted(pd.to_numeric(block_s["d_target_mm"], errors="coerce").dropna().round(2).unique().tolist())
+            lines.append(f"- Shallow work-zone dense local dataset: {len(block_s)} state rows across {block_s_sessions} sessions and {block_s_cycles} accepted session-cycles")
+            lines.append(f"- Shallow work-zone dense local d grid: {block_s_d}")
+        block_l = states[states["experiment"] == "5.1B-L Block L local minor-loop dense sampling"]
+        if not block_l.empty:
+            block_l_sessions = block_l["session_id"].nunique()
+            block_l_cycles = block_l[["session_id", "cycle_index"]].drop_duplicates().shape[0]
+            block_l_d = sorted(pd.to_numeric(block_l["d_target_mm"], errors="coerce").dropna().round(2).unique().tolist())
+            lines.append(f"- Block L dense local dataset: {len(block_l)} state rows across {block_l_sessions} sessions and {block_l_cycles} accepted session-cycles")
+            lines.append(f"- Block L dense local d grid: {block_l_d}")
+        block_h = states[states["experiment"] == "5.1B-H upper work-zone local minor-loop dense sampling"]
+        if not block_h.empty:
+            block_h_sessions = block_h["session_id"].nunique()
+            block_h_cycles = block_h[["session_id", "cycle_index"]].drop_duplicates().shape[0]
+            block_h_d = sorted(pd.to_numeric(block_h["d_target_mm"], errors="coerce").dropna().round(2).unique().tolist())
+            lines.append(f"- Upper work-zone dense local dataset: {len(block_h)} state rows across {block_h_sessions} sessions and {block_h_cycles} accepted session-cycles")
+            lines.append(f"- Upper work-zone dense local nominal d grid: {block_h_d}")
+            lines.append("- Upper work-zone deep-end states are retained as boundary/weak-region model inputs rather than excluded a priori.")
         lines.append("")
 
     lines.append("## Modeling Readiness")

@@ -79,6 +79,84 @@ SCAN_BLOCKS = {
         "figure_filename": "block_L_same_d_local_sensitivity.png",
         "next_message": "Next: inspect Block L same-d sensitivity, then run Block L same-F sensitivity calibration.",
     },
+    "S": {
+        "targets": [1.80, 2.00, 2.20, 2.40],
+        "fixed_preload": 2.60,
+        "experiment_key": "Shallow work-zone same-d local sensitivity",
+        "title": (
+            "APMD Shallow work zone -- same-d/different-F local sensitivity calibration"
+        ),
+        "short_name": "APMD shallow work-zone same-d local sensitivity",
+        "summary_filename": "shallow_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "shallow_same_d_local_sensitivity",
+        "figure_filename": "shallow_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect shallow work-zone same-d sensitivity, then rebuild Stage 5/6 model after accepted shallow dense-loop and held-out data are recorded.",
+    },
+    "S180": {
+        "targets": [1.80],
+        "fixed_preload": 2.60,
+        "experiment_key": "Shallow work-zone same-d local sensitivity d=1.80 supplement",
+        "title": (
+            "APMD Shallow work zone -- same-d/different-F d=1.80 supplement"
+        ),
+        "short_name": "APMD shallow work-zone same-d d=1.80 supplement",
+        "summary_filename": "shallow_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "shallow_same_d_local_sensitivity",
+        "figure_filename": "shallow_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect shallow work-zone same-d sensitivity, then run the next needed shallow same-d target.",
+    },
+    "S200": {
+        "targets": [2.00],
+        "fixed_preload": 2.60,
+        "experiment_key": "Shallow work-zone same-d local sensitivity d=2.00 supplement",
+        "title": (
+            "APMD Shallow work zone -- same-d/different-F d=2.00 supplement"
+        ),
+        "short_name": "APMD shallow work-zone same-d d=2.00 supplement",
+        "summary_filename": "shallow_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "shallow_same_d_local_sensitivity",
+        "figure_filename": "shallow_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect shallow work-zone same-d sensitivity, then run the next needed shallow same-d target.",
+    },
+    "S220": {
+        "targets": [2.20],
+        "fixed_preload": 2.60,
+        "experiment_key": "Shallow work-zone same-d local sensitivity d=2.20 supplement",
+        "title": (
+            "APMD Shallow work zone -- same-d/different-F d=2.20 supplement"
+        ),
+        "short_name": "APMD shallow work-zone same-d d=2.20 supplement",
+        "summary_filename": "shallow_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "shallow_same_d_local_sensitivity",
+        "figure_filename": "shallow_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect shallow work-zone same-d sensitivity, then run the next needed shallow same-d target.",
+    },
+    "S240": {
+        "targets": [2.40],
+        "fixed_preload": 2.60,
+        "experiment_key": "Shallow work-zone same-d local sensitivity d=2.40 supplement",
+        "title": (
+            "APMD Shallow work zone -- same-d/different-F d=2.40 supplement"
+        ),
+        "short_name": "APMD shallow work-zone same-d d=2.40 supplement",
+        "summary_filename": "shallow_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "shallow_same_d_local_sensitivity",
+        "figure_filename": "shallow_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect shallow work-zone same-d sensitivity, then run the next needed shallow same-d target.",
+    },
+    "H": {
+        "targets": [3.40, 3.60, 3.80, 4.00],
+        "fixed_preload": 4.20,
+        "experiment_key": "Upper work-zone same-d local sensitivity",
+        "title": (
+            "APMD Upper work zone -- same-d/different-F local sensitivity calibration"
+        ),
+        "short_name": "APMD upper work-zone same-d local sensitivity",
+        "summary_filename": "upper_same_d_local_sensitivity_pair_summary.csv",
+        "state_prefix": "upper_same_d_local_sensitivity",
+        "figure_filename": "upper_same_d_local_sensitivity.png",
+        "next_message": "Next: inspect upper work-zone same-d sensitivity, then rebuild Stage 5/6 local-ID model after accepted dense-loop and held-out data are recorded.",
+    },
 }
 
 SCAN_BLOCK = "A"

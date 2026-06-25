@@ -164,6 +164,96 @@ class ApmdStage6LocalHeldoutDenseLoopTests(unittest.TestCase):
             ],
         )
 
+    def test_stage6_block_s_configures_shallow_interleaved_heldout_grid(self):
+        import apmd_stage6_local_heldout_dense_loop as heldout
+
+        heldout.apply_work_zone_config("S")
+        heldout.configure_dense_module()
+        dense.configure_base_protocol()
+        states = list(dense.iter_loop_states())
+
+        expected_grid = [1.85, 1.95, 2.05, 2.15, 2.25, 2.35]
+        self.assertEqual(dense.D_GRID_MM, expected_grid)
+        self.assertEqual(dense.PRELOAD_D_MM, 2.60)
+        self.assertEqual(base.D_TARGETS_MM, expected_grid)
+        self.assertEqual(base.D_PRELOAD_BY_TARGET_MM, {d: 2.60 for d in expected_grid})
+        self.assertEqual(base.D_PRELOAD_MM, 2.60)
+        self.assertEqual(base.N_TRIALS, 3)
+        self.assertEqual(base.TARGET_RECORD_S, 15.0)
+        self.assertEqual(base.PRELOAD_RECORD_S, 30.0)
+        self.assertEqual(base.SUMMARY_WINDOW_S, 5.0)
+        self.assertEqual(
+            base.SUMMARY_FILENAME,
+            "local_heldout_dense_loop_6p1_S_state_summary.csv",
+        )
+        self.assertEqual(base.STATE_FILE_PREFIX, "local_heldout_dense_loop_6p1_S")
+        self.assertEqual(base.CSV_PRINT_GLOB, "local_heldout_dense_loop_6p1_S*.csv")
+        self.assertEqual(base.FIGURE_FILENAME, "local_heldout_dense_loop_6p1_S.png")
+        self.assertEqual(base.FORMAL_EXPERIMENT_KEY, "\u9a8c\u8bc1 6.1-S")
+        self.assertEqual(
+            [s["target_d_mm"] for s in states],
+            [
+                1.85,
+                1.95,
+                2.05,
+                2.15,
+                2.25,
+                2.35,
+                2.60,
+                2.35,
+                2.25,
+                2.15,
+                2.05,
+                1.95,
+                1.85,
+            ],
+        )
+
+    def test_stage6_block_h_configures_upper_interleaved_heldout_grid(self):
+        import apmd_stage6_local_heldout_dense_loop as heldout
+
+        heldout.apply_work_zone_config("H")
+        heldout.configure_dense_module()
+        dense.configure_base_protocol()
+        states = list(dense.iter_loop_states())
+
+        expected_grid = [3.45, 3.55, 3.65, 3.75, 3.85, 3.95]
+        self.assertEqual(dense.D_GRID_MM, expected_grid)
+        self.assertEqual(dense.PRELOAD_D_MM, 4.20)
+        self.assertEqual(base.D_TARGETS_MM, expected_grid)
+        self.assertEqual(base.D_PRELOAD_BY_TARGET_MM, {d: 4.20 for d in expected_grid})
+        self.assertEqual(base.D_PRELOAD_MM, 4.20)
+        self.assertEqual(base.N_TRIALS, 3)
+        self.assertEqual(base.TARGET_RECORD_S, 15.0)
+        self.assertEqual(base.PRELOAD_RECORD_S, 30.0)
+        self.assertEqual(base.SUMMARY_WINDOW_S, 5.0)
+        self.assertEqual(
+            base.SUMMARY_FILENAME,
+            "local_heldout_dense_loop_6p1_H_state_summary.csv",
+        )
+        self.assertEqual(base.STATE_FILE_PREFIX, "local_heldout_dense_loop_6p1_H")
+        self.assertEqual(base.CSV_PRINT_GLOB, "local_heldout_dense_loop_6p1_H*.csv")
+        self.assertEqual(base.FIGURE_FILENAME, "local_heldout_dense_loop_6p1_H.png")
+        self.assertEqual(base.FORMAL_EXPERIMENT_KEY, "\u9a8c\u8bc1 6.1-H")
+        self.assertEqual(
+            [s["target_d_mm"] for s in states],
+            [
+                3.45,
+                3.55,
+                3.65,
+                3.75,
+                3.85,
+                3.95,
+                4.20,
+                3.95,
+                3.85,
+                3.75,
+                3.65,
+                3.55,
+                3.45,
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

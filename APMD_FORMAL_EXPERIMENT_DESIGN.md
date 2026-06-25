@@ -183,19 +183,25 @@ script status = planned / parameterized from existing script
 | 阶段/实验 | 采集脚本 | 作图/分析脚本 | session 记录 | 备注 |
 |---|---|---|---|---|
 | 阶段 4 局部可辨识性候选区映射 | uses formal accepted Stage 3 path-pair report tables | `apmd_stage4_identifiability.py` | formal analysis complete: figure=`reports/apmd_stage4_identifiability_complete.png`; report=`reports/APMD_STAGE4_IDENTIFIABILITY_ANALYSIS.md`; summary=`reports/apmd_stage4_identifiability_summary.csv`; pair table=`reports/apmd_stage4_identifiability_pair_table.csv`; `j_F` table=`reports/apmd_stage4_jF_from_same_d_pairs.csv`; `j_d` table=`reports/apmd_stage4_jd_from_same_f_pairs.csv` | strict primary sensitivity-pair candidate: same-d `d=3.40 mm` paired with same-F `F=4.90 N`, angle=`48.5 deg`, scaled condition=`2.22`, min B/noise=`22.8`; best-score practical candidate: `d=3.20 mm` / `F=4.90 N`, angle=`41.9 deg`; this is a local mechanism-validation zone, not a prosthetic-socket full-range claim |
-| 阶段 5.0 建模数据集整理 | no hardware acquisition; reads accepted formal Stage 3 raw rep CSVs plus Stage 5.1B dense-loop state summaries | `apmd_stage5_build_model_dataset.py` | complete: state dataset=`reports/apmd_stage5_model_dataset_states.csv`; pair dataset=`reports/apmd_stage5_model_dataset_pairs.csv`; summary=`reports/APMD_STAGE5_MODEL_DATASET_SUMMARY.md` | accepted path pairs=`87`; state summaries=`561`; unique sessions=`33`; includes 5.1B dense-loop states=`300` from four sessions; no raw-file matching warnings |
-| 阶段 5.2 局部 baseline 解耦模型 | uses `reports/apmd_stage5_model_dataset_states.csv` | `apmd_stage5_fit_local_models.py` | complete: metrics=`reports/apmd_stage5_local_model_metrics.csv`; predictions=`reports/apmd_stage5_local_model_predictions.csv`; figure=`reports/apmd_stage5_local_model_baseline_comparison.png`; report=`reports/APMD_STAGE5_LOCAL_MODEL_BASELINE.md` | grouped CV by session; after four 5.1B dense-loop sessions, best F model=`magnetic_path_memory_random_forest`, F MAE=`0.590 N`; best balanced model=`magnetic_path_memory_ridge`, F MAE=`0.720 N`, d MAE=`0.107 mm`; path-memory ridge improves F vs plain magnetic ridge |
+| 阶段 5.0 建模数据集整理 | no hardware acquisition; reads accepted formal Stage 3 raw rep CSVs plus Stage 5.1B dense-loop state summaries | `apmd_stage5_build_model_dataset.py` | rebuilt after shallow-zone inclusion: state dataset=`reports/apmd_stage5_model_dataset_states.csv`; pair dataset=`reports/apmd_stage5_model_dataset_pairs.csv`; summary=`reports/APMD_STAGE5_MODEL_DATASET_SUMMARY.md` | accepted path pairs=`87`; state summaries=`1461`; unique sessions=`47`; includes four dense-loop work zones: shallow `1.8-2.4 mm`, lower `2.4-3.0 mm`, mid `3.0-3.6 mm`, upper `3.4-4.0 mm`; upper deep-end states retained as boundary/weak-region model inputs |
+| 阶段 5.2 局部 baseline 解耦模型 | uses `reports/apmd_stage5_model_dataset_states.csv` | `apmd_stage5_fit_local_models.py` | rebuilt after shallow-zone inclusion: metrics=`reports/apmd_stage5_local_model_metrics.csv`; predictions=`reports/apmd_stage5_local_model_predictions.csv`; figure=`reports/apmd_stage5_local_model_baseline_comparison.png`; report=`reports/APMD_STAGE5_LOCAL_MODEL_BASELINE.md` | grouped CV by session over `1461` states; best F model=`magnetic_path_memory_random_forest`, F MAE=`0.268 N`, d MAE=`0.066 mm`; best linear/balanced baseline remains weaker than Stage 6 local-ID, showing path memory alone is not the final decoupling model |
 | 阶段 5.3 dense-loop 跨 session 验证 | no hardware acquisition; train/test between `session_20260615_112044` and `session_20260615_143640` | `apmd_stage5_dense_loop_cross_session_validation.py` | complete: metrics=`reports/apmd_stage5_dense_loop_cross_session_metrics.csv`; predictions=`reports/apmd_stage5_dense_loop_cross_session_predictions.csv`; figure=`reports/apmd_stage5_dense_loop_cross_session_validation.png`; report=`reports/APMD_STAGE5_DENSE_LOOP_CROSS_SESSION_VALIDATION.md` | leave-one-dense-loop-session-out validation; best F model=`dense_path_memory_random_forest`, F MAE=`0.323 N`, d MAE=`0.039 mm`; best d model=`dense_path_memory_ridge`, F MAE=`0.413 N`, d MAE=`0.023 mm`; path-memory ridge reduces F MAE by `58.3%` and d MAE by `33.3%` vs plain magnetic ridge |
 | 实验 5.1A 建模数据采集：pairwise same-d 局部补充 | planned: `apmd_local_pairwise_same_d_dataset.py` | planned: `plot_apmd_stage5_model_dataset.py` | optional / not yet required | 可选补充；若 5.1B 后模型仍缺少局部点对，可在 selected d 附近做 `d -> d+0.4 -> d` |
 | 实验 5.1B 建模数据采集：local minor-loop dense sampling | `python .\apmd_local_minor_loop_dense_sampling.py` | planned: `plot_apmd_stage5_model_dataset.py` | formal: `session_20260615_112044`; summary=`local_minor_loop_dense_5p1B_state_summary.csv`; figure=`local_minor_loop_dense_5p1B.png`; note=cycles=5; states=75/75; d_grid=[3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6]; preload=3.80 mm; included in Stage 5/6 rebuilt outputs<br>formal: `session_20260615_143640`; summary=`local_minor_loop_dense_5p1B_state_summary.csv`; figure=`local_minor_loop_dense_5p1B.png`; note=cycles=5; states=75/75; d_grid=[3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6]; preload=3.80 mm; included in Stage 5/6 rebuilt outputs<br>formal: `session_20260618_092135`; summary=`local_minor_loop_dense_5p1B_state_summary.csv`; figure=`local_minor_loop_dense_5p1B.png`; note=cycles=5; states=75/75; d_grid=[3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6]; preload=3.80 mm; included in Stage 5/6 rebuilt outputs<br>formal: `session_20260618_135532`; summary=`local_minor_loop_dense_5p1B_state_summary.csv`; figure=`local_minor_loop_dense_5p1B.png`; note=cycles=5; states=75/75; d_grid=[3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6]; preload=3.80 mm; included in Stage 5/6 rebuilt outputs | completed four dense-loop model-data sessions; total accepted states=300; common preload `3.8 mm`, loading/preload/unloading dense loop, `cycles=5` per session |
+| 实验 5.1B-S 建模数据采集：shallow work-zone local minor-loop dense sampling | `python .\apmd_local_minor_loop_dense_sampling.py S` | planned: `plot_apmd_stage5_model_dataset.py` | planned / ready to run; do not add to model dataset until accepted complete cycles are known<br>formal: `session_20260624_113311`; summary=`local_minor_loop_dense_5p1B_S_state_summary.csv`; figure=`local_minor_loop_dense_5p1B_S.png`; note=cycles=5; states=75/75; d_grid=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4]; preload=2.60 mm<br>formal: `session_20260624_122802`; summary=`local_minor_loop_dense_5p1B_S_state_summary.csv`; figure=`local_minor_loop_dense_5p1B_S.png`; note=cycles=5; states=75/75; d_grid=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4]; preload=2.60 mm<br>formal: `session_20260624_135659`; summary=`local_minor_loop_dense_5p1B_S_state_summary.csv`; figure=`local_minor_loop_dense_5p1B_S.png`; note=cycles=5; states=75/75; d_grid=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4]; preload=2.60 mm<br>formal: `session_20260624_145548`; summary=`local_minor_loop_dense_5p1B_S_state_summary.csv`; figure=`local_minor_loop_dense_5p1B_S.png`; note=cycles=5; states=75/75; d_grid=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4]; preload=2.60 mm | Shallow work-zone extension: d_grid=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4], preload=`2.60 mm`; same 5.1B logic and timing as previous zones; target accepted training cycles=`20`, target accepted states=`300`; `d=2.4 mm` overlaps Block L as bridge/anchor |
 | 实验 5.1B-L 建模数据采集：Block L local minor-loop dense sampling | `python .\apmd_local_minor_loop_dense_sampling.py L` | planned: `plot_apmd_stage5_model_dataset.py` | formal accepted cycles only: `session_20260622_112307` cycles 1-5, states=75/75; `session_20260622_132503` cycles 1-5, states=75/75; `session_20260622_143801` cycles 1-3, states=45/45; `session_20260622_151834` cycles 1-3, states=45/45; `session_20260622_162129` cycles 1-4, states=60/60; total accepted cycles=20, total accepted states=300 | Block L lower work zone: d_grid=[2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0], preload=`3.20 mm`; incomplete/failed cycles are excluded from formal training data; accepted-cycle QC: same-d-like pairs=140/140, force-split pairs=140/140, magnetic-split pairs=140/140, median abs(Delta F)=1.543 N, median Delta Bvec=162.2 uT |
+| 实验 5.1B-H 建模数据采集：upper work-zone local minor-loop dense sampling | `python .\apmd_local_minor_loop_dense_sampling.py H` | planned: `plot_apmd_stage5_model_dataset.py` | formal accepted cycles only: `session_20260623_152502` cycles 1-4, states=60/60; `session_20260623_162301` cycles 1-5, states=75/75; `session_20260623_172014` cycles 1-5, states=75/75; `session_20260623_182650` cycles 1-5, states=75/75; `session_20260623_200232` cycle 1, states=15/15; total accepted cycles=20, total accepted states=300 | Upper work zone extension: nominal d_grid=[3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0], preload=`4.20 mm`; same 5.1B logic and timing as previous zones; nominal `3.8-4.0 mm` is retained as boundary/weak-region data instead of being excluded before model testing |
 | 验证 6.1 local held-out dense-loop 验证 | `python .\apmd_stage6_local_heldout_dense_loop.py` | `apmd_stage6_predict_local_heldout.py` for next model-level test | formal accepted: `session_20260615_160438`; summary=`local_heldout_dense_loop_6p1_state_summary.csv`; figure=`local_heldout_dense_loop_6p1.png`; QC table=`reports/apmd_stage6_heldout_qc_by_d.csv`; note=cycles=3; states=39/39; held-out d grid=[3.05, 3.15, 3.25, 3.35, 3.45, 3.55]; preload=3.80 mm; same-d-like pairs=18/18; force-split pairs=18/18; magnetic-split pairs=18/18; median abs(Delta F)=2.543 N; median Delta Bvec=265.8 uT<br>formal accepted: `session_20260618_161152`; summary=`local_heldout_dense_loop_6p1_state_summary.csv`; figure=not generated yet; note=cycles=3; states=39/39; held-out d grid=[3.05, 3.15, 3.25, 3.35, 3.45, 3.55]; preload=3.80 mm; same-d-like pairs=18/18; force-split pairs=18/18; magnetic-split pairs=18/18; median abs(Delta F)=2.710 N; median Delta Bvec=206.5 uT | accepted as test-only held-out data; do not add these sessions to training before Stage 6.2 |
+| 验证 6.1-S shallow work-zone local held-out dense-loop 验证 | `python .\apmd_stage6_local_heldout_dense_loop.py S` | planned: rebuild model-level validation after shallow training cycles and same-d calibration are recorded | planned / ready to run after 5.1B-S training cycles<br>formal: `session_20260624_155402`; summary=`local_heldout_dense_loop_6p1_S_state_summary.csv`; figure=`local_heldout_dense_loop_6p1_S.png`; note=cycles=3; states=39/39; d_grid=[1.85, 1.95, 2.05, 2.15, 2.25, 2.35]; preload=2.60 mm<br>formal: `session_20260624_164026`; summary=`local_heldout_dense_loop_6p1_S_state_summary.csv`; figure=`local_heldout_dense_loop_6p1_S.png`; note=cycles=3; states=39/39; d_grid=[1.85, 1.95, 2.05, 2.15, 2.25, 2.35]; preload=2.60 mm | Shallow test-only held-out d_grid=[1.85, 1.95, 2.05, 2.15, 2.25, 2.35], preload=`2.60 mm`; target accepted held-out cycles=`6`, target accepted held-out states=`78`; do not add to training dataset |
 | 验证 6.1-L Block L local held-out dense-loop 验证 | `python .\apmd_stage6_local_heldout_dense_loop.py L` | planned: rebuild Block L model-level validation after local sensitivity calibration | formal primary strong cycles: `session_20260622_173504` cycles 1-3, states=39/39; `session_20260622_180702` cycle 1, states=13/13; `session_20260622_185538` cycles 1-2, states=26/26; total primary cycles=6, states=78/78 | Block L test-only held-out d_grid=[2.45, 2.55, 2.65, 2.75, 2.85, 2.95], preload=`3.20 mm`; primary strong QC: same-d-like pairs=36/36, force-split pairs=36/36, magnetic-split pairs=36/36; complete-but-not-primary cycles=`session_20260622_180702` cycle 2 and `session_20260622_185538` cycle 3 due one weak d=2.95 mm pair below 50 uT; excluded incomplete=`session_20260622_180702` cycle 3 |
-| 验证 6.2 模型层 held-out 验证 | no new acquisition; use Stage 6.1 held-out sessions as test-only data | `python .\apmd_stage6_predict_local_heldout.py` | complete / partial pass: metrics=`reports/apmd_stage6_heldout_model_metrics.csv`; predictions=`reports/apmd_stage6_heldout_model_predictions.csv`; figure=`reports/apmd_stage6_heldout_model_validation.png`; report=`reports/APMD_STAGE6_HELDOUT_MODEL_VALIDATION.md` | train=`561` Stage 5 states; test=`78` states from `session_20260615_160438` and `session_20260618_161152`; best F model=`magnetic_path_memory_ridge`, F MAE=`0.796 N`; best d/balanced model=`magnetic_path_label_ridge`, F MAE=`0.839 N`, d MAE=`0.035 mm`; branch-label passes d target but force still requires local-ID geometry |
-| 验证 6.3 APMD local-identifiability 模型对照 | no new acquisition; reused Stage 3 path-pair sensitivity and Stage 5/6 dense-loop states | `apmd_stage6_compare_local_identifiability_models.py` | complete / force pass with near d-gate: metrics=`reports/apmd_stage6_local_identifiability_model_metrics.csv`; predictions=`reports/apmd_stage6_local_identifiability_predictions.csv`; figure=`reports/apmd_stage6_local_identifiability_comparison.png`; report=`reports/APMD_STAGE6_LOCAL_IDENTIFIABILITY_MODEL.md` | train=`561` Stage 5 states, test=`78` held-out states; best local-ID ridge F MAE=`0.054 N`, d MAE=`0.056 mm`; Lim-style branch-label baseline F MAE=`0.839 N`, d MAE=`0.035 mm`; local-ID ridge improves F MAE vs Lim-style by `93.5%`; d is slightly above the strict `0.050 mm` gate but still close |
+| 验证 6.1-H upper work-zone local held-out dense-loop 验证 | `python .\apmd_stage6_local_heldout_dense_loop.py H` | included in rebuilt Stage 6.2/6.3 held-out tests | formal accepted: `session_20260623_201622` cycles 1-3, states=39/39; `session_20260623_204724` cycles 1-3, states=39/39; total accepted cycles=6, states=78/78 | Upper-zone test-only held-out d_grid=[3.45, 3.55, 3.65, 3.75, 3.85, 3.95], preload=`4.20 mm`; retained even though deep-end same-d sensitivity weakens, so model evaluation can test whether boundary-region states help or hurt |
+| 验证 6.2 模型层 held-out 验证 | no new acquisition; use accepted Stage 6.1 / 6.1-S / 6.1-L / 6.1-H held-out sessions as test-only data | `python .\apmd_stage6_predict_local_heldout.py` | rebuilt after shallow-zone inclusion: metrics=`reports/apmd_stage6_heldout_model_metrics.csv`; predictions=`reports/apmd_stage6_heldout_model_predictions.csv`; figure=`reports/apmd_stage6_heldout_model_validation.png`; report=`reports/APMD_STAGE6_HELDOUT_MODEL_VALIDATION.md` | train=`1461` Stage 5 states; test=`312` states from shallow + lower + mid + upper held-out sessions; best path-memory RF F MAE=`0.626 N`, d MAE=`0.0447 mm`; branch-label ridge F MAE=`1.027 N`, d MAE=`0.0497 mm`; local-ID geometry remains necessary for the strongest force decoding |
+| 验证 6.3 APMD local-identifiability 模型对照 | no new acquisition; reused accepted Stage 3/6.4 path-pair sensitivity and Stage 5/6 dense-loop states | `apmd_stage6_compare_local_identifiability_models.py` | rebuilt after shallow-zone inclusion: metrics=`reports/apmd_stage6_local_identifiability_model_metrics.csv`; predictions=`reports/apmd_stage6_local_identifiability_predictions.csv`; figure=`reports/apmd_stage6_local_identifiability_comparison.png`; fit-grid=`reports/apmd_stage6_model_fit_grid_2x4.png`; MLP fit-grid=`reports/apmd_stage6_mlp_fit_grid_2x4.png`; report=`reports/APMD_STAGE6_LOCAL_IDENTIFIABILITY_MODEL.md` | train=`1461` Stage 5 states, test=`312` held-out states; local-ID ridge F MAE=`0.082 N`, d MAE=`0.0468 mm`; Lim-style branch-label ridge F MAE=`1.027 N`, d MAE=`0.0497 mm`; local-ID ridge improves F MAE vs Lim-style by `92.0%`; local-ID RF F MAE=`0.0449 N`, d MAE=`0.0439 mm`; local-ID MLP supplement: F MAE=`0.119 N`, d MAE=`0.0516 mm` |
 | 实验 6.4A high-force same-F 局部灵敏度补采 | `python .\apmd_high_force_same_f_local_sensitivity.py 800/1000/1200` 或一次性 `python .\apmd_high_force_same_f_local_sensitivity.py` | planned: rebuild Stage 4/6 local-ID features after accepted supplement | planned / next: target `8/10/12 N`, fixed preload `d=3.80 mm`, 3 usable pairs per F | purpose:补足 Stage 5/6 dense-loop 实际高力区的 `j_d` calibration；same-d 半点 `d=3.10/3.30/3.50 mm` 和 dense-loop shifted grid 先保留为后续可选，不在本轮执行 |
-| 实验 6.4B-L Block L same-d 局部灵敏度补采 | `python .\apmd_same_d_different_f_scan.py L`; supplement `python .\apmd_same_d_different_f_scan.py L300` | planned: rebuild Block L `j_F` table after Block L same-F `j_d` calibration | formal complete: `session_20260622_203244` for `d=2.40/2.60/2.80 mm`, summary=`block_L_same_d_local_sensitivity_pair_summary.csv`; supplement formal: `session_20260623_091618` for `d=3.00 mm`, summary=`block_L_same_d_local_sensitivity_pair_summary.csv`; note=12/12 strong, same-d=12/12, force-split=12/12, B-signal=12/12 | purpose: 为 Block L lower work zone 单独估计 `j_F`，避免直接把 Block M 的 same-d force-sensitivity direction 外推到较浅工作区；next: Block L same-F `j_d` calibration |
-| 实验 6.4C-L Block L same-F 局部灵敏度补采 | `python .\apmd_same_f_different_d_scan.py L300/L450/L600/L750/L900` | planned: rebuild Block L `j_d` table and Block L local-ID model after accepted supplement | planned / current next: target `3.00/4.50/6.00/7.50/9.00 N`, fixed preload `d=3.20 mm`, 3 usable pairs per F | purpose: 为 Block L lower work zone 单独估计 `j_d`，避免直接把 Block M 或 Stage 3.2 的 same-F displacement-sensitivity direction 外推到较浅工作区 |
+| 实验 6.4B-S shallow work-zone same-d 局部灵敏度补采 | `python .\apmd_same_d_different_f_scan.py S`; supplements `python .\apmd_same_d_different_f_scan.py S200/S220/S240` | used in rebuilt shallow-zone local-ID features | formal complete: primary `d=1.80/2.00 mm` from `session_20260624_173531`; supplements `d=2.00 mm` from `session_20260624_183829` and `session_20260624_184739`; `d=2.20 mm` from `session_20260624_190156`; `d=2.40 mm` from `session_20260624_194759`; summary=`shallow_same_d_local_sensitivity_pair_summary.csv`; note=12/12 selected strong, same-d=12/12, force-split=12/12, B-signal=12/12 | Shallow-zone `j_F` calibration with fixed preload=`2.60 mm`; target d=`1.80/2.00/2.20/2.40 mm`; same-F local `j_d` is intentionally skipped in this pass because strict same-F matching is high-cost; rebuild uses Block S `j_F` plus accepted formal same-F `j_d` prior |
+| 实验 6.4B-L Block L same-d 局部灵敏度补采 | `python .\apmd_same_d_different_f_scan.py L`; supplement `python .\apmd_same_d_different_f_scan.py L300` | used in rebuilt Block L local-ID features | formal complete: `session_20260622_203244` for `d=2.40/2.60/2.80 mm`, summary=`block_L_same_d_local_sensitivity_pair_summary.csv`; supplement formal: `session_20260623_091618` for `d=3.00 mm`, summary=`block_L_same_d_local_sensitivity_pair_summary.csv`; note=12/12 strong, same-d=12/12, force-split=12/12, B-signal=12/12 | purpose: 为 Block L lower work zone 单独估计 `j_F`，避免直接把 Block M 的 same-d force-sensitivity direction 外推到较浅工作区；current rebuild uses this Block L `j_F` plus existing formal same-F `j_d` prior |
+| 实验 6.4C-L Block L same-F 局部灵敏度补采 | `python .\apmd_same_f_different_d_scan.py L300/L450/L600/L750/L900` | planned: rebuild Block L `j_d` table if strict same-F supplement becomes practical | diagnostic attempted / strict formal supplement skipped for now: `session_20260623_101632` L300, 1/3 strict strong; `session_20260623_105716` + `session_20260623_112700` L600, 0/5 strict; `session_20260623_130309` L750, 0/3 strict; no accepted 3/3 strict target | same-F in Block L is currently too inefficient for minimal supplement; do not use failed/weak Block L same-F attempts as formal `j_d`; next analysis uses Block L `j_F` plus existing formal same-F `j_d` prior, then rebuilds Stage 5/6 local-ID model |
+| 实验 6.4B-H upper work-zone same-d 局部灵敏度补采 | `python .\apmd_same_d_different_f_scan.py H` | used in rebuilt upper-zone local-ID features | formal: `session_20260624_090338`; summary=`upper_same_d_local_sensitivity_pair_summary.csv` | Upper-zone `j_F` calibration with fixed preload=`4.20 mm`: `d=3.40` 3/3 strong, median Delta Bvec=`191.0 uT`; `d=3.60` 3/3 strong, median Delta Bvec=`152.6 uT`; `d=3.80` 1/3 strong, median Delta Bvec=`41.7 uT`; `d=4.00` 0/3 strong, median Delta Bvec=`1.3 uT`; all nominal targets retained in model as upper boundary/weak-region evidence |
 | 实验 7.1 无接触运动伪差对照 | `python .\apmd_no_contact_motion_artifact.py` | auto-generated session-local `no_contact_motion_artifact.png` | formal: `session_20260616_152850`; summary=`no_contact_motion_artifact_pair_summary.csv`; figure=`no_contact_motion_artifact.png`; note=no-contact replay passed 3/3; B0 drift 3.4 uT | replay selected same-d active path without contact: nominal `3.40 -> 3.80 -> 3.40 mm`, 3 trials, pass gate `ΔBvec <= 10 uT` and `B0 drift <= 10 uT` |
 | 实验 7.2 重复 loading branch 对照 | `python .\apmd_repeated_loading_control.py` | auto-generated session-local `repeated_loading_control.png` | formal: `session_20260616_170608`; summary=`repeated_loading_control_summary.csv`; figure=`repeated_loading_control.png`; note=repeated-loading control passed 5/5; max cycle-to-cycle ΔBvec 34.1 uT | target `d=3.40 mm`, no deeper preload, `5` loading cycles, pass gate cycle-to-cycle `ΔBvec <= 50 uT`; 用于证明 deeper preload path 是必要激励 |
 | 实验 7.3 cross-day repeatability | same as selected best path-pair scripts | same as selected best path-pair plots | TBD | day 1/day 2 都需 3 pairs |
@@ -237,7 +243,7 @@ Stage 5.2 metrics = reports/apmd_stage5_local_model_metrics.csv
 Stage 5.2 predictions = reports/apmd_stage5_local_model_predictions.csv
 Stage 5.2 figure = reports/apmd_stage5_local_model_baseline_comparison.png
 Stage 5.2 report = reports/APMD_STAGE5_LOCAL_MODEL_BASELINE.md
-Stage 5.2 key result after four 5.1B sessions = best F model magnetic_path_memory_random_forest, F MAE=0.590 N; best balanced model magnetic_path_memory_ridge, F MAE=0.720 N, d MAE=0.107 mm; path-memory ridge strongly improves F vs plain magnetic ridge
+Stage 5.2 key result after shallow/lower/mid/upper dataset rebuild = best F model magnetic_path_memory_random_forest, F MAE=0.268 N, d MAE=0.066 mm; path-memory baseline improves force but still lacks the explicit local-ID geometry used in Stage 6.3
 Stage 5.3 cross-session validation script = python .\apmd_stage5_dense_loop_cross_session_validation.py
 Stage 5.3 metrics = reports/apmd_stage5_dense_loop_cross_session_metrics.csv
 Stage 5.3 predictions = reports/apmd_stage5_dense_loop_cross_session_predictions.csv
@@ -260,14 +266,17 @@ recommended next experiment/analysis = Stage 6.3 existing-data APMD local-identi
 Stage 6.3 purpose = directly connect Stage 4 local sensitivity / branch geometry to Stage 5/6 model validation
 Stage 6.3 model comparison = plain magnetic vs Lim-style branch-label compensation vs APMD path-memory vs APMD local-identifiability
 Stage 6.3 key feature = project magnetic state changes onto local j_F/j_d directions derived from active path-pair experiments
-completed Stage 6.3 = complete / force pass with near d-gate; best local-ID ridge F_MAE=0.054 N, d_MAE=0.056 mm; Lim-style branch-label baseline F_MAE=0.839 N, d_MAE=0.035 mm; local-ID ridge improves F_MAE vs Lim-style by 93.5%; d is slightly above the strict 0.050 mm gate
+completed Stage 6.3 rebuilt after shallow-zone inclusion = train=1461 states, held-out=312 states; local-ID ridge F_MAE=0.082 N, d_MAE=0.0468 mm; Lim-style branch-label baseline F_MAE=1.027 N, d_MAE=0.0497 mm; local-ID ridge improves F_MAE vs Lim-style by 92.0%; local-ID RF F_MAE=0.0449 N, d_MAE=0.0439 mm; local-ID MLP supplement F_MAE=0.119 N, d_MAE=0.0516 mm
 completed Stage 6.4B-L = formal accepted: session_20260622_203244 for d=2.40/2.60/2.80 mm and session_20260623_091618 for d=3.00 mm; total 12/12 strong same-d pairs, fixed preload d=3.20 mm
-current next acquisition = Block L same-F local sensitivity supplement for j_d calibration
-Block L same-F design pending = target force points should cover Block L dense-loop force range, fixed preload d=3.20 mm, 3 usable pairs per force
+completed Stage 6.4C-L diagnostic = strict Block L same-F supplement skipped for now after L300/L600/L750 attempts failed to produce any 3/3 strict strong target; these diagnostic sessions are not used as formal j_d calibration
+completed Block L integration = Stage 5/6 scripts now include accepted Block L training cycles, accepted Block L held-out cycles, Block L same-d j_F calibration, and existing formal same-F j_d prior
 completed Stage 7.1 = formal accepted: session_20260616_152850; no-contact replay passed 3/3; B0 drift=3.4 uT
 completed Stage 7.2 = formal accepted: session_20260616_170608; repeated-loading control passed 5/5; max cycle-to-cycle Delta Bvec=34.1 uT
-recommended next experiment/analysis = Stage 7.3 cross-day repeatability or proceed to final mechanism/model summary if cross-day repeat is not required for the current report
-Stage 6.4 principle = after Block L dense-loop training and held-out acquisition, first supplement Block L local same-d j_F calibration, then supplement Block L same-F j_d calibration, then rebuild Stage 4/6 local-ID features
+completed upper work-zone training = 20 accepted cycles / 300 states from sessions 20260623_152502, 20260623_162301, 20260623_172014, 20260623_182650, 20260623_200232
+completed upper work-zone held-out = 6 accepted cycles / 78 states from sessions 20260623_201622 and 20260623_204724
+completed upper work-zone same-d j_F calibration = session_20260624_090338; d=3.40/3.60 strong, d=3.80 weak/boundary, d=4.00 near physical boundary; all retained in model instead of excluded a priori
+recommended next experiment/analysis = inspect upper-zone residuals and decide whether to keep one unified multi-zone model or report upper-zone as boundary/weak-region stress test
+Stage 6.4 principle = after Block L dense-loop training and held-out acquisition, first supplement Block L local same-d j_F calibration; Block L same-F j_d is desirable but not mandatory for the current rebuild if strict same-F matching is inefficient
 Experiment 5.1B command = python .\apmd_local_minor_loop_dense_sampling.py
 Experiment 5.1B design = d grid 3.0/3.1/3.2/3.3/3.4/3.5/3.6 mm, common preload 3.8 mm, loading/preload/unloading loop, 15 s loading/unloading states, 5 cycles, 75 planned state summaries per session; four formal sessions completed and included in current Stage 5/6 rebuilt outputs
 design note = current modeling scope is local proof-of-mechanism, not prosthetic-socket full-range deployment; one initial conditioning pair is recorded but excluded from formal summary; recovery-time effect is mild and does not remove same-d path-pair separation
@@ -1048,6 +1057,93 @@ start position = 6 mm above physical lower limit
 force hard limit = OFF
 ```
 
+**Block S 扩展设置（shallow work zone）**
+
+Block S 用来把 local-identifiability 模型继续向更浅工作区扩展，从已有的 Block L `d=2.4-3.0 mm` 再往前推进到 `d=1.8-2.4 mm`。Block S 不改变 5.1B 的 dense-loop 运动逻辑、记录时间或 summary 方法，只改变局部位移网格和 common preload：
+
+```text
+script = python .\apmd_local_minor_loop_dense_sampling.py S
+loading d = 1.8 -> 1.9 -> 2.0 -> 2.1 -> 2.2 -> 2.3 -> 2.4 mm
+preload d = 2.6 mm
+unloading d = 2.4 -> 2.3 -> 2.2 -> 2.1 -> 2.0 -> 1.9 -> 1.8 mm
+cycles = 5
+record per loading/unloading state = 15 s
+record per preload state = 30 s
+summary window = last 5 s median
+rest between cycles = 120 s
+start position = 6 mm above physical lower limit
+force hard limit = OFF
+```
+
+Block S 的 `d=2.4 mm` 与 Block L 的起点重叠。这个重叠点不是重复错误，而是 shallow-to-lower transition 的 bridge/anchor：Block S 的 path history 是 `previous max d = 2.6 mm`，Block L 的 path history 是 `previous max d = 3.2 mm`。后续建模时必须保留 `work_zone_id`、`preload_d`、`previous_max_d` 和 branch/path-memory 特征，不能把两个 `d=2.4 mm` 状态直接平均。
+
+**Block S planned training target**
+
+```text
+accepted training cycles target = 20
+accepted training states target = 300
+expected per full session = 5 cycles, 75 state summaries
+if a session aborts mid-run = count only complete cycles with all 15 states
+```
+
+**Block S held-out validation**
+
+训练集使用 0.1 mm 网格，held-out 使用中间插值点，避免模型只记住训练 d-grid。
+
+```text
+script = python .\apmd_stage6_local_heldout_dense_loop.py S
+held-out d = 1.85 -> 1.95 -> 2.05 -> 2.15 -> 2.25 -> 2.35 mm
+preload d = 2.6 mm
+cycles = 3 per full session
+target accepted held-out cycles = 6
+target accepted held-out states = 78
+```
+
+**Block S same-d local sensitivity calibration**
+
+该实验给 shallow work-zone 单独估计 `j_F`，也就是“力变化方向”。它使用和 Block S dense-loop 一致的 fixed common preload，而不是 `target d + 0.30 mm`。
+
+```text
+script = python .\apmd_same_d_different_f_scan.py S
+target d = 1.80, 2.00, 2.20, 2.40 mm
+preload d = 2.60 mm fixed for all target d
+trials = 3 usable pairs per target d
+direct target record = 45 s
+preload record = 30 s
+return target record = 45 s
+summary window = last 10 s median
+same-d gate = |d_return - d_direct| <= 0.020 mm
+force split target = |Delta F| >= 0.20 N
+magnetic signal gate = Delta Bvec >= 50 uT
+```
+
+Block S 的 same-F local `j_d` calibration 暂时不作为阻塞步骤。原因和 Block L 相同：严格 same-F matching 成本高、失败率高。第一轮 shallow-zone 扩展先使用 accepted formal same-F `j_d` prior 加 Block S 自己的 `j_F`；如果重建模型后 displacement residual 在浅区明显变差，再决定是否补 shallow same-F local sensitivity。
+
+**Block S accepted formal records**
+
+```text
+5.1B-S training dense-loop:
+  session_20260624_113311 cycles 1-5
+  session_20260624_122802 cycles 1-5
+  session_20260624_135659 cycles 1-5
+  session_20260624_145548 cycles 1-5
+  total accepted cycles = 20
+  total accepted states = 300
+
+6.1-S held-out dense-loop:
+  session_20260624_155402 cycles 1-3
+  session_20260624_164026 cycles 1-3
+  total accepted cycles = 6
+  total accepted states = 78
+
+6.4B-S same-d local j_F calibration:
+  d=1.80 mm: session_20260624_173531 reps 1-3
+  d=2.00 mm: session_20260624_173531 rep1 + session_20260624_183829 rep1 + session_20260624_184739 rep1
+  d=2.20 mm: session_20260624_190156 reps 1-3
+  d=2.40 mm: session_20260624_194759 reps 1-3
+  selected formal pairs = 12/12 strong
+```
+
 **Block L 扩展设置（lower work zone）**
 
 Block L 用来把当前 local-identifiability 模型从原来的 Block M `d=3.0-3.6 mm` 扩展到较浅工作区 `d=2.4-3.0 mm`。Block L 不改变 5.1B 的运动逻辑，只改变 dense-loop 的局部位移网格和 common preload：
@@ -1094,6 +1190,66 @@ next step:
   run Block L held-out dense-loop validation
   python .\apmd_stage6_local_heldout_dense_loop.py L
 ```
+
+**Upper work-zone 扩展设置（d = 3.4-4.0 mm）**
+
+Upper work-zone 用来把当前 local-identifiability 模型从 `d=2.4-3.6 mm` 继续扩展到更深的 `d=3.4-4.0 mm`。它与 Block M 在 `d=3.4/3.5/3.6 mm` 有重叠，这不是重复错误，而是跨 block 的 bridge/anchor：同一个 nominal d 在不同 common preload 和 previous max d 下会有不同路径记忆。后续建模时必须保留 `work_zone_id`、`preload_d`、`previous_max_d`、branch 和 local-ID 特征，不能把这些重叠点直接平均。
+
+```text
+script = python .\apmd_local_minor_loop_dense_sampling.py H
+loading d = 3.4 -> 3.5 -> 3.6 -> 3.7 -> 3.8 -> 3.9 -> 4.0 mm
+preload d = 4.2 mm
+unloading d = 4.0 -> 3.9 -> 3.8 -> 3.7 -> 3.6 -> 3.5 -> 3.4 mm
+cycles = 5
+record per loading/unloading state = 15 s
+record per preload state = 30 s
+summary window = last 5 s median
+rest between cycles = 120 s
+start position = 6 mm above physical lower limit
+force hard limit = OFF
+```
+
+**Upper work-zone planned training target**
+
+```text
+accepted training cycles target = 20
+accepted training states target = 300
+expected per full session = 5 cycles, 75 state summaries
+if a session aborts mid-run = count only complete cycles with all 15 states
+```
+
+**Upper work-zone held-out validation**
+
+训练集使用整数 0.1 mm 网格，held-out 使用中间插值点，避免模型只记住训练 d-grid。
+
+```text
+script = python .\apmd_stage6_local_heldout_dense_loop.py H
+held-out d = 3.45 -> 3.55 -> 3.65 -> 3.75 -> 3.85 -> 3.95 mm
+preload d = 4.2 mm
+cycles = 3 per full session
+target accepted held-out cycles = 6
+target accepted held-out states = 78
+```
+
+**Upper work-zone same-d local sensitivity calibration**
+
+该实验给 upper work-zone 单独估计 `j_F`，也就是“力变化方向”。它使用和 upper dense-loop 一致的 fixed common preload，而不是 `target d + 0.30 mm`。
+
+```text
+script = python .\apmd_same_d_different_f_scan.py H
+target d = 3.40, 3.60, 3.80, 4.00 mm
+preload d = 4.20 mm fixed for all target d
+trials = 3 usable pairs per target d
+direct target record = 45 s
+preload record = 30 s
+return target record = 45 s
+summary window = last 10 s median
+same-d gate = |d_return - d_direct| <= 0.020 mm
+force split target = |Delta F| >= 0.20 N
+magnetic signal gate = Delta Bvec >= 50 uT
+```
+
+Upper work-zone 的 same-F local `j_d` calibration 暂时不作为必需步骤。原因是 Block L same-F 补采已经证明严格 same-F matching 成本高、失败率高；第一轮 upper-zone 扩展先使用 accepted formal same-F `j_d` prior 加 upper-zone `j_F`。如果 upper-zone model residual 显示 displacement 解码明显变差，再决定是否补 upper-zone same-F local sensitivity。
 
 **每个 cycle 流程**
 
@@ -1280,7 +1436,7 @@ status = accepted as Block L test-only primary held-out dataset
 
 **拆分原则**
 
-训练集只使用 Stage 3 accepted path-pair 数据和四个 Stage 5.1B dense-loop session。Stage 6.1 采集的新 session 必须整体作为 test-only held-out session，不允许随机拆分相邻状态点。目前正式 held-out 使用 `session_20260615_160438` 和 `session_20260618_161152`，共 78 个 state。
+训练集使用 Stage 3 accepted path-pair 数据、四个 Mid-zone Stage 5.1B dense-loop session、Block S 的 20 个 accepted shallow training cycles、Block L 的 20 个 accepted dense-loop training cycles，以及 upper work-zone 的 20 个 accepted dense-loop training cycles。Stage 6.1 / 6.1-S / 6.1-L / 6.1-H 采集的新 session 必须整体作为 test-only held-out session，不允许随机拆分相邻状态点。目前正式 held-out 使用 `session_20260615_160438`、`session_20260618_161152`、`session_20260624_155402`、`session_20260624_164026`、`session_20260622_173504`、`session_20260622_180702`、`session_20260622_185538`、`session_20260623_201622`、`session_20260623_204724` 中的 accepted cycles，共 312 个 state。
 
 **通过标准**
 
@@ -1327,10 +1483,10 @@ residual = ||Delta B - projection_on_span(j_F, j_d)||
 
 ```text
 training states = reports/apmd_stage5_model_dataset_states.csv
-held-out test sessions = session_20260615_160438 + session_20260618_161152
-j_F source = reports/apmd_stage4_jF_from_same_d_pairs.csv
+held-out test sessions = Mid-zone 6.1 sessions + Block L 6.1-L accepted cycles
+j_F source = reports/apmd_stage4_jF_from_same_d_pairs.csv + Block L same-d calibration
 j_d source = reports/apmd_stage4_jd_from_same_f_pairs.csv
-selected local zone = d about 3.20-3.60 mm, F about 3.75-4.90 N
+selected local zones = Block L d=2.4-3.0 mm and Mid-zone d=3.0-3.6 mm
 ```
 
 **必须比较的模型**
@@ -1371,20 +1527,21 @@ reports/APMD_STAGE6_LOCAL_IDENTIFIABILITY_MODEL.md
 **当前正式结果**
 
 ```text
-status = force pass / near d-gate
-train states = 561
-held-out states = 78 from session_20260615_160438 + session_20260618_161152
-plain magnetic ridge = F_MAE 1.807 N, d_MAE 0.045 mm
-Lim-style branch-label ridge = F_MAE 0.839 N, d_MAE 0.035 mm
-APMD path-memory ridge = F_MAE 0.796 N, d_MAE 0.063 mm
-best local-ID ridge = F_MAE 0.054 N, d_MAE 0.056 mm
-best local-ID RF = F_MAE 0.062 N, d_MAE 0.065 mm
-local-ID ridge improvement vs Lim-style F_MAE = 93.5%
+status = pass after shallow/lower/mid/upper work-zone rebuild
+train states = 1461
+held-out states = 312 from shallow + lower + mid + upper accepted held-out cycles
+plain magnetic ridge = F_MAE 1.542 N, d_MAE 0.057 mm
+Lim-style branch-label ridge = F_MAE 1.027 N, d_MAE 0.0497 mm
+APMD path-memory ridge = F_MAE 1.013 N, d_MAE 0.0531 mm
+best local-ID ridge = F_MAE 0.082 N, d_MAE 0.0468 mm
+best local-ID RF = F_MAE 0.0449 N, d_MAE 0.0439 mm
+local-ID ridge improvement vs Lim-style F_MAE = 92.0%
+MLP local-ID supplement = F_MAE 0.119 N, d_MAE 0.0516 mm
 ```
 
 这个结果说明，Stage 4 的 `j_F/j_d` 局部灵敏度不是只用于解释现象，而是可以作为模型输入显著改善 held-out force prediction。也就是说，APMD 与文献式 branch-label compensation 的区别在这里被模型层面体现出来：不是只告诉模型“这是 loading/unloading”，而是把主动路径对估计出的局部力方向和局部位移方向作为可辨识坐标交给模型。
 
-需要注意的是，local-ID ridge 的 `d_MAE = 0.056 mm` 略高于严格 `0.050 mm` gate，而 Lim-style branch-label ridge 的 `d_MAE = 0.035 mm` 更好。因此当前结论应表述为：local-ID geometry 对 force 解耦提供了非常强的帮助，displacement 仍需在后续模型组合或定向补采中进一步优化。实际可采用“force 用 local-ID ridge / displacement 用 branch-label ridge”的双输出组合，或在 6.4 中只补强 displacement 误差集中的局部点。
+需要注意的是，upper work-zone 的 nominal `3.8-4.0 mm` 已接近物理边界，same-d calibration 在深端明显变弱；shallow work-zone 则没有补 strict same-F local `j_d`，而是使用现有 accepted formal same-F `j_d` prior。即便在这个更宽的 `1.8-4.0 mm` 扩展验证中，local-ID ridge 仍同时通过 `F_MAE <= 0.50 N` 和 `d_MAE <= 0.05 mm`，说明 `j_F/j_d` local geometry 对模型不是装饰性特征，而是能稳定改善 held-out 解耦的核心输入。若论文主文只报告稳定工作区，可强调 `2.4-3.6 mm` 的严格通过；若报告扩展能力，则应把 shallow/upper blocks 作为跨工作区 stress test，而不是提前排除。
 
 ### 实验 6.4A：high-force same-F 局部灵敏度补采（当前执行）
 
@@ -1507,7 +1664,7 @@ median Delta Bvec by target =
 status = Block L j_F calibration complete
 ```
 
-### 实验 6.4C-L：Block L same-F 局部灵敏度补采（当前执行）
+### 实验 6.4C-L：Block L same-F 局部灵敏度补采（诊断尝试，严格补采暂跳过）
 
 **目的**
 
@@ -1560,6 +1717,35 @@ j_d(F) = Delta B / |Delta d|
 ```
 
 如果 5 个 target F 都得到 3/3 strong pairs，则 Block L 的 `j_d` calibration 完成；下一步重建 Block L local-ID features，并把 Block L 与 Block M 的模型结果分开评估，再决定是否合并成 multi-block work-zone-aware model。
+
+**诊断结果与正式判定**
+
+```text
+L300 diagnostic:
+  session = session_20260623_101632
+  result = 1/3 strict strong
+  issue = rep1/rep3 bad same-F match; loading d also below formal Block L dense-loop range
+
+L600 diagnostic:
+  sessions = session_20260623_105716, session_20260623_112700
+  result = 0/5 strict strong
+  issue = some pairs matched force but Delta d only about 0.080 mm; other pairs had enough Delta d but bad same-F match
+
+L750 diagnostic:
+  session = session_20260623_130309
+  result = 0/3 strict strong
+  issue = force match acceptable but displacement split only about 0.020-0.030 mm
+```
+
+结论：Block L 的 same-F/different-d strict supplement 当前效率太低，继续逐点补测的时间成本高于收益。因此这些 diagnostic attempts 不作为 formal `j_d` calibration，也不写入正式 accepted session registry。当前重建采用：
+
+```text
+j_F = Block L same-d calibration from 12/12 strong pairs
+j_d = existing formal same-F prior from Stage 3.2/3.4
+model data = accepted Block L dense-loop training cycles + accepted Block L held-out cycles
+```
+
+这样做的边界是：Block L 的力方向 `j_F` 已经是本工作区专属；位移方向 `j_d` 仍是正式 same-F prior，而不是 Block L strict same-F direct calibration。后续若论文或答辩需要更强的 lower-zone `j_d` 证据，可以再单独设计更稳的 low-zone same-F protocol；但当前不再让 same-F 补测阻塞 Block L 模型重建。
 
 ---
 

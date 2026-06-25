@@ -1,0 +1,18 @@
+# APMD shallow work-zone same-d d=2.00 supplement session 20260624_184739
+# D_TARGETS_MM=[2.0], D_PRELOAD_BY_TARGET_MM={2.0: 2.6}
+# TARGET_RECORD_S=45.0, PRELOAD_RECORD_S=30.0, N_TRIALS=3
+# live_tare_N=-2.90530
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[target 2.00 trial 1] B0=(-439.54746710526314, 1958.337730263158, 3386.4586118421053) n=152
+[trial 1] contact_pos=-2.0900 F=0.1568 baseline=0.0546 dF_base=0.1022 dF_step=0.0452 slope=0.5022
+[trial 1 pair 1 direct_target] start d_target=2.0000 d_actual=1.9800 pos=-4.0700
+[trial 1 pair 1 direct_target] summary n=114 d=1.9800 F=3.024250 Bmag=7228.1156
+[trial 1 pair 1 preload_deep] start d_target=2.6000 d_actual=2.5800 pos=-4.6700
+[trial 1 pair 1 preload_deep] summary n=114 d=2.5800 F=5.858900 Bmag=8509.0654
+[trial 1 pair 1 return_target] start d_target=2.0000 d_actual=2.0000 pos=-4.0900
+[trial 1 pair 1 return_target] summary n=114 d=2.0000 F=2.242450 Bmag=7329.4593
+[target 2.00 trial 1] diagnostic dd=+0.0200 dF=-0.781800 dBmag=+101.3437 dBvec=104.2536 verdict=strong
+[target 2.00 trial 2] B0=(-439.2718387096774, 1953.1288, 3439.6660967741936) n=155
+[target 2.00 trial 3] B0=(-440.2024193548387, 1951.736806451613, 3430.7416322580643) n=155
+# formal registry skipped: not registered: 1/3 planned scan pairs completed

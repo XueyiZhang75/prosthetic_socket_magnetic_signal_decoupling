@@ -1,0 +1,241 @@
+# APMD local minor-loop 5.1B S session 20260624_122802
+# D_GRID_MM=[1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4], PRELOAD_D_MM=2.6
+# STATE_RECORD_S=15.0, PRELOAD_RECORD_S=30.0, N_CYCLES=5
+# live_tare_N=-2.90080
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[cycle 1] B0=(-440.3608543046357, 1963.0162450331125, 3412.1228278145695) n=151
+[trial 1] contact_pos=-2.0900 F=0.1330 baseline=0.0455 dF_base=0.0875 dF_step=0.0349 slope=0.3878
+[trial 1 pair 1 loading_d_180] start d_target=1.8000 d_actual=1.7800 pos=-3.8700
+[trial 1 pair 1 loading_d_180] summary n=114 d=1.7800 F=2.361150 Bmag=6797.3639
+[cycle 1 state 1] loading_d_180 d=1.7800 F=2.361150 Bmag=6797.3639
+[trial 1 pair 1 loading_d_190] start d_target=1.9000 d_actual=1.8900 pos=-3.9800
+[trial 1 pair 1 loading_d_190] summary n=113 d=1.8900 F=2.701200 Bmag=6983.7083
+[cycle 1 state 2] loading_d_190 d=1.8900 F=2.701200 Bmag=6983.7083
+[trial 1 pair 1 loading_d_200] start d_target=2.0000 d_actual=1.9800 pos=-4.0700
+[trial 1 pair 1 loading_d_200] summary n=113 d=1.9800 F=3.024200 Bmag=7192.5419
+[cycle 1 state 3] loading_d_200 d=1.9800 F=3.024200 Bmag=7192.5419
+[trial 1 pair 1 loading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1700
+[trial 1 pair 1 loading_d_210] summary n=113 d=2.0800 F=3.384900 Bmag=7401.7447
+[cycle 1 state 4] loading_d_210 d=2.0800 F=3.384900 Bmag=7401.7447
+[trial 1 pair 1 loading_d_220] start d_target=2.2000 d_actual=2.1800 pos=-4.2700
+[trial 1 pair 1 loading_d_220] summary n=113 d=2.1800 F=3.771900 Bmag=7612.4031
+[cycle 1 state 5] loading_d_220 d=2.1800 F=3.771900 Bmag=7612.4031
+[trial 1 pair 1 loading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.3800
+[trial 1 pair 1 loading_d_230] summary n=113 d=2.2900 F=4.202400 Bmag=7824.6556
+[cycle 1 state 6] loading_d_230 d=2.2900 F=4.202400 Bmag=7824.6556
+[trial 1 pair 1 loading_d_240] start d_target=2.4000 d_actual=2.3900 pos=-4.4800
+[trial 1 pair 1 loading_d_240] summary n=114 d=2.3900 F=4.674450 Bmag=8034.3623
+[cycle 1 state 7] loading_d_240 d=2.3900 F=4.674450 Bmag=8034.3623
+[trial 1 pair 1 preload_d_260] start d_target=2.6000 d_actual=2.5800 pos=-4.6700
+[trial 1 pair 1 preload_d_260] summary n=113 d=2.5800 F=5.706600 Bmag=8489.2266
+[cycle 1 state 8] preload_d_260 d=2.5800 F=5.706600 Bmag=8489.2266
+[trial 1 pair 1 unloading_d_240] start d_target=2.4000 d_actual=2.4100 pos=-4.5000
+[trial 1 pair 1 unloading_d_240] summary n=114 d=2.4100 F=3.893700 Bmag=8160.1307
+[cycle 1 state 9] unloading_d_240 d=2.4100 F=3.893700 Bmag=8160.1307
+[trial 1 pair 1 unloading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.3800
+[trial 1 pair 1 unloading_d_230] summary n=114 d=2.2900 F=3.149050 Bmag=7902.7621
+[cycle 1 state 10] unloading_d_230 d=2.2900 F=3.149050 Bmag=7902.7621
+[trial 1 pair 1 unloading_d_220] start d_target=2.2000 d_actual=2.2000 pos=-4.2900
+[trial 1 pair 1 unloading_d_220] summary n=113 d=2.2000 F=2.785600 Bmag=7746.5728
+[cycle 1 state 11] unloading_d_220 d=2.2000 F=2.785600 Bmag=7746.5728
+[trial 1 pair 1 unloading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1700
+[trial 1 pair 1 unloading_d_210] summary n=113 d=2.0800 F=2.304300 Bmag=7461.7380
+[cycle 1 state 12] unloading_d_210 d=2.0800 F=2.304300 Bmag=7461.7380
+[trial 1 pair 1 unloading_d_200] start d_target=2.0000 d_actual=2.0000 pos=-4.0900
+[trial 1 pair 1 unloading_d_200] summary n=113 d=2.0000 F=2.050700 Bmag=7304.5396
+[cycle 1 state 13] unloading_d_200 d=2.0000 F=2.050700 Bmag=7304.5396
+[trial 1 pair 1 unloading_d_190] start d_target=1.9000 d_actual=1.9200 pos=-4.0100
+[trial 1 pair 1 unloading_d_190] summary n=113 d=1.9200 F=1.843200 Bmag=7146.2901
+[cycle 1 state 14] unloading_d_190 d=1.9200 F=1.843200 Bmag=7146.2901
+[trial 1 pair 1 unloading_d_180] start d_target=1.8000 d_actual=1.8000 pos=-3.8900
+[trial 1 pair 1 unloading_d_180] summary n=113 d=1.8000 F=1.547600 Bmag=6879.9185
+[cycle 1 state 15] unloading_d_180 d=1.8000 F=1.547600 Bmag=6879.9185
+[cycle 2] B0=(-440.1027142857143, 1959.2082662337662, 3469.5004545454544) n=154
+[trial 2] contact_pos=-2.1300 F=0.1395 baseline=0.0454 dF_base=0.0941 dF_step=0.0373 slope=0.3730
+[trial 2 pair 2 loading_d_180] start d_target=1.8000 d_actual=1.7800 pos=-3.9100
+[trial 2 pair 2 loading_d_180] summary n=113 d=1.7800 F=2.468500 Bmag=6881.1187
+[cycle 2 state 1] loading_d_180 d=1.7800 F=2.468500 Bmag=6881.1187
+[trial 2 pair 2 loading_d_190] start d_target=1.9000 d_actual=1.8800 pos=-4.0100
+[trial 2 pair 2 loading_d_190] summary n=113 d=1.8800 F=2.827700 Bmag=7074.5711
+[cycle 2 state 2] loading_d_190 d=1.8800 F=2.827700 Bmag=7074.5711
+[trial 2 pair 2 loading_d_200] start d_target=2.0000 d_actual=1.9800 pos=-4.1100
+[trial 2 pair 2 loading_d_200] summary n=114 d=1.9800 F=3.173500 Bmag=7284.2347
+[cycle 2 state 3] loading_d_200 d=1.9800 F=3.173500 Bmag=7284.2347
+[trial 2 pair 2 loading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.2100
+[trial 2 pair 2 loading_d_210] summary n=113 d=2.0800 F=3.548600 Bmag=7491.9086
+[cycle 2 state 4] loading_d_210 d=2.0800 F=3.548600 Bmag=7491.9086
+[trial 2 pair 2 loading_d_220] start d_target=2.2000 d_actual=2.1800 pos=-4.3100
+[trial 2 pair 2 loading_d_220] summary n=113 d=2.1800 F=3.955000 Bmag=7702.4338
+[cycle 2 state 5] loading_d_220 d=2.1800 F=3.955000 Bmag=7702.4338
+[trial 2 pair 2 loading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4200
+[trial 2 pair 2 loading_d_230] summary n=113 d=2.2900 F=4.410600 Bmag=7910.1630
+[cycle 2 state 6] loading_d_230 d=2.2900 F=4.410600 Bmag=7910.1630
+[trial 2 pair 2 loading_d_240] start d_target=2.4000 d_actual=2.3800 pos=-4.5100
+[trial 2 pair 2 loading_d_240] summary n=113 d=2.3800 F=4.907300 Bmag=8118.7438
+[cycle 2 state 7] loading_d_240 d=2.3800 F=4.907300 Bmag=8118.7438
+[trial 2 pair 2 preload_d_260] start d_target=2.6000 d_actual=2.5800 pos=-4.7100
+[trial 2 pair 2 preload_d_260] summary n=113 d=2.5800 F=6.027000 Bmag=8585.7960
+[cycle 2 state 8] preload_d_260 d=2.5800 F=6.027000 Bmag=8585.7960
+[trial 2 pair 2 unloading_d_240] start d_target=2.4000 d_actual=2.4000 pos=-4.5300
+[trial 2 pair 2 unloading_d_240] summary n=113 d=2.4000 F=4.113400 Bmag=8254.6462
+[cycle 2 state 9] unloading_d_240 d=2.4000 F=4.113400 Bmag=8254.6462
+[trial 2 pair 2 unloading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4200
+[trial 2 pair 2 unloading_d_230] summary n=113 d=2.2900 F=3.326400 Bmag=7993.5049
+[cycle 2 state 10] unloading_d_230 d=2.2900 F=3.326400 Bmag=7993.5049
+[trial 2 pair 2 unloading_d_220] start d_target=2.2000 d_actual=2.2000 pos=-4.3300
+[trial 2 pair 2 unloading_d_220] summary n=114 d=2.2000 F=2.940050 Bmag=7836.7188
+[cycle 2 state 11] unloading_d_220 d=2.2000 F=2.940050 Bmag=7836.7188
+[trial 2 pair 2 unloading_d_210] start d_target=2.1000 d_actual=2.1200 pos=-4.2500
+[trial 2 pair 2 unloading_d_210] summary n=113 d=2.1200 F=2.618600 Bmag=7673.1444
+[cycle 2 state 12] unloading_d_210 d=2.1200 F=2.618600 Bmag=7673.1444
+[trial 2 pair 2 unloading_d_200] start d_target=2.0000 d_actual=2.0000 pos=-4.1300
+[trial 2 pair 2 unloading_d_200] summary n=113 d=2.0000 F=2.180900 Bmag=7393.1250
+[cycle 2 state 13] unloading_d_200 d=2.0000 F=2.180900 Bmag=7393.1250
+[trial 2 pair 2 unloading_d_190] start d_target=1.9000 d_actual=1.8800 pos=-4.0100
+[trial 2 pair 2 unloading_d_190] summary n=113 d=1.8800 F=1.827900 Bmag=7127.8071
+[cycle 2 state 14] unloading_d_190 d=1.8800 F=1.827900 Bmag=7127.8071
+[trial 2 pair 2 unloading_d_180] start d_target=1.8000 d_actual=1.8000 pos=-3.9300
+[trial 2 pair 2 unloading_d_180] summary n=113 d=1.8000 F=1.628900 Bmag=6975.3244
+[cycle 2 state 15] unloading_d_180 d=1.8000 F=1.628900 Bmag=6975.3244
+[cycle 3] B0=(-438.62362987012983, 1959.6921883116884, 3474.698694805195) n=154
+[trial 3] contact_pos=-2.1100 F=0.1296 baseline=0.0413 dF_base=0.0883 dF_step=0.0363 slope=0.3630
+[trial 3 pair 3 loading_d_180] start d_target=1.8000 d_actual=1.7800 pos=-3.8900
+[trial 3 pair 3 loading_d_180] summary n=113 d=1.7800 F=2.412500 Bmag=6848.9334
+[cycle 3 state 1] loading_d_180 d=1.7800 F=2.412500 Bmag=6848.9334
+[trial 3 pair 3 loading_d_190] start d_target=1.9000 d_actual=1.8900 pos=-4.0000
+[trial 3 pair 3 loading_d_190] summary n=113 d=1.8900 F=2.760800 Bmag=7037.9857
+[cycle 3 state 2] loading_d_190 d=1.8900 F=2.760800 Bmag=7037.9857
+[trial 3 pair 3 loading_d_200] start d_target=2.0000 d_actual=1.9800 pos=-4.0900
+[trial 3 pair 3 loading_d_200] summary n=113 d=1.9800 F=3.099300 Bmag=7246.6513
+[cycle 3 state 3] loading_d_200 d=1.9800 F=3.099300 Bmag=7246.6513
+[trial 3 pair 3 loading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1900
+[trial 3 pair 3 loading_d_210] summary n=113 d=2.0800 F=3.467500 Bmag=7454.9810
+[cycle 3 state 4] loading_d_210 d=2.0800 F=3.467500 Bmag=7454.9810
+[trial 3 pair 3 loading_d_220] start d_target=2.2000 d_actual=2.1800 pos=-4.2900
+[trial 3 pair 3 loading_d_220] summary n=113 d=2.1800 F=3.869400 Bmag=7666.8794
+[cycle 3 state 5] loading_d_220 d=2.1800 F=3.869400 Bmag=7666.8794
+[trial 3 pair 3 loading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4000
+[trial 3 pair 3 loading_d_230] summary n=113 d=2.2900 F=4.319300 Bmag=7875.2404
+[cycle 3 state 6] loading_d_230 d=2.2900 F=4.319300 Bmag=7875.2404
+[trial 3 pair 3 loading_d_240] start d_target=2.4000 d_actual=2.3900 pos=-4.5000
+[trial 3 pair 3 loading_d_240] summary n=113 d=2.3900 F=4.802100 Bmag=8084.5765
+[cycle 3 state 7] loading_d_240 d=2.3900 F=4.802100 Bmag=8084.5765
+[trial 3 pair 3 preload_d_260] start d_target=2.6000 d_actual=2.5800 pos=-4.6900
+[trial 3 pair 3 preload_d_260] summary n=113 d=2.5800 F=5.917700 Bmag=8544.3347
+[cycle 3 state 8] preload_d_260 d=2.5800 F=5.917700 Bmag=8544.3347
+[trial 3 pair 3 unloading_d_240] start d_target=2.4000 d_actual=2.4000 pos=-4.5100
+[trial 3 pair 3 unloading_d_240] summary n=113 d=2.4000 F=4.036100 Bmag=8215.0875
+[cycle 3 state 9] unloading_d_240 d=2.4000 F=4.036100 Bmag=8215.0875
+[trial 3 pair 3 unloading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4000
+[trial 3 pair 3 unloading_d_230] summary n=113 d=2.2900 F=3.265600 Bmag=7955.9022
+[cycle 3 state 10] unloading_d_230 d=2.2900 F=3.265600 Bmag=7955.9022
+[trial 3 pair 3 unloading_d_220] start d_target=2.2000 d_actual=2.2000 pos=-4.3100
+[trial 3 pair 3 unloading_d_220] summary n=113 d=2.2000 F=2.882700 Bmag=7798.6509
+[cycle 3 state 11] unloading_d_220 d=2.2000 F=2.882700 Bmag=7798.6509
+[trial 3 pair 3 unloading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1900
+[trial 3 pair 3 unloading_d_210] summary n=113 d=2.0800 F=2.382200 Bmag=7514.3303
+[cycle 3 state 12] unloading_d_210 d=2.0800 F=2.382200 Bmag=7514.3303
+[trial 3 pair 3 unloading_d_200] start d_target=2.0000 d_actual=2.0000 pos=-4.1100
+[trial 3 pair 3 unloading_d_200] summary n=113 d=2.0000 F=2.118900 Bmag=7351.9113
+[cycle 3 state 13] unloading_d_200 d=2.0000 F=2.118900 Bmag=7351.9113
+[trial 3 pair 3 unloading_d_190] start d_target=1.9000 d_actual=1.8700 pos=-3.9800
+[trial 3 pair 3 unloading_d_190] summary n=113 d=1.8700 F=1.778500 Bmag=7081.8928
+[cycle 3 state 14] unloading_d_190 d=1.8700 F=1.778500 Bmag=7081.8928
+[trial 3 pair 3 unloading_d_180] start d_target=1.8000 d_actual=1.8000 pos=-3.9100
+[trial 3 pair 3 unloading_d_180] summary n=113 d=1.8000 F=1.582200 Bmag=6929.6056
+[cycle 3 state 15] unloading_d_180 d=1.8000 F=1.582200 Bmag=6929.6056
+[cycle 4] B0=(-439.29097402597404, 1961.0463896103895, 3485.302681818182) n=154
+[trial 4] contact_pos=-2.0900 F=0.1202 baseline=0.0383 dF_base=0.0819 dF_step=0.0358 slope=0.3978
+[trial 4 pair 4 loading_d_180] start d_target=1.8000 d_actual=1.7800 pos=-3.8700
+[trial 4 pair 4 loading_d_180] summary n=113 d=1.7800 F=2.357200 Bmag=6815.7555
+[cycle 4 state 1] loading_d_180 d=1.7800 F=2.357200 Bmag=6815.7555
+[trial 4 pair 4 loading_d_190] start d_target=1.9000 d_actual=1.8900 pos=-3.9800
+[trial 4 pair 4 loading_d_190] summary n=113 d=1.8900 F=2.695300 Bmag=6999.2450
+[cycle 4 state 2] loading_d_190 d=1.8900 F=2.695300 Bmag=6999.2450
+[trial 4 pair 4 loading_d_200] start d_target=2.0000 d_actual=1.9800 pos=-4.0700
+[trial 4 pair 4 loading_d_200] summary n=113 d=1.9800 F=3.023400 Bmag=7206.6167
+[cycle 4 state 3] loading_d_200 d=1.9800 F=3.023400 Bmag=7206.6167
+[trial 4 pair 4 loading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1700
+[trial 4 pair 4 loading_d_210] summary n=113 d=2.0800 F=3.392100 Bmag=7414.0559
+[cycle 4 state 4] loading_d_210 d=2.0800 F=3.392100 Bmag=7414.0559
+[trial 4 pair 4 loading_d_220] start d_target=2.2000 d_actual=2.1800 pos=-4.2700
+[trial 4 pair 4 loading_d_220] summary n=113 d=2.1800 F=3.787000 Bmag=7625.2953
+[cycle 4 state 5] loading_d_220 d=2.1800 F=3.787000 Bmag=7625.2953
+[trial 4 pair 4 loading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.3800
+[trial 4 pair 4 loading_d_230] summary n=113 d=2.2900 F=4.228000 Bmag=7835.7588
+[cycle 4 state 6] loading_d_230 d=2.2900 F=4.228000 Bmag=7835.7588
+[trial 4 pair 4 loading_d_240] start d_target=2.4000 d_actual=2.3900 pos=-4.4800
+[trial 4 pair 4 loading_d_240] summary n=113 d=2.3900 F=4.714100 Bmag=8043.3685
+[cycle 4 state 7] loading_d_240 d=2.3900 F=4.714100 Bmag=8043.3685
+[trial 4 pair 4 preload_d_260] start d_target=2.6000 d_actual=2.5800 pos=-4.6700
+[trial 4 pair 4 preload_d_260] summary n=113 d=2.5800 F=5.803300 Bmag=8498.1238
+[cycle 4 state 8] preload_d_260 d=2.5800 F=5.803300 Bmag=8498.1238
+[trial 4 pair 4 unloading_d_240] start d_target=2.4000 d_actual=2.4100 pos=-4.5000
+[trial 4 pair 4 unloading_d_240] summary n=113 d=2.4100 F=3.951800 Bmag=8168.8593
+[cycle 4 state 9] unloading_d_240 d=2.4100 F=3.951800 Bmag=8168.8593
+[trial 4 pair 4 unloading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.3800
+[trial 4 pair 4 unloading_d_230] summary n=113 d=2.2900 F=3.191100 Bmag=7911.1548
+[cycle 4 state 10] unloading_d_230 d=2.2900 F=3.191100 Bmag=7911.1548
+[trial 4 pair 4 unloading_d_220] start d_target=2.2000 d_actual=2.2000 pos=-4.2900
+[trial 4 pair 4 unloading_d_220] summary n=113 d=2.2000 F=2.816100 Bmag=7752.9593
+[cycle 4 state 11] unloading_d_220 d=2.2000 F=2.816100 Bmag=7752.9593
+[trial 4 pair 4 unloading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.1700
+[trial 4 pair 4 unloading_d_210] summary n=113 d=2.0800 F=2.326600 Bmag=7469.7189
+[cycle 4 state 12] unloading_d_210 d=2.0800 F=2.326600 Bmag=7469.7189
+[trial 4 pair 4 unloading_d_200] start d_target=2.0000 d_actual=2.0000 pos=-4.0900
+[trial 4 pair 4 unloading_d_200] summary n=113 d=2.0000 F=2.070000 Bmag=7313.5179
+[cycle 4 state 13] unloading_d_200 d=2.0000 F=2.070000 Bmag=7313.5179
+[trial 4 pair 4 unloading_d_190] start d_target=1.9000 d_actual=1.9200 pos=-4.0100
+[trial 4 pair 4 unloading_d_190] summary n=113 d=1.9200 F=1.859400 Bmag=7156.0305
+[cycle 4 state 14] unloading_d_190 d=1.9200 F=1.859400 Bmag=7156.0305
+[trial 4 pair 4 unloading_d_180] start d_target=1.8000 d_actual=1.8000 pos=-3.8900
+[trial 4 pair 4 unloading_d_180] summary n=113 d=1.8000 F=1.555100 Bmag=6888.6261
+[cycle 4 state 15] unloading_d_180 d=1.8000 F=1.555100 Bmag=6888.6261
+[cycle 5] B0=(-438.1240974025974, 1960.702961038961, 3482.034116883117) n=154
+[trial 5] contact_pos=-2.1300 F=0.1360 baseline=0.0442 dF_base=0.0918 dF_step=0.0379 slope=0.3790
+[trial 5 pair 5 loading_d_180] start d_target=1.8000 d_actual=1.7800 pos=-3.9100
+[trial 5 pair 5 loading_d_180] summary n=113 d=1.7800 F=2.464900 Bmag=6894.7849
+[cycle 5 state 1] loading_d_180 d=1.7800 F=2.464900 Bmag=6894.7849
+[trial 5 pair 5 loading_d_190] start d_target=1.9000 d_actual=1.8800 pos=-4.0100
+[trial 5 pair 5 loading_d_190] summary n=113 d=1.8800 F=2.822400 Bmag=7085.5947
+[cycle 5 state 2] loading_d_190 d=1.8800 F=2.822400 Bmag=7085.5947
+[trial 5 pair 5 loading_d_200] start d_target=2.0000 d_actual=1.9800 pos=-4.1100
+[trial 5 pair 5 loading_d_200] summary n=113 d=1.9800 F=3.167800 Bmag=7293.1186
+[cycle 5 state 3] loading_d_200 d=1.9800 F=3.167800 Bmag=7293.1186
+[trial 5 pair 5 loading_d_210] start d_target=2.1000 d_actual=2.0800 pos=-4.2100
+[trial 5 pair 5 loading_d_210] summary n=113 d=2.0800 F=3.546800 Bmag=7503.8639
+[cycle 5 state 4] loading_d_210 d=2.0800 F=3.546800 Bmag=7503.8639
+[trial 5 pair 5 loading_d_220] start d_target=2.2000 d_actual=2.1800 pos=-4.3100
+[trial 5 pair 5 loading_d_220] summary n=113 d=2.1800 F=3.958100 Bmag=7714.4605
+[cycle 5 state 5] loading_d_220 d=2.1800 F=3.958100 Bmag=7714.4605
+[trial 5 pair 5 loading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4200
+[trial 5 pair 5 loading_d_230] summary n=113 d=2.2900 F=4.419900 Bmag=7925.4888
+[cycle 5 state 6] loading_d_230 d=2.2900 F=4.419900 Bmag=7925.4888
+[trial 5 pair 5 loading_d_240] start d_target=2.4000 d_actual=2.3800 pos=-4.5100
+[trial 5 pair 5 loading_d_240] summary n=113 d=2.3800 F=4.926500 Bmag=8133.7201
+[cycle 5 state 7] loading_d_240 d=2.3800 F=4.926500 Bmag=8133.7201
+[trial 5 pair 5 preload_d_260] start d_target=2.6000 d_actual=2.5800 pos=-4.7100
+[trial 5 pair 5 preload_d_260] summary n=113 d=2.5800 F=6.101500 Bmag=8596.2084
+[cycle 5 state 8] preload_d_260 d=2.5800 F=6.101500 Bmag=8596.2084
+[trial 5 pair 5 unloading_d_240] start d_target=2.4000 d_actual=2.4000 pos=-4.5300
+[trial 5 pair 5 unloading_d_240] summary n=113 d=2.4000 F=4.139800 Bmag=8261.9958
+[cycle 5 state 9] unloading_d_240 d=2.4000 F=4.139800 Bmag=8261.9958
+[trial 5 pair 5 unloading_d_230] start d_target=2.3000 d_actual=2.2900 pos=-4.4200
+[trial 5 pair 5 unloading_d_230] summary n=113 d=2.2900 F=3.343200 Bmag=8000.5880
+[cycle 5 state 10] unloading_d_230 d=2.2900 F=3.343200 Bmag=8000.5880
+[trial 5 pair 5 unloading_d_220] start d_target=2.2000 d_actual=2.2000 pos=-4.3300
+[trial 5 pair 5 unloading_d_220] summary n=113 d=2.2000 F=2.957300 Bmag=7845.1014
+[cycle 5 state 11] unloading_d_220 d=2.2000 F=2.957300 Bmag=7845.1014
+[trial 5 pair 5 unloading_d_210] start d_target=2.1000 d_actual=2.1200 pos=-4.2500
+[trial 5 pair 5 unloading_d_210] summary n=113 d=2.1200 F=2.632200 Bmag=7681.6369
+[cycle 5 state 12] unloading_d_210 d=2.1200 F=2.632200 Bmag=7681.6369
+[trial 5 pair 5 unloading_d_200] start d_target=2.0000 d_actual=2.0000 pos=-4.1300
+[trial 5 pair 5 unloading_d_200] summary n=113 d=2.0000 F=2.185300 Bmag=7395.7397
+[cycle 5 state 13] unloading_d_200 d=2.0000 F=2.185300 Bmag=7395.7397
+[trial 5 pair 5 unloading_d_190] start d_target=1.9000 d_actual=1.8700 pos=-4.0000
+[trial 5 pair 5 unloading_d_190] summary n=113 d=1.8700 F=1.826900 Bmag=7128.5774
+[cycle 5 state 14] unloading_d_190 d=1.8700 F=1.826900 Bmag=7128.5774
+[trial 5 pair 5 unloading_d_180] start d_target=1.8000 d_actual=1.8000 pos=-3.9300
+[trial 5 pair 5 unloading_d_180] summary n=113 d=1.8000 F=1.626900 Bmag=6975.0977
+[cycle 5 state 15] unloading_d_180 d=1.8000 F=1.626900 Bmag=6975.0977

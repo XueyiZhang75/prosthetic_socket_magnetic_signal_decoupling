@@ -8,9 +8,9 @@ Stage 6.3 tests whether the Stage 4 active path-pair geometry (`j_F/j_d`) helps 
 
 ## Data Split
 
-- Training rows: 561
-- Held-out sessions: `session_20260615_160438`, `session_20260618_161152`
-- Held-out rows: 78
+- Training rows: 1461
+- Held-out sessions: `session_20260615_160438`, `session_20260618_161152`, `session_20260624_155402`, `session_20260624_164026`, `session_20260622_173504`, `session_20260622_180702`, `session_20260622_185538`, `session_20260623_201622`, `session_20260623_204724`
+- Held-out rows: 312
 - `j_F` table: `reports\apmd_stage4_jF_from_same_d_pairs.csv`
 - `j_d` table: `reports\apmd_stage4_jd_from_same_f_pairs.csv`
 - Split rule: the entire held-out session stays excluded from training.
@@ -26,30 +26,30 @@ Stage 6.3 tests whether the Stage 4 active path-pair geometry (`j_F/j_d`) helps 
 
 | model                                    | model_family                  |   train_n_states |   heldout_n_states |   F_MAE_N |   F_R2 |   d_MAE_mm |   d_R2 |   F_MAE_vs_plain_pct |   F_MAE_vs_lim_style_pct | passes_current_F_goal   | passes_d_goal   |
 |:-----------------------------------------|:------------------------------|-----------------:|-------------------:|----------:|-------:|-----------:|-------:|---------------------:|-------------------------:|:------------------------|:----------------|
-| apmd_local_identifiability_ridge         | APMD local identifiability    |              561 |                 78 |    0.0543 | 0.9993 |     0.0558 | 0.9000 |              96.9969 |                  93.5335 | True                    | False           |
-| apmd_local_identifiability_random_forest | APMD local identifiability    |              561 |                 78 |    0.0622 | 0.9970 |     0.0652 | 0.8323 |              96.5559 |                  92.5840 | True                    | False           |
-| apmd_path_memory_ridge                   | APMD path memory              |              561 |                 78 |    0.7963 | 0.9017 |     0.0634 | 0.8662 |              55.9240 |                   5.0935 | False                   | False           |
-| lim_style_branch_ridge                   | Lim-style branch compensation |              561 |                 78 |    0.8390 | 0.8888 |     0.0347 | 0.9581 |              53.5585 |                   0.0000 | False                   | True            |
-| apmd_path_memory_random_forest           | APMD path memory              |              561 |                 78 |    1.3398 | 0.7010 |     0.0727 | 0.8193 |              25.8367 |                 -59.6918 | False                   | False           |
-| plain_magnetic_ridge                     | plain magnetic                |              561 |                 78 |    1.8066 | 0.5588 |     0.0451 | 0.9354 |               0.0000 |                -115.3246 | False                   | True            |
+| apmd_local_identifiability_random_forest | APMD local identifiability    |             1461 |                312 |    0.0449 | 0.9998 |     0.0439 | 0.9891 |              97.0899 |                  95.6325 | True                    | True            |
+| apmd_local_identifiability_ridge         | APMD local identifiability    |             1461 |                312 |    0.0824 | 0.9996 |     0.0468 | 0.9887 |              94.6564 |                  91.9802 | True                    | True            |
+| apmd_path_memory_random_forest           | APMD path memory              |             1461 |                312 |    0.6253 | 0.9682 |     0.0447 | 0.9911 |              59.4493 |                  39.1403 | True                    | True            |
+| apmd_path_memory_ridge                   | APMD path memory              |             1461 |                312 |    1.0134 | 0.9441 |     0.0531 | 0.9847 |              34.2734 |                   1.3556 | False                   | False           |
+| lim_style_branch_ridge                   | Lim-style branch compensation |             1461 |                312 |    1.0274 | 0.9391 |     0.0497 | 0.9863 |              33.3702 |                   0.0000 | False                   | True            |
+| plain_magnetic_ridge                     | plain magnetic                |             1461 |                312 |    1.5419 | 0.8760 |     0.0572 | 0.9835 |               0.0000 |                 -50.0829 | False                   | False           |
 
 ## Best Local-Identifiability Model by Branch
 
 | path_label       |   n_states |   F_MAE_N |   d_MAE_mm |
 |:-----------------|-----------:|----------:|-----------:|
-| direct_loading   |         36 |    0.0346 |     0.0514 |
-| preload_deep     |          6 |    0.0714 |     0.0649 |
-| return_unloading |         36 |    0.0711 |     0.0586 |
+| direct_loading   |        144 |    0.0411 |     0.0496 |
+| preload_deep     |         24 |    0.0607 |     0.0722 |
+| return_unloading |        144 |    0.0460 |     0.0335 |
 
 ## Main Result
 
-- Best force model: `apmd_local_identifiability_ridge` with F MAE `0.054 N`.
-- Best displacement model: `lim_style_branch_ridge` with d MAE `0.035 mm`.
-- Best force-only local-identifiability model: `apmd_local_identifiability_ridge` with F MAE `0.054 N`, d MAE `0.056 mm`.
-- Best balanced local-identifiability model: `apmd_local_identifiability_ridge` with F MAE `0.054 N`, d MAE `0.056 mm`.
-- Lim-style branch-label baseline: F MAE `0.839 N`, d MAE `0.035 mm`.
-- Local-identifiability F improvement vs Lim-style baseline: `93.5%`.
-- Stage 6.3 status: **partial pass**.
+- Best force model: `apmd_local_identifiability_random_forest` with F MAE `0.045 N`.
+- Best displacement model: `apmd_local_identifiability_random_forest` with d MAE `0.044 mm`.
+- Best force-only local-identifiability model: `apmd_local_identifiability_random_forest` with F MAE `0.045 N`, d MAE `0.044 mm`.
+- Best balanced local-identifiability model: `apmd_local_identifiability_random_forest` with F MAE `0.045 N`, d MAE `0.044 mm`.
+- Lim-style branch-label baseline: F MAE `1.027 N`, d MAE `0.050 mm`.
+- Local-identifiability F improvement vs Lim-style baseline: `95.6%`.
+- Stage 6.3 status: **pass**.
 
 ## Interpretation
 

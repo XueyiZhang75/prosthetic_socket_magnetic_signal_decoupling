@@ -40,9 +40,24 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent
 REPORTS_DIR = ROOT / "reports"
+DATA_DIR = ROOT / "decouple_data"
 
 JF_DATA = REPORTS_DIR / "apmd_stage4_jF_from_same_d_pairs.csv"
 JD_DATA = REPORTS_DIR / "apmd_stage4_jd_from_same_f_pairs.csv"
+BLOCK_L_JF_SOURCES = [
+    DATA_DIR / "session_20260622_203244" / "block_L_same_d_local_sensitivity_pair_summary.csv",
+    DATA_DIR / "session_20260623_091618" / "block_L_same_d_local_sensitivity_pair_summary.csv",
+]
+BLOCK_S_JF_SOURCES = [
+    DATA_DIR / "session_20260624_173531" / "shallow_same_d_local_sensitivity_pair_summary.csv",
+    DATA_DIR / "session_20260624_183829" / "shallow_same_d_local_sensitivity_pair_summary.csv",
+    DATA_DIR / "session_20260624_184739" / "shallow_same_d_local_sensitivity_pair_summary.csv",
+    DATA_DIR / "session_20260624_190156" / "shallow_same_d_local_sensitivity_pair_summary.csv",
+    DATA_DIR / "session_20260624_194759" / "shallow_same_d_local_sensitivity_pair_summary.csv",
+]
+BLOCK_H_JF_SOURCES = [
+    DATA_DIR / "session_20260624_090338" / "upper_same_d_local_sensitivity_pair_summary.csv",
+]
 
 OUT_METRICS = REPORTS_DIR / "apmd_stage6_local_identifiability_model_metrics.csv"
 OUT_PREDICTIONS = REPORTS_DIR / "apmd_stage6_local_identifiability_predictions.csv"
@@ -121,10 +136,117 @@ def _zone_id(d_target: float, f_target: float) -> str:
     return f"d{d_code:03d}_F{f_code:03d}"
 
 
+def _load_block_jf_table(sources: list[Path], work_zone_id: str, strong_only: bool) -> pd.DataFrame:
+    frames = [pd.read_csv(path) for path in sources if path.exists()]
+    if not frames:
+        return pd.DataFrame()
+
+    rows = pd.concat(frames, ignore_index=True)
+    if strong_only and "verdict" in rows.columns:
+        rows = rows[rows["verdict"].astype(str).str.contains("strong", case=False, na=False)].copy()
+    if rows.empty:
+        return pd.DataFrame()
+
+    out_rows: list[dict[str, object]] = []
+    for target_d, chunk in rows.groupby("d_target_mm"):
+        delta_f = pd.to_numeric(chunk["delta_F_N"], errors="coerce").abs()
+        median_abs_delta_f = float(delta_f.median())
+        median_delta_bx = float(pd.to_numeric(chunk["delta_Bx_uT"], errors="coerce").median())
+        median_delta_by = float(pd.to_numeric(chunk["delta_By_uT"], errors="coerce").median())
+        median_delta_bz = float(pd.to_numeric(chunk["delta_Bz_uT"], errors="coerce").median())
+        median_delta_bvec = float(pd.to_numeric(chunk["delta_Bvec_uT"], errors="coerce").median())
+        if median_abs_delta_f <= 0 or math.isnan(median_abs_delta_f):
+            continue
+        j_f = np.array(
+            [
+                median_delta_bx / median_abs_delta_f,
+                median_delta_by / median_abs_delta_f,
+                median_delta_bz / median_abs_delta_f,
+            ],
+            dtype=float,
+        )
+        out_rows.append(
+            {
+                "target_d_mm": float(target_d),
+                "state_d_mid_mm": float(pd.to_numeric(chunk["d_direct_mm"], errors="coerce").median()),
+                "state_F_mid_N": float(
+                    ((pd.to_numeric(chunk["F_direct_N"], errors="coerce") + pd.to_numeric(chunk["F_return_N"], errors="coerce")) / 2.0).median()
+                ),
+                "n": int(len(chunk)),
+                "median_abs_delta_F_N": median_abs_delta_f,
+                "median_delta_Bvec_uT": median_delta_bvec,
+                "noise_ratio": median_delta_bvec / 10.0,
+                "median_delta_Bx_uT": median_delta_bx,
+                "median_delta_By_uT": median_delta_by,
+                "median_delta_Bz_uT": median_delta_bz,
+                "jF_x_uT_per_N": float(j_f[0]),
+                "jF_y_uT_per_N": float(j_f[1]),
+                "jF_z_uT_per_N": float(j_f[2]),
+                "jF_norm_uT_per_N": _norm(j_f),
+                "directional_consistency": math.nan,
+                "same_d_pass_rate": float(pd.to_numeric(chunk.get("same_d_ok", 1), errors="coerce").mean()),
+                "force_split_pass_rate": float(pd.to_numeric(chunk.get("force_split_ok", 1), errors="coerce").mean()),
+                "b_signal_pass_rate": float(pd.to_numeric(chunk.get("b_signal_ok", 1), errors="coerce").mean()),
+                "work_zone_id": work_zone_id,
+            }
+        )
+    return pd.DataFrame(out_rows)
+
+
+def _load_block_l_jf_table() -> pd.DataFrame:
+    return _load_block_jf_table(BLOCK_L_JF_SOURCES, work_zone_id="Block_L", strong_only=True)
+
+
+def _load_block_s_jf_table() -> pd.DataFrame:
+    return _load_block_jf_table(BLOCK_S_JF_SOURCES, work_zone_id="Block_S", strong_only=True)
+
+
+def _load_block_h_jf_table() -> pd.DataFrame:
+    # Keep weak/boundary upper-zone rows such as nominal d=4.0 mm so the model
+    # can learn whether the deep end helps or hurts instead of excluding it here.
+    return _load_block_jf_table(BLOCK_H_JF_SOURCES, work_zone_id="Block_H", strong_only=False)
+
+
 def load_sensitivity_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
     jf = pd.read_csv(JF_DATA)
+    jf["work_zone_id"] = "Stage3_BlockM"
+    block_s_jf = _load_block_s_jf_table()
+    if not block_s_jf.empty:
+        jf = pd.concat([jf, block_s_jf], ignore_index=True, sort=False)
+    block_l_jf = _load_block_l_jf_table()
+    if not block_l_jf.empty:
+        jf = pd.concat([jf, block_l_jf], ignore_index=True, sort=False)
+    block_h_jf = _load_block_h_jf_table()
+    if not block_h_jf.empty:
+        jf = pd.concat([jf, block_h_jf], ignore_index=True, sort=False)
     jd = pd.read_csv(JD_DATA)
     return jf, jd
+
+
+def _work_zone_preference(row: pd.Series) -> str:
+    text = " ".join(
+        str(row.get(col, ""))
+        for col in ["experiment", "source_state_csv", "raw_file", "session_id", "path_mode"]
+    )
+    if "Block S" in text or "shallow work-zone" in text or "_S_" in text or "5p1B_S" in text or "6p1_S" in text:
+        return "Block_S"
+    if "Block H" in text or "upper work-zone" in text or "_H_" in text or "5p1B_H" in text or "6p1_H" in text:
+        return "Block_H"
+    if "Block L" in text or "_L_" in text or "5p1B_L" in text or "6p1_L" in text:
+        return "Block_L"
+    return "Stage3_BlockM"
+
+
+def _jf_candidates(jf_table: pd.DataFrame, row: pd.Series) -> pd.DataFrame:
+    if "work_zone_id" not in jf_table.columns:
+        return jf_table
+    preferred = _work_zone_preference(row)
+    candidates = jf_table[jf_table["work_zone_id"].astype(str) == preferred]
+    if candidates.empty and preferred != "Stage3_BlockM":
+        candidates = jf_table[jf_table["work_zone_id"].astype(str) == "Stage3_BlockM"]
+    if candidates.empty:
+        candidates = jf_table
+    return candidates
 
 
 def add_local_identifiability_features(
@@ -148,7 +270,8 @@ def add_local_identifiability_features(
         if math.isnan(f_value):
             f_value = _safe_float(row.get("target_F_N"), 0.0)
 
-        jf_row = _nearest_row(jf_table, "target_d_mm", d_value)
+        jf_candidates = _jf_candidates(jf_table, row)
+        jf_row = _nearest_row(jf_candidates, "target_d_mm", d_value)
         jd_row = _nearest_row(jd_table, "target_F_N", f_value)
 
         j_f = np.array(
@@ -178,13 +301,17 @@ def add_local_identifiability_features(
 
         d_target = _safe_float(jf_row.get("target_d_mm"), 0.0)
         f_target = _safe_float(jd_row.get("target_F_N"), 0.0)
+        j_f_source_zone = str(jf_row.get("work_zone_id", ""))
+        zone_core = _zone_id(d_target, f_target)
+        local_zone_id = f"{j_f_source_zone}_{zone_core}" if j_f_source_zone else zone_core
         unit_jf = _unit(j_f)
         unit_jd = _unit(j_d)
         rows.append(
             {
                 "local_jF_target_d_mm": d_target,
                 "local_jd_target_F_N": f_target,
-                "local_zone_id": _zone_id(d_target, f_target),
+                "local_zone_id": local_zone_id,
+                "local_jF_source_zone": j_f_source_zone,
                 "local_d_distance_mm": abs(d_value - d_target),
                 "local_F_distance_N": abs(f_value - f_target),
                 "local_jF_norm_uT_per_N": _norm(j_f),

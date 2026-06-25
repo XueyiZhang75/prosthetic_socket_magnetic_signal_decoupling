@@ -1,0 +1,4 @@
+# APMD shallow work-zone same-d local sensitivity session 20260624_173323
+# session_id=session_20260624_173323
+# status=error
+ERROR: MLX90393 required for APMD shallow work-zone same-d local sensitivity. MLX warmup before opening motion hardware: 0 vali

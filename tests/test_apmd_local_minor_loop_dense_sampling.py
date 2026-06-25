@@ -157,6 +157,98 @@ class ApmdLocalMinorLoopDenseSamplingTests(unittest.TestCase):
             ],
         )
 
+    def test_block_s_configures_shallow_work_zone_without_changing_timing(self):
+        import apmd_local_minor_loop_dense_sampling as dense
+
+        dense.apply_work_zone_config("S")
+        dense.configure_base_protocol()
+        states = list(dense.iter_loop_states())
+
+        expected_grid = [1.80, 1.90, 2.00, 2.10, 2.20, 2.30, 2.40]
+        self.assertEqual(dense.D_GRID_MM, expected_grid)
+        self.assertEqual(dense.PRELOAD_D_MM, 2.60)
+        self.assertEqual(base.D_TARGETS_MM, expected_grid)
+        self.assertEqual(base.D_PRELOAD_BY_TARGET_MM, {d: 2.60 for d in expected_grid})
+        self.assertEqual(base.D_PRELOAD_MM, 2.60)
+        self.assertEqual(base.N_TRIALS, 5)
+        self.assertEqual(base.TARGET_RECORD_S, 15.0)
+        self.assertEqual(base.PRELOAD_RECORD_S, 30.0)
+        self.assertEqual(base.SUMMARY_WINDOW_S, 5.0)
+        self.assertEqual(
+            base.SUMMARY_FILENAME,
+            "local_minor_loop_dense_5p1B_S_state_summary.csv",
+        )
+        self.assertEqual(base.STATE_FILE_PREFIX, "local_minor_loop_dense_5p1B_S")
+        self.assertEqual(base.CSV_PRINT_GLOB, "local_minor_loop_dense_5p1B_S*.csv")
+        self.assertEqual(base.FIGURE_FILENAME, "local_minor_loop_dense_5p1B_S.png")
+        self.assertEqual(base.FORMAL_EXPERIMENT_KEY, "\u5b9e\u9a8c 5.1B-S")
+        self.assertEqual(
+            [s["target_d_mm"] for s in states],
+            [
+                1.80,
+                1.90,
+                2.00,
+                2.10,
+                2.20,
+                2.30,
+                2.40,
+                2.60,
+                2.40,
+                2.30,
+                2.20,
+                2.10,
+                2.00,
+                1.90,
+                1.80,
+            ],
+        )
+
+    def test_block_h_configures_upper_work_zone_without_changing_timing(self):
+        import apmd_local_minor_loop_dense_sampling as dense
+
+        dense.apply_work_zone_config("H")
+        dense.configure_base_protocol()
+        states = list(dense.iter_loop_states())
+
+        expected_grid = [3.40, 3.50, 3.60, 3.70, 3.80, 3.90, 4.00]
+        self.assertEqual(dense.D_GRID_MM, expected_grid)
+        self.assertEqual(dense.PRELOAD_D_MM, 4.20)
+        self.assertEqual(base.D_TARGETS_MM, expected_grid)
+        self.assertEqual(base.D_PRELOAD_BY_TARGET_MM, {d: 4.20 for d in expected_grid})
+        self.assertEqual(base.D_PRELOAD_MM, 4.20)
+        self.assertEqual(base.N_TRIALS, 5)
+        self.assertEqual(base.TARGET_RECORD_S, 15.0)
+        self.assertEqual(base.PRELOAD_RECORD_S, 30.0)
+        self.assertEqual(base.SUMMARY_WINDOW_S, 5.0)
+        self.assertEqual(
+            base.SUMMARY_FILENAME,
+            "local_minor_loop_dense_5p1B_H_state_summary.csv",
+        )
+        self.assertEqual(base.STATE_FILE_PREFIX, "local_minor_loop_dense_5p1B_H")
+        self.assertEqual(base.CSV_PRINT_GLOB, "local_minor_loop_dense_5p1B_H*.csv")
+        self.assertEqual(base.FIGURE_FILENAME, "local_minor_loop_dense_5p1B_H.png")
+        self.assertEqual(base.FORMAL_EXPERIMENT_KEY, "\u5b9e\u9a8c 5.1B-H")
+        self.assertEqual(
+            [s["target_d_mm"] for s in states],
+            [
+                3.40,
+                3.50,
+                3.60,
+                3.70,
+                3.80,
+                3.90,
+                4.00,
+                4.20,
+                4.00,
+                3.90,
+                3.80,
+                3.70,
+                3.60,
+                3.50,
+                3.40,
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

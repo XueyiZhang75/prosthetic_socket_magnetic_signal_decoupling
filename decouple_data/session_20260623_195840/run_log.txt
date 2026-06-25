@@ -1,0 +1,10 @@
+# APMD local minor-loop 5.1B H session 20260623_195840
+# D_GRID_MM=[3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0], PRELOAD_D_MM=4.2
+# STATE_RECORD_S=15.0, PRELOAD_RECORD_S=30.0, N_CYCLES=5
+# live_tare_N=-2.90500
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[cycle 1] B0=(-434.8505466666667, 1951.8106066666667, 3374.4221000000002) n=150
+[cycle 2] B0=(-494.4269735099338, 1931.0677218543046, 3656.590920529801) n=151
+[cycle 3] B0=(-493.76627152317883, 1930.17219205298, 3656.6038013245034) n=151
+[cycle 4] B0=(-493.96925827814573, 1930.339357615894, 3656.7127814569535) n=151

@@ -1,0 +1,27 @@
+# APMD Block L same-F local sensitivity 6.00 N session 20260623_105209
+# F_TARGETS=[(600, 6.0)], D_PRELOAD_EXTRA_MM=0.0, D_PRELOAD_FIXED_MM=3.2, D_PRELOAD_MAX_MM=None, N_TRIALS=3
+# D_SOFT_LIMIT_MM=None, F_HARD_LIMIT_N=None
+# live_tare_N=-2.89370
+# B0=(-424.5318675496689, 1926.6418145695363, 3250.7041986754966)
+# head_id=stamp_head_v1, sample_id=, magnet_id=, force_calibration_id=force_calibration_20260602_190856, displacement_zero_id=stageD_session_20260602_201421
+# trial_start_pos=-0.0000
+[trial 1 pair 600] contact_pos=-2.0000 F=0.1569 baseline=0.0560 dF_base=0.1009 dF_step=0.0433 slope=0.4330
+[trial 1 pair 600 loading_target acquire] iter=1 targetF=6.0000 F=0.1555 err=5.8445 d=0.0000 pos=-2.0000
+[trial 1 pair 600 loading_target acquire] iter=2 targetF=6.0000 F=0.2322 err=5.7678 d=0.1500 pos=-2.1500
+[trial 1 pair 600 loading_target acquire] iter=3 targetF=6.0000 F=0.3181 err=5.6819 d=0.2900 pos=-2.2900
+[trial 1 pair 600 loading_target acquire] iter=4 targetF=6.0000 F=0.4133 err=5.5867 d=0.4400 pos=-2.4400
+[trial 1 pair 600 loading_target acquire] iter=5 targetF=6.0000 F=0.5302 err=5.4698 d=0.5900 pos=-2.5900
+[trial 1 pair 600 loading_target acquire] iter=6 targetF=6.0000 F=0.6637 err=5.3363 d=0.7400 pos=-2.7400
+[trial 1 pair 600 loading_target acquire] iter=7 targetF=6.0000 F=0.8274 err=5.1726 d=0.8900 pos=-2.8900
+[trial 1 pair 600 loading_target acquire] iter=8 targetF=6.0000 F=1.0156 err=4.9844 d=1.0300 pos=-3.0300
+[trial 1 pair 600 loading_target acquire] iter=9 targetF=6.0000 F=1.2162 err=4.7838 d=1.1700 pos=-3.1700
+[trial 1 pair 600 loading_target acquire] iter=10 targetF=6.0000 F=1.4475 err=4.5525 d=1.3100 pos=-3.3100
+[trial 1 pair 600 loading_target acquire] iter=11 targetF=6.0000 F=1.7042 err=4.2958 d=1.4600 pos=-3.4600
+[trial 1 pair 600 loading_target acquire] iter=12 targetF=6.0000 F=2.0220 err=3.9780 d=1.6100 pos=-3.6100
+[trial 1 pair 600 loading_target acquire] iter=13 targetF=6.0000 F=2.4130 err=3.5870 d=1.7500 pos=-3.7500
+[trial 1 pair 600 loading_target acquire] iter=14 targetF=6.0000 F=2.8094 err=3.1906 d=1.8900 pos=-3.8900
+[trial 1 pair 600 loading_target acquire] iter=15 targetF=6.0000 F=3.2740 err=2.7260 d=2.0300 pos=-4.0300
+[trial 1 pair 600 loading_target acquire] iter=16 targetF=6.0000 F=3.7990 err=2.2010 d=2.1700 pos=-4.1700
+[trial 1 pair 600 loading_target acquire] iter=17 targetF=6.0000 F=4.3960 err=1.6040 d=2.3100 pos=-4.3100
+[trial 1 pair 600 loading_target acquire] iter=18 targetF=6.0000 F=5.0735 err=0.9265 d=2.4600 pos=-4.4600
+[trial 1 pair 600] incomplete status=loading_mark10_error:stalled at pos=0.080 mm, target=-4.620 mm
