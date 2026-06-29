@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
+from matplotlib.text import Text
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
@@ -70,6 +70,15 @@ RED = "#c23b3b"
 BLUE = "#1f77b4"
 GRAY = "#777777"
 LIGHT_GRAY = "#e8e8e8"
+
+plt.rcParams.update(
+    {
+        "font.family": "Arial",
+        "font.sans-serif": ["Arial"],
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+    }
+)
 
 
 def _rmse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
@@ -128,6 +137,31 @@ def _projection_residual(delta_b: np.ndarray, j_f: np.ndarray, j_d: np.ndarray) 
     coeffs, *_ = np.linalg.lstsq(axes, delta_b, rcond=None)
     projection = axes @ coeffs
     return _norm(delta_b - projection)
+
+
+def _dual_coordinate_features(delta_b: np.ndarray, j_f: np.ndarray, j_d: np.ndarray) -> dict[str, float]:
+    axes = np.column_stack([_unit(j_f), _unit(j_d)])
+    delta_norm = _norm(delta_b)
+
+    if np.linalg.matrix_rank(axes) < 2:
+        c_f = math.nan
+        c_d = math.nan
+        residual = delta_norm
+    else:
+        coeffs, *_ = np.linalg.lstsq(axes, delta_b, rcond=None)
+        projection = axes @ coeffs
+        c_f = float(coeffs[0])
+        c_d = float(coeffs[1])
+        residual = _norm(delta_b - projection)
+
+    residual_fraction = residual / delta_norm if delta_norm > 1e-9 else 0.0
+    return {
+        "local_dual_c_F_uT": c_f,
+        "local_dual_c_d_uT": c_d,
+        "local_dual_residual_uT": residual,
+        "local_dual_residual_fraction": residual_fraction,
+        "local_delta_B_norm_uT": delta_norm,
+    }
 
 
 def _zone_id(d_target: float, f_target: float) -> str:
@@ -306,21 +340,35 @@ def add_local_identifiability_features(
         local_zone_id = f"{j_f_source_zone}_{zone_core}" if j_f_source_zone else zone_core
         unit_jf = _unit(j_f)
         unit_jd = _unit(j_d)
+        angle_deg = _angle_deg(j_f, j_d)
+        scaled_condition = _scaled_condition(j_f, j_d)
+        d_distance = abs(d_value - d_target)
+        f_distance = abs(f_value - f_target)
+        dual_features = _dual_coordinate_features(delta_b, j_f, j_d)
+        sin2 = math.sin(math.radians(angle_deg)) ** 2 if math.isfinite(angle_deg) else 0.0
+        condition_penalty = scaled_condition if math.isfinite(scaled_condition) and scaled_condition > 1.0 else 1.0
+        distance_penalty = 1.0 + d_distance / 0.2 + f_distance / 1.0
+        residual_penalty = 1.0 + _safe_float(dual_features["local_dual_residual_fraction"], 0.0)
+        confidence = sin2 / max(condition_penalty * distance_penalty * residual_penalty, 1e-9)
+        uncertainty = 1.0 / max(confidence, 1e-9)
         rows.append(
             {
                 "local_jF_target_d_mm": d_target,
                 "local_jd_target_F_N": f_target,
                 "local_zone_id": local_zone_id,
                 "local_jF_source_zone": j_f_source_zone,
-                "local_d_distance_mm": abs(d_value - d_target),
-                "local_F_distance_N": abs(f_value - f_target),
+                "local_d_distance_mm": d_distance,
+                "local_F_distance_N": f_distance,
                 "local_jF_norm_uT_per_N": _norm(j_f),
                 "local_jd_norm_uT_per_mm": _norm(j_d),
-                "local_angle_deg": _angle_deg(j_f, j_d),
-                "local_scaled_condition": _scaled_condition(j_f, j_d),
+                "local_angle_deg": angle_deg,
+                "local_scaled_condition": scaled_condition,
                 "local_p_F_uT": float(np.dot(delta_b, unit_jf)),
                 "local_p_d_uT": float(np.dot(delta_b, unit_jd)),
                 "local_residual_uT": _projection_residual(delta_b, j_f, j_d),
+                **dual_features,
+                "local_geometry_confidence": confidence,
+                "local_geometry_uncertainty": uncertainty,
             }
         )
 
@@ -464,10 +512,10 @@ def error_bar_model_order() -> list[str]:
 
 def _error_bar_labels(order: list[str]) -> list[str]:
     labels = {
-        "plain_magnetic_ridge": "plain\nridge",
-        "lim_style_branch_ridge": "Lim-label\nridge",
-        "apmd_path_memory_ridge": "path-memory\nridge",
-        "apmd_local_identifiability_ridge": "local-ID\nridge",
+        "plain_magnetic_ridge": "Plain Model",
+        "lim_style_branch_ridge": "Path-label Model",
+        "apmd_path_memory_ridge": "Path-memory Model",
+        "apmd_local_identifiability_ridge": "Local-ID Model",
         "apmd_path_memory_random_forest": "path-memory\nRF",
         "apmd_local_identifiability_random_forest": "local-ID\nRF",
     }
@@ -497,8 +545,14 @@ def _add_value_labels(ax: plt.Axes, x: np.ndarray, values: pd.Series, fmt: str) 
             ha="center",
             va="bottom",
             fontsize=7,
+            fontfamily="Arial",
             color="#333333",
         )
+
+
+def _force_arial(fig: plt.Figure) -> None:
+    for text in fig.findobj(lambda obj: isinstance(obj, Text)):
+        text.set_fontfamily("Arial")
 
 
 def fit_predict_heldout(train: pd.DataFrame, heldout: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -600,26 +654,21 @@ def plot_results(metrics: pd.DataFrame, predictions: pd.DataFrame) -> None:
     d_values = metric_index.loc[order, "d_MAE_mm"]
 
     ax1.bar(x, f_values, color=colors, width=0.72)
-    ax1.axhline(0.75, color=GRAY, linestyle=":", linewidth=1.0, label="current F goal")
-    ax1.axhline(0.50, color=RED, linestyle=":", linewidth=1.0, label="ideal F goal")
     ax1.set_xticks(x)
     ax1.set_xticklabels(labels, fontsize=8)
     ax1.set_ylabel("held-out F MAE (N)")
     ax1.set_title("a  Force error")
     ax1.grid(axis="y", color=LIGHT_GRAY, linewidth=0.8)
     ax1.set_axisbelow(True)
-    ax1.legend(frameon=False, fontsize=7, loc="upper right")
     _add_value_labels(ax1, x, f_values, "{:.3f}")
 
     ax2.bar(x, d_values, color=colors, width=0.72)
-    ax2.axhline(0.05, color=RED, linestyle=":", linewidth=1.0, label="d goal")
     ax2.set_xticks(x)
     ax2.set_xticklabels(labels, fontsize=8)
     ax2.set_ylabel("held-out d MAE (mm)")
     ax2.set_title("b  Displacement error")
     ax2.grid(axis="y", color=LIGHT_GRAY, linewidth=0.8)
     ax2.set_axisbelow(True)
-    ax2.legend(frameon=False, fontsize=7, loc="upper right")
     _add_value_labels(ax2, x, d_values, "{:.3f}")
 
     for ax in [ax1, ax2]:
@@ -629,23 +678,23 @@ def plot_results(metrics: pd.DataFrame, predictions: pd.DataFrame) -> None:
     train_n = int(metric_index.loc[order[0], "train_n_states"])
     heldout_n = int(metric_index.loc[order[0], "heldout_n_states"])
     fig.suptitle(
-        "Stage 6.3: held-out model error comparison",
+        "Held-out Model Error Comparison",
         x=0.055,
         ha="left",
         fontsize=16,
         fontweight="bold",
+        fontfamily="Arial",
     )
     fig.text(
         0.055,
         0.91,
-        (
-            f"Train = {train_n} Stage 5 states; held-out = {heldout_n} Stage 6 states. "
-            "Estimator fixed to ridge so the comparison isolates feature/geometry information."
-        ),
+        f"Train = {train_n} states; test = {heldout_n} states.",
         fontsize=10,
+        fontfamily="Arial",
         color="#555555",
     )
     fig.subplots_adjust(left=0.07, right=0.985, top=0.80, bottom=0.22, wspace=0.28)
+    _force_arial(fig)
     fig.savefig(OUT_FIGURE, bbox_inches="tight")
     fig.savefig(OUT_FIGURE_PDF, bbox_inches="tight")
     plt.close(fig)

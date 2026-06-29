@@ -39,6 +39,15 @@ GRAY = "#8a8a8a"
 RED = "#c23b3b"
 LIGHT_GRAY = "#e7e7e7"
 
+plt.rcParams.update(
+    {
+        "font.family": "Arial",
+        "font.sans-serif": ["Arial"],
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+    }
+)
+
 
 MODELS = [
     (
@@ -69,9 +78,9 @@ PATH_COLORS = {
     "preload_deep": GRAY,
 }
 PATH_LABELS = {
-    "direct_loading": "direct loading",
-    "return_unloading": "return unloading",
-    "preload_deep": "preload state",
+    "direct_loading": "Loading State",
+    "return_unloading": "Unloading State",
+    "preload_deep": "Preload State",
 }
 
 
@@ -173,7 +182,7 @@ def main() -> None:
         raise RuntimeError("No selected model predictions found.")
 
     n_cols = len(MODELS)
-    fig, axes = plt.subplots(2, n_cols, figsize=(17.2, 8.2), dpi=220)
+    fig, axes = plt.subplots(2, n_cols, figsize=(18.2, 8.2), dpi=220)
 
     for col, (model_name, model_title, model_subtitle) in enumerate(MODELS):
         if model_name not in metrics.index:
@@ -229,17 +238,17 @@ def main() -> None:
     train_n = int(metrics.iloc[0]["train_n_states"])
     heldout_n = int(metrics.iloc[0]["heldout_n_states"])
     fig.suptitle(
-        "Stage 6.3 held-out fits: plain vs path-label vs path-memory vs local-identifiability",
+        "Different inputs model comparison",
         x=0.055,
-        y=0.99,
+        y=0.985,
         ha="left",
         fontsize=16,
         fontweight="bold",
     )
     fig.text(
         0.055,
-        0.955,
-        f"Expanded dataset: train = {train_n} states; held-out = {heldout_n} states; same held-out dense-loop sessions.",
+        0.948,
+        f"Train states = {train_n}; test states = {heldout_n}.",
         ha="left",
         fontsize=10,
         color="#555555",
@@ -247,12 +256,12 @@ def main() -> None:
     fig.legend(
         handles=legend_handles,
         loc="upper center",
-        bbox_to_anchor=(0.53, 0.915),
+        bbox_to_anchor=(0.53, 0.907),
         ncol=4,
         frameon=False,
         fontsize=9,
     )
-    fig.subplots_adjust(left=0.055, right=0.99, top=0.80, bottom=0.08, wspace=0.26, hspace=0.42)
+    fig.subplots_adjust(left=0.055, right=0.99, top=0.79, bottom=0.08, wspace=0.30, hspace=0.42)
 
     fig.savefig(OUT_PNG, bbox_inches="tight")
     fig.savefig(OUT_PDF, bbox_inches="tight")

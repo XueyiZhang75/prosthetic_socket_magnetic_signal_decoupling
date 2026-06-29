@@ -1601,3 +1601,388 @@ $$
 > APMD actively programs path perturbations to identify a local magnetic response operator for soft magnetic tactile sensing. The operator spans force-, displacement-, and path-memory-dominant response directions, and its non-orthogonal local coordinates, residuals, and confidence metrics are embedded into a geometry-constrained model for force-displacement decoupling.
 
 对应中文为：APMD 不只是设计两类路径对来估计 $j_F/j_d$，而是主动编程迟滞路径，通过多类路径激励识别软磁触觉系统的局部磁-机械响应算子。该算子包含力方向、位移方向和路径记忆方向；模型再把实时磁变化投影到这个局部坐标系中，实现可解释的力-位移解耦。
+
+## 21. Stage 6.4 dual-coordinate local-ID 对照已完成
+
+根据第 20 节的第一阶段计划，已在不新增实验、不修改原始数据的前提下完成 dual-coordinate local-ID 分析。新增脚本为：
+
+```text
+python .\apmd_stage6_dual_coordinate_model_check.py
+```
+
+该脚本复用当前正式 Stage 5/6 数据拆分：
+
+```text
+train = 1461 states
+held-out = 312 states
+estimator = ridge regression for all feature families
+```
+
+因此这一步比较的是“特征结构”本身，而不是不同模型容量。对照组包括：
+
+```text
+plain magnetic ridge
+branch-label ridge
+path-memory ridge
+local-ID dot ridge
+local-ID dual-coordinate ridge
+local-ID dot+dual ridge
+```
+
+其中 dot projection 使用：
+
+$$
+p_F=\Delta\mathbf{B}^{\mathsf{T}}\hat j_F,
+\qquad
+p_d=\Delta\mathbf{B}^{\mathsf{T}}\hat j_d.
+$$
+
+dual-coordinate 使用：
+
+$$
+\begin{bmatrix}
+c_F\\
+c_d
+\end{bmatrix}
+=
+(U^{\mathsf T}U)^{-1}U^{\mathsf T}\Delta\mathbf{B},
+\qquad
+U=[\hat j_F,\hat j_d].
+$$
+
+它的意义是：当 $j_F$ 和 $j_d$ 不是正交方向时，不再把磁响应分别做两个独立 dot projection，而是在两条局部方向共同张成的平面内求解一组非正交局部坐标。脚本还输出 `local_dual_residual_fraction`、`local_geometry_confidence` 和 `local_geometry_uncertainty`，用于判断某个 state 是否处在局部几何坐标可以可靠解释的区域。
+
+主要输出为：
+
+```text
+reports/apmd_stage6_dual_coordinate_model_metrics.csv
+reports/apmd_stage6_dual_coordinate_predictions.csv
+reports/apmd_stage6_dual_coordinate_pair_consistency.csv
+reports/apmd_stage6_dual_coordinate_confidence.csv
+reports/apmd_stage6_dual_coordinate_model_comparison.png
+reports/APMD_STAGE6_DUAL_COORDINATE_LOCAL_ID_REPORT.md
+```
+
+核心结果：
+
+```text
+plain magnetic ridge:
+  F_MAE = 1.542 N
+  d_MAE = 0.057 mm
+
+branch-label ridge:
+  F_MAE = 1.027 N
+  d_MAE = 0.050 mm
+
+path-memory ridge:
+  F_MAE = 1.013 N
+  d_MAE = 0.053 mm
+
+local-ID dot ridge:
+  F_MAE = 0.082 N
+  d_MAE = 0.046 mm
+
+local-ID dual-coordinate ridge:
+  F_MAE = 0.084 N
+  d_MAE = 0.043 mm
+
+local-ID dot+dual ridge:
+  F_MAE = 0.080 N
+  d_MAE = 0.044 mm
+```
+
+因此，本轮 existing-data 对照支持两个判断。第一，只给模型添加 loading / unloading / preload branch label 不足以解决 force 解耦问题；branch-label baseline 的 force MAE 仍约为 `1.027 N`。第二，加入由主动路径对估计得到的局部 $j_F/j_d$ 几何坐标后，force MAE 降到约 `0.08 N`，相比 branch-label baseline 改善约 `92%`。这说明改善主要来自 APMD 主动路径激励构造出的局部响应几何，而不是简单的路径标签补偿。
+
+pairwise consistency 也支持这个结论。同一 held-out dense-loop 中，loading 和 return 在相同 target d 下构成 same-d-like pair。模型需要不仅预测每个 state 的 $F,d$，还要保留 pair 内真实的 force split。结果为：
+
+```text
+plain magnetic ridge pair Delta F residual = 2.609 N
+branch-label ridge pair Delta F residual = 1.129 N
+path-memory ridge pair Delta F residual = 1.179 N
+local-ID dot ridge pair Delta F residual = 0.115 N
+local-ID dual ridge pair Delta F residual = 0.130 N
+local-ID dot+dual ridge pair Delta F residual = 0.124 N
+```
+
+这说明 local-ID 特征不仅降低单点 MAE，也更好地保留了主动路径对构造出来的 same-d force split 结构。换句话说，Stage 3/4 的 path-pair 和 local sensitivity 分析确实进入了 Stage 6 的解耦模型，而不是停留在现象证明层面。
+
+目前最合理的解释是：
+
+1. `dot` 特征对 force split consistency 略好，因为它直接把 $\Delta\mathbf{B}$ 投影到 force-like direction。
+2. `dual-coordinate` 特征对 displacement MAE 略好，因为它考虑了 $j_F/j_d$ 非正交时的共同解释。
+3. `dot+dual` 是综合表现最稳的版本，force MAE 最低，displacement MAE 也通过 0.05 mm 目标线。
+
+因此，下一步不应立刻新增更复杂模型，而应优先使用这一版 output 做两件事：
+
+1. 对 `apmd_stage6_dual_coordinate_predictions.csv` 做分工作区 residual 分析，确认 shallow / lower / mid / upper 哪些区域是模型可靠区，哪些属于 boundary / weak-region stress test。
+2. 若某个工作区 residual 明显偏高，再决定是否补该工作区的 same-F `j_d` calibration 或 oblique active-path calibration，而不是盲目补大批数据。
+## 22. Stage 6.4 MLP dual-coordinate 补充对照
+
+在完成 ridge 版 dual-coordinate local-ID 对照后，又按同一批训练/held-out 数据、同一组 feature family 做了一次 MLP estimator 对照。新增脚本为：
+
+```text
+python .\apmd_stage6_dual_coordinate_mlp_check.py
+```
+
+这一步的目的不是替代 ridge 结果，而是回答一个额外问题：local-ID 特征的优势是否只在 ridge regression 这种线性模型里成立。如果换成具有非线性容量的小型 tabular MLP，local-ID 特征仍然优于 plain magnetic 和 branch-label baseline，那么可以说明 active-path local geometry 本身确实提供了有效信息，而不是某个线性模型偶然偏好的结果。
+
+本轮 MLP 对照使用：
+
+```text
+train = 1461 states
+held-out = 312 states
+estimator = MLPRegressor for all feature families
+```
+
+输出文件为：
+
+```text
+reports/apmd_stage6_dual_coordinate_mlp_metrics.csv
+reports/apmd_stage6_dual_coordinate_mlp_predictions.csv
+reports/apmd_stage6_dual_coordinate_mlp_pair_consistency.csv
+reports/apmd_stage6_dual_coordinate_mlp_confidence.csv
+reports/apmd_stage6_dual_coordinate_mlp_comparison.png
+reports/APMD_STAGE6_DUAL_COORDINATE_MLP_REPORT.md
+```
+
+核心结果如下：
+
+```text
+plain magnetic MLP:
+  F_MAE = 1.230 N
+  d_MAE = 0.091 mm
+
+branch-label MLP:
+  F_MAE = 0.392 N
+  d_MAE = 0.077 mm
+
+path-memory MLP:
+  F_MAE = 0.599 N
+  d_MAE = 0.112 mm
+
+local-ID dot MLP:
+  F_MAE = 0.109 N
+  d_MAE = 0.034 mm
+
+local-ID dual-coordinate MLP:
+  F_MAE = 0.131 N
+  d_MAE = 0.036 mm
+
+local-ID dot+dual MLP:
+  F_MAE = 0.153 N
+  d_MAE = 0.033 mm
+```
+
+因此，MLP 版得到的结论和 ridge 版方向一致：只给模型 branch label 能明显改善 plain magnetic baseline，但仍然不如加入 local-ID 几何特征。MLP 中 force 最好的版本是 `local-ID dot MLP`，`F_MAE = 0.109 N`；displacement 最好的版本是 `local-ID dot+dual MLP`，`d_MAE = 0.033 mm`。相对于 branch-label MLP，dot+dual local-ID MLP 的 force MAE 改善约 `60.9%`。
+
+same-d pair force-split consistency 也保持同样趋势：
+
+```text
+plain magnetic MLP pair Delta F residual = 0.666 N
+branch-label MLP pair Delta F residual = 0.331 N
+path-memory MLP pair Delta F residual = 0.543 N
+local-ID dot MLP pair Delta F residual = 0.107 N
+local-ID dual MLP pair Delta F residual = 0.148 N
+local-ID dot+dual MLP pair Delta F residual = 0.115 N
+```
+
+这个结果说明，MLP 并没有通过“更强模型容量”自动解决主动路径下的 force-split 结构；真正让 pair-level force split 被保留下来的仍然是 Stage 3/4 估计出来的 local `j_F/j_d` 几何坐标。换句话说，APMD 的贡献不只是把模型从 ridge 换成 MLP，而是给模型提供了由主动路径实验构造出来的局部响应坐标。
+
+和 ridge 版相比，MLP 的 best force MAE 略高于 ridge 的 `0.080 N` 级别，但 best displacement MAE 更低，约 `0.033 mm`。这说明当前数据规模下，ridge 仍然是更稳定、可解释性更强的主模型；MLP 更适合作为补充容量检查，而不是当前论文里的唯一主模型。
+## 23. Stage 6.5 线性估计器 sweep：ridge 以外还有没有更好的线性模型
+
+在 Stage 6.4 中，local-ID dot+dual ridge 已经明显优于 plain magnetic、branch-label 和 path-memory baseline。随后进一步检查一个问题：这个结果是否只依赖于固定的 `Ridge(alpha=1.0)`，还是说在同一套 local-ID 特征下，其他线性/稳健线性估计器会更好。
+
+本轮新增脚本：
+
+```text
+python .\apmd_stage6_linear_estimator_sweep.py
+```
+
+这一步保持以下内容完全不变：
+
+```text
+train = 1461 states
+held-out = 312 states
+feature family = B + path history + local-ID dot projections + local-ID dual coordinates
+held-out sessions excluded from training
+```
+
+唯一变化是 estimator。对比的线性模型包括：
+
+```text
+Ridge(alpha=1.0)
+RidgeCV
+BayesianRidge
+ElasticNetCV
+HuberRegressor
+PLSRegression(8 components)
+```
+
+输出文件：
+
+```text
+reports/apmd_stage6_linear_estimator_sweep_metrics.csv
+reports/apmd_stage6_linear_estimator_sweep_predictions.csv
+reports/apmd_stage6_linear_estimator_sweep_pair_consistency.csv
+reports/apmd_stage6_linear_estimator_sweep_pair_summary.csv
+reports/apmd_stage6_linear_estimator_sweep_comparison.png
+reports/apmd_stage6_linear_estimator_sweep_best_fit.png
+reports/APMD_STAGE6_LINEAR_ESTIMATOR_SWEEP_REPORT.md
+```
+
+核心结果：
+
+```text
+Huber:
+  F_MAE = 0.051 N
+  d_MAE = 0.045 mm
+  same-d pair Delta F residual = 0.080 N
+
+RidgeCV:
+  F_MAE = 0.080 N
+  d_MAE = 0.042 mm
+  same-d pair Delta F residual = 0.111 N
+
+BayesianRidge:
+  F_MAE = 0.080 N
+  d_MAE = 0.042 mm
+  same-d pair Delta F residual = 0.112 N
+
+Ridge alpha=1:
+  F_MAE = 0.084 N
+  d_MAE = 0.044 mm
+  same-d pair Delta F residual = 0.130 N
+
+ElasticNetCV:
+  F_MAE = 0.080 N
+  d_MAE = 0.045 mm
+  same-d pair Delta F residual = 0.116 N
+
+PLS 8 components:
+  F_MAE = 0.473 N
+  d_MAE = 0.049 mm
+  same-d pair Delta F residual = 0.445 N
+```
+
+解释如下：
+
+1. `HuberRegressor` 的 force MAE 最低，约 `0.051 N`，并且 same-d pair force-split residual 也最低，约 `0.080 N`。这说明 held-out 数据里可能存在少量状态点或边界点会影响普通 ridge，而 Huber 的稳健损失能降低这些点对 force prediction 的影响。
+2. `RidgeCV` 和 `BayesianRidge` 的 displacement MAE 略好，约 `0.042 mm`，但 force MAE 仍在 `0.080 N` 左右。
+3. 固定 `Ridge(alpha=1.0)` 不是绝对最优，但表现非常接近最优。因此之前 ridge 结论不是错误的；它仍然是一个稳定、可解释、容易复现的主基线。
+4. `PLSRegression` 对 displacement 还可以，但 force 明显变差，说明当前特征空间不适合只靠少数潜变量压缩来解释 force。
+
+因此，如果后续论文或报告需要一个最强 held-out force 预测模型，可以优先报告：
+
+```text
+local-ID dot+dual Huber:
+F_MAE = 0.051 N
+d_MAE = 0.045 mm
+```
+
+如果需要一个更标准、更容易解释的线性基线，则可以继续保留：
+
+```text
+local-ID dot+dual ridge / RidgeCV:
+F_MAE ≈ 0.08 N
+d_MAE ≈ 0.042-0.044 mm
+```
+
+这轮 sweep 的关键结论不是“Huber 替代所有模型”，而是说明：在固定 APMD local-ID dot+dual 特征后，多种线性模型都能达到很低的 held-out force error。也就是说，模型性能的主要来源仍然是主动路径实验构造出的局部 `j_F/j_d` 几何坐标，而不是某一个复杂估计器。
+
+对应图：
+
+![Stage 6.5 linear estimator sweep](apmd_stage6_linear_estimator_sweep_comparison.png)
+
+![Stage 6.5 best linear local-ID fit](apmd_stage6_linear_estimator_sweep_best_fit.png)
+
+## 24. Stage 6.3 分工作区 residual 分析：模型到底在哪些 d 范围内可靠
+
+在 Stage 6.3 ridge 结果基础上，进一步做了 work-zone-resolved residual analysis。新增脚本为：
+
+```text
+python .\apmd_stage6_zone_residual_analysis.py
+```
+
+这一步没有重新训练模型，也没有修改任何实验记录，而是直接读取：
+
+```text
+reports/apmd_stage6_local_identifiability_predictions.csv
+```
+
+并只使用截图中对应的四个 ridge family：
+
+```text
+plain magnetic ridge
+branch-label ridge
+path-memory ridge
+local-ID ridge
+```
+
+分区依据不是最近的 `local_zone_id`，而是 held-out dense-loop session 本身的采集工作区：
+
+```text
+1.8-2.6 mm
+2.4-3.2 mm
+3.0-3.8 mm
+3.4-4.2 mm
+```
+
+每个工作区都有 `78` 个 held-out states，因此分区对比是均衡的。
+
+输出文件：
+
+```text
+reports/apmd_stage6_zone_residual_metrics.csv
+reports/apmd_stage6_zone_local_id_state_errors.csv
+reports/apmd_stage6_zone_pair_consistency.csv
+reports/apmd_stage6_zone_pair_summary.csv
+reports/apmd_stage6_zone_residual_summary.png
+reports/apmd_stage6_zone_local_id_fit_grid.png
+reports/APMD_STAGE6_ZONE_RESIDUAL_ANALYSIS.md
+```
+
+local-ID ridge 的分区结果如下：
+
+```text
+1.8-2.6 mm:
+  F_MAE = 0.108 N
+  d_MAE = 0.016 mm
+
+2.4-3.2 mm:
+  F_MAE = 0.076 N
+  d_MAE = 0.019 mm
+
+3.0-3.8 mm:
+  F_MAE = 0.069 N
+  d_MAE = 0.056 mm
+
+3.4-4.2 mm:
+  F_MAE = 0.077 N
+  d_MAE = 0.096 mm
+```
+
+这说明当前 local-ID ridge 的 force 解耦在四个工作区里都比较稳，全部在 `~0.07-0.11 N` 范围内；真正随工作区变差的是 displacement prediction。`1.8-2.6 mm` 和 `2.4-3.2 mm` 的 d MAE 分别约 `0.016 mm` 和 `0.019 mm`，明显优于 0.05 mm 目标线；但 `3.0-3.8 mm` 已经略高于目标线，`3.4-4.2 mm` 则明显偏高。
+
+same-d pair force-split consistency 也支持这个判断：
+
+```text
+1.8-2.6 mm: pair Delta F residual = 0.192 N
+2.4-3.2 mm: pair Delta F residual = 0.086 N
+3.0-3.8 mm: pair Delta F residual = 0.107 N
+3.4-4.2 mm: pair Delta F residual = 0.072 N
+```
+
+也就是说，深工作区虽然 displacement prediction 变差，但 same-d pair 内的 force split 仍然被 local-ID 模型较好保留。这进一步说明模型的主要短板不是 force direction `j_F`，而是深工作区的 displacement-like coordinate / `j_d` 或者实际 dense-loop 中 d-state 的非线性压缩。
+
+目前最合理的下一步判断是：
+
+1. 如果目标是提升 force decoupling，当前 local-ID ridge / Huber 已经足够强，不需要优先补 force 数据。
+2. 如果目标是让模型跨更深工作区时 d prediction 也稳定，需要优先补深工作区的 displacement sensitivity information，也就是 same-F / oblique path / 或等效 `j_d` calibration。
+3. 分工作区模型或 zone-aware gating 是合理方向，因为不同 d 区域的 displacement residual 明显不同，不能只看 overall MAE。
+
+对应图：
+
+![Stage 6.3 zone-resolved residual summary](apmd_stage6_zone_residual_summary.png)
+
+![Stage 6.3 local-ID ridge fits by work zone](apmd_stage6_zone_local_id_fit_grid.png)
